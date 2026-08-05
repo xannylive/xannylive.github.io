@@ -1,57 +1,96 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#0b0b14;
-    color:white;
+background:#0b0b14;
+color:white;
+background-image:
+radial-gradient(circle at top,#8a2be255 0%,transparent 40%);
 }
 
-.hero{
-    text-align:center;
-    padding:100px 20px;
-    background:linear-gradient(135deg,#1b1038,#0b0b14);
+header{
+text-align:center;
+padding:70px 20px;
 }
 
-.hero h1{
-    font-size:60px;
-    color:#b36cff;
-    margin-bottom:10px;
+.logo{
+width:140px;
+height:140px;
+object-fit:cover;
+border-radius:50%;
+box-shadow:0 0 40px #ff2db8;
+margin-bottom:25px;
 }
 
-.hero p{
-    color:#bdbdbd;
-    font-size:20px;
+h1{
+font-size:60px;
+color:#ff2db8;
+text-shadow:0 0 20px #ff2db8;
 }
 
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 35px;
-    background:#8a2be2;
-    color:white;
-    text-decoration:none;
-    border-radius:12px;
-    transition:.3s;
+header p{
+margin-top:15px;
+font-size:20px;
+color:#c8c8d8;
 }
 
-.btn:hover{
-    background:#a64dff;
+.button{
+display:inline-block;
+margin-top:30px;
+padding:16px 35px;
+background:#ff2db8;
+color:white;
+text-decoration:none;
+border-radius:12px;
+font-weight:700;
+transition:.3s;
+}
+
+.button:hover{
+transform:translateY(-4px);
+box-shadow:0 0 30px #ff2db8;
 }
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    padding:50px;
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+padding:40px;
 }
 
 .card{
-    background:#161625;
-    border:1px solid #8a2be2;
-    border-radius:18px;
-    padding:25px;
-    transition:.3s;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.08);
+padding:30px;
+border-radius:18px;
+transition:.35s;
+cursor:pointer;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+transform:translateY(-10px);
+border-color:#ff2db8;
+box-shadow:0 0 25px rgba(255,45,184,.35);
+}
+
+.card h2{
+margin-bottom:12px;
+color:#ff2db8;
+}
+
+.card p{
+color:#d0d0d0;
+}
+
+footer{
+text-align:center;
+padding:50px;
+color:#888;
 }
