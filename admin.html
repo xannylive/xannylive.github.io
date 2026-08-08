@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>XANNYLIVE | Admin Panel</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #07070c;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .admin {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .logo span {
+            color: #ff20b9;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            border: 1px solid #292932;
+            border-radius: 10px;
+        }
+
+        .panel {
+            background: #101016;
+            border: 1px solid #25252d;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .panel h2 {
+            margin-bottom: 25px;
+            color: #ff20b9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            color: #9999a5;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #292932;
+            background: #08080c;
+            color: white;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #ff20b9;
+        }
+
+        .save {
+            width: 100%;
+            padding: 17px;
+            border: 0;
+            border-radius: 12px;
+            background: linear-gradient(100deg,#ff159e,#bd00ff);
+            color: white;
+            font-size: 16px;
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            color: #27ff9a;
+            font-weight: bold;
+        }
+
+        @media(max-width:700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="admin">
+
+    <div class="header">
+
+        <div class="logo">
+            XANNY <span>LIVE</span>
+        </div>
+
+        <a href="index.html" class="back">
+            ← Siteye Dön
+        </a>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h2>🎨 Site Renkleri</h2>
+
+        <div class="grid">
+
+            <div class="field">
+                <label>Ana Renk</label>
+                <input type="text" id="primaryColor" value="#ff20b9">
+            </div>
+
+            <div class="field">
+                <label>İkinci Renk</label>
+                <input type="text" id="secondaryColor" value="#bd00ff">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h2>🎯 Crosshair</h2>
+
+        <div class="field">
+
+            <label>Crosshair Kodu</label>
+
+            <input
+                type="text"
+                id="crosshair"
+                value="CSGO-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h2>⚙️ CS2 Ayarları</h2>
+
+        <div class="grid">
+
+            <div class="field">
+                <label>Çözünürlük</label>
+                <input type="text" id="resolution" value="1080 × 1080">
+            </div>
+
+            <div class="field">
+                <label>V-Sync</label>
+                <input type="text" id="vsync" value="Kapalı">
+            </div>
+
+            <div class="field">
+                <label>MSAA</label>
+                <input type="text" id="msaa" value="2x">
+            </div>
+
+            <div class="field">
+                <label>Texture Filtering</label>
+                <input type="text" id="texture" value="4x">
+            </div>
+
+            <div class="field">
+                <label>Shader</label>
+                <input type="text" id="shader" value="Düşük">
+            </div>
+
+            <div class="field">
+                <label>Boost Player Contrast</label>
+                <input type="text" id="contrast" value="Açık">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h2>🖱️ Mouse</h2>
+
+        <div class="grid">
+
+            <div class="field">
+                <label>DPI</label>
+                <input type="text" id="dpi" value="800">
+            </div>
+
+            <div class="field">
+                <label>Sensitivity</label>
+                <input type="text" id="sensitivity" value="1.00">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h2>🎨 NVIDIA</h2>
+
+        <div class="grid">
+
+            <div class="field">
+                <label>Parlaklık</label>
+                <input type="text" id="brightness" value="60%">
+            </div>
+
+            <div class="field">
+                <label>Kontrast</label>
+                <input type="text" id="nvidiaContrast" value="55%">
+            </div>
+
+            <div class="field">
+                <label>Gama</label>
+                <input type="text" id="gamma" value="1.00">
+            </div>
+
+            <div class="field">
+                <label>Dijital Titreşim</label>
+                <input type="text" id="vibrance" value="80%">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h2>🚀 FPS Rehberi</h2>
+
+        <div class="field">
+
+            <label>FPS Optimizasyon Yazısı</label>
+
+            <textarea id="fpsGuide">NVIDIA Denetim Masası → 3D Ayarlarının Yönetilmesi → Program Ayarları → CS2
+
+Güç yönetimi modu → Maksimum performansı tercih et
+
+Tercih edilen yenileme hızı → Kullanılabilir en yüksek
+
+Dikey senkronizasyon → Kapalı
+
+Windows Oyun Modu → Açık
+
+Windows Güç Modu → En iyi performans
+
+Lenovo Vantage → Performans Modu</textarea>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h2>🔗 Sosyal Medya</h2>
+
+        <div class="grid">
+
+            <div class="field">
+                <label>Kick</label>
+                <input
+                    type="text"
+                    id="kick"
+                    value="https://kick.com/xannylive"
+                >
+            </div>
+
+            <div class="field">
+                <label>YouTube</label>
+                <input
+                    type="text"
+                    id="youtube"
+                    value="#"
+                >
+            </div>
+
+            <div class="field">
+                <label>Instagram</label>
+                <input
+                    type="text"
+                    id="instagram"
+                    value="#"
+                >
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button class="save" onclick="saveSettings()">
+        💾 DEĞİŞİKLİKLERİ KAYDET
+    </button>
+
+    <div class="message" id="message"></div>
+
+</div>
+
+
+<script src="admin.js"></script>
+
+</body>
+</html>
