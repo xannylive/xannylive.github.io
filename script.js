@@ -1,5 +1,5 @@
 <script>
-function openModal(type) {
-    alert("ÇALIŞIYOR: " + type);
+function test() {
+    alert("JS ÇALIŞIYOR 🔥");
 }
 </script>
