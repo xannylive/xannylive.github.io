@@ -1,4 +1,4 @@
-const modal = document.getElementById("settingsModal");
+const modal = document.getElementById("modal");
 const modalLabel = document.getElementById("modalLabel");
 const modalTitle = document.getElementById("modalTitle");
 const modalDescription = document.getElementById("modalDescription");
