@@ -4,17 +4,22 @@ const modalTitle = document.getElementById("modalTitle");
 const modalDescription = document.getElementById("modalDescription");
 const modalContent = document.getElementById("modalContent");
 
+
 function openModal(type) {
 
     modal.classList.add("active");
 
+
     if (type === "crosshair") {
+
         modalLabel.innerText = "CROSSHAIR";
         modalTitle.innerText = "Crosshair Kodlarım";
-        modalDescription.innerText = "CS2'de kullandığım crosshair ayarları.";
+
+        modalDescription.innerText =
+            "CS2'de kullandığım crosshair ayarları.";
 
         modalContent.innerHTML = `
-            <div class="code-box">
+            <div class="code-box" id="crosshairCode">
                 CSGO-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
             </div>
 
@@ -46,12 +51,18 @@ function openModal(type) {
 
             </div>
         `;
+
+        return;
     }
 
-    else if (type === "cs2") {
+
+    if (type === "cs2") {
+
         modalLabel.innerText = "CS2 SETTINGS";
         modalTitle.innerText = "CS2 Ayarlarım";
-        modalDescription.innerText = "FPS ve görüntü performansı için kullandığım ayarlar.";
+
+        modalDescription.innerText =
+            "FPS ve görüntü performansı için kullandığım CS2 ayarları.";
 
         modalContent.innerHTML = `
             <div class="setting-list">
@@ -93,12 +104,18 @@ function openModal(type) {
 
             </div>
         `;
+
+        return;
     }
 
-    else if (type === "mouse") {
+
+    if (type === "mouse") {
+
         modalLabel.innerText = "MOUSE SETTINGS";
         modalTitle.innerText = "Mouse Ayarlarım";
-        modalDescription.innerText = "CS2 için kullandığım temel mouse ayarları.";
+
+        modalDescription.innerText =
+            "CS2 için kullandığım temel mouse ayarları.";
 
         modalContent.innerHTML = `
             <div class="setting-list">
@@ -130,12 +147,18 @@ function openModal(type) {
 
             </div>
         `;
+
+        return;
     }
 
-    else if (type === "nvidia") {
+
+    if (type === "nvidia") {
+
         modalLabel.innerText = "NVIDIA COLOR";
         modalTitle.innerText = "NVIDIA Renk Ayarlarım";
-        modalDescription.innerText = "CS2 için daha canlı ve net görüntü ayarlarım.";
+
+        modalDescription.innerText =
+            "CS2 için daha canlı ve net görüntü elde etmek için NVIDIA renk ayarlarım.";
 
         modalContent.innerHTML = `
             <div class="setting-list">
@@ -175,21 +198,32 @@ function openModal(type) {
 
                 <strong>🎨 NASIL YAPILIR?</strong><br><br>
 
-                <strong>1.</strong> Masaüstünde boş bir yere sağ tıkla.<br><br>
+                <strong>1.</strong> Masaüstünde sağ tıkla.<br><br>
+
                 <strong>2.</strong> NVIDIA Denetim Masası'nı aç.<br><br>
-                <strong>3.</strong> "Masaüstü renk ayarlarını ayarla" bölümüne gir.<br><br>
-                <strong>4.</strong> "NVIDIA ayarlarını kullan" seçeneğini aktif et.<br><br>
+
+                <strong>3.</strong> Masaüstü renk ayarlarını ayarla bölümüne gir.<br><br>
+
+                <strong>4.</strong> NVIDIA ayarlarını kullan seçeneğini aç.<br><br>
+
                 <strong>5.</strong> Yukarıdaki değerleri uygula.<br><br>
-                <strong>6.</strong> Sağ alttan "Uygula" butonuna bas.
+
+                <strong>6.</strong> Uygula butonuna bas.
 
             </div>
         `;
+
+        return;
     }
 
-    else if (type === "fps") {
+
+    if (type === "fps") {
+
         modalLabel.innerText = "FPS OPTIMIZATION";
         modalTitle.innerText = "FPS Optimizasyonu";
-        modalDescription.innerText = "CS2'de daha yüksek ve stabil FPS için ayarlarım.";
+
+        modalDescription.innerText =
+            "CS2'de daha yüksek ve daha stabil FPS için kullandığım optimizasyonlar.";
 
         modalContent.innerHTML = `
             <div class="setting-list">
@@ -237,47 +271,50 @@ function openModal(type) {
 
             <div style="margin-top:20px; line-height:1.8; color:#aaa;">
 
-                <strong>01 — NVIDIA DENETİM MASASI</strong><br><br>
+                <strong>01 — NVIDIA</strong><br><br>
 
-                Masaüstüne sağ tıkla → NVIDIA Denetim Masası →
-                3D Ayarlarının Yönetilmesi.<br><br>
+                NVIDIA Denetim Masası → 3D Ayarlarının Yönetilmesi.<br><br>
 
-                Program Ayarları → CS2.<br><br>
+                Güç yönetimi → Maksimum performansı tercih et.<br><br>
 
-                Güç yönetimi modu →
-                <strong>Maksimum performansı tercih et</strong>.<br><br>
+                Tercih edilen yenileme hızı → Kullanılabilir en yüksek.<br><br>
 
-                Tercih edilen yenileme hızı →
-                <strong>Kullanılabilir en yüksek</strong>.<br><br>
-
-                Dikey senkronizasyon →
-                <strong>Kapalı</strong>.<br><br>
+                Dikey senkronizasyon → Kapalı.<br><br>
 
                 <strong>02 — WINDOWS</strong><br><br>
 
-                Ayarlar → Oyun → Oyun Modu →
-                <strong>Açık</strong>.<br><br>
+                Oyun Modu → Açık.<br><br>
 
-                Güç modu →
-                <strong>En iyi performans</strong>.<br><br>
+                Güç modu → En iyi performans.<br><br>
 
                 <strong>03 — CS2</strong><br><br>
 
-                Tam ekran kullan ve V-Sync'i kapat.
+                Tam ekran kullan.<br><br>
+
+                V-Sync kapalı olsun.<br><br>
+
+                <strong>04 — LENOVO</strong><br><br>
+
+                Lenovo Vantage → Performans Modu.
 
             </div>
         `;
+
+        return;
     }
 
-    else if (type === "videos") {
+
+    if (type === "videos") {
+
         modalLabel.innerText = "CONTENT";
         modalTitle.innerText = "Videolarım";
-        modalDescription.innerText = "CS2 içeriklerim ve rehberlerim.";
+
+        modalDescription.innerText =
+            "CS2 içeriklerim, ayar rehberlerim ve yayın videolarım.";
 
         modalContent.innerHTML = `
             <a class="primary-btn"
                href="#"
-               target="_blank"
                style="display:inline-block;">
                 ▶️ YouTube Kanalım
             </a>
@@ -301,25 +338,29 @@ function openModal(type) {
 
             </div>
         `;
+
+        return;
     }
+
 }
 
 
 function closeModal() {
+
     modal.classList.remove("active");
+
 }
 
 
 function copyCrosshair() {
 
-    const code = document
-        .getElementById("crosshairCode")
-        .innerText
-        .trim();
+    const code =
+        document.getElementById("crosshairCode").innerText;
 
     navigator.clipboard.writeText(code);
 
     alert("Crosshair kodu kopyalandı! 🎯");
+
 }
 
 
