@@ -1,1 +1,428 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>XANNYLIVE | CS2 Oyuncusu & Yayıncı</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="logo-text">
+            XANNY <span>LIVE</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Ana Sayfa</a>
+            <a href="#settings">Ayarlar</a>
+            <a href="#about">Hakkımda</a>
+            <a href="#social">Sosyal</a>
+        </div>
+
+        <a
+            class="live-button"
+            href="https://kick.com/xannylive"
+            target="_blank"
+        >
+            🟢 CANLI YAYIN
+        </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <img
+                src="assets/logo.jpg"
+                class="hero-logo"
+                alt="XANNYLIVE"
+            >
+
+            <div class="eyebrow">
+                CS2 PLAYER • STREAMER • CONTENT CREATOR
+            </div>
+
+            <h1>XANNYLIVE</h1>
+
+            <p class="hero-description">
+                Counter-Strike 2 oynuyorum, yayın açıyorum ve
+                oyun ayarlarımı sizlerle paylaşıyorum.
+                FPS, crosshair, mouse ve performans ayarları burada.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    class="primary-btn"
+                    href="https://kick.com/xannylive"
+                    target="_blank"
+                >
+                    🟢 Kick Yayınına Katıl
+                </a>
+
+                <a
+                    class="secondary-btn"
+                    href="#settings"
+                >
+                    ⚙️ Ayarlarımı Gör
+                </a>
+
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                Yayınlar ve yeni içerikler için takipte kal
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AYARLAR -->
+    <section id="settings">
+
+        <div class="section-label">
+            MY SETTINGS
+        </div>
+
+        <h2 class="section-title">
+            Oyun Ayarlarım
+        </h2>
+
+        <p class="section-description">
+            CS2'de kullandığım temel ayarlar ve içerikler.
+            Kartlara tıklayarak detayları görebilirsin.
+        </p>
+
+
+        <div class="settings-grid">
+
+
+            <!-- CROSSHAIR -->
+            <div
+                class="setting-card"
+                onclick="openModal('crosshair')"
+            >
+
+                <div class="setting-icon">🎯</div>
+
+                <h3>Crosshair Kodlarım</h3>
+
+                <p>
+                    CS2'de kullandığım crosshair ayarları
+                    ve farklı crosshair seçenekleri.
+                </p>
+
+            </div>
+
+
+            <!-- CS2 -->
+            <div
+                class="setting-card"
+                onclick="openModal('cs2')"
+            >
+
+                <div class="setting-icon">⚙️</div>
+
+                <h3>CS2 Ayarlarım</h3>
+
+                <p>
+                    FPS, görüntü kalitesi ve performans
+                    için kullandığım oyun ayarları.
+                </p>
+
+            </div>
+
+
+            <!-- MOUSE -->
+            <div
+                class="setting-card"
+                onclick="openModal('mouse')"
+            >
+
+                <div class="setting-icon">🖱️</div>
+
+                <h3>Mouse Ayarlarım</h3>
+
+                <p>
+                    DPI, sensitivity ve oyun içi
+                    mouse ayarlarım.
+                </p>
+
+            </div>
+
+
+            <!-- NVIDIA -->
+            <div
+                class="setting-card"
+                onclick="openModal('nvidia')"
+            >
+
+                <div class="setting-icon">🎨</div>
+
+                <h3>NVIDIA Renk Ayarlarım</h3>
+
+                <p>
+                    CS2'de daha canlı ve net görüntü
+                    için kullandığım NVIDIA renk ayarları.
+                </p>
+
+            </div>
+
+
+            <!-- FPS -->
+            <div
+                class="setting-card"
+                onclick="openModal('fps')"
+            >
+
+                <div class="setting-icon">🚀</div>
+
+                <h3>FPS Optimizasyonu</h3>
+
+                <p>
+                    Daha yüksek FPS ve daha akıcı oyun
+                    deneyimi için kullandığım optimizasyonlar.
+                </p>
+
+            </div>
+
+
+            <!-- VIDEOLAR -->
+            <div
+                class="setting-card"
+                onclick="openModal('videos')"
+            >
+
+                <div class="setting-icon">🎥</div>
+
+                <h3>Videolarım</h3>
+
+                <p>
+                    YouTube videolarım, rehberlerim
+                    ve oyun içeriklerim.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HAKKIMDA -->
+    <section id="about">
+
+        <div class="section-label">
+            ABOUT ME
+        </div>
+
+        <h2 class="section-title">
+            XANNYLIVE Kimdir?
+        </h2>
+
+        <p class="section-description">
+            Oyunculuk, yayıncılık ve içerik üretimi.
+        </p>
+
+
+        <div class="about-grid">
+
+            <div class="about-box">
+
+                <h3>🎮 CS2 benim işim.</h3>
+
+                <p>
+                    Burada sadece oyun oynamıyorum.
+                    Kullandığım ayarları, ekipmanları,
+                    performans optimizasyonlarını ve oyun
+                    deneyimlerimi de paylaşıyorum.
+                </p>
+
+                <p>
+                    Hedefim kaliteli yayınlar ve kaliteli
+                    içerikler üreterek XANNYLIVE markasını büyütmek.
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>CS2</strong>
+                    <span>Ana Oyun</span>
+                </div>
+
+                <div class="stat">
+                    <strong>LIVE</strong>
+                    <span>Yayıncı</span>
+                </div>
+
+                <div class="stat">
+                    <strong>FPS</strong>
+                    <span>Performans</span>
+                </div>
+
+                <div class="stat">
+                    <strong>24/7</strong>
+                    <span>Gaming</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOSYAL -->
+    <section id="social">
+
+        <div class="section-label">
+            SOCIAL MEDIA
+        </div>
+
+        <h2 class="section-title">
+            Beni Takip Et
+        </h2>
+
+        <p class="section-description">
+            Yayınları ve yeni içerikleri kaçırmamak için
+            sosyal medya hesaplarımı takip edebilirsin.
+        </p>
+
+
+        <div class="social-grid">
+
+            <a
+                class="social-card"
+                href="https://kick.com/xannylive"
+                target="_blank"
+            >
+
+                <span>🟢 Kick</span>
+
+                <p>
+                    Canlı yayınlarım
+                </p>
+
+            </a>
+
+
+            <a
+                class="social-card"
+                href="#"
+            >
+
+                <span>▶️ YouTube</span>
+
+                <p>
+                    Videolarım ve rehberlerim
+                </p>
+
+            </a>
+
+
+            <a
+                class="social-card"
+                href="#"
+            >
+
+                <span>📸 Instagram</span>
+
+                <p>
+                    Günlük içerikler ve paylaşımlar
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <div class="cta">
+
+        <h2>
+            Yayında görüşürüz. 🔥
+        </h2>
+
+        <p>
+            Yeni içerikleri kaçırmamak için takipte kal.
+        </p>
+
+        <a
+            class="primary-btn"
+            href="https://kick.com/xannylive"
+            target="_blank"
+        >
+            🟢 Kick'e Git
+        </a>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026
+        <strong>XANNYLIVE</strong>
+        — CS2 Player & Content Creator
+
+    </footer>
+
+
+    <!-- MODAL -->
+    <div
+        class="modal"
+        id="modal"
+    >
+
+        <div class="modal-box">
+
+            <button
+                class="close"
+                onclick="closeModal()"
+            >
+                ×
+            </button>
+
+            <div
+                class="modal-label"
+                id="modalLabel"
+            >
+                XANNYLIVE
+            </div>
+
+            <h2 id="modalTitle">
+                Ayarlar
+            </h2>
+
+            <p id="modalDescription">
+                Ayarlar burada.
+            </p>
+
+            <div id="modalContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
