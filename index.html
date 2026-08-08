@@ -1291,6 +1291,96 @@ if(type === "fps"){
     `;
 }
 
+if(type === "nvidia"){
+
+    modalLabel.innerText = "NVIDIA";
+
+    modalTitle.innerText = "NVIDIA Renk Ayarlarım";
+
+    modalDescription.innerText =
+    "CS2 için kullandığım NVIDIA renk ayarları.";
+
+    modalContent.innerHTML = `
+
+        <div class="setting-list">
+
+            <div class="setting-row">
+                <span>Parlaklık</span>
+                <span>60%</span>
+            </div>
+
+            <div class="setting-row">
+                <span>Kontrast</span>
+                <span>55%</span>
+            </div>
+
+            <div class="setting-row">
+                <span>Gama</span>
+                <span>1.00</span>
+            </div>
+
+            <div class="setting-row">
+                <span>Dijital Titreşim</span>
+                <span>80%</span>
+            </div>
+
+            <div class="setting-row">
+                <span>Ton</span>
+                <span>0°</span>
+            </div>
+
+        </div>
+    `;
+}
+
+
+if(type === "fps"){
+
+    modalLabel.innerText = "PERFORMANS";
+
+    modalTitle.innerText = "FPS Optimizasyonu";
+
+    modalDescription.innerText =
+    "CS2'de daha yüksek ve daha stabil FPS için uyguladığım optimizasyonlar.";
+
+    modalContent.innerHTML = `
+
+        <div class="setting-list">
+
+            <div class="setting-row">
+                <span>NVIDIA Güç Yönetimi</span>
+                <span>Maksimum performans</span>
+            </div>
+
+            <div class="setting-row">
+                <span>Düşük Gecikme</span>
+                <span>Açık</span>
+            </div>
+
+            <div class="setting-row">
+                <span>Düşey Senkronizasyon</span>
+                <span>Kapalı</span>
+            </div>
+
+            <div class="setting-row">
+                <span>Windows Güç Modu</span>
+                <span>En iyi performans</span>
+            </div>
+
+            <div class="setting-row">
+                <span>Arka Plan Uygulamaları</span>
+                <span>Gereksizleri kapat</span>
+            </div>
+
+            <div class="setting-row">
+                <span>Lenovo Vantage</span>
+                <span>Performans Modu</span>
+            </div>
+
+        </div>
+    `;
+}
+
 
     if(type === "videos"){
 
