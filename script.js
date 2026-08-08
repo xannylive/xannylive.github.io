@@ -1,4 +1,8 @@
 const modal = document.getElementById("modal");
+
+<script>
+
+const modal = document.getElementById("modal");
 const modalLabel = document.getElementById("modalLabel");
 const modalTitle = document.getElementById("modalTitle");
 const modalDescription = document.getElementById("modalDescription");
@@ -9,6 +13,8 @@ function openModal(type) {
 
     modal.classList.add("active");
 
+
+    /* CROSSHAIR */
 
     if (type === "crosshair") {
 
@@ -57,6 +63,8 @@ function openModal(type) {
         return;
     }
 
+
+    /* CS2 */
 
     if (type === "cs2") {
 
@@ -113,6 +121,8 @@ function openModal(type) {
     }
 
 
+    /* MOUSE */
+
     if (type === "mouse") {
 
         modalLabel.innerText = "MOUSE SETTINGS";
@@ -157,6 +167,8 @@ function openModal(type) {
         return;
     }
 
+
+    /* NVIDIA */
 
     if (type === "nvidia") {
 
@@ -206,17 +218,23 @@ function openModal(type) {
 
                 <strong>🎨 NASIL YAPILIR?</strong><br><br>
 
-                <strong>1.</strong> Masaüstünde boş bir yere sağ tıkla.<br><br>
+                <strong>1.</strong>
+                Masaüstünde boş bir yere sağ tıkla.<br><br>
 
-                <strong>2.</strong> NVIDIA Denetim Masası'nı aç.<br><br>
+                <strong>2.</strong>
+                NVIDIA Denetim Masası'nı aç.<br><br>
 
-                <strong>3.</strong> "Masaüstü renk ayarlarını ayarla" bölümüne gir.<br><br>
+                <strong>3.</strong>
+                "Masaüstü renk ayarlarını ayarla" bölümüne gir.<br><br>
 
-                <strong>4.</strong> "NVIDIA ayarlarını kullan" seçeneğini aktif et.<br><br>
+                <strong>4.</strong>
+                "NVIDIA ayarlarını kullan" seçeneğini aktif et.<br><br>
 
-                <strong>5.</strong> Yukarıdaki değerleri uygula.<br><br>
+                <strong>5.</strong>
+                Yukarıdaki değerleri uygula.<br><br>
 
-                <strong>6.</strong> Sağ alttan "Uygula" butonuna bas.
+                <strong>6.</strong>
+                Sağ alttan "Uygula" butonuna bas.
 
             </div>
         `;
@@ -224,6 +242,8 @@ function openModal(type) {
         return;
     }
 
+
+    /* FPS */
 
     if (type === "fps") {
 
@@ -323,10 +343,7 @@ function openModal(type) {
 
                 <strong>05 — SICAKLIK</strong><br><br>
 
-                Laptop hava girişlerini kapatma ve yeterli soğutma sağla.<br><br>
-
-                ⚠️ FPS artışı her bilgisayarda aynı olmaz.
-                Amaç daha stabil FPS ve frametime elde etmektir.
+                Laptop hava girişlerini kapatma ve yeterli soğutma sağla.
 
             </div>
         `;
@@ -334,6 +351,8 @@ function openModal(type) {
         return;
     }
 
+
+    /* VIDEOLAR */
 
     if (type === "videos") {
 
@@ -381,6 +400,8 @@ function openModal(type) {
 }
 
 
+/* MODALI KAPAT */
+
 function closeModal() {
 
     modal.classList.remove("active");
@@ -388,17 +409,29 @@ function closeModal() {
 }
 
 
+/* CROSSHAIR KOPYALA */
+
 function copyCrosshair() {
 
     const code =
-    document.getElementById("crosshairCode").innerText;
+    document.getElementById("crosshairCode").innerText.trim();
 
-    navigator.clipboard.writeText(code);
+    navigator.clipboard.writeText(code)
+    .then(function() {
 
-    alert("Crosshair kodu kopyalandı! 🎯");
+        alert("Crosshair kodu kopyalandı! 🎯");
+
+    })
+    .catch(function() {
+
+        alert("Kod: " + code);
+
+    });
 
 }
 
+
+/* MODAL DIŞINA TIKLAYINCA KAPAT */
 
 modal.addEventListener("click", function(e) {
 
@@ -411,6 +444,8 @@ modal.addEventListener("click", function(e) {
 });
 
 
+/* ESC İLE KAPAT */
+
 document.addEventListener("keydown", function(e) {
 
     if (e.key === "Escape") {
@@ -420,3 +455,5 @@ document.addEventListener("keydown", function(e) {
     }
 
 });
+
+</script>
