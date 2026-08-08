@@ -1,20 +1,23 @@
-const modal = document.getElementById("modal");
+const modal = document.getElementById("settingsModal");
 const modalLabel = document.getElementById("modalLabel");
 const modalTitle = document.getElementById("modalTitle");
 const modalDescription = document.getElementById("modalDescription");
 const modalContent = document.getElementById("modalContent");
 
+
 function openModal(type) {
 
     modal.classList.add("active");
 
+
     if (type === "crosshair") {
 
         modalLabel.innerText = "CROSSHAIR";
+
         modalTitle.innerText = "Crosshair Kodlarım";
 
         modalDescription.innerText =
-        "CS2'de kullanabileceğin crosshair ayarlarım.";
+        "CS2'de kullandığım crosshair ayarları ve crosshair kodum.";
 
         modalContent.innerHTML = `
 
@@ -50,15 +53,19 @@ function openModal(type) {
 
             </div>
         `;
+
+        return;
     }
 
-    else if (type === "cs2") {
+
+    if (type === "cs2") {
 
         modalLabel.innerText = "CS2 SETTINGS";
+
         modalTitle.innerText = "CS2 Ayarlarım";
 
         modalDescription.innerText =
-        "FPS ve görüntü performansı için kullandığım temel ayarlar.";
+        "FPS ve görüntü performansı için kullandığım temel CS2 ayarları.";
 
         modalContent.innerHTML = `
 
@@ -101,11 +108,15 @@ function openModal(type) {
 
             </div>
         `;
+
+        return;
     }
 
-    else if (type === "mouse") {
+
+    if (type === "mouse") {
 
         modalLabel.innerText = "MOUSE SETTINGS";
+
         modalTitle.innerText = "Mouse Ayarlarım";
 
         modalDescription.innerText =
@@ -142,15 +153,19 @@ function openModal(type) {
 
             </div>
         `;
+
+        return;
     }
 
-    else if (type === "nvidia") {
+
+    if (type === "nvidia") {
 
         modalLabel.innerText = "NVIDIA COLOR";
+
         modalTitle.innerText = "NVIDIA Renk Ayarlarım";
 
         modalDescription.innerText =
-        "CS2 için daha canlı, net ve rekabetçi görüntü elde etmek amacıyla kullanabileceğin NVIDIA renk ayarları.";
+        "CS2 için daha canlı ve net görüntü elde etmek amacıyla kullanabileceğin NVIDIA renk ayarları.";
 
         modalContent.innerHTML = `
 
@@ -181,71 +196,43 @@ function openModal(type) {
                     <span>0°</span>
                 </div>
 
-                <div class="setting-row">
-                    <span>Çıkış Renk Formatı</span>
-                    <span>RGB</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>Çıkış Dinamik Aralığı</span>
-                    <span>Tam</span>
-                </div>
-
             </div>
 
-            <div class="code-box" style="margin-top:20px;">
+            <div class="code-box">
                 NVIDIA DENETİM MASASI → EKRAN → MASAÜSTÜ RENK AYARLARINI AYARLA
             </div>
 
-            <div style="margin-top:25px; line-height:1.8; color:#aaa;">
+            <div style="margin-top:20px; line-height:1.8; color:#aaa;">
 
-                <strong style="color:#fff;">
-                    🎨 NASIL YAPILIR?
-                </strong>
+                <strong>🎨 NASIL YAPILIR?</strong><br><br>
 
-                <br><br>
+                <strong>1.</strong> Masaüstünde boş bir yere sağ tıkla.<br><br>
 
-                <strong style="color:#ff20b9;">1.</strong>
-                Masaüstünde boş bir yere sağ tıkla.
+                <strong>2.</strong> NVIDIA Denetim Masası'nı aç.<br><br>
 
-                <br><br>
+                <strong>3.</strong> "Masaüstü renk ayarlarını ayarla" bölümüne gir.<br><br>
 
-                <strong style="color:#ff20b9;">2.</strong>
-                NVIDIA Denetim Masası'nı aç.
+                <strong>4.</strong> "NVIDIA ayarlarını kullan" seçeneğini aktif et.<br><br>
 
-                <br><br>
+                <strong>5.</strong> Yukarıdaki değerleri uygula.<br><br>
 
-                <strong style="color:#ff20b9;">3.</strong>
-                Sol taraftan
-                <strong>"Masaüstü renk ayarlarını ayarla"</strong>
-                bölümüne gir.
-
-                <br><br>
-
-                <strong style="color:#ff20b9;">4.</strong>
-                "NVIDIA ayarlarını kullan" seçeneğini aktif et.
-
-                <br><br>
-
-                <strong style="color:#ff20b9;">5.</strong>
-                Yukarıdaki değerleri uygula.
-
-                <br><br>
-
-                <strong style="color:#ff20b9;">6.</strong>
-                Sağ alttan <strong>Uygula</strong> butonuna bas.
+                <strong>6.</strong> Sağ alttan "Uygula" butonuna bas.
 
             </div>
         `;
+
+        return;
     }
 
-    else if (type === "fps") {
+
+    if (type === "fps") {
 
         modalLabel.innerText = "FPS OPTIMIZATION";
+
         modalTitle.innerText = "FPS Optimizasyonu";
 
         modalDescription.innerText =
-        "CS2'de daha yüksek ve daha stabil FPS için uygulanabilecek optimizasyonları adım adım gösteren rehber.";
+        "CS2'de daha yüksek ve daha stabil FPS için uygulanabilecek optimizasyonlar.";
 
         modalContent.innerHTML = `
 
@@ -288,115 +275,70 @@ function openModal(type) {
 
             </div>
 
-            <div class="code-box" style="margin-top:20px;">
+            <div class="code-box">
                 🚀 XANNYLIVE FPS OPTİMİZASYON REHBERİ
             </div>
 
-            <div style="margin-top:25px; line-height:1.8; color:#aaa;">
+            <div style="margin-top:20px; line-height:1.8; color:#aaa;">
 
-                <strong style="color:#fff;">
-                    01 — NVIDIA DENETİM MASASI
-                </strong>
-
-                <br><br>
+                <strong>01 — NVIDIA DENETİM MASASI</strong><br><br>
 
                 Masaüstüne sağ tıkla → NVIDIA Denetim Masası →
-                <strong>3D Ayarlarının Yönetilmesi</strong>.
+                3D Ayarlarının Yönetilmesi.<br><br>
 
-                <br><br>
-
-                Program Ayarları bölümünden CS2'yi seç.
-
-                <br><br>
+                Program Ayarları bölümünden CS2'yi seç.<br><br>
 
                 Güç yönetimi modu →
-                <strong>Maksimum performansı tercih et</strong>.
-
-                <br><br>
+                <strong>Maksimum performansı tercih et</strong>.<br><br>
 
                 Tercih edilen yenileme hızı →
-                <strong>Kullanılabilir en yüksek</strong>.
-
-                <br><br>
+                <strong>Kullanılabilir en yüksek</strong>.<br><br>
 
                 Dikey senkronizasyon →
-                <strong>Kapalı</strong>.
+                <strong>Kapalı</strong>.<br><br>
 
-                <br><br>
 
-                <strong style="color:#fff;">
-                    02 — WINDOWS
-                </strong>
-
-                <br><br>
+                <strong>02 — WINDOWS</strong><br><br>
 
                 Ayarlar → Oyun → Oyun Modu →
-                <strong>Açık</strong>.
+                <strong>Açık</strong>.<br><br>
 
-                <br><br>
+                Güç modunu →
+                <strong>En iyi performans</strong> yap.<br><br>
 
-                Windows güç modunu
-                <strong>En iyi performans</strong>
-                seçeneğine getir.
 
-                <br><br>
+                <strong>03 — CS2</strong><br><br>
 
-                <strong style="color:#fff;">
-                    03 — CS2
-                </strong>
+                Oyunu tam ekran çalıştır.<br><br>
 
-                <br><br>
+                V-Sync'i kapat.<br><br>
 
-                Oyunu tam ekran çalıştır.
+                Gereksiz grafik ayarlarını düşür.<br><br>
 
-                <br><br>
 
-                V-Sync'i kapat.
+                <strong>04 — ARKA PLAN</strong><br><br>
 
-                <br><br>
+                Gereksiz tarayıcıları ve uygulamaları kapat.<br><br>
 
-                Gereksiz grafik ayarlarını düşürerek
-                GPU yükünü azalt.
 
-                <br><br>
+                <strong>05 — SICAKLIK</strong><br><br>
 
-                <strong style="color:#fff;">
-                    04 — ARKA PLAN
-                </strong>
+                Laptop hava girişlerini kapatma ve yeterli soğutma sağla.<br><br>
 
-                <br><br>
-
-                Oyun sırasında gereksiz tarayıcıları,
-                launcher'ları ve arka plan uygulamalarını kapat.
-
-                <br><br>
-
-                <strong style="color:#fff;">
-                    05 — SICAKLIK
-                </strong>
-
-                <br><br>
-
-                Laptop kullanıyorsan hava girişlerini kapatma.
-                Yeterli soğutma sağla ve performans modunu kullan.
-
-                <br><br>
-
-                ⚠️ <strong style="color:#ff20b9;">
-                ÖNEMLİ:
-                </strong>
-
-                FPS artışı her bilgisayarda aynı olmaz.
-                Amaç gereksiz yükü azaltıp daha stabil FPS
-                ve frametime elde etmektir.
+                ⚠️ FPS artışı her bilgisayarda aynı olmaz.
+                Amaç daha stabil FPS ve frametime elde etmektir.
 
             </div>
         `;
+
+        return;
     }
 
-    else if (type === "videos") {
+
+    if (type === "videos") {
 
         modalLabel.innerText = "CONTENT";
+
         modalTitle.innerText = "Videolarım";
 
         modalDescription.innerText =
@@ -408,7 +350,9 @@ function openModal(type) {
                href="#"
                target="_blank"
                style="display:inline-block;">
+
                ▶️ YouTube Kanalım
+
             </a>
 
             <div class="setting-list">
@@ -430,12 +374,17 @@ function openModal(type) {
 
             </div>
         `;
+
+        return;
     }
+
 }
 
 
 function closeModal() {
+
     modal.classList.remove("active");
+
 }
 
 
@@ -447,13 +396,16 @@ function copyCrosshair() {
     navigator.clipboard.writeText(code);
 
     alert("Crosshair kodu kopyalandı! 🎯");
+
 }
 
 
 modal.addEventListener("click", function(e) {
 
     if (e.target === modal) {
+
         closeModal();
+
     }
 
 });
@@ -462,7 +414,9 @@ modal.addEventListener("click", function(e) {
 document.addEventListener("keydown", function(e) {
 
     if (e.key === "Escape") {
+
         closeModal();
+
     }
 
 });
