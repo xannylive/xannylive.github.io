@@ -3,64 +3,851 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XannyLive</title>
+<title>XANNYLIVE | CS2 Oyuncusu & Yayıncı</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#08080d;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ARKA PLAN */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:700px;
+    height:700px;
+    top:-300px;
+    left:50%;
+    transform:translateX(-50%);
+    background:radial-gradient(circle,rgba(255,0,170,.20),transparent 65%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    right:-250px;
+    bottom:-200px;
+    background:radial-gradient(circle,rgba(120,0,255,.15),transparent 65%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(8,8,13,.72);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.nav-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.nav-logo span{
+    color:#ff20ad;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ff20ad;
+}
+
+.nav-live{
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#ff149f,#b500ff);
+    padding:11px 20px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:800;
+    box-shadow:0 0 25px rgba(255,20,159,.25);
+    transition:.3s;
+}
+
+.nav-live:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 35px rgba(255,20,159,.45);
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 20px 70px;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,rgba(255,0,174,.12),transparent 65%);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:-1;
+}
+
+.logo-box{
+    width:145px;
+    height:145px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#050507;
+    border:2px solid rgba(255,30,170,.5);
+    box-shadow:
+        0 0 25px rgba(255,20,160,.45),
+        0 0 80px rgba(255,20,160,.20);
+    margin-bottom:30px;
+    overflow:hidden;
+}
+
+.logo-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero-small{
+    color:#ff20ad;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:clamp(50px,9vw,105px);
+    line-height:.95;
+    font-weight:900;
+    letter-spacing:-5px;
+    margin-bottom:25px;
+    background:linear-gradient(90deg,#fff,#ff28b4,#c100ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#a8a8b5;
+    font-size:18px;
+    max-width:650px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:15px 25px;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:800;
+    transition:.3s;
+}
+
+.primary-btn{
+    background:linear-gradient(135deg,#ff149f,#b600ff);
+    color:#fff;
+    box-shadow:0 0 30px rgba(255,20,159,.25);
+}
+
+.secondary-btn{
+    border:1px solid rgba(255,255,255,.12);
+    color:#ddd;
+    background:rgba(255,255,255,.03);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+    transform:translateY(-4px);
+}
+
+.secondary-btn:hover{
+    border-color:#ff20ad;
+    color:#ff20ad;
+}
+
+/* LIVE BADGE */
+
+.live-status{
+    margin-top:35px;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:9px 15px;
+    border-radius:50px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    color:#aaa;
+    font-size:12px;
+    font-weight:600;
+}
+
+.live-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#21ff8a;
+    box-shadow:0 0 12px #21ff8a;
+}
+
+/* GENEL */
+
+section{
+    width:100%;
+    max-width:1150px;
+    margin:auto;
+    padding:100px 25px;
+}
+
+.section-title{
+    margin-bottom:45px;
+}
+
+.section-label{
+    color:#ff20ad;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.section-title h2{
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:-1.5px;
+}
+
+.section-title p{
+    color:#777783;
+    margin-top:10px;
+    font-size:14px;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.card{
+    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:28px;
+    min-height:190px;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    right:-60px;
+    top:-60px;
+    background:#ff20ad;
+    opacity:.06;
+    border-radius:50%;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(255,20,170,.35);
+    box-shadow:0 15px 50px rgba(0,0,0,.3);
+}
+
+.card-icon{
+    font-size:25px;
+    margin-bottom:22px;
+}
+
+.card h3{
+    color:#ff35b7;
+    font-size:18px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#858592;
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about-box{
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:20px;
+    padding:35px;
+}
+
+.about-box h3{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.about-box p{
+    color:#8d8d99;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.stat{
+    padding:25px;
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:16px;
+}
+
+.stat strong{
+    display:block;
+    font-size:30px;
+    color:#ff20ad;
+    margin-bottom:5px;
+}
+
+.stat span{
+    color:#777783;
+    font-size:12px;
+}
+
+/* SOCIAL */
+
+.socials{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.social{
+    padding:25px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,.025);
+    transition:.3s;
+}
+
+.social:hover{
+    transform:translateY(-5px);
+    border-color:#ff20ad;
+}
+
+.social-icon{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.social h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.social p{
+    color:#777783;
+    font-size:12px;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    padding:90px 30px;
+    border-radius:25px;
+    background:
+        linear-gradient(135deg,rgba(255,20,159,.10),rgba(120,0,255,.08));
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.cta h2{
+    font-size:40px;
+    font-weight:900;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#858592;
+    margin-bottom:30px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px 20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.06);
+    color:#555561;
+    font-size:12px;
+}
+
+footer span{
+    color:#ff20ad;
+}
+
+/* MOBİL */
+
+@media(max-width:900px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        display:none;
+    }
+}
+
+@media(max-width:600px){
+
+    nav{
+        padding:0 20px;
+    }
+
+    .nav-live{
+        padding:9px 13px;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .logo-box{
+        width:115px;
+        height:115px;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    section{
+        padding:70px 18px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .socials{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+}
+</style>
 </head>
-<script src="script.js"></script>
+
 <body>
 
-<header>
+<!-- NAVBAR -->
 
-<img src="assets/logo.jpg" class="logo">
+<nav>
 
-<h1>XANNYLIVE</h1>
+    <div class="nav-logo">
+        XANNY<span>LIVE</span>
+    </div>
 
-<p>CS2 Oyuncusu • Yayıncı • İçerik Üreticisi</p>
+    <div class="nav-links">
+        <a href="#anasayfa">Ana Sayfa</a>
+        <a href="#ayarlar">Ayarlar</a>
+        <a href="#hakkimda">Hakkımda</a>
+        <a href="#sosyal">Sosyal</a>
+    </div>
 
-<a href="https://kick.com/xannylive" class="button">
-🟢 Kick Yayını
-</a>
+    <a class="nav-live" href="https://kick.com/xannylive" target="_blank">
+        🟢 CANLI YAYIN
+    </a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero" id="anasayfa">
+
+    <div class="logo-box">
+        <img src="assets/logo.jpg" alt="XANNYLIVE Logo">
+    </div>
+
+    <div class="hero-small">
+        CS2 PLAYER • STREAMER • CONTENT CREATOR
+    </div>
+
+    <h1>XANNYLIVE</h1>
+
+    <p>
+        Counter-Strike 2 oynuyorum, yayın açıyorum ve oyun ayarlarımı
+        sizlerle paylaşıyorum. FPS, crosshair, mouse ve performans ayarları
+        burada.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a class="primary-btn"
+           href="https://kick.com/xannylive"
+           target="_blank">
+           🟢 Kick Yayınına Katıl
+        </a>
+
+        <a class="secondary-btn" href="#ayarlar">
+           ⚙️ Ayarlarımı Gör
+        </a>
+
+    </div>
+
+    <div class="live-status">
+        <span class="live-dot"></span>
+        Yayınlar ve yeni içerikler için takipte kal
+    </div>
 
 </header>
 
-<section class="cards">
 
-<div class="card">
-<h2>🎯 Crosshair Kodlarım</h2>
-<p>En güncel crosshair ayarlarım.</p>
-</div>
+<!-- AYARLAR -->
 
-<div class="card">
-<h2>⚙️ CS2 Ayarlarım</h2>
-<p>FPS, görüntü ve oyun ayarlarım.</p>
-</div>
+<section id="ayarlar">
 
-<div class="card">
-<h2>🖱 Mouse Ayarlarım</h2>
-<p>DPI ve sens ayarlarım.</p>
-</div>
+    <div class="section-title">
 
-<div class="card">
-<h2>📺 YouTube</h2>
-<p>Videolarımı izlemeyi unutma.</p>
-</div>
+        <div class="section-label">
+            MY SETTINGS
+        </div>
 
-<div class="card">
-<h2>💬 Discord</h2>
-<p>Sunucuya katıl.</p>
-</div>
+        <h2>Oyun Ayarlarım</h2>
+
+        <p>
+            CS2'de kullandığım temel ayarlar ve içerikler.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">🎯</div>
+
+            <h3>Crosshair Kodlarım</h3>
+
+            <p>
+                CS2'de kullandığım crosshair ayarlarını
+                ve farklı crosshair seçeneklerini keşfet.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">⚙️</div>
+
+            <h3>CS2 Ayarlarım</h3>
+
+            <p>
+                FPS, görüntü kalitesi ve performans için
+                kullandığım oyun ayarları.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🖱️</div>
+
+            <h3>Mouse Ayarlarım</h3>
+
+            <p>
+                DPI, sensitivity ve oyun içi mouse
+                ayarlarımı burada bulabilirsin.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🎥</div>
+
+            <h3>Videolarım</h3>
+
+            <p>
+                YouTube videolarım, rehberlerim ve
+                oyun içeriklerim.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
+
+<!-- HAKKIMDA -->
+
+<section id="hakkimda">
+
+    <div class="section-title">
+
+        <div class="section-label">
+            ABOUT ME
+        </div>
+
+        <h2>XANNYLIVE Kimdir?</h2>
+
+        <p>
+            Oyunculuk, yayıncılık ve içerik üretimi.
+        </p>
+
+    </div>
+
+
+    <div class="about">
+
+        <div class="about-box">
+
+            <h3>🎮 CS2 benim işim.</h3>
+
+            <p>
+                Burada sadece oyun oynamıyorum. Kullandığım ayarları,
+                ekipmanları, performans optimizasyonlarını ve oyun
+                deneyimlerimi de paylaşıyorum.
+                <br><br>
+                Hedefim kaliteli yayınlar ve kaliteli içerikler
+                üreterek XANNYLIVE markasını büyütmek.
+            </p>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>CS2</strong>
+                <span>ANA OYUN</span>
+            </div>
+
+            <div class="stat">
+                <strong>LIVE</strong>
+                <span>YAYINCI</span>
+            </div>
+
+            <div class="stat">
+                <strong>FPS</strong>
+                <span>PERFORMANS</span>
+            </div>
+
+            <div class="stat">
+                <strong>24/7</strong>
+                <span>GAMING</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SOSYAL -->
+
+<section id="sosyal">
+
+    <div class="section-title">
+
+        <div class="section-label">
+            SOCIAL MEDIA
+        </div>
+
+        <h2>Beni Takip Et</h2>
+
+        <p>
+            Yeni yayınları ve içerikleri kaçırma.
+        </p>
+
+    </div>
+
+
+    <div class="socials">
+
+        <a class="social"
+           href="https://kick.com/xannylive"
+           target="_blank">
+
+            <div class="social-icon">🟢</div>
+
+            <h3>Kick</h3>
+
+            <p>Canlı yayınlarımı izle.</p>
+
+        </a>
+
+
+        <a class="social"
+           href="#"
+           onclick="alert('YouTube linkini birazdan ekleyeceğiz!'); return false;">
+
+            <div class="social-icon">▶️</div>
+
+            <h3>YouTube</h3>
+
+            <p>Videolarımı ve içeriklerimi izle.</p>
+
+        </a>
+
+
+        <a class="social"
+           href="#"
+           onclick="alert('TikTok linkini birazdan ekleyeceğiz!'); return false;">
+
+            <div class="social-icon">♪</div>
+
+            <h3>TikTok</h3>
+
+            <p>Kısa videolar ve yayın kesitleri.</p>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section>
+
+    <div class="cta">
+
+        <h2>Yayında görüşürüz. 🔥</h2>
+
+        <p>
+            Yeni içerikleri kaçırmamak için takipte kal.
+        </p>
+
+        <a class="primary-btn"
+           href="https://kick.com/xannylive"
+           target="_blank">
+           🟢 Kick'e Git
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
 <footer>
 
-© 2026 XannyLive
+    © 2026 <span>XANNYLIVE</span> — CS2 Player & Content Creator
 
 </footer>
+
 
 </body>
 </html>
