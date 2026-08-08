@@ -3,872 +3,907 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XANNYLIVE | CS2 Player</title>
+<title>XANNYLIVE | CS2 Oyuncusu & Yayıncı</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth}
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-font-family:Inter,sans-serif;
-background:#07070b;
-color:#fff;
-overflow-x:hidden
+    font-family:'Inter',sans-serif;
+    background:#07070c;
+    color:#fff;
+    overflow-x:hidden;
 }
 
-body:before{
-content:"";
-position:fixed;
-width:700px;
-height:700px;
-left:50%;
-top:-350px;
-transform:translateX(-50%);
-background:radial-gradient(circle,rgba(255,0,170,.18),transparent 65%);
-pointer-events:none;
-z-index:-1
+/* ARKA PLAN */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:700px;
+    height:700px;
+    top:-300px;
+    left:50%;
+    transform:translateX(-50%);
+    background:radial-gradient(circle,rgba(255,0,170,.16),transparent 65%);
+    pointer-events:none;
+    z-index:-1;
 }
 
-body:after{
-content:"";
-position:fixed;
-width:500px;
-height:500px;
-right:-250px;
-bottom:-250px;
-background:radial-gradient(circle,rgba(110,0,255,.13),transparent 65%);
-pointer-events:none;
-z-index:-1
+body::after{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    right:-300px;
+    bottom:-250px;
+    background:radial-gradient(circle,rgba(120,0,255,.14),transparent 65%);
+    pointer-events:none;
+    z-index:-1;
 }
 
 /* NAVBAR */
 
 nav{
-height:76px;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:999;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 7%;
-background:rgba(7,7,11,.78);
-backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(255,255,255,.06)
+    height:82px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    background:rgba(7,7,12,.78);
+    backdrop-filter:blur(20px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .logo-text{
-font-size:21px;
-font-weight:900;
-letter-spacing:-.5px
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:-1px;
 }
 
-.logo-text span{color:#ff20ad}
+.logo-text span{
+    color:#ff18b8;
+}
 
 .nav-links{
-display:flex;
-gap:30px
+    display:flex;
+    gap:36px;
 }
 
 .nav-links a{
-color:#999;
-text-decoration:none;
-font-size:13px;
-font-weight:700;
-transition:.25s
+    color:#9999a5;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
 }
 
-.nav-links a:hover{color:#ff20ad}
+.nav-links a:hover{
+    color:#ff20b9;
+}
 
 .live-button{
-text-decoration:none;
-color:#fff;
-font-weight:800;
-font-size:13px;
-padding:12px 20px;
-border-radius:11px;
-background:linear-gradient(135deg,#ff149f,#b800ff);
-box-shadow:0 0 25px rgba(255,20,159,.25);
-transition:.3s
+    text-decoration:none;
+    color:#fff;
+    font-weight:800;
+    font-size:14px;
+    padding:14px 24px;
+    border-radius:13px;
+    background:linear-gradient(100deg,#ff179d,#bd00ff);
+    box-shadow:0 0 30px rgba(255,0,180,.25);
+    transition:.25s;
 }
 
 .live-button:hover{
-transform:translateY(-3px);
-box-shadow:0 0 35px rgba(255,20,159,.45)
+    transform:translateY(-2px);
+    box-shadow:0 0 40px rgba(255,0,180,.45);
 }
 
 /* HERO */
 
 .hero{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:120px 20px 80px;
-position:relative
+    min-height:720px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:80px 20px;
+    position:relative;
 }
 
-.logo{
-width:150px;
-height:150px;
-border-radius:50%;
-object-fit:cover;
-border:2px solid rgba(255,20,170,.5);
-box-shadow:0 0 30px rgba(255,20,170,.45),0 0 100px rgba(255,20,170,.15);
-margin-bottom:30px
+.hero-content{
+    max-width:900px;
 }
 
-.hero-label{
-font-size:12px;
-font-weight:900;
-letter-spacing:4px;
-color:#ff20ad;
-margin-bottom:18px
+.hero-logo{
+    width:155px;
+    height:155px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:30px;
+    box-shadow:
+        0 0 25px rgba(255,0,180,.55),
+        0 0 80px rgba(255,0,180,.18);
+}
+
+.eyebrow{
+    color:#ff20b9;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:5px;
+    margin-bottom:20px;
 }
 
 .hero h1{
-font-size:clamp(55px,9vw,105px);
-font-weight:900;
-letter-spacing:-6px;
-line-height:.95;
-background:linear-gradient(90deg,#fff,#ff91d7,#ff00a8,#a900ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-margin-bottom:25px
+    font-size:clamp(65px,9vw,120px);
+    line-height:.95;
+    font-weight:900;
+    letter-spacing:-7px;
+    background:linear-gradient(100deg,#fff,#ff9bdc,#ff00b7,#b900ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:32px;
 }
 
 .hero-description{
-max-width:680px;
-font-size:17px;
-line-height:1.8;
-color:#92929e;
-margin-bottom:35px
+    color:#9d9da9;
+    max-width:720px;
+    margin:auto;
+    line-height:1.8;
+    font-size:18px;
 }
 
 .hero-buttons{
-display:flex;
-gap:14px;
-justify-content:center;
-flex-wrap:wrap
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-top:35px;
+    flex-wrap:wrap;
 }
 
-.primary,
-.secondary{
-padding:15px 24px;
-border-radius:12px;
-text-decoration:none;
-font-size:13px;
-font-weight:800;
-transition:.3s
+.primary-btn,
+.secondary-btn{
+    padding:17px 27px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:800;
+    transition:.25s;
 }
 
-.primary{
-color:white;
-background:linear-gradient(135deg,#ff149f,#b800ff);
-box-shadow:0 0 30px rgba(255,20,159,.22)
+.primary-btn{
+    color:white;
+    background:linear-gradient(100deg,#ff159e,#bf00ff);
+    box-shadow:0 0 35px rgba(255,0,180,.25);
 }
 
-.secondary{
-color:#ddd;
-border:1px solid rgba(255,255,255,.1);
-background:rgba(255,255,255,.03)
+.secondary-btn{
+    color:#ddd;
+    border:1px solid #292932;
+    background:#111118;
 }
 
-.primary:hover,.secondary:hover{
-transform:translateY(-4px)
+.primary-btn:hover,
+.secondary-btn:hover{
+    transform:translateY(-3px);
 }
 
 .status{
-margin-top:30px;
-padding:9px 16px;
-border-radius:50px;
-background:rgba(255,255,255,.035);
-border:1px solid rgba(255,255,255,.07);
-font-size:11px;
-font-weight:700;
-color:#888
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-top:36px;
+    padding:10px 17px;
+    border:1px solid #292932;
+    border-radius:30px;
+    color:#9999a4;
+    font-size:13px;
+    font-weight:700;
+    background:#0e0e14;
 }
 
-.dot{
-display:inline-block;
-width:8px;
-height:8px;
-border-radius:50%;
-background:#21ff8a;
-box-shadow:0 0 12px #21ff8a;
-margin-right:7px
+.status-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#27ff9a;
+    box-shadow:0 0 12px #27ff9a;
 }
 
-/* SECTIONS */
+/* GENEL SECTION */
 
 section{
-max-width:1150px;
-margin:auto;
-padding:100px 25px
+    max-width:1180px;
+    margin:auto;
+    padding:110px 25px;
 }
 
 .section-label{
-font-size:11px;
-font-weight:900;
-letter-spacing:3px;
-color:#ff20ad;
-margin-bottom:10px
+    color:#ff20b9;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:5px;
+    margin-bottom:14px;
 }
 
 .section-title{
-font-size:40px;
-font-weight:900;
-letter-spacing:-1.5px;
-margin-bottom:10px
+    font-size:48px;
+    letter-spacing:-2px;
+    margin-bottom:14px;
 }
 
 .section-description{
-font-size:14px;
-color:#777783;
-margin-bottom:45px
+    color:#777782;
+    line-height:1.7;
+    margin-bottom:45px;
 }
 
 /* SETTINGS */
 
 .settings-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:18px
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
 }
 
 .setting-card{
-min-height:220px;
-padding:28px;
-border-radius:19px;
-background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
-border:1px solid rgba(255,255,255,.08);
-cursor:pointer;
-transition:.35s;
-position:relative;
-overflow:hidden
+    min-height:250px;
+    padding:30px;
+    border-radius:20px;
+    border:1px solid #25252d;
+    background:linear-gradient(145deg,#111117,#0c0c11);
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.setting-card:before{
-content:"";
-position:absolute;
-width:140px;
-height:140px;
-right:-80px;
-top:-80px;
-border-radius:50%;
-background:#ff20ad;
-opacity:.08
+.setting-card::before{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    right:-60px;
+    top:-60px;
+    background:rgba(255,0,180,.12);
+    border-radius:50%;
 }
 
 .setting-card:hover{
-transform:translateY(-8px);
-border-color:rgba(255,20,170,.4);
-box-shadow:0 20px 50px rgba(0,0,0,.35)
+    transform:translateY(-7px);
+    border-color:#ff1bb5;
+    box-shadow:0 15px 45px rgba(255,0,180,.10);
 }
 
 .setting-icon{
-font-size:29px;
-margin-bottom:22px
+    font-size:30px;
+    margin-bottom:30px;
 }
 
 .setting-card h3{
-font-size:18px;
-color:#ff39b9;
-margin-bottom:12px
+    color:#ff20b9;
+    font-size:20px;
+    margin-bottom:13px;
 }
 
 .setting-card p{
-font-size:13px;
-line-height:1.7;
-color:#858592
-}
-
-.open{
-position:absolute;
-bottom:25px;
-font-size:11px;
-font-weight:800;
-color:#aaa
+    color:#858590;
+    line-height:1.7;
+    font-size:14px;
 }
 
 /* ABOUT */
 
-.about{
-display:grid;
-grid-template-columns:1.3fr .7fr;
-gap:20px
+.about-grid{
+    display:grid;
+    grid-template-columns:1.3fr .9fr;
+    gap:30px;
 }
 
-.about-box,.info-box{
-padding:32px;
-border-radius:19px;
-background:rgba(255,255,255,.025);
-border:1px solid rgba(255,255,255,.07)
+.about-box{
+    padding:40px;
+    border:1px solid #25252d;
+    border-radius:22px;
+    background:linear-gradient(145deg,#111117,#0b0b10);
 }
 
 .about-box h3{
-font-size:25px;
-margin-bottom:15px
+    font-size:28px;
+    margin-bottom:20px;
 }
 
 .about-box p{
-font-size:14px;
-line-height:1.9;
-color:#858592
+    color:#8d8d98;
+    line-height:1.9;
+    margin-bottom:20px;
 }
 
-.info-list{
-display:flex;
-flex-direction:column;
-gap:13px
+.stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
 }
 
-.info{
-padding:16px;
-border-radius:12px;
-background:rgba(255,255,255,.035);
-border:1px solid rgba(255,255,255,.05)
+.stat{
+    padding:30px;
+    border:1px solid #25252d;
+    border-radius:20px;
+    background:#0e0e14;
 }
 
-.info small{
-display:block;
-color:#666;
-font-size:10px;
-font-weight:800;
-margin-bottom:5px
+.stat strong{
+    display:block;
+    color:#ff20b9;
+    font-size:32px;
+    margin-bottom:8px;
 }
 
-.info strong{
-font-size:13px
+.stat span{
+    color:#777782;
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
 }
 
 /* SOCIAL */
 
 .social-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
-.social{
-padding:25px;
-border-radius:17px;
-border:1px solid rgba(255,255,255,.08);
-background:rgba(255,255,255,.025);
-text-decoration:none;
-color:white;
-transition:.3s
+.social-card{
+    padding:28px;
+    border:1px solid #25252d;
+    border-radius:18px;
+    background:#0e0e14;
+    text-decoration:none;
+    color:white;
+    transition:.25s;
 }
 
-.social:hover{
-transform:translateY(-6px);
-border-color:#ff20ad
+.social-card:hover{
+    transform:translateY(-5px);
+    border-color:#ff20b9;
 }
 
-.social-icon{
-font-size:25px;
-margin-bottom:15px
+.social-card span{
+    color:#ff20b9;
+    font-weight:900;
+    font-size:20px;
 }
 
-.social h3{
-font-size:16px;
-margin-bottom:7px
-}
-
-.social p{
-font-size:12px;
-color:#777783
+.social-card p{
+    color:#777782;
+    margin-top:8px;
 }
 
 /* CTA */
 
 .cta{
-text-align:center;
-padding:80px 25px;
-border-radius:24px;
-background:linear-gradient(135deg,rgba(255,20,159,.1),rgba(130,0,255,.08));
-border:1px solid rgba(255,255,255,.07)
+    max-width:1180px;
+    margin:30px auto 100px;
+    padding:90px 30px;
+    text-align:center;
+    border-radius:28px;
+    border:1px solid #3a1737;
+    background:
+        radial-gradient(circle at 50% 0%,rgba(255,0,180,.16),transparent 50%),
+        #100913;
 }
 
 .cta h2{
-font-size:40px;
-margin-bottom:12px
+    font-size:48px;
+    margin-bottom:15px;
 }
 
 .cta p{
-color:#777783;
-font-size:14px;
-margin-bottom:28px
-}
-
-/* MODAL */
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.78);
-backdrop-filter:blur(10px);
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:2000
-}
-
-.modal.active{display:flex}
-
-.modal-box{
-width:100%;
-max-width:570px;
-padding:35px;
-border-radius:22px;
-background:#111118;
-border:1px solid rgba(255,20,170,.25);
-box-shadow:0 30px 100px rgba(0,0,0,.6);
-position:relative;
-animation:popup .25s ease
-}
-
-@keyframes popup{
-from{opacity:0;transform:scale(.94)}
-to{opacity:1;transform:scale(1)}
-}
-
-.close{
-position:absolute;
-right:20px;
-top:18px;
-width:35px;
-height:35px;
-border-radius:50%;
-border:1px solid rgba(255,255,255,.1);
-background:#181820;
-color:#aaa;
-cursor:pointer;
-font-size:17px
-}
-
-.modal-icon{
-font-size:32px;
-margin-bottom:15px
-}
-
-.modal-box h2{
-font-size:28px;
-margin-bottom:10px
-}
-
-.modal-box>p{
-font-size:13px;
-line-height:1.7;
-color:#858592;
-margin-bottom:25px
-}
-
-.setting-line{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 17px;
-background:#181820;
-border:1px solid rgba(255,255,255,.06);
-border-radius:11px;
-margin-bottom:9px
-}
-
-.setting-line span{
-font-size:12px;
-color:#888
-}
-
-.setting-line strong{
-font-size:13px
-}
-
-.code-box{
-display:flex;
-align-items:center;
-gap:10px;
-padding:14px;
-background:#08080d;
-border:1px solid rgba(255,255,255,.08);
-border-radius:11px;
-margin-top:15px
-}
-
-.code-box code{
-flex:1;
-font-size:11px;
-color:#ff48bd;
-word-break:break-all
-}
-
-.copy-btn{
-border:0;
-padding:9px 13px;
-border-radius:8px;
-background:#ff20ad;
-color:white;
-font-size:11px;
-font-weight:800;
-cursor:pointer
-}
-
-.copy-btn:hover{
-background:#ff42ba
+    color:#777782;
+    margin-bottom:30px;
 }
 
 /* FOOTER */
 
 footer{
-padding:35px 20px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,.06);
-color:#555561;
-font-size:11px
+    border-top:1px solid #18181f;
+    padding:35px;
+    text-align:center;
+    color:#555560;
+    font-size:13px;
 }
 
-footer span{color:#ff20ad}
+footer strong{
+    color:#ff20b9;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(12px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:999;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:min(650px,100%);
+    max-height:90vh;
+    overflow:auto;
+    padding:40px;
+    border-radius:25px;
+    border:1px solid #3a2438;
+    background:#101016;
+    box-shadow:0 30px 100px rgba(0,0,0,.7);
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:20px;
+    top:18px;
+    width:38px;
+    height:38px;
+    border:1px solid #292932;
+    border-radius:50%;
+    background:#17171e;
+    color:#aaa;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.modal-label{
+    color:#ff20b9;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+.modal-box h2{
+    font-size:35px;
+    margin:12px 0 10px;
+}
+
+.modal-box > p{
+    color:#858590;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.code-box{
+    background:#08080c;
+    border:1px solid #292932;
+    border-radius:14px;
+    padding:20px;
+    color:#ff55c9;
+    font-family:monospace;
+    font-size:14px;
+    word-break:break-all;
+    margin-bottom:18px;
+}
+
+.copy-btn{
+    border:0;
+    padding:14px 20px;
+    border-radius:12px;
+    background:linear-gradient(100deg,#ff159e,#bd00ff);
+    color:#fff;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.setting-list{
+    display:grid;
+    gap:10px;
+    margin-top:20px;
+}
+
+.setting-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:15px;
+    border-radius:12px;
+    background:#15151c;
+    border:1px solid #22222a;
+}
+
+.setting-row span:first-child{
+    color:#777782;
+}
+
+.setting-row span:last-child{
+    color:#fff;
+    font-weight:700;
+}
 
 /* MOBILE */
 
 @media(max-width:900px){
 
-.settings-grid{
-grid-template-columns:repeat(2,1fr)
-}
+    .nav-links{
+        display:none;
+    }
 
-.about{
-grid-template-columns:1fr
-}
+    nav{
+        padding:0 20px;
+    }
 
-.nav-links{
-display:none
-}
+    .hero{
+        min-height:650px;
+    }
 
+    .hero h1{
+        font-size:65px;
+        letter-spacing:-4px;
+    }
+
+    .settings-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .social-grid{
+        grid-template-columns:1fr;
+    }
 }
 
 @media(max-width:600px){
 
-nav{
-padding:0 18px
+    .hero-logo{
+        width:120px;
+        height:120px;
+    }
+
+    .hero h1{
+        font-size:52px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .settings-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .section-title{
+        font-size:38px;
+    }
+
+    .cta h2{
+        font-size:35px;
+    }
+
+    .modal-box{
+        padding:28px 20px;
+    }
 }
 
-.logo{
-width:120px;
-height:120px
-}
-
-.hero h1{
-letter-spacing:-4px
-}
-
-.hero-description{
-font-size:14px
-}
-
-section{
-padding:75px 18px
-}
-
-.section-title{
-font-size:31px
-}
-
-.settings-grid{
-grid-template-columns:1fr
-}
-
-.social-grid{
-grid-template-columns:1fr
-}
-
-.modal-box{
-padding:27px 20px
-}
-
-.cta h2{
-font-size:30px
-}
-
-}
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
 
-<div class="logo-text">
-XANNY <span>LIVE</span>
-</div>
+    <div class="logo-text">
+        XANNY <span>LIVE</span>
+    </div>
 
-<div class="nav-links">
-<a href="#anasayfa">Ana Sayfa</a>
-<a href="#ayarlar">Ayarlar</a>
-<a href="#hakkimda">Hakkımda</a>
-<a href="#sosyal">Sosyal</a>
-</div>
+    <div class="nav-links">
+        <a href="#home">Ana Sayfa</a>
+        <a href="#settings">Ayarlar</a>
+        <a href="#about">Hakkımda</a>
+        <a href="#social">Sosyal</a>
+    </div>
 
-<a class="live-button" href="https://kick.com/xannylive" target="_blank">
-🟢 CANLI YAYIN
-</a>
+    <a class="live-button" href="https://kick.com/xannylive" target="_blank">
+        🟢 CANLI YAYIN
+    </a>
 
 </nav>
 
 
-<header class="hero" id="anasayfa">
+<!-- HERO -->
 
-<img class="logo" src="assets/logo.jpg" alt="XANNYLIVE">
+<header class="hero" id="home">
 
-<div class="hero-label">
-CS2 PLAYER • STREAMER • CONTENT CREATOR
-</div>
+    <div class="hero-content">
 
-<h1>XANNYLIVE</h1>
+        <img src="assets/logo.jpg" class="hero-logo" alt="XANNYLIVE">
 
-<p class="hero-description">
-Counter-Strike 2 oynuyorum, yayın açıyorum ve kullandığım
-ayarları sizlerle paylaşıyorum. Crosshair, mouse, görüntü,
-FPS ve performans ayarları burada.
-</p>
+        <div class="eyebrow">
+            CS2 PLAYER • STREAMER • CONTENT CREATOR
+        </div>
 
-<div class="hero-buttons">
+        <h1>XANNYLIVE</h1>
 
-<a class="primary" href="https://kick.com/xannylive" target="_blank">
-🟢 Kick Yayınına Katıl
-</a>
+        <p class="hero-description">
+            Counter-Strike 2 oynuyorum, yayın açıyorum ve oyun ayarlarımı
+            sizlerle paylaşıyorum. FPS, crosshair, mouse ve performans
+            ayarları burada.
+        </p>
 
-<a class="secondary" href="#ayarlar">
-⚙️ Ayarlarımı Gör
-</a>
+        <div class="hero-buttons">
 
-</div>
+            <a class="primary-btn" href="https://kick.com/xannylive" target="_blank">
+                🟢 Kick Yayınına Katıl
+            </a>
 
-<div class="status">
-<span class="dot"></span>
-Yayınlar ve yeni içerikler için takipte kal
-</div>
+            <a class="secondary-btn" href="#settings">
+                ⚙️ Ayarlarımı Gör
+            </a>
+
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            Yayınlar ve yeni içerikler için takipte kal
+        </div>
+
+    </div>
 
 </header>
 
 
-<section id="ayarlar">
+<!-- SETTINGS -->
 
-<div class="section-label">MY SETTINGS</div>
+<section id="settings">
 
-<h2 class="section-title">CS2 Ayarlarım</h2>
+    <div class="section-label">
+        MY SETTINGS
+    </div>
 
-<p class="section-description">
-Kartlara tıklayarak ayarların detaylarını görüntüleyebilirsin.
-</p>
+    <h2 class="section-title">
+        Oyun Ayarlarım
+    </h2>
 
-<div class="settings-grid">
-
-<div class="setting-card" onclick="openModal('crosshair')">
-
-<div class="setting-icon">🎯</div>
-
-<h3>Crosshair</h3>
-
-<p>
-Kullandığım crosshair ayarları ve kopyalanabilir crosshair kodu.
-</p>
-
-<div class="open">DETAYLARI GÖR →</div>
-
-</div>
+    <p class="section-description">
+        CS2'de kullandığım temel ayarlar ve içerikler.
+        Kartlara tıklayarak detayları görebilirsin.
+    </p>
 
 
-<div class="setting-card" onclick="openModal('mouse')">
+    <div class="settings-grid">
 
-<div class="setting-icon">🖱️</div>
+        <div class="setting-card" onclick="openModal('crosshair')">
 
-<h3>Mouse</h3>
+            <div class="setting-icon">🎯</div>
 
-<p>
-DPI, sensitivity ve mouse ayarlarım.
-</p>
+            <h3>Crosshair Kodlarım</h3>
 
-<div class="open">DETAYLARI GÖR →</div>
+            <p>
+                CS2'de kullandığım crosshair ayarları ve farklı
+                crosshair seçenekleri.
+            </p>
 
-</div>
-
-
-<div class="setting-card" onclick="openModal('video')">
-
-<div class="setting-icon">⚙️</div>
-
-<h3>Görüntü</h3>
-
-<p>
-CS2 görüntü ve performans ayarlarım.
-</p>
-
-<div class="open">DETAYLARI GÖR →</div>
-
-</div>
+        </div>
 
 
-<div class="setting-card" onclick="openModal('fps')">
+        <div class="setting-card" onclick="openModal('cs2')">
 
-<div class="setting-icon">⚡</div>
+            <div class="setting-icon">⚙️</div>
 
-<h3>FPS / NVIDIA</h3>
+            <h3>CS2 Ayarlarım</h3>
 
-<p>
-FPS performansı için kullandığım sistem ayarları.
-</p>
+            <p>
+                FPS, görüntü kalitesi ve performans için
+                kullandığım oyun ayarları.
+            </p>
 
-<div class="open">DETAYLARI GÖR →</div>
-
-</div>
-
-</div>
-
-</section>
+        </div>
 
 
-<section id="hakkimda">
+        <div class="setting-card" onclick="openModal('mouse')">
 
-<div class="section-label">ABOUT XANNY</div>
+            <div class="setting-icon">🖱️</div>
 
-<h2 class="section-title">XANNYLIVE</h2>
+            <h3>Mouse Ayarlarım</h3>
 
-<p class="section-description">
-Oyunculuk • Yayıncılık • İçerik üretimi
-</p>
+            <p>
+                DPI, sensitivity ve oyun içi mouse ayarlarım.
+            </p>
 
-<div class="about">
+        </div>
 
-<div class="about-box">
 
-<h3>🎮 Oyun oynuyorum. İçerik üretiyorum.</h3>
+        <div class="setting-card" onclick="openModal('videos')">
 
-<p>
-XANNYLIVE; CS2 yayınları, oyun ayarları, performans
-optimizasyonları ve gaming içerikleri üzerine kurulu
-kişisel yayıncı platformudur.
-<br><br>
-Buradaki amaç sadece yayın yapmak değil;
-kullandığım ayarları ve deneyimlerimi tek bir yerde
-toplamak ve zamanla daha büyük bir içerik platformu
-oluşturmak.
-</p>
+            <div class="setting-icon">🎥</div>
 
-</div>
+            <h3>Videolarım</h3>
 
-<div class="info-box">
+            <p>
+                YouTube videolarım, rehberlerim ve oyun
+                içeriklerim.
+            </p>
 
-<div class="info-list">
+        </div>
 
-<div class="info">
-<small>ANA OYUN</small>
-<strong>Counter-Strike 2</strong>
-</div>
-
-<div class="info">
-<small>İÇERİK</small>
-<strong>Gaming • Ayarlar • Yayın</strong>
-</div>
-
-<div class="info">
-<small>YAYIN PLATFORMU</small>
-<strong>Kick</strong>
-</div>
-
-<div class="info">
-<small>MARKA</small>
-<strong>XANNYLIVE</strong>
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-<section id="sosyal">
+<!-- ABOUT -->
 
-<div class="section-label">SOCIAL MEDIA</div>
+<section id="about">
 
-<h2 class="section-title">Beni Takip Et</h2>
+    <div class="section-label">
+        ABOUT ME
+    </div>
 
-<p class="section-description">
-Yeni yayınları ve içerikleri kaçırma.
-</p>
+    <h2 class="section-title">
+        XANNYLIVE Kimdir?
+    </h2>
 
-<div class="social-grid">
-
-<a class="social" href="https://kick.com/xannylive" target="_blank">
-
-<div class="social-icon">🟢</div>
-
-<h3>Kick</h3>
-
-<p>Canlı yayınlarımı izle.</p>
-
-</a>
+    <p class="section-description">
+        Oyunculuk, yayıncılık ve içerik üretimi.
+    </p>
 
 
-<a class="social" href="#" onclick="return false">
+    <div class="about-grid">
 
-<div class="social-icon">▶️</div>
+        <div class="about-box">
 
-<h3>YouTube</h3>
+            <h3>🎮 CS2 benim işim.</h3>
 
-<p>Videolarımı ve yayın kesitlerini izle.</p>
+            <p>
+                Burada sadece oyun oynamıyorum. Kullandığım ayarları,
+                ekipmanları, performans optimizasyonlarını ve oyun
+                deneyimlerimi de paylaşıyorum.
+            </p>
 
-</a>
+            <p>
+                Hedefim kaliteli yayınlar ve kaliteli içerikler üreterek
+                XANNYLIVE markasını büyütmek.
+            </p>
+
+        </div>
 
 
-<a class="social" href="#" onclick="return false">
+        <div class="stats">
 
-<div class="social-icon">♪</div>
+            <div class="stat">
+                <strong>CS2</strong>
+                <span>Ana Oyun</span>
+            </div>
 
-<h3>TikTok</h3>
+            <div class="stat">
+                <strong>LIVE</strong>
+                <span>Yayıncı</span>
+            </div>
 
-<p>Kısa videolar ve yayın kesitleri.</p>
+            <div class="stat">
+                <strong>FPS</strong>
+                <span>Performans</span>
+            </div>
 
-</a>
+            <div class="stat">
+                <strong>24/7</strong>
+                <span>Gaming</span>
+            </div>
 
-</div>
+        </div>
+
+    </div>
 
 </section>
 
 
-<section>
+<!-- SOCIAL -->
+
+<section id="social">
+
+    <div class="section-label">
+        SOCIAL MEDIA
+    </div>
+
+    <h2 class="section-title">
+        Beni Takip Et
+    </h2>
+
+    <p class="section-description">
+        Yayınları ve yeni içerikleri kaçırmamak için sosyal medya
+        hesaplarımı takip edebilirsin.
+    </p>
+
+
+    <div class="social-grid">
+
+        <a class="social-card" href="https://kick.com/xannylive" target="_blank">
+
+            <span>🟢 Kick</span>
+
+            <p>
+                Canlı yayınlarım
+            </p>
+
+        </a>
+
+
+        <a class="social-card" href="#" target="_blank">
+
+            <span>▶️ YouTube</span>
+
+            <p>
+                Videolarım ve rehberlerim
+            </p>
+
+        </a>
+
+
+        <a class="social-card" href="#" target="_blank">
+
+            <span>📸 Instagram</span>
+
+            <p>
+                Günlük içerikler ve paylaşımlar
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
 
 <div class="cta">
 
-<h2>Yayında görüşürüz. 🔥</h2>
+    <h2>Yayında görüşürüz. 🔥</h2>
 
-<p>
-XANNYLIVE yayınlarına katıl ve yeni içerikleri kaçırma.
-</p>
+    <p>
+        Yeni içerikleri kaçırmamak için takipte kal.
+    </p>
 
-<a class="primary" href="https://kick.com/xannylive" target="_blank">
-🟢 Kick'e Git
-</a>
+    <a class="primary-btn" href="https://kick.com/xannylive" target="_blank">
+        🟢 Kick'e Git
+    </a>
 
 </div>
 
-</section>
 
+<!-- FOOTER -->
 
 <footer>
 
-© 2026 <span>XANNYLIVE</span> — CS2 Player & Content Creator
+    © 2026 <strong>XANNYLIVE</strong> — CS2 Player & Content Creator
 
 </footer>
 
@@ -877,182 +912,263 @@ XANNYLIVE yayınlarına katıl ve yeni içerikleri kaçırma.
 
 <div class="modal" id="modal">
 
-<div class="modal-box">
+    <div class="modal-box">
 
-<button class="close" onclick="closeModal()">×</button>
+        <button class="close" onclick="closeModal()">×</button>
 
-<div class="modal-icon" id="modalIcon">🎯</div>
+        <div class="modal-label" id="modalLabel">
+            XANNYLIVE
+        </div>
 
-<h2 id="modalTitle">Crosshair</h2>
+        <h2 id="modalTitle">
+            Ayarlar
+        </h2>
 
-<p id="modalDescription">
-Ayar detayları.
-</p>
+        <p id="modalDescription">
+            Ayarlar burada.
+        </p>
 
-<div id="modalContent"></div>
+        <div id="modalContent"></div>
 
-</div>
+    </div>
 
 </div>
 
 
 <script>
 
-const settings={
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalLabel = document.getElementById("modalLabel");
+const modalDescription = document.getElementById("modalDescription");
+const modalContent = document.getElementById("modalContent");
 
-crosshair:{
-icon:"🎯",
-title:"Crosshair Ayarlarım",
-description:"Buraya kullandığın gerçek CS2 crosshair ayarlarını ekleyeceğiz.",
-content:`
-<div class="setting-line">
-<span>Crosshair</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="setting-line">
-<span>Style</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="code-box">
-<code id="crosshairCode">CROSSHAIR KODU BURAYA GELECEK</code>
-<button class="copy-btn" onclick="copyCode('crosshairCode')">KOPYALA</button>
-</div>
-`
-},
-
-mouse:{
-icon:"🖱️",
-title:"Mouse Ayarlarım",
-description:"Mouse ayarlarını burada ziyaretçiler tek bakışta görebilecek.",
-content:`
-<div class="setting-line">
-<span>DPI</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="setting-line">
-<span>In-game Sensitivity</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="setting-line">
-<span>eDPI</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="setting-line">
-<span>Polling Rate</span>
-<strong>Yakında</strong>
-</div>
-`
-},
-
-video:{
-icon:"⚙️",
-title:"CS2 Görüntü Ayarlarım",
-description:"CS2 görüntü ayarlarını buraya ekleyeceğiz.",
-content:`
-<div class="setting-line">
-<span>Çözünürlük</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="setting-line">
-<span>Aspect Ratio</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="setting-line">
-<span>Global Shadow</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="setting-line">
-<span>Shader Quality</span>
-<strong>Yakında</strong>
-</div>
-`
-},
-
-fps:{
-icon:"⚡",
-title:"FPS / NVIDIA Ayarlarım",
-description:"Performans ve FPS optimizasyonlarını burada paylaşacağız.",
-content:`
-<div class="setting-line">
-<span>NVIDIA Ayarları</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="setting-line">
-<span>Windows Ayarları</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="setting-line">
-<span>Güç Modu</span>
-<strong>Yakında</strong>
-</div>
-
-<div class="setting-line">
-<span>FPS Optimizasyonu</span>
-<strong>Yakında</strong>
-</div>
-`
-}
-
-};
 
 function openModal(type){
 
-const data=settings[type];
+    modal.classList.add("active");
 
-document.getElementById("modalIcon").innerText=data.icon;
-document.getElementById("modalTitle").innerText=data.title;
-document.getElementById("modalDescription").innerText=data.description;
-document.getElementById("modalContent").innerHTML=data.content;
+    if(type === "crosshair"){
 
-document.getElementById("modal").classList.add("active");
+        modalLabel.innerText = "CROSSHAIR";
+
+        modalTitle.innerText = "Crosshair Kodlarım";
+
+        modalDescription.innerText =
+        "CS2'de kullanabileceğin crosshair ayarlarım.";
+
+        modalContent.innerHTML = `
+
+            <div class="code-box" id="crosshairCode">
+                CSGO-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+            </div>
+
+            <button class="copy-btn" onclick="copyCrosshair()">
+                📋 Kodu Kopyala
+            </button>
+
+            <div class="setting-list">
+
+                <div class="setting-row">
+                    <span>Renk</span>
+                    <span>Pembe</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Hareket</span>
+                    <span>Kapalı</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Merkez Nokta</span>
+                    <span>Kapalı</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Outline</span>
+                    <span>Açık</span>
+                </div>
+
+            </div>
+        `;
+    }
+
+
+    if(type === "cs2"){
+
+        modalLabel.innerText = "CS2 SETTINGS";
+
+        modalTitle.innerText = "CS2 Ayarlarım";
+
+        modalDescription.innerText =
+        "FPS ve görüntü performansı için kullandığım temel ayarlar.";
+
+        modalContent.innerHTML = `
+
+            <div class="setting-list">
+
+                <div class="setting-row">
+                    <span>Çözünürlük</span>
+                    <span>1080 × 1080</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Görüntü Modu</span>
+                    <span>Fullscreen</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>V-Sync</span>
+                    <span>Kapalı</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Boost Player Contrast</span>
+                    <span>Açık</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>MSAA</span>
+                    <span>2x</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Texture Filtering</span>
+                    <span>4x</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Shader</span>
+                    <span>Düşük</span>
+                </div>
+
+            </div>
+        `;
+    }
+
+
+    if(type === "mouse"){
+
+        modalLabel.innerText = "MOUSE SETTINGS";
+
+        modalTitle.innerText = "Mouse Ayarlarım";
+
+        modalDescription.innerText =
+        "CS2 için kullandığım temel mouse ayarları.";
+
+        modalContent.innerHTML = `
+
+            <div class="setting-list">
+
+                <div class="setting-row">
+                    <span>DPI</span>
+                    <span>800</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Sensitivity</span>
+                    <span>1.00</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>eDPI</span>
+                    <span>800</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Raw Input</span>
+                    <span>Açık</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Mouse Acceleration</span>
+                    <span>Kapalı</span>
+                </div>
+
+            </div>
+        `;
+    }
+
+
+    if(type === "videos"){
+
+        modalLabel.innerText = "CONTENT";
+
+        modalTitle.innerText = "Videolarım";
+
+        modalDescription.innerText =
+        "CS2 içeriklerim, ayar rehberlerim ve yayın videolarım.";
+
+        modalContent.innerHTML = `
+
+            <a class="primary-btn"
+               href="#"
+               target="_blank"
+               style="display:inline-block;">
+               ▶️ YouTube Kanalım
+            </a>
+
+            <div class="setting-list">
+
+                <div class="setting-row">
+                    <span>CS2 Ayar Rehberi</span>
+                    <span>Yakında</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>FPS Optimizasyonu</span>
+                    <span>Yakında</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Crosshair Rehberi</span>
+                    <span>Yakında</span>
+                </div>
+
+            </div>
+        `;
+    }
 
 }
+
 
 function closeModal(){
 
-document.getElementById("modal").classList.remove("active");
+    modal.classList.remove("active");
 
 }
 
-document.getElementById("modal").addEventListener("click",function(e){
 
-if(e.target===this){
-closeModal();
+function copyCrosshair(){
+
+    const code =
+    document.getElementById("crosshairCode").innerText;
+
+    navigator.clipboard.writeText(code);
+
+    alert("Crosshair kodu kopyalandı! 🎯");
+
 }
+
+
+modal.addEventListener("click",function(e){
+
+    if(e.target === modal){
+
+        closeModal();
+
+    }
 
 });
 
-function copyCode(id){
-
-const text=document.getElementById(id).innerText;
-
-navigator.clipboard.writeText(text);
-
-const button=document.querySelector(".copy-btn");
-
-button.innerText="KOPYALANDI ✓";
-
-setTimeout(()=>{
-button.innerText="KOPYALA";
-},1500);
-
-}
 
 document.addEventListener("keydown",function(e){
 
-if(e.key==="Escape"){
-closeModal();
-}
+    if(e.key === "Escape"){
+
+        closeModal();
+
+    }
 
 });
 
