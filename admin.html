@@ -1,172 +1,233 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>XANNYLIVE | Admin Panel</title>
+<title>XANNYLIVE | Admin Panel</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #07070c;
-            color: white;
-            min-height: 100vh;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .admin {
-            max-width: 1100px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+body{
+    font-family:Arial,sans-serif;
+    background:#07070c;
+    color:white;
+    min-height:100vh;
+}
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 35px;
-        }
+header{
+    height:80px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #25252d;
+    background:#0b0b11;
+}
 
-        .logo {
-            font-size: 28px;
-            font-weight: 900;
-        }
+.logo{
+    font-size:24px;
+    font-weight:900;
+}
 
-        .logo span {
-            color: #ff20b9;
-        }
+.logo span{
+    color:#ff20b9;
+}
 
-        .back {
-            color: white;
-            text-decoration: none;
-            padding: 12px 18px;
-            border: 1px solid #292932;
-            border-radius: 10px;
-        }
+.back{
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border:1px solid #292932;
+    border-radius:10px;
+}
 
-        .panel {
-            background: #101016;
-            border: 1px solid #25252d;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 20px;
-        }
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:50px 25px;
+}
 
-        .panel h2 {
-            margin-bottom: 25px;
-            color: #ff20b9;
-        }
+h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
+.subtitle{
+    color:#777782;
+    margin-bottom:40px;
+}
 
-        .field {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+.panel{
+    background:#101016;
+    border:1px solid #25252d;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:25px;
+}
 
-        label {
-            color: #9999a5;
-            font-size: 14px;
-            font-weight: bold;
-        }
+.panel h2{
+    margin-bottom:25px;
+    color:#ff20b9;
+}
 
-        input,
-        textarea {
-            width: 100%;
-            padding: 14px;
-            border-radius: 10px;
-            border: 1px solid #292932;
-            background: #08080c;
-            color: white;
-            outline: none;
-        }
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
 
-        textarea {
-            min-height: 130px;
-            resize: vertical;
-        }
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
 
-        input:focus,
-        textarea:focus {
-            border-color: #ff20b9;
-        }
+.field label{
+    color:#9999a5;
+    font-size:14px;
+    font-weight:bold;
+}
 
-        .save {
-            width: 100%;
-            padding: 17px;
-            border: 0;
-            border-radius: 12px;
-            background: linear-gradient(100deg,#ff159e,#bd00ff);
-            color: white;
-            font-size: 16px;
-            font-weight: 900;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+input,
+textarea,
+select{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #292932;
+    background:#08080d;
+    color:white;
+    outline:none;
+}
 
-        .message {
-            text-align: center;
-            margin-top: 15px;
-            color: #27ff9a;
-            font-weight: bold;
-        }
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
 
-        @media(max-width:700px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+input:focus,
+textarea:focus{
+    border-color:#ff20b9;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+button{
+    border:0;
+    padding:15px 24px;
+    border-radius:11px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.save{
+    background:linear-gradient(100deg,#ff159e,#bd00ff);
+}
+
+.reset{
+    background:#202027;
+}
+
+.status{
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#0c0c12;
+    color:#27ff9a;
+    display:none;
+}
+
+@media(max-width:700px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    header{
+        padding:0 20px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="admin">
+<header>
 
-    <div class="header">
-
-        <div class="logo">
-            XANNY <span>LIVE</span>
-        </div>
-
-        <a href="index.html" class="back">
-            ← Siteye Dön
-        </a>
-
+    <div class="logo">
+        XANNY <span>LIVE</span>
     </div>
 
+    <a href="index.html" class="back">
+        ← Siteye Dön
+    </a>
+
+</header>
+
+
+<div class="container">
+
+    <h1>Admin Panel</h1>
+
+    <p class="subtitle">
+        XANNYLIVE sitesinin ayarlarını buradan yönet.
+    </p>
+
+
+    <!-- GENEL -->
 
     <div class="panel">
 
-        <h2>🎨 Site Renkleri</h2>
+        <h2>🎨 Genel Ayarlar</h2>
 
         <div class="grid">
 
             <div class="field">
+                <label>Site Adı</label>
+                <input id="siteName" value="XANNYLIVE">
+            </div>
+
+            <div class="field">
+                <label>Eyebrow Yazısı</label>
+                <input id="eyebrow"
+                value="CS2 PLAYER • STREAMER • CONTENT CREATOR">
+            </div>
+
+            <div class="field">
                 <label>Ana Renk</label>
-                <input type="text" id="primaryColor" value="#ff20b9">
+                <input id="color1" type="color" value="#ff20b9">
             </div>
 
             <div class="field">
                 <label>İkinci Renk</label>
-                <input type="text" id="secondaryColor" value="#bd00ff">
+                <input id="color2" type="color" value="#bd00ff">
             </div>
 
         </div>
 
     </div>
 
+
+    <!-- CROSSHAIR -->
 
     <div class="panel">
 
@@ -176,16 +237,16 @@
 
             <label>Crosshair Kodu</label>
 
-            <input
-                type="text"
-                id="crosshair"
-                value="CSGO-mqMVa-5Jvf4-TWdpV-PBLKU-F99zP"
-            >
+            <textarea id="crosshair">
+CSGO-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+            </textarea>
 
         </div>
 
     </div>
 
+
+    <!-- CS2 -->
 
     <div class="panel">
 
@@ -195,32 +256,37 @@
 
             <div class="field">
                 <label>Çözünürlük</label>
-                <input type="text" id="resolution" value="1080 × 1080">
+                <input id="resolution" value="1080 × 1080">
+            </div>
+
+            <div class="field">
+                <label>Görüntü Modu</label>
+                <input id="displayMode" value="Fullscreen">
             </div>
 
             <div class="field">
                 <label>V-Sync</label>
-                <input type="text" id="vsync" value="Kapalı">
-            </div>
-
-            <div class="field">
-                <label>MSAA</label>
-                <input type="text" id="msaa" value="2x">
-            </div>
-
-            <div class="field">
-                <label>Texture Filtering</label>
-                <input type="text" id="texture" value="4x">
-            </div>
-
-            <div class="field">
-                <label>Shader</label>
-                <input type="text" id="shader" value="Düşük">
+                <input id="vsync" value="Kapalı">
             </div>
 
             <div class="field">
                 <label>Boost Player Contrast</label>
-                <input type="text" id="contrast" value="Açık">
+                <input id="contrast" value="Açık">
+            </div>
+
+            <div class="field">
+                <label>MSAA</label>
+                <input id="msaa" value="2x">
+            </div>
+
+            <div class="field">
+                <label>Texture Filtering</label>
+                <input id="texture" value="4x">
+            </div>
+
+            <div class="field">
+                <label>Shader</label>
+                <input id="shader" value="Düşük">
             </div>
 
         </div>
@@ -228,20 +294,37 @@
     </div>
 
 
+    <!-- MOUSE -->
+
     <div class="panel">
 
-        <h2>🖱️ Mouse</h2>
+        <h2>🖱️ Mouse Ayarları</h2>
 
         <div class="grid">
 
             <div class="field">
                 <label>DPI</label>
-                <input type="text" id="dpi" value="800">
+                <input id="dpi" value="800">
             </div>
 
             <div class="field">
                 <label>Sensitivity</label>
-                <input type="text" id="sensitivity" value="1.00">
+                <input id="sensitivity" value="1.00">
+            </div>
+
+            <div class="field">
+                <label>eDPI</label>
+                <input id="edpi" value="800">
+            </div>
+
+            <div class="field">
+                <label>Raw Input</label>
+                <input id="rawInput" value="Açık">
+            </div>
+
+            <div class="field">
+                <label>Mouse Acceleration</label>
+                <input id="mouseAcceleration" value="Kapalı">
             </div>
 
         </div>
@@ -249,30 +332,37 @@
     </div>
 
 
+    <!-- NVIDIA -->
+
     <div class="panel">
 
-        <h2>🎨 NVIDIA</h2>
+        <h2>🎨 NVIDIA Renk</h2>
 
         <div class="grid">
 
             <div class="field">
                 <label>Parlaklık</label>
-                <input type="text" id="brightness" value="60%">
+                <input id="brightness" value="60%">
             </div>
 
             <div class="field">
                 <label>Kontrast</label>
-                <input type="text" id="nvidiaContrast" value="55%">
+                <input id="nvidiaContrast" value="55%">
             </div>
 
             <div class="field">
                 <label>Gama</label>
-                <input type="text" id="gamma" value="1.00">
+                <input id="gamma" value="1.00">
             </div>
 
             <div class="field">
                 <label>Dijital Titreşim</label>
-                <input type="text" id="vibrance" value="80%">
+                <input id="vibrance" value="80%">
+            </div>
+
+            <div class="field">
+                <label>Ton</label>
+                <input id="hue" value="0°">
             </div>
 
         </div>
@@ -280,32 +370,45 @@
     </div>
 
 
+    <!-- FPS -->
+
     <div class="panel">
 
-        <h2>🚀 FPS Rehberi</h2>
+        <h2>🚀 FPS Optimizasyonu</h2>
 
-        <div class="field">
+        <div class="grid">
 
-            <label>FPS Optimizasyon Yazısı</label>
+            <div class="field">
+                <label>NVIDIA Güç Yönetimi</label>
+                <input id="power" value="Maksimum performans">
+            </div>
 
-            <textarea id="fpsGuide">NVIDIA Denetim Masası → 3D Ayarlarının Yönetilmesi → Program Ayarları → CS2
+            <div class="field">
+                <label>Düşük Gecikme</label>
+                <input id="lowLatency" value="Açık">
+            </div>
 
-Güç yönetimi modu → Maksimum performansı tercih et
+            <div class="field">
+                <label>Dikey Senkronizasyon</label>
+                <input id="fpsVsync" value="Kapalı">
+            </div>
 
-Tercih edilen yenileme hızı → Kullanılabilir en yüksek
+            <div class="field">
+                <label>Windows Güç Modu</label>
+                <input id="windowsPower" value="En iyi performans">
+            </div>
 
-Dikey senkronizasyon → Kapalı
-
-Windows Oyun Modu → Açık
-
-Windows Güç Modu → En iyi performans
-
-Lenovo Vantage → Performans Modu</textarea>
+            <div class="field">
+                <label>Lenovo Vantage</label>
+                <input id="vantage" value="Performans Modu">
+            </div>
 
         </div>
 
     </div>
 
+
+    <!-- SOSYAL -->
 
     <div class="panel">
 
@@ -315,29 +418,18 @@ Lenovo Vantage → Performans Modu</textarea>
 
             <div class="field">
                 <label>Kick</label>
-                <input
-                    type="text"
-                    id="kick"
-                    value="https://kick.com/xannylive"
-                >
+                <input id="kick"
+                value="https://kick.com/xannylive">
             </div>
 
             <div class="field">
                 <label>YouTube</label>
-                <input
-                    type="text"
-                    id="youtube"
-                    value="#"
-                >
+                <input id="youtube" value="#">
             </div>
 
             <div class="field">
                 <label>Instagram</label>
-                <input
-                    type="text"
-                    id="instagram"
-                    value="#"
-                >
+                <input id="instagram" value="#">
             </div>
 
         </div>
@@ -345,16 +437,131 @@ Lenovo Vantage → Performans Modu</textarea>
     </div>
 
 
-    <button class="save" onclick="saveSettings()">
-        💾 DEĞİŞİKLİKLERİ KAYDET
-    </button>
+    <div class="buttons">
 
-    <div class="message" id="message"></div>
+        <button class="save" onclick="saveSettings()">
+            💾 Ayarları Kaydet
+        </button>
+
+        <button class="reset" onclick="resetSettings()">
+            🔄 Sıfırla
+        </button>
+
+    </div>
+
+
+    <div class="status" id="status">
+        ✅ Ayarlar kaydedildi!
+    </div>
 
 </div>
 
 
-<script src="admin.js"></script>
+<script>
+
+function saveSettings(){
+
+    const settings = {
+
+        siteName: document.getElementById("siteName").value,
+
+        eyebrow: document.getElementById("eyebrow").value,
+
+        color1: document.getElementById("color1").value,
+
+        color2: document.getElementById("color2").value,
+
+        crosshair: document.getElementById("crosshair").value,
+
+        resolution: document.getElementById("resolution").value,
+
+        displayMode: document.getElementById("displayMode").value,
+
+        vsync: document.getElementById("vsync").value,
+
+        contrast: document.getElementById("contrast").value,
+
+        msaa: document.getElementById("msaa").value,
+
+        texture: document.getElementById("texture").value,
+
+        shader: document.getElementById("shader").value,
+
+        dpi: document.getElementById("dpi").value,
+
+        sensitivity: document.getElementById("sensitivity").value,
+
+        edpi: document.getElementById("edpi").value,
+
+        rawInput: document.getElementById("rawInput").value,
+
+        mouseAcceleration:
+        document.getElementById("mouseAcceleration").value,
+
+        brightness: document.getElementById("brightness").value,
+
+        nvidiaContrast:
+        document.getElementById("nvidiaContrast").value,
+
+        gamma: document.getElementById("gamma").value,
+
+        vibrance: document.getElementById("vibrance").value,
+
+        hue: document.getElementById("hue").value,
+
+        power: document.getElementById("power").value,
+
+        lowLatency: document.getElementById("lowLatency").value,
+
+        fpsVsync: document.getElementById("fpsVsync").value,
+
+        windowsPower:
+        document.getElementById("windowsPower").value,
+
+        vantage:
+        document.getElementById("vantage").value,
+
+        kick: document.getElementById("kick").value,
+
+        youtube: document.getElementById("youtube").value,
+
+        instagram: document.getElementById("instagram").value
+
+    };
+
+
+    localStorage.setItem(
+        "xannyliveSettings",
+        JSON.stringify(settings)
+    );
+
+
+    const status = document.getElementById("status");
+
+    status.style.display = "block";
+
+    setTimeout(function(){
+
+        status.style.display = "none";
+
+    },3000);
+
+}
+
+
+function resetSettings(){
+
+    if(confirm("Tüm ayarları sıfırlamak istediğine emin misin?")){
+
+        localStorage.removeItem("xannyliveSettings");
+
+        location.reload();
+
+    }
+
+}
+
+</script>
 
 </body>
 </html>
