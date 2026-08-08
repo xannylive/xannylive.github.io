@@ -1,409 +1,1725 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>XANNYLIVE | CS2 Oyuncusu & Yayıncı</title>
+<title>XANNYLIVE | CS2 Player & Streamer</title>
 
-    <link rel="stylesheet" href="style.css">
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07070c;
+    color: white;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    top: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(255,0,170,.18), transparent 65%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    right: -250px;
+    bottom: -200px;
+    background: radial-gradient(circle, rgba(120,0,255,.14), transparent 65%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* NAVBAR */
+
+nav {
+    height: 80px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(7,7,12,.85);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-text {
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.logo-text span {
+    color: #ff18b8;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #9999a5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #ff20b9;
+}
+
+.live-button {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+
+    padding: 13px 22px;
+    border-radius: 12px;
+
+    background: linear-gradient(100deg,#ff179d,#bd00ff);
+
+    box-shadow: 0 0 30px rgba(255,0,180,.25);
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 700px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-logo {
+    width: 150px;
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 0 30px rgba(255,0,180,.5),
+        0 0 80px rgba(255,0,180,.15);
+}
+
+.eyebrow {
+    color: #ff20b9;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(60px,9vw,110px);
+
+    font-weight: 900;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 25px;
+
+    background: linear-gradient(
+        100deg,
+        #fff,
+        #ff9bdc,
+        #ff00b7,
+        #b900ff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    color: #9999a5;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 30px;
+
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+
+    display: inline-block;
+
+    padding: 16px 25px;
+
+    border-radius: 13px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.primary-btn {
+
+    color: white;
+
+    background: linear-gradient(
+        100deg,
+        #ff159e,
+        #bf00ff
+    );
+}
+
+.secondary-btn {
+
+    color: #ddd;
+
+    border: 1px solid #292932;
+
+    background: #111118;
+}
+
+.status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 30px;
+
+    padding: 10px 17px;
+
+    border: 1px solid #292932;
+
+    border-radius: 30px;
+
+    color: #9999a4;
+
+    font-size: 13px;
+}
+
+.status-dot {
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #27ff9a;
+
+    box-shadow: 0 0 12px #27ff9a;
+}
+
+
+/* SECTIONS */
+
+section {
+
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding: 100px 25px;
+}
+
+.section-label {
+
+    color: #ff20b9;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 12px;
+}
+
+.section-title {
+
+    font-size: 46px;
+
+    margin-bottom: 15px;
+}
+
+.section-description {
+
+    color: #777782;
+
+    line-height: 1.7;
+
+    margin-bottom: 40px;
+}
+
+
+/* SETTINGS */
+
+.settings-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 20px;
+}
+
+.setting-card {
+
+    min-height: 240px;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    border: 1px solid #25252d;
+
+    background: linear-gradient(
+        145deg,
+        #111117,
+        #0c0c11
+    );
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.setting-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: #ff1bb5;
+
+    box-shadow:
+        0 15px 45px rgba(255,0,180,.12);
+}
+
+.setting-icon {
+
+    font-size: 32px;
+
+    margin-bottom: 25px;
+}
+
+.setting-card h3 {
+
+    color: #ff20b9;
+
+    font-size: 20px;
+
+    margin-bottom: 12px;
+}
+
+.setting-card p {
+
+    color: #858590;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* ABOUT */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.3fr .9fr;
+
+    gap: 25px;
+}
+
+.about-box {
+
+    padding: 35px;
+
+    border: 1px solid #25252d;
+
+    border-radius: 20px;
+
+    background: #101016;
+}
+
+.about-box h3 {
+
+    font-size: 27px;
+
+    margin-bottom: 20px;
+}
+
+.about-box p {
+
+    color: #8d8d98;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.stat {
+
+    padding: 25px;
+
+    border: 1px solid #25252d;
+
+    border-radius: 18px;
+
+    background: #0e0e14;
+}
+
+.stat strong {
+
+    display: block;
+
+    color: #ff20b9;
+
+    font-size: 30px;
+
+    margin-bottom: 7px;
+}
+
+.stat span {
+
+    color: #777782;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* SOCIAL */
+
+.social-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 18px;
+}
+
+.social-card {
+
+    padding: 28px;
+
+    border: 1px solid #25252d;
+
+    border-radius: 18px;
+
+    background: #0e0e14;
+
+    color: white;
+
+    text-decoration: none;
+}
+
+.social-card:hover {
+
+    border-color: #ff20b9;
+
+    transform: translateY(-5px);
+}
+
+.social-card span {
+
+    color: #ff20b9;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+.social-card p {
+
+    color: #777782;
+
+    margin-top: 8px;
+}
+
+
+/* CTA */
+
+.cta {
+
+    max-width: 1180px;
+
+    margin: 20px auto 80px;
+
+    padding: 80px 25px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    border: 1px solid #3a1737;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,0,180,.16),
+            transparent 55%
+        ),
+        #100913;
+}
+
+.cta h2 {
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.cta p {
+
+    color: #777782;
+
+    margin-bottom: 25px;
+}
+
+
+/* FOOTER */
+
+footer {
+
+    border-top: 1px solid #18181f;
+
+    padding: 35px;
+
+    text-align: center;
+
+    color: #555560;
+
+    font-size: 13px;
+}
+
+footer strong {
+
+    color: #ff20b9;
+}
+
+
+/* MODAL */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.8);
+
+    backdrop-filter: blur(10px);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+}
+
+.modal.active {
+
+    display: flex;
+}
+
+.modal-box {
+
+    width: min(650px,100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    border: 1px solid #3a2438;
+
+    background: #101016;
+
+    position: relative;
+
+    box-shadow: 0 30px 100px rgba(0,0,0,.8);
+}
+
+.close {
+
+    position: absolute;
+
+    right: 18px;
+
+    top: 18px;
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    border: 1px solid #292932;
+
+    background: #17171e;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.modal-label {
+
+    color: #ff20b9;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+.modal-box h2 {
+
+    font-size: 34px;
+
+    margin: 12px 0;
+}
+
+.modal-box > p {
+
+    color: #858590;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+.setting-list {
+
+    display: grid;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.setting-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #15151c;
+
+    border: 1px solid #22222a;
+}
+
+.setting-row span:first-child {
+
+    color: #777782;
+}
+
+.setting-row span:last-child {
+
+    color: white;
+
+    font-weight: bold;
+
+    text-align: right;
+}
+
+.code-box {
+
+    background: #08080c;
+
+    border: 1px solid #292932;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    color: #ff55c9;
+
+    font-family: monospace;
+
+    font-size: 14px;
+
+    word-break: break-all;
+
+    margin-top: 20px;
+
+    margin-bottom: 15px;
+}
+
+.copy-btn {
+
+    border: 0;
+
+    padding: 13px 20px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        100deg,
+        #ff159e,
+        #bd00ff
+    );
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    nav {
+        padding: 0 20px;
+    }
+
+    .settings-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:600px) {
+
+    .hero-logo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+
+    .cta h2 {
+        font-size: 34px;
+    }
+
+    .modal-box {
+        padding: 30px 20px;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
 
-        <div class="logo-text">
-            XANNY <span>LIVE</span>
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo-text">
+        XANNY <span>LIVE</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#home">Ana Sayfa</a>
+
+        <a href="#settings">Ayarlar</a>
+
+        <a href="#about">Hakkımda</a>
+
+        <a href="#social">Sosyal</a>
+
+    </div>
+
+    <a
+        class="live-button"
+        href="https://kick.com/xannylive"
+        target="_blank">
+
+        🟢 CANLI YAYIN
+
+    </a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <img
+            src="assets/logo.jpg"
+            class="hero-logo"
+            alt="XANNYLIVE">
+
+        <div class="eyebrow">
+            CS2 PLAYER • STREAMER • CONTENT CREATOR
         </div>
 
-        <div class="nav-links">
-            <a href="#home">Ana Sayfa</a>
-            <a href="#settings">Ayarlar</a>
-            <a href="#about">Hakkımda</a>
-            <a href="#social">Sosyal</a>
-        </div>
+        <h1>
+            XANNYLIVE
+        </h1>
 
-        <a
-            class="live-button"
-            href="https://kick.com/xannylive"
-            target="_blank"
-        >
-            🟢 CANLI YAYIN
-        </a>
+        <p class="hero-description">
 
-    </nav>
+            Counter-Strike 2 oynuyorum, yayın açıyorum
+            ve oyun ayarlarımı sizlerle paylaşıyorum.
 
+            FPS, crosshair, mouse ve performans
+            ayarları burada.
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-
-        <div class="hero-content">
-
-            <img
-                src="assets/logo.jpg"
-                class="hero-logo"
-                alt="XANNYLIVE"
-            >
-
-            <div class="eyebrow">
-                CS2 PLAYER • STREAMER • CONTENT CREATOR
-            </div>
-
-            <h1>XANNYLIVE</h1>
-
-            <p class="hero-description">
-                Counter-Strike 2 oynuyorum, yayın açıyorum ve
-                oyun ayarlarımı sizlerle paylaşıyorum.
-                FPS, crosshair, mouse ve performans ayarları burada.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a
-                    class="primary-btn"
-                    href="https://kick.com/xannylive"
-                    target="_blank"
-                >
-                    🟢 Kick Yayınına Katıl
-                </a>
-
-                <a
-                    class="secondary-btn"
-                    href="#settings"
-                >
-                    ⚙️ Ayarlarımı Gör
-                </a>
-
-            </div>
-
-            <div class="status">
-                <span class="status-dot"></span>
-                Yayınlar ve yeni içerikler için takipte kal
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- AYARLAR -->
-    <section id="settings">
-
-        <div class="section-label">
-            MY SETTINGS
-        </div>
-
-        <h2 class="section-title">
-            Oyun Ayarlarım
-        </h2>
-
-        <p class="section-description">
-            CS2'de kullandığım temel ayarlar ve içerikler.
-            Kartlara tıklayarak detayları görebilirsin.
         </p>
 
+        <div class="hero-buttons">
 
-        <div class="settings-grid">
+            <a
+                class="primary-btn"
+                href="https://kick.com/xannylive"
+                target="_blank">
+
+                🟢 Kick Yayınına Katıl
+
+            </a>
+
+            <a
+                class="secondary-btn"
+                href="#settings">
+
+                ⚙️ Ayarlarımı Gör
+
+            </a>
+
+        </div>
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            Yayınlar ve yeni içerikler için takipte kal
+
+        </div>
+
+    </div>
+
+</section>
 
 
-            <!-- CROSSHAIR -->
-         <div class="setting-card" onclick="openModal('crosshair')">
+<!-- SETTINGS -->
 
-    <div class="setting-icon">🎯</div>
+<section id="settings">
 
-    <h3>Crosshair Kodlarım</h3>
+    <div class="section-label">
+        MY SETTINGS
+    </div>
+
+    <h2 class="section-title">
+        Oyun Ayarlarım
+    </h2>
+
+    <p class="section-description">
+
+        CS2'de kullandığım temel ayarlar ve içerikler.
+        Kartlara tıklayarak detayları görebilirsin.
+
+    </p>
+
+
+    <div class="settings-grid">
+
+
+        <!-- CROSSHAIR -->
+
+        <div
+            class="setting-card"
+            onclick="openModal('crosshair')">
+
+            <div class="setting-icon">
+                🎯
+            </div>
+
+            <h3>
+                Crosshair Kodlarım
+            </h3>
+
+            <p>
+                CS2'de kullandığım crosshair ayarları
+                ve farklı crosshair seçenekleri.
+            </p>
+
+        </div>
+
+
+        <!-- CS2 -->
+
+        <div
+            class="setting-card"
+            onclick="openModal('cs2')">
+
+            <div class="setting-icon">
+                ⚙️
+            </div>
+
+            <h3>
+                CS2 Ayarlarım
+            </h3>
+
+            <p>
+                FPS, görüntü kalitesi ve performans
+                için kullandığım oyun ayarları.
+            </p>
+
+        </div>
+
+
+        <!-- MOUSE -->
+
+        <div
+            class="setting-card"
+            onclick="openModal('mouse')">
+
+            <div class="setting-icon">
+                🖱️
+            </div>
+
+            <h3>
+                Mouse Ayarlarım
+            </h3>
+
+            <p>
+                DPI, sensitivity ve oyun içi
+                mouse ayarlarım.
+            </p>
+
+        </div>
+
+
+        <!-- NVIDIA -->
+
+        <div
+            class="setting-card"
+            onclick="openModal('nvidia')">
+
+            <div class="setting-icon">
+                🎨
+            </div>
+
+            <h3>
+                NVIDIA Renk Ayarlarım
+            </h3>
+
+            <p>
+                CS2'de daha canlı ve net görüntü
+                için kullandığım NVIDIA ayarları.
+            </p>
+
+        </div>
+
+
+        <!-- FPS -->
+
+        <div
+            class="setting-card"
+            onclick="openModal('fps')">
+
+            <div class="setting-icon">
+                🚀
+            </div>
+
+            <h3>
+                FPS Optimizasyonu
+            </h3>
+
+            <p>
+                Daha yüksek FPS ve daha akıcı oyun
+                deneyimi için optimizasyonlar.
+            </p>
+
+        </div>
+
+
+        <!-- VIDEOS -->
+
+        <div
+            class="setting-card"
+            onclick="openModal('videos')">
+
+            <div class="setting-icon">
+                🎥
+            </div>
+
+            <h3>
+                Videolarım
+            </h3>
+
+            <p>
+                YouTube videolarım, rehberlerim
+                ve oyun içeriklerim.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-label">
+        ABOUT ME
+    </div>
+
+    <h2 class="section-title">
+        XANNYLIVE Kimdir?
+    </h2>
+
+    <p class="section-description">
+        Oyunculuk, yayıncılık ve içerik üretimi.
+    </p>
+
+
+    <div class="about-grid">
+
+        <div class="about-box">
+
+            <h3>
+                🎮 CS2 benim işim.
+            </h3>
+
+            <p>
+
+                Burada sadece oyun oynamıyorum.
+                Kullandığım ayarları, ekipmanları,
+                performans optimizasyonlarını ve
+                oyun deneyimlerimi paylaşıyorum.
+
+            </p>
+
+            <p>
+
+                Hedefim kaliteli yayınlar ve kaliteli
+                içerikler üreterek XANNYLIVE markasını
+                büyütmek.
+
+            </p>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <strong>
+                    CS2
+                </strong>
+
+                <span>
+                    Ana Oyun
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    LIVE
+                </strong>
+
+                <span>
+                    Yayıncı
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    FPS
+                </strong>
+
+                <span>
+                    Performans
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    24/7
+                </strong>
+
+                <span>
+                    Gaming
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SOCIAL -->
+
+<section id="social">
+
+    <div class="section-label">
+        SOCIAL MEDIA
+    </div>
+
+    <h2 class="section-title">
+        Beni Takip Et
+    </h2>
+
+    <p class="section-description">
+
+        Yayınları ve yeni içerikleri kaçırmamak
+        için sosyal medya hesaplarımı takip
+        edebilirsin.
+
+    </p>
+
+
+    <div class="social-grid">
+
+
+        <a
+            class="social-card"
+            href="https://kick.com/xannylive"
+            target="_blank">
+
+            <span>
+                🟢 Kick
+            </span>
+
+            <p>
+                Canlı yayınlarım
+            </p>
+
+        </a>
+
+
+        <a
+            class="social-card"
+            href="#"
+            onclick="openModal('videos'); return false;">
+
+            <span>
+                ▶️ YouTube
+            </span>
+
+            <p>
+                Videolarım ve rehberlerim
+            </p>
+
+        </a>
+
+
+        <a
+            class="social-card"
+            href="#">
+
+            <span>
+                📸 Instagram
+            </span>
+
+            <p>
+                Günlük içerikler ve paylaşımlar
+            </p>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<div class="cta">
+
+    <h2>
+        Yayında görüşürüz. 🔥
+    </h2>
 
     <p>
-        CS2'de kullandığım crosshair ayarları ve farklı
-        crosshair seçenekleri.
+        Yeni içerikleri kaçırmamak için takipte kal.
     </p>
+
+    <a
+        class="primary-btn"
+        href="https://kick.com/xannylive"
+        target="_blank">
+
+        🟢 Kick'e Git
+
+    </a>
 
 </div>
 
-            <!-- CS2 -->
-            <div
-             class="setting-card" onclick="openModal('cs2')">
-            >
 
-                <div class="setting-icon">⚙️</div>
+<!-- FOOTER -->
 
-                <h3>CS2 Ayarlarım</h3>
+<footer>
 
-                <p>
-                    FPS, görüntü kalitesi ve performans
-                    için kullandığım oyun ayarları.
-                </p>
+    © 2026
+    <strong>XANNYLIVE</strong>
+    — CS2 Player & Content Creator
 
-            </div>
+</footer>
 
 
-            <!-- MOUSE -->
-<div class="setting-card" onclick="openModal('mouse')">
-                <div class="setting-icon">🖱️</div>
+<!-- MODAL -->
 
-                <h3>Mouse Ayarlarım</h3>
+<div
+    class="modal"
+    id="modal">
 
-                <p>
-                    DPI, sensitivity ve oyun içi
-                    mouse ayarlarım.
-                </p>
+    <div class="modal-box">
 
-            </div>
+        <button
+            class="close"
+            onclick="closeModal()">
 
+            ×
 
-            <!-- NVIDIA -->
-          <div class="setting-card" onclick="openModal('nvidia')">
+        </button>
 
-                <div class="setting-icon">🎨</div>
+        <div
+            class="modal-label"
+            id="modalLabel">
 
-                <h3>NVIDIA Renk Ayarlarım</h3>
-
-                <p>
-                    CS2'de daha canlı ve net görüntü
-                    için kullandığım NVIDIA renk ayarları.
-                </p>
-
-            </div>
-
-
-            <!-- FPS -->
-            <div class="setting-card" onclick="openModal('fps')">
-                <div class="setting-icon">🚀</div>
-
-                <h3>FPS Optimizasyonu</h3>
-
-                <p>
-                    Daha yüksek FPS ve daha akıcı oyun
-                    deneyimi için kullandığım optimizasyonlar.
-                </p>
-
-            </div>
-
-
-            <!-- VIDEOLAR -->
-            <div class="setting-card" onclick="openModal('videos')">
-
-                <div class="setting-icon">🎥</div>
-
-                <h3>Videolarım</h3>
-
-                <p>
-                    YouTube videolarım, rehberlerim
-                    ve oyun içeriklerim.
-                </p>
-
-            </div>
+            XANNYLIVE
 
         </div>
 
-    </section>
-
-
-    <!-- HAKKIMDA -->
-    <section id="about">
-
-        <div class="section-label">
-            ABOUT ME
-        </div>
-
-        <h2 class="section-title">
-            XANNYLIVE Kimdir?
+        <h2 id="modalTitle">
+            Ayarlar
         </h2>
 
-        <p class="section-description">
-            Oyunculuk, yayıncılık ve içerik üretimi.
+        <p id="modalDescription">
+            Ayarlar burada.
         </p>
 
-
-        <div class="about-grid">
-
-            <div class="about-box">
-
-                <h3>🎮 CS2 benim işim.</h3>
-
-                <p>
-                    Burada sadece oyun oynamıyorum.
-                    Kullandığım ayarları, ekipmanları,
-                    performans optimizasyonlarını ve oyun
-                    deneyimlerimi de paylaşıyorum.
-                </p>
-
-                <p>
-                    Hedefim kaliteli yayınlar ve kaliteli
-                    içerikler üreterek XANNYLIVE markasını büyütmek.
-                </p>
-
-            </div>
-
-
-            <div class="stats">
-
-                <div class="stat">
-                    <strong>CS2</strong>
-                    <span>Ana Oyun</span>
-                </div>
-
-                <div class="stat">
-                    <strong>LIVE</strong>
-                    <span>Yayıncı</span>
-                </div>
-
-                <div class="stat">
-                    <strong>FPS</strong>
-                    <span>Performans</span>
-                </div>
-
-                <div class="stat">
-                    <strong>24/7</strong>
-                    <span>Gaming</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SOSYAL -->
-    <section id="social">
-
-        <div class="section-label">
-            SOCIAL MEDIA
-        </div>
-
-        <h2 class="section-title">
-            Beni Takip Et
-        </h2>
-
-        <p class="section-description">
-            Yayınları ve yeni içerikleri kaçırmamak için
-            sosyal medya hesaplarımı takip edebilirsin.
-        </p>
-
-
-        <div class="social-grid">
-
-            <a
-                class="social-card"
-                href="https://kick.com/xannylive"
-                target="_blank"
-            >
-
-                <span>🟢 Kick</span>
-
-                <p>
-                    Canlı yayınlarım
-                </p>
-
-            </a>
-
-
-            <a
-                class="social-card"
-                href="#"
-            >
-
-                <span>▶️ YouTube</span>
-
-                <p>
-                    Videolarım ve rehberlerim
-                </p>
-
-            </a>
-
-
-            <a
-                class="social-card"
-                href="#"
-            >
-
-                <span>📸 Instagram</span>
-
-                <p>
-                    Günlük içerikler ve paylaşımlar
-                </p>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- CTA -->
-    <div class="cta">
-
-        <h2>
-            Yayında görüşürüz. 🔥
-        </h2>
-
-        <p>
-            Yeni içerikleri kaçırmamak için takipte kal.
-        </p>
-
-        <a
-            class="primary-btn"
-            href="https://kick.com/xannylive"
-            target="_blank"
-        >
-            🟢 Kick'e Git
-        </a>
+        <div id="modalContent"></div>
 
     </div>
 
-
-    <!-- FOOTER -->
-    <footer>
-
-        © 2026
-        <strong>XANNYLIVE</strong>
-        — CS2 Player & Content Creator
-
-    </footer>
+</div>
 
 
-    <!-- MODAL -->
-    <div
-        class="modal"
-        id="modal"
-    >
+<!-- JAVASCRIPT -->
 
-        <div class="modal-box">
+<script>
+
+const modal =
+    document.getElementById("modal");
+
+const modalLabel =
+    document.getElementById("modalLabel");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalDescription =
+    document.getElementById("modalDescription");
+
+const modalContent =
+    document.getElementById("modalContent");
+
+
+function openModal(type) {
+
+    modal.classList.add("active");
+
+
+    if (type === "crosshair") {
+
+        modalLabel.innerText = "CROSSHAIR";
+
+        modalTitle.innerText =
+            "Crosshair Kodlarım";
+
+        modalDescription.innerText =
+            "CS2'de kullandığım crosshair ayarları.";
+
+        modalContent.innerHTML = `
+
+            <div class="code-box" id="crosshairCode">
+
+                CSGO-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+
+            </div>
 
             <button
-                class="close"
-                onclick="closeModal()"
-            >
-                ×
+                class="copy-btn"
+                onclick="copyCrosshair()">
+
+                📋 Kodu Kopyala
+
             </button>
 
-            <div
-                class="modal-label"
-                id="modalLabel"
-            >
-                XANNYLIVE
+            <div class="setting-list">
+
+                <div class="setting-row">
+                    <span>Renk</span>
+                    <span>Pembe</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Hareket</span>
+                    <span>Kapalı</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Merkez Nokta</span>
+                    <span>Kapalı</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Outline</span>
+                    <span>Açık</span>
+                </div>
+
             </div>
 
-            <h2 id="modalTitle">
-                Ayarlar
-            </h2>
+        `;
 
-            <p id="modalDescription">
-                Ayarlar burada.
-            </p>
-
-            <div id="modalContent"></div>
-
-        </div>
-
-    </div>
+        return;
+    }
 
 
-    <!-- JAVASCRIPT -->
-   <script src="script.js"></script>
+    if (type === "cs2") {
+
+        modalLabel.innerText =
+            "CS2 SETTINGS";
+
+        modalTitle.innerText =
+            "CS2 Ayarlarım";
+
+        modalDescription.innerText =
+            "FPS ve görüntü performansı için kullandığım CS2 ayarları.";
+
+        modalContent.innerHTML = `
+
+            <div class="setting-list">
+
+                <div class="setting-row">
+                    <span>Çözünürlük</span>
+                    <span>1080 × 1080</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Görüntü Modu</span>
+                    <span>Fullscreen</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>V-Sync</span>
+                    <span>Kapalı</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Boost Player Contrast</span>
+                    <span>Açık</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>MSAA</span>
+                    <span>2x</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Texture Filtering</span>
+                    <span>4x</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Shader</span>
+                    <span>Düşük</span>
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    if (type === "mouse") {
+
+        modalLabel.innerText =
+            "MOUSE SETTINGS";
+
+        modalTitle.innerText =
+            "Mouse Ayarlarım";
+
+        modalDescription.innerText =
+            "CS2 için kullandığım temel mouse ayarları.";
+
+        modalContent.innerHTML = `
+
+            <div class="setting-list">
+
+                <div class="setting-row">
+                    <span>DPI</span>
+                    <span>800</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Sensitivity</span>
+                    <span>1.00</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>eDPI</span>
+                    <span>800</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Raw Input</span>
+                    <span>Açık</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Mouse Acceleration</span>
+                    <span>Kapalı</span>
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    if (type === "nvidia") {
+
+        modalLabel.innerText =
+            "NVIDIA COLOR";
+
+        modalTitle.innerText =
+            "NVIDIA Renk Ayarlarım";
+
+        modalDescription.innerText =
+            "CS2 için kullandığım NVIDIA renk ayarları.";
+
+        modalContent.innerHTML = `
+
+            <div class="setting-list">
+
+                <div class="setting-row">
+                    <span>Parlaklık</span>
+                    <span>60%</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Kontrast</span>
+                    <span>55%</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Gama</span>
+                    <span>1.00</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Dijital Titreşim</span>
+                    <span>80%</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Ton</span>
+                    <span>0°</span>
+                </div>
+
+            </div>
+
+            <div class="code-box">
+
+                NVIDIA DENETİM MASASI →
+                EKRAN →
+                MASAÜSTÜ RENK AYARLARINI AYARLA
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    if (type === "fps") {
+
+        modalLabel.innerText =
+            "FPS OPTIMIZATION";
+
+        modalTitle.innerText =
+            "FPS Optimizasyonu";
+
+        modalDescription.innerText =
+            "CS2'de daha yüksek ve daha stabil FPS için kullandığım optimizasyonlar.";
+
+        modalContent.innerHTML = `
+
+            <div class="setting-list">
+
+                <div class="setting-row">
+                    <span>NVIDIA Güç Yönetimi</span>
+                    <span>Maksimum Performans</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Düşük Gecikme</span>
+                    <span>Açık</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Dikey Senkronizasyon</span>
+                    <span>Kapalı</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Yenileme Hızı</span>
+                    <span>En Yüksek</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Windows Oyun Modu</span>
+                    <span>Açık</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Windows Güç Modu</span>
+                    <span>En iyi performans</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Lenovo Vantage</span>
+                    <span>Performans Modu</span>
+                </div>
+
+            </div>
+
+            <div class="code-box">
+
+                🚀 XANNYLIVE FPS OPTİMİZASYON REHBERİ
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    if (type === "videos") {
+
+        modalLabel.innerText =
+            "CONTENT";
+
+        modalTitle.innerText =
+            "Videolarım";
+
+        modalDescription.innerText =
+            "CS2 içeriklerim, ayar rehberlerim ve yayın videolarım.";
+
+        modalContent.innerHTML = `
+
+            <div class="setting-list">
+
+                <div class="setting-row">
+                    <span>CS2 Ayar Rehberi</span>
+                    <span>Yakında</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>FPS Optimizasyonu</span>
+                    <span>Yakında</span>
+                </div>
+
+                <div class="setting-row">
+                    <span>Crosshair Rehberi</span>
+                    <span>Yakında</span>
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+}
+
+
+function closeModal() {
+
+    modal.classList.remove("active");
+
+}
+
+
+function copyCrosshair() {
+
+    const code =
+        document.getElementById("crosshairCode").innerText;
+
+    navigator.clipboard.writeText(code);
+
+    alert("Crosshair kodu kopyalandı! 🎯");
+
+}
+
+
+modal.addEventListener(
+    "click",
+    function(event) {
+
+        if (event.target === modal) {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+</script>
+
 
 </body>
 </html>
