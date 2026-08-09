@@ -9,9 +9,11 @@ const cards = document.querySelectorAll(".guide-card");
 
 const mobileBtn = document.getElementById("mobileMenuBtn");
 const mobileNav = document.getElementById("mobileNav");
+const languageBtn = document.getElementById("languageBtn");
+
 
 /* =========================
-   CS2 AYARLARI
+   CS2 GUIDE DATA
 ========================= */
 
 const guides = {
@@ -19,28 +21,28 @@ const guides = {
     crosshair: {
         label: "CS2 / AIM",
         title: "CROSSHAIR",
-        text: "Kullandığım crosshair kodunu aşağıdan direkt kopyalayabilirsin.",
         content: `
             <div class="guide-label">XANNY CROSSHAIR</div>
+
             <h2>CROSSHAIR <span>CODE.</span></h2>
 
             <p>
-                Kodu kopyala ve CS2 konsoluna yapıştır.
+                Kullandığım crosshair kodunu aşağıdan
+                tek tıkla kopyalayabilirsin.
             </p>
 
             <div class="code-box">
-                <code id="crosshairCode">
-```
 
-CSGO-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </code>
+                <code id="crosshairCode">CSGO-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>
 
-```
                 <button id="copyCrosshair">
                     COPY CODE
                 </button>
+
             </div>
 
             <div class="steps">
+
                 <div>
                     <b>01</b>
                     <span>CS2'yi aç.</span>
@@ -53,18 +55,20 @@ CSGO-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </code>
 
                 <div>
                     <b>03</b>
-                    <span>Kodu yapıştır ve Enter'a bas.</span>
+                    <span>Kodu konsola yapıştır ve Enter'a bas.</span>
                 </div>
+
             </div>
         `
     },
 
+
     mouse: {
         label: "CS2 / AIM",
         title: "MOUSE",
-        text: "Mouse hassasiyetim ve Windows mouse ayarlarım.",
         content: `
             <div class="guide-label">XANNY AIM</div>
+
             <h2>MOUSE <span>SETTINGS.</span></h2>
 
             <div class="setting-list">
@@ -89,19 +93,26 @@ CSGO-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </code>
                     <strong>1000 Hz</strong>
                 </div>
 
+                <div>
+                    <span>MOUSE ACCELERATION</span>
+                    <strong>OFF</strong>
+                </div>
+
             </div>
 
             <div class="guide-note">
-                Windows'ta mouse acceleration kapalı olmalı.
+                Windows mouse acceleration kapalı kullanılmalıdır.
             </div>
         `
     },
+
 
     graphics: {
         label: "CS2 / DISPLAY",
         title: "GRAPHICS",
         content: `
             <div class="guide-label">CS2 PERFORMANCE</div>
+
             <h2>GRAPHICS <span>SETTINGS.</span></h2>
 
             <div class="setting-list">
@@ -140,11 +151,13 @@ CSGO-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </code>
         `
     },
 
+
     refresh: {
         label: "DISPLAY",
         title: "MONITOR",
         content: `
             <div class="guide-label">DISPLAY</div>
+
             <h2>MONITOR <span>SETTINGS.</span></h2>
 
             <div class="setting-list">
@@ -155,7 +168,7 @@ CSGO-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </code>
                 </div>
 
                 <div>
-                    <span>MODE</span>
+                    <span>DISPLAY MODE</span>
                     <strong>FULLSCREEN</strong>
                 </div>
 
@@ -173,11 +186,13 @@ CSGO-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </code>
         `
     },
 
+
     hud: {
         label: "CS2 / INTERFACE",
         title: "HUD",
         content: `
             <div class="guide-label">INTERFACE</div>
+
             <h2>HUD <span>SETTINGS.</span></h2>
 
             <div class="setting-list">
@@ -198,7 +213,7 @@ CSGO-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </code>
                 </div>
 
                 <div>
-                    <span>HUD PLAYER COUNT</span>
+                    <span>PLAYER COUNT</span>
                     <strong>SHOW</strong>
                 </div>
 
@@ -206,11 +221,13 @@ CSGO-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </code>
         `
     },
 
+
     radar: {
         label: "CS2 / RADAR",
         title: "RADAR",
         content: `
             <div class="guide-label">RADAR</div>
+
             <h2>RADAR <span>SETTINGS.</span></h2>
 
             <div class="setting-list">
@@ -239,36 +256,41 @@ CSGO-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </code>
         `
     },
 
+
     viewmodel: {
         label: "CS2 / WEAPON",
         title: "VIEWMODEL",
         content: `
             <div class="guide-label">WEAPON POSITION</div>
+
             <h2>VIEWMODEL <span>SETTINGS.</span></h2>
 
             <div class="code-box">
-                <code>
+
+                <code id="viewmodelCode">viewmodel_fov 68
 ```
 
-viewmodel_fov 68
 viewmodel_offset_x 2.5
 viewmodel_offset_y 2
 viewmodel_offset_z -2
-viewmodel_presetpos 3 </code>
+viewmodel_presetpos 3</code>
 
 ```
-                <button onclick="copyText(this, 'viewmodel_fov 68; viewmodel_offset_x 2.5; viewmodel_offset_y 2; viewmodel_offset_z -2; viewmodel_presetpos 3')">
+                <button id="copyViewmodel">
                     COPY COMMAND
                 </button>
+
             </div>
         `
     },
+
 
     nvidia: {
         label: "NVIDIA / COLORS",
         title: "NVIDIA",
         content: `
             <div class="guide-label">NVIDIA COLORS</div>
+
             <h2>NVIDIA <span>COLORS.</span></h2>
 
             <p class="guide-intro">
@@ -289,12 +311,12 @@ viewmodel_presetpos 3 </code>
 
                 <div>
                     <b>03</b>
-                    <span>Sol menüden "Masaüstü renk ayarlarını değiştir" bölümüne gir.</span>
+                    <span>"Masaüstü renk ayarlarını değiştir" bölümüne gir.</span>
                 </div>
 
                 <div>
                     <b>04</b>
-                    <span>Parlaklık, kontrast ve dijital canlılık değerlerini ayarla.</span>
+                    <span>Dijital canlılık ayarını yükselt.</span>
                 </div>
 
             </div>
@@ -320,11 +342,13 @@ viewmodel_presetpos 3 </code>
         `
     },
 
+
     "nvidia-fps": {
         label: "FPS BOOST / NVIDIA",
         title: "NVIDIA FPS",
         content: `
             <div class="guide-label">PERFORMANCE</div>
+
             <h2>NVIDIA <span>FPS BOOST.</span></h2>
 
             <div class="steps">
@@ -358,11 +382,13 @@ viewmodel_presetpos 3 </code>
         `
     },
 
+
     "windows-fps": {
         label: "FPS BOOST / WINDOWS",
         title: "WINDOWS FPS",
         content: `
             <div class="guide-label">SYSTEM</div>
+
             <h2>WINDOWS <span>BOOST.</span></h2>
 
             <div class="steps">
@@ -384,7 +410,7 @@ viewmodel_presetpos 3 </code>
 
                 <div>
                     <b>04</b>
-                    <span>Ayarlar → Sistem → Ekran → Grafikler bölümüne gir.</span>
+                    <span>Sistem → Ekran → Grafikler bölümüne gir.</span>
                 </div>
 
                 <div>
@@ -396,11 +422,13 @@ viewmodel_presetpos 3 </code>
         `
     },
 
+
     "cs2-fps": {
         label: "FPS BOOST / CS2",
         title: "CS2 BOOST",
         content: `
             <div class="guide-label">GAME PERFORMANCE</div>
+
             <h2>CS2 <span>OPTIMIZATION.</span></h2>
 
             <div class="steps">
@@ -412,22 +440,17 @@ viewmodel_presetpos 3 </code>
 
                 <div>
                     <b>02</b>
-                    <span>Başlatma seçeneklerini gereksiz komutlarla doldurma.</span>
+                    <span>Oyunda V-Sync'i kapat.</span>
                 </div>
 
                 <div>
                     <b>03</b>
-                    <span>Oyunda V-Sync'i kapat.</span>
+                    <span>Oyunu tam ekran çalıştır.</span>
                 </div>
 
                 <div>
                     <b>04</b>
                     <span>Gereksiz arka plan uygulamalarını kapat.</span>
-                </div>
-
-                <div>
-                    <b>05</b>
-                    <span>Oyunu tam ekran çalıştır.</span>
                 </div>
 
             </div>
@@ -438,14 +461,16 @@ viewmodel_presetpos 3 </code>
 
 
 /* =========================
-   MODAL AÇ
+   OPEN GUIDE
 ========================= */
 
 function openGuide(type) {
 
     const guide = guides[type];
 
-    if (!guide) return;
+    if (!guide || !modal || !guideContent) {
+        return;
+    }
 
     guideContent.innerHTML = `
         <div class="modal-label">
@@ -460,40 +485,102 @@ function openGuide(type) {
     `;
 
     modal.classList.add("active");
+
     document.body.style.overflow = "hidden";
 
-    setTimeout(() => {
 
-        const copyButton =
-            document.getElementById("copyCrosshair");
+    const copyCrosshair =
+        document.getElementById("copyCrosshair");
 
-        if (copyButton) {
+    if (copyCrosshair) {
 
-            copyButton.addEventListener("click", () => {
+        copyCrosshair.addEventListener("click", () => {
 
-                const code =
-                    document.getElementById("crosshairCode")
-                    .innerText
-                    .trim();
+            const code =
+                document.getElementById("crosshairCode")
+                .textContent
+                .trim();
 
-                navigator.clipboard.writeText(code);
+            copyToClipboard(
+                code,
+                copyCrosshair,
+                "COPY CODE"
+            );
 
-                copyButton.innerText = "COPIED ✓";
+        });
 
-                setTimeout(() => {
-                    copyButton.innerText = "COPY CODE";
-                }, 1800);
+    }
 
-            });
 
-        }
+    const copyViewmodel =
+        document.getElementById("copyViewmodel");
 
-    }, 50);
+    if (copyViewmodel) {
+
+        copyViewmodel.addEventListener("click", () => {
+
+            const code =
+                document.getElementById("viewmodelCode")
+                .textContent
+                .trim();
+
+            copyToClipboard(
+                code,
+                copyViewmodel,
+                "COPY COMMAND"
+            );
+
+        });
+
+    }
+
 }
 
 
 /* =========================
-   KARTLAR
+   COPY FUNCTION
+========================= */
+
+function copyToClipboard(text, button, originalText) {
+
+    navigator.clipboard.writeText(text)
+        .then(() => {
+
+            button.textContent = "COPIED ✓";
+
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 1800);
+
+        })
+        .catch(() => {
+
+            const textarea =
+                document.createElement("textarea");
+
+            textarea.value = text;
+
+            document.body.appendChild(textarea);
+
+            textarea.select();
+
+            document.execCommand("copy");
+
+            textarea.remove();
+
+            button.textContent = "COPIED ✓";
+
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 1800);
+
+        });
+
+}
+
+
+/* =========================
+   CARD CLICK
 ========================= */
 
 cards.forEach(card => {
@@ -501,7 +588,7 @@ cards.forEach(card => {
     card.addEventListener("click", () => {
 
         const type =
-            card.getAttribute("data-guide");
+            card.dataset.guide;
 
         openGuide(type);
 
@@ -511,19 +598,37 @@ cards.forEach(card => {
 
 
 /* =========================
-   MODAL KAPAT
+   CLOSE MODAL
 ========================= */
 
 function closeGuide() {
 
+    if (!modal) {
+        return;
+    }
+
     modal.classList.remove("active");
+
     document.body.style.overflow = "";
 
 }
 
-modalClose.addEventListener("click", closeGuide);
 
-modalBg.addEventListener("click", closeGuide);
+if (modalClose) {
+    modalClose.addEventListener(
+        "click",
+        closeGuide
+    );
+}
+
+
+if (modalBg) {
+    modalBg.addEventListener(
+        "click",
+        closeGuide
+    );
+}
+
 
 document.addEventListener("keydown", event => {
 
@@ -535,26 +640,35 @@ document.addEventListener("keydown", event => {
 
 
 /* =========================
-   MOBİL MENÜ
+   MOBILE MENU
 ========================= */
 
-if (mobileBtn) {
+if (mobileBtn && mobileNav) {
 
     mobileBtn.addEventListener("click", () => {
 
         mobileNav.classList.toggle("active");
+
+        mobileBtn.classList.toggle("active");
 
     });
 
 }
 
 
-document.querySelectorAll(".mobile-nav a")
+document
+    .querySelectorAll(".mobile-nav a")
     .forEach(link => {
 
         link.addEventListener("click", () => {
 
-            mobileNav.classList.remove("active");
+            if (mobileNav) {
+                mobileNav.classList.remove("active");
+            }
+
+            if (mobileBtn) {
+                mobileBtn.classList.remove("active");
+            }
 
         });
 
@@ -562,34 +676,11 @@ document.querySelectorAll(".mobile-nav a")
 
 
 /* =========================
-   GLOBAL COPY
+   LANGUAGE BUTTON
 ========================= */
-
-window.copyText = function(button, text) {
-
-    navigator.clipboard.writeText(text);
-
-    const oldText = button.innerText;
-
-    button.innerText = "COPIED ✓";
-
-    setTimeout(() => {
-
-        button.innerText = oldText;
-
-    }, 1800);
-
-};
-
-
-/* =========================
-   LANGUAGE
-========================= */
-
-const languageBtn =
-    document.getElementById("languageBtn");
 
 let english = false;
+
 
 if (languageBtn) {
 
@@ -599,19 +690,21 @@ if (languageBtn) {
 
         if (english) {
 
-            languageBtn.innerText = "EN / TR";
+            languageBtn.textContent = "EN / TR";
 
             document.documentElement.lang = "en";
 
-            alert(
-                "English version is being prepared. The full site translation will be added next."
-            );
+            languageBtn.title =
+                "English version";
 
         } else {
 
-            languageBtn.innerText = "TR / EN";
+            languageBtn.textContent = "TR / EN";
 
             document.documentElement.lang = "tr";
+
+            languageBtn.title =
+                "Türkçe versiyon";
 
         }
 
@@ -621,48 +714,49 @@ if (languageBtn) {
 
 
 /* =========================
-   SCROLL ANIMATION
+   CARD SCROLL ANIMATION
 ========================= */
 
-const observer =
-    new IntersectionObserver(
-        entries => {
+if ("IntersectionObserver" in window) {
 
-            entries.forEach(entry => {
+    const observer =
+        new IntersectionObserver(
+            entries => {
 
-                if (entry.isIntersecting) {
+                entries.forEach(entry => {
 
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform =
-                        "translateY(0)";
+                    if (entry.isIntersecting) {
 
-                }
+                        entry.target.classList.add(
+                            "is-visible"
+                        );
 
-            });
+                        observer.unobserve(
+                            entry.target
+                        );
 
-        },
-        {
-            threshold: 0.08
-        }
-    );
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.08
+            }
+        );
 
 
-document
-    .querySelectorAll(
-        ".big-card, .boost-card, .social-card, .quick-card"
-    )
-    .forEach((element, index) => {
+    document
+        .querySelectorAll(
+            ".big-card, .boost-card, .social-card, .quick-card"
+        )
+        .forEach(element => {
 
-        element.style.opacity = "0";
-        element.style.transform = "translateY(25px)";
-        element.style.transition =
-            `opacity .6s ease ${index * 0.04}s,
-             transform .6s ease ${index * 0.04}s`;
+            observer.observe(element);
 
-        observer.observe(element);
+        });
 
-    });
+}
 ```
 
 });
-
