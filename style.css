@@ -1,15 +1,14 @@
-```css
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
     --bg: #080808;
     --surface: #101010;
     --surface-2: #151515;
-    --border: rgba(255,255,255,.09);
+    --border: rgba(255,255,255,.10);
     --text: #f5f5f5;
-    --muted: #858585;
-    --red: #d90400;
-    --red-light: #ff3029;
+    --muted: #777;
+    --red: #e10600;
+    --red-light: #ff2b24;
     --green: #31e77b;
     --max: 1320px;
 }
@@ -33,7 +32,7 @@ body {
 
 body::selection {
     background: var(--red);
-    color: #fff;
+    color: white;
 }
 
 a {
@@ -56,23 +55,19 @@ button {
     right: 0;
     height: 76px;
     padding: 0 42px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     z-index: 1000;
 
     background: rgba(8,8,8,.88);
     border-bottom: 1px solid var(--border);
-
     backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
 }
 
 .logo {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 23px;
+    font-size: 24px;
     font-weight: 800;
     letter-spacing: -1.5px;
 }
@@ -85,19 +80,19 @@ button {
 .nav {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 30px;
 }
 
 .nav a {
-    color: #999;
+    color: #8c8c8c;
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 1px;
-    transition: .3s ease;
+    transition: .3s;
 }
 
 .nav a:hover {
-    color: #fff;
+    color: white;
 }
 
 .header-right {
@@ -109,47 +104,41 @@ button {
 .lang-btn {
     height: 36px;
     padding: 0 14px;
-
     border: 1px solid var(--border);
     border-radius: 7px;
-
     background: transparent;
     color: #aaa;
-
     font-size: 9px;
     font-weight: 800;
-
     cursor: pointer;
-    transition: .3s ease;
+    transition: .3s;
 }
 
 .lang-btn:hover {
     border-color: var(--red);
-    color: #fff;
+    color: white;
 }
 
 .header-kick {
     height: 36px;
     padding: 0 15px;
-
     display: flex;
     align-items: center;
     gap: 8px;
 
     border-radius: 7px;
-
-    background: #fff;
-    color: #000;
+    background: white;
+    color: black;
 
     font-size: 9px;
     font-weight: 800;
 
-    transition: .3s ease;
+    transition: .3s;
 }
 
 .header-kick:hover {
     background: var(--red);
-    color: #fff;
+    color: white;
 }
 
 .header-kick i,
@@ -158,26 +147,21 @@ button {
 .quick-live i {
     width: 7px;
     height: 7px;
-
     display: inline-block;
-
     border-radius: 50%;
     background: var(--green);
-
     box-shadow: 0 0 12px var(--green);
-
     animation: pulse 1.5s infinite;
 }
 
 .mobile-menu-btn {
     display: none;
-
     width: 40px;
     height: 40px;
 
     border: 1px solid var(--border);
-    background: transparent;
     border-radius: 7px;
+    background: transparent;
 
     cursor: pointer;
 }
@@ -187,7 +171,7 @@ button {
     width: 18px;
     height: 2px;
     margin: 4px auto;
-    background: #fff;
+    background: white;
 }
 
 .mobile-nav {
@@ -209,14 +193,14 @@ button {
 
     background:
         radial-gradient(
-            circle at 80% 40%,
-            rgba(217,4,0,.18),
+            circle at 78% 42%,
+            rgba(225,6,0,.18),
             transparent 30%
         ),
         linear-gradient(
             120deg,
             #080808,
-            #101010,
+            #111,
             #080808
         );
 }
@@ -232,12 +216,12 @@ button {
     right: -150px;
     top: 100px;
 
-    border: 1px solid rgba(217,4,0,.18);
+    border: 1px solid rgba(225,6,0,.18);
     border-radius: 50%;
 
     box-shadow:
-        0 0 0 70px rgba(217,4,0,.025),
-        0 0 0 140px rgba(217,4,0,.015);
+        0 0 0 70px rgba(225,6,0,.025),
+        0 0 0 140px rgba(225,6,0,.015);
 }
 
 .hero::after {
@@ -253,12 +237,11 @@ button {
     font-weight: 800;
 
     color: rgba(255,255,255,.018);
-
-    pointer-events: none;
 }
 
 .hero-content {
     position: relative;
+    z-index: 2;
 
     width: min(
         var(--max),
@@ -266,8 +249,6 @@ button {
     );
 
     margin: 80px auto 0;
-
-    z-index: 2;
 }
 
 .hero-status {
@@ -278,7 +259,6 @@ button {
     margin-bottom: 25px;
 
     color: #888;
-
     font-size: 9px;
     font-weight: 800;
     letter-spacing: 1.7px;
@@ -294,7 +274,6 @@ button {
     );
 
     line-height: .8;
-
     letter-spacing: -10px;
     font-weight: 700;
 }
@@ -304,13 +283,13 @@ button {
 }
 
 .hero-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-
     max-width: 1050px;
 
     margin-top: 55px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 
 .hero-description {
@@ -318,12 +297,12 @@ button {
 }
 
 .hero-description p {
+    margin-bottom: 25px;
+
     color: #999;
 
     font-size: 14px;
     line-height: 1.7;
-
-    margin-bottom: 25px;
 }
 
 .hero-buttons {
@@ -334,13 +313,10 @@ button {
 .btn-main,
 .btn-outline {
     min-height: 48px;
-
     padding: 0 19px;
 
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-
     gap: 20px;
 
     border-radius: 7px;
@@ -349,7 +325,7 @@ button {
     font-weight: 800;
     letter-spacing: .8px;
 
-    transition: .3s ease;
+    transition: .3s;
 }
 
 .btn-main {
@@ -358,11 +334,10 @@ button {
 
 .btn-main:hover {
     background: var(--red-light);
-
     transform: translateY(-3px);
 
     box-shadow:
-        0 15px 35px rgba(217,4,0,.25);
+        0 15px 35px rgba(225,6,0,.25);
 }
 
 .btn-outline {
@@ -371,7 +346,7 @@ button {
 }
 
 .btn-outline:hover {
-    color: #fff;
+    color: white;
     border-color: #555;
 }
 
@@ -390,11 +365,9 @@ button {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
     gap: 6px;
 
     color: #555;
-
     font-size: 8px;
     letter-spacing: 1.5px;
 }
@@ -414,7 +387,6 @@ button {
     width: max-content;
 
     display: flex;
-
     gap: 28px;
 
     padding: 17px 0;
@@ -428,7 +400,6 @@ button {
     font-size: 9px;
     font-weight: 800;
     letter-spacing: 1.8px;
-
     white-space: nowrap;
 }
 
@@ -437,7 +408,7 @@ button {
 }
 
 /* =========================
-   QUICK CARDS
+   QUICK
 ========================= */
 
 .quick-section {
@@ -447,7 +418,6 @@ button {
     );
 
     margin: auto;
-
     padding: 30px 0;
 }
 
@@ -455,10 +425,10 @@ button {
     display: grid;
     grid-template-columns: repeat(4,1fr);
 
+    overflow: hidden;
+
     border: 1px solid var(--border);
     border-radius: 12px;
-
-    overflow: hidden;
 }
 
 .quick-card {
@@ -474,11 +444,11 @@ button {
 
     border-right: 1px solid var(--border);
 
-    transition: .3s ease;
+    transition: .3s;
 }
 
 .quick-card:hover {
-    background: #141414;
+    background: #151515;
 }
 
 .quick-card:last-child {
@@ -511,7 +481,6 @@ button {
 
 .quick-live i {
     position: absolute;
-
     top: 23px;
     right: 22px;
 }
@@ -527,7 +496,6 @@ button {
     );
 
     margin: auto;
-
     padding: 110px 0;
 }
 
@@ -542,13 +510,13 @@ button {
 .section-label {
     display: block;
 
+    margin-bottom: 12px;
+
     color: var(--red);
 
     font-size: 9px;
     font-weight: 800;
     letter-spacing: 1.8px;
-
-    margin-bottom: 12px;
 }
 
 .section-top h2 {
@@ -561,7 +529,6 @@ button {
     );
 
     line-height: .88;
-
     letter-spacing: -4px;
 }
 
@@ -580,14 +547,12 @@ button {
 }
 
 /* =========================
-   SETTINGS GRID
+   SETTINGS CARDS
 ========================= */
 
 .settings-grid {
     display: grid;
-
     grid-template-columns: repeat(4,1fr);
-
     gap: 12px;
 }
 
@@ -618,8 +583,8 @@ button {
 
     transition:
         transform .45s cubic-bezier(.2,.8,.2,1),
-        border-color .35s ease,
-        box-shadow .35s ease;
+        border-color .35s,
+        box-shadow .35s;
 }
 
 .big-card::before {
@@ -647,8 +612,7 @@ button {
 .big-card:hover {
     transform: translateY(-8px);
 
-    border-color:
-        rgba(217,4,0,.4);
+    border-color: rgba(225,6,0,.45);
 
     box-shadow:
         0 25px 70px rgba(0,0,0,.35);
@@ -680,8 +644,6 @@ button {
 
     display: flex;
     align-items: center;
-
-    z-index: 1;
 }
 
 .card-info {
@@ -735,13 +697,14 @@ button {
 }
 
 .card-action b {
-    color: #fff;
+    color: white;
     font-size: 14px;
 
     transition: .3s;
 }
 
 .big-card:hover .card-action b {
+    color: var(--red);
     transform: translate(3px,-3px);
 }
 
@@ -750,7 +713,6 @@ button {
 ========================= */
 
 .crosshair-icon {
-    position: relative;
     width: 120px;
 }
 
@@ -776,10 +738,9 @@ button {
     width: 9px;
     height: 9px;
 
-    border: 2px solid #fff;
+    border: 2px solid white;
 
     background: transparent;
-
     border-radius: 50%;
 }
 
@@ -798,13 +759,12 @@ button {
 ========================= */
 
 .mouse-body {
+    position: relative;
+
     width: 58px;
     height: 88px;
 
-    position: relative;
-
     border: 3px solid #666;
-
     border-radius: 32px;
 
     transform: rotate(-8deg);
@@ -813,10 +773,8 @@ button {
 }
 
 .big-card:hover .mouse-body {
-    border-color: #fff;
-    transform:
-        rotate(-8deg)
-        translateY(-7px);
+    border-color: white;
+    transform: rotate(-8deg) translateY(-7px);
 }
 
 .mouse-wheel {
@@ -825,10 +783,10 @@ button {
     left: 50%;
     top: 15px;
 
-    transform: translateX(-50%);
-
     width: 6px;
     height: 15px;
+
+    transform: translateX(-50%);
 
     border-radius: 5px;
 
@@ -841,8 +799,6 @@ button {
 
 .monitor {
     width: 125px;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
 .screen {
@@ -883,7 +839,6 @@ button {
     margin: 8px auto;
 
     background: #555;
-
     border-radius: 5px;
 }
 
@@ -904,9 +859,9 @@ button {
 }
 
 .hz-icon span {
-    color: var(--red);
-
     margin-top: 10px;
+
+    color: var(--red);
 
     font-size: 11px;
     font-weight: 800;
@@ -926,7 +881,6 @@ button {
 
     display: flex;
     align-items: flex-end;
-
     gap: 7px;
 
     border: 2px solid #444;
@@ -943,11 +897,9 @@ button {
     width: 20px;
     height: 20px;
 
-    transform:
-        translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 
     border: 1px solid #777;
-
     border-radius: 50%;
 }
 
@@ -957,8 +909,7 @@ button {
     left: 50%;
     top: 50%;
 
-    transform:
-        translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 
     color: var(--red);
 }
@@ -981,7 +932,6 @@ button {
     height: 110px;
 
     border: 2px solid #555;
-
     border-radius: 50%;
 
     overflow: hidden;
@@ -999,14 +949,12 @@ button {
 .radar-circle::before {
     width: 100%;
     height: 1px;
-
     top: 50%;
 }
 
 .radar-circle::after {
     width: 1px;
     height: 100%;
-
     left: 50%;
 }
 
@@ -1049,8 +997,7 @@ button {
 
     background: var(--red);
 
-    animation:
-        radar 2s linear infinite;
+    animation: radar 2s linear infinite;
 }
 
 /* =========================
@@ -1124,7 +1071,7 @@ button {
 
 .big-card:hover .nvidia-icon {
     border-color: var(--red);
-    transform: rotate(8deg);
+    transform: rotate(8deg) scale(1.05);
 }
 
 .nvidia-icon strong {
@@ -1165,7 +1112,7 @@ button {
     font-size: 500px;
     font-weight: 800;
 
-    color: rgba(217,4,0,.035);
+    color: rgba(225,6,0,.035);
 }
 
 .boost-inner {
@@ -1175,10 +1122,7 @@ button {
 
 .boost-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns: repeat(3,1fr);
     gap: 12px;
 }
 
@@ -1195,7 +1139,7 @@ button {
     background:
         linear-gradient(
             145deg,
-            #151515,
+            #171717,
             #0d0d0d
         );
 
@@ -1203,17 +1147,12 @@ button {
 
     cursor: pointer;
 
-    transition: .4s ease;
+    transition: .4s;
 }
 
 .boost-card:hover {
     transform: translateY(-8px);
-
-    border-color:
-        rgba(217,4,0,.4);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.35);
+    border-color: rgba(225,6,0,.45);
 }
 
 .boost-top {
@@ -1294,7 +1233,6 @@ button {
     );
 
     margin: auto;
-
     padding: 80px 0;
 }
 
@@ -1317,7 +1255,7 @@ button {
     background:
         radial-gradient(
             circle at 80% 50%,
-            rgba(217,4,0,.25),
+            rgba(225,6,0,.25),
             transparent 35%
         ),
         #131313;
@@ -1326,7 +1264,6 @@ button {
 .live-badge {
     display: flex;
     align-items: center;
-
     gap: 8px;
 
     color: var(--green);
@@ -1342,11 +1279,13 @@ button {
 
     font-family: 'Space Grotesk', sans-serif;
 
-    font-size:
-        clamp(48px,6vw,80px);
+    font-size: clamp(
+        48px,
+        6vw,
+        80px
+    );
 
     line-height: .9;
-
     letter-spacing: -4px;
 }
 
@@ -1369,23 +1308,22 @@ button {
 
     display: flex;
     align-items: center;
-
     gap: 30px;
 
-    background: #fff;
-    color: #000;
+    background: white;
+    color: black;
 
     border-radius: 9px;
 
     font-size: 10px;
     font-weight: 900;
 
-    transition: .3s ease;
+    transition: .3s;
 }
 
 .kick-big-btn:hover {
     background: var(--red);
-    color: #fff;
+    color: white;
 
     transform: translateY(-5px);
 }
@@ -1396,10 +1334,7 @@ button {
 
 .social-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns: repeat(4,1fr);
     gap: 12px;
 }
 
@@ -1421,49 +1356,17 @@ button {
 
     background: #111;
 
-    transition: .4s ease;
-}
-
-.social-card::before {
-    content: "";
-
-    position: absolute;
-
-    width: 160px;
-    height: 160px;
-
-    right: -80px;
-    top: -80px;
-
-    background: var(--red);
-
-    border-radius: 50%;
-
-    opacity: 0;
-
-    filter: blur(55px);
-
     transition: .4s;
 }
 
 .social-card:hover {
     transform: translateY(-8px);
-
-    border-color:
-        rgba(217,4,0,.4);
-}
-
-.social-card:hover::before {
-    opacity: .25;
+    border-color: rgba(225,6,0,.35);
 }
 
 .social-brand {
-    position: relative;
-    z-index: 2;
-
     display: flex;
     align-items: center;
-
     gap: 12px;
 }
 
@@ -1486,25 +1389,20 @@ button {
 
     font-size: 17px;
 
-    transition: .4s ease;
+    transition: .4s;
 }
 
 .social-card:hover .social-logo {
-    transform:
-        rotate(-8deg)
-        scale(1.1);
+    transform: rotate(-8deg) scale(1.1);
 
-    border-color: #fff;
+    border-color: var(--red);
+    background: rgba(225,6,0,.08);
 }
 
 .social-card strong {
-    position: relative;
-    z-index: 2;
-
     font-family: 'Space Grotesk', sans-serif;
 
     font-size: 40px;
-
     letter-spacing: -2px;
 }
 
@@ -1515,17 +1413,14 @@ button {
     bottom: 24px;
 
     color: #777;
-
     font-size: 20px;
 
     transition: .3s;
 }
 
 .social-card:hover .social-arrow {
-    color: #fff;
-
-    transform:
-        translate(4px,-4px);
+    color: white;
+    transform: translate(4px,-4px);
 }
 
 /* =========================
@@ -1548,27 +1443,24 @@ button {
 }
 
 .about-label {
+    margin-bottom: 45px;
+
     color: var(--red);
 
     font-size: 9px;
     font-weight: 800;
     letter-spacing: 1.8px;
-
-    margin-bottom: 45px;
 }
 
 .about-content {
     display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 80px;
 }
 
 .about-title {
     display: flex;
-
     gap: 20px;
 }
 
@@ -1582,11 +1474,13 @@ button {
 .about-title h2 {
     font-family: 'Space Grotesk', sans-serif;
 
-    font-size:
-        clamp(55px,7vw,100px);
+    font-size: clamp(
+        55px,
+        7vw,
+        100px
+    );
 
     line-height: .82;
-
     letter-spacing: -5px;
 }
 
@@ -1636,7 +1530,6 @@ button {
     );
 
     margin: auto;
-
     padding: 110px 0;
 
     text-align: center;
@@ -1647,11 +1540,13 @@ button {
 .contact-section h2 {
     font-family: 'Space Grotesk', sans-serif;
 
-    font-size:
-        clamp(48px,8vw,105px);
+    font-size: clamp(
+        48px,
+        8vw,
+        105px
+    );
 
     line-height: .86;
-
     letter-spacing: -5px;
 }
 
@@ -1676,7 +1571,7 @@ button {
 }
 
 .contact-section > a:hover {
-    color: #fff;
+    color: white;
 }
 
 /* =========================
@@ -1689,8 +1584,8 @@ footer {
     padding: 0 42px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
     border-top: 1px solid var(--border);
 
@@ -1704,7 +1599,7 @@ footer {
 .footer-logo {
     font-family: 'Space Grotesk', sans-serif;
 
-    color: #fff;
+    color: white;
 
     font-size: 18px;
     font-weight: 800;
@@ -1716,6 +1611,7 @@ footer {
 
 .guide-modal {
     position: fixed;
+
     inset: 0;
 
     z-index: 3000;
@@ -1731,21 +1627,22 @@ footer {
 .guide-modal.active {
     display: flex;
 
-    animation: modalIn .25s ease forwards;
+    animation: modalIn .25s ease;
 }
 
 .modal-bg {
     position: absolute;
+
     inset: 0;
 
-    background: rgba(0,0,0,.85);
+    background: rgba(0,0,0,.86);
 
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
 }
 
 .guide-window {
     position: relative;
+
     z-index: 2;
 
     width: min(
@@ -1767,7 +1664,7 @@ footer {
     box-shadow:
         0 40px 100px rgba(0,0,0,.7);
 
-    animation: modalWindow .3s ease forwards;
+    animation: modalWindow .3s ease;
 }
 
 .modal-close {
@@ -1783,7 +1680,6 @@ footer {
     border-radius: 8px;
 
     background: transparent;
-
     color: #aaa;
 
     font-size: 22px;
@@ -1795,8 +1691,12 @@ footer {
 
 .modal-close:hover {
     background: var(--red);
-    color: #fff;
+    color: white;
 }
+
+/* =========================
+   MODAL CONTENT
+========================= */
 
 .modal-label,
 .guide-label {
@@ -1810,24 +1710,26 @@ footer {
 }
 
 .guide-window h2 {
+    margin-bottom: 20px;
+
     font-family: 'Space Grotesk', sans-serif;
 
-    font-size:
-        clamp(38px,6vw,65px);
+    font-size: clamp(
+        38px,
+        6vw,
+        65px
+    );
 
     line-height: .9;
 
     letter-spacing: -3px;
-
-    margin-bottom: 20px;
 }
 
 .guide-window h2 span {
     color: var(--red);
 }
 
-.guide-window p,
-.guide-intro {
+.guide-window p {
     color: #999;
 
     font-size: 13px;
@@ -1835,46 +1737,76 @@ footer {
 }
 
 /* =========================
-   MODAL SETTINGS
+   SETTING LIST
 ========================= */
 
 .setting-list {
-    display: grid;
-
-    gap: 8px;
-
     margin-top: 25px;
+
+    border-top: 1px solid var(--border);
 }
 
 .setting-list > div {
-    min-height: 52px;
+    min-height: 58px;
 
-    padding: 0 17px;
+    padding: 0 5px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    border: 1px solid var(--border);
-    border-radius: 8px;
-
-    background: #101010;
+    border-bottom: 1px solid var(--border);
 }
 
 .setting-list span {
     color: #777;
 
     font-size: 9px;
-    font-weight: 700;
-    letter-spacing: .8px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .setting-list strong {
-    color: #fff;
+    color: white;
+
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: 15px;
+}
+
+/* =========================
+   GUIDE STEPS
+========================= */
+
+.steps {
+    margin-top: 25px;
+}
+
+.steps > div {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    min-height: 58px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.steps b {
+    min-width: 30px;
+
+    color: var(--red);
 
     font-family: 'Space Grotesk', sans-serif;
 
     font-size: 13px;
+}
+
+.steps span {
+    color: #aaa;
+
+    font-size: 11px;
+    line-height: 1.5;
 }
 
 /* =========================
@@ -1885,8 +1817,7 @@ footer {
     position: relative;
 
     margin-top: 25px;
-
-    padding: 22px;
+    padding: 20px;
 
     border: 1px solid var(--border);
     border-radius: 10px;
@@ -1899,16 +1830,14 @@ footer {
 .code-box code {
     display: block;
 
-    padding-right: 130px;
+    padding-right: 110px;
 
     color: #ddd;
 
-    font-family:
-        Consolas,
-        monospace;
+    font-family: monospace;
 
     font-size: 12px;
-    line-height: 1.7;
+    line-height: 1.8;
 
     white-space: pre-wrap;
     word-break: break-word;
@@ -1920,16 +1849,16 @@ footer {
     right: 12px;
     top: 12px;
 
-    padding: 10px 12px;
+    padding: 9px 12px;
 
     border: 1px solid var(--border);
-    border-radius: 7px;
+    border-radius: 6px;
 
-    background: #fff;
-    color: #000;
+    background: #171717;
+    color: #aaa;
 
     font-size: 8px;
-    font-weight: 900;
+    font-weight: 800;
 
     cursor: pointer;
 
@@ -1938,66 +1867,7 @@ footer {
 
 .code-box button:hover {
     background: var(--red);
-    color: #fff;
-}
-
-/* =========================
-   GUIDE STEPS
-========================= */
-
-.steps {
-    display: grid;
-
-    gap: 8px;
-
-    margin-top: 25px;
-}
-
-.steps > div {
-    min-height: 60px;
-
-    padding: 13px 16px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 15px;
-
-    border: 1px solid var(--border);
-    border-radius: 9px;
-
-    background: #101010;
-}
-
-.steps b {
-    min-width: 28px;
-
-    color: var(--red);
-
-    font-family: 'Space Grotesk', sans-serif;
-
-    font-size: 12px;
-}
-
-.steps span {
-    color: #aaa;
-
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-.guide-note {
-    margin-top: 15px;
-
-    padding: 14px;
-
-    border-left: 2px solid var(--red);
-
-    background: rgba(217,4,0,.06);
-
-    color: #aaa;
-
-    font-size: 11px;
+    color: white;
 }
 
 /* =========================
@@ -2005,8 +1875,7 @@ footer {
 ========================= */
 
 @keyframes pulse {
-    0%,
-    100% {
+    0%,100% {
         opacity: 1;
         transform: scale(1);
     }
@@ -2029,7 +1898,7 @@ footer {
 
 @keyframes radar {
     from {
-        transform: rotate(0deg);
+        transform: rotate(0);
     }
 
     to {
@@ -2050,7 +1919,7 @@ footer {
 @keyframes modalWindow {
     from {
         opacity: 0;
-        transform: translateY(25px) scale(.97);
+        transform: translateY(20px) scale(.98);
     }
 
     to {
@@ -2117,19 +1986,17 @@ footer {
     .mobile-nav {
         position: fixed;
 
+        top: 68px;
         left: 0;
         right: 0;
 
-        top: 68px;
+        z-index: 999;
 
         padding: 15px 20px;
 
         background: #090909;
 
-        border-bottom:
-            1px solid var(--border);
-
-        z-index: 999;
+        border-bottom: 1px solid var(--border);
     }
 
     .mobile-nav.active {
@@ -2141,8 +2008,7 @@ footer {
 
         padding: 15px 0;
 
-        border-bottom:
-            1px solid var(--border);
+        border-bottom: 1px solid var(--border);
 
         font-size: 10px;
         font-weight: 800;
@@ -2159,8 +2025,11 @@ footer {
     }
 
     .hero h1 {
-        font-size:
-            clamp(60px,17vw,110px);
+        font-size: clamp(
+            60px,
+            17vw,
+            110px
+        );
 
         letter-spacing: -6px;
     }
@@ -2247,8 +2116,6 @@ footer {
         flex-direction: column;
 
         gap: 10px;
-
-        text-align: center;
     }
 }
 
@@ -2259,7 +2126,7 @@ footer {
 @media (max-width: 520px) {
 
     .logo {
-        font-size: 20px;
+        font-size: 21px;
     }
 
     .lang-btn {
@@ -2272,9 +2139,7 @@ footer {
 
     .quick-card {
         border-right: none !important;
-
-        border-bottom:
-            1px solid var(--border);
+        border-bottom: 1px solid var(--border);
     }
 
     .quick-card:last-child {
@@ -2287,7 +2152,6 @@ footer {
 
     .section-top h2 {
         font-size: 48px;
-
         letter-spacing: -3px;
     }
 
@@ -2295,13 +2159,8 @@ footer {
         min-height: 320px;
     }
 
-    .boost-card {
-        min-height: 350px;
-    }
-
     .kick-card h2 {
         font-size: 48px;
-
         letter-spacing: -3px;
     }
 
@@ -2315,24 +2174,29 @@ footer {
 
     .contact-section h2 {
         font-size: 52px;
-
         letter-spacing: -3px;
     }
 
     .guide-window {
-        padding: 35px 22px;
-
+        width: 100%;
         max-height: 90vh;
+
+        padding: 35px 22px;
+        border-radius: 15px;
+    }
+
+    .guide-window h2 {
+        font-size: 42px;
     }
 
     .code-box code {
         padding-right: 0;
-        padding-bottom: 45px;
+        padding-bottom: 50px;
     }
 
     .code-box button {
         top: auto;
-        bottom: 10px;
+        right: 12px;
+        bottom: 12px;
     }
 }
-```
