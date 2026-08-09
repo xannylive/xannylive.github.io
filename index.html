@@ -12,6 +12,11 @@
 
 <style>
 
+:root{
+    --primary:#ff18b8;
+    --secondary:#bd00ff;
+}
+
 *{
     margin:0;
     padding:0;
@@ -37,7 +42,11 @@ body::before{
     top:-300px;
     left:50%;
     transform:translateX(-50%);
-    background:radial-gradient(circle,rgba(255,0,170,.16),transparent 65%);
+    background:radial-gradient(
+        circle,
+        color-mix(in srgb,var(--primary) 16%,transparent),
+        transparent 65%
+    );
     pointer-events:none;
     z-index:-1;
 }
@@ -49,7 +58,11 @@ body::after{
     height:600px;
     right:-300px;
     bottom:-250px;
-    background:radial-gradient(circle,rgba(120,0,255,.14),transparent 65%);
+    background:radial-gradient(
+        circle,
+        color-mix(in srgb,var(--secondary) 14%,transparent),
+        transparent 65%
+    );
     pointer-events:none;
     z-index:-1;
 }
@@ -77,7 +90,7 @@ nav{
 }
 
 .logo-text span{
-    color:#ff18b8;
+    color:var(--primary);
 }
 
 .nav-links{
@@ -94,7 +107,7 @@ nav{
 }
 
 .nav-links a:hover{
-    color:;#ff20b9
+    color:var(--primary);
 }
 
 .live-button{
@@ -104,8 +117,16 @@ nav{
     font-size:14px;
     padding:14px 24px;
     border-radius:13px;
-    background:linear-gradient(100deg,#ff179d,#bd00ff);
-    box-shadow:0 0 30px rgba(255,0,180,.25);
+    background:linear-gradient(
+        100deg,
+        var(--primary),
+        var(--secondary)
+    );
+    box-shadow:0 0 30px color-mix(
+        in srgb,
+        var(--primary) 25%,
+        transparent
+    );
     transition:.25s;
 }
 
@@ -135,12 +156,12 @@ nav{
     border-radius:50%;
     margin-bottom:30px;
     box-shadow:
-        0 0 25px rgba(255,0,180,.55),
-        0 0 80px rgba(255,0,180,.18);
+        0 0 25px color-mix(in srgb,var(--primary) 55%,transparent),
+        0 0 80px color-mix(in srgb,var(--primary) 18%,transparent);
 }
 
 .eyebrow{
-    color:;
+    color:var(--primary);
     font-size:13px;
     font-weight:900;
     letter-spacing:5px;
@@ -152,7 +173,13 @@ nav{
     line-height:.95;
     font-weight:900;
     letter-spacing:-7px;
-    background:linear-gradient(100deg,#fff,#ff9bdc,#ff00b7,#b900ff);
+    background:linear-gradient(
+        100deg,
+        #fff,
+        color-mix(in srgb,var(--primary) 65%,white),
+        var(--primary),
+        var(--secondary)
+    );
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     margin-bottom:32px;
@@ -185,7 +212,11 @@ nav{
 
 .primary-btn{
     color:white;
-    background:linear-gradient(100deg,#ff159e,#bf00ff);
+    background:linear-gradient(
+        100deg,
+        var(--primary),
+        var(--secondary)
+    );
 }
 
 .secondary-btn{
@@ -230,7 +261,7 @@ section{
 }
 
 .section-label{
-    color:;
+    color:var(--primary);
     font-size:12px;
     font-weight:900;
     letter-spacing:5px;
@@ -271,8 +302,13 @@ section{
 
 .setting-card:hover{
     transform:translateY(-7px);
-    border-color:#ff1bb5;
-    box-shadow:0 15px 45px rgba(255,0,180,.10);
+    border-color:var(--primary);
+    box-shadow:
+        0 15px 45px color-mix(
+            in srgb,
+            var(--primary) 10%,
+            transparent
+        );
 }
 
 .setting-icon{
@@ -281,7 +317,7 @@ section{
 }
 
 .setting-card h3{
-    color:;
+    color:var(--primary);
     font-size:20px;
     margin-bottom:13px;
 }
@@ -333,7 +369,7 @@ section{
 
 .stat strong{
     display:block;
-    color:;
+    color:var(--primary);
     font-size:32px;
     margin-bottom:8px;
 }
@@ -364,11 +400,11 @@ section{
 
 .social-card:hover{
     transform:translateY(-5px);
-    border-color:;
+    border-color:var(--primary);
 }
 
 .social-card span{
-    color:;
+    color:var(--primary);
     font-weight:900;
     font-size:20px;
 }
@@ -388,7 +424,11 @@ section{
     border-radius:28px;
     border:1px solid #3a1737;
     background:
-        radial-gradient(circle at 50% 0%,rgba(255,0,180,.16),transparent 50%),
+        radial-gradient(
+            circle at 50% 0%,
+            color-mix(in srgb,var(--primary) 16%,transparent),
+            transparent 50%
+        ),
         #100913;
 }
 
@@ -413,7 +453,7 @@ footer{
 }
 
 footer strong{
-    color:;
+    color:var(--primary);
 }
 
 /* MODAL */
@@ -461,7 +501,7 @@ footer strong{
 }
 
 .modal-label{
-    color:;
+    color:var(--primary);
     font-size:12px;
     font-weight:900;
     letter-spacing:4px;
@@ -508,7 +548,7 @@ footer strong{
     border:1px solid #292932;
     border-radius:14px;
     padding:20px;
-    color:#ff55c9;
+    color:var(--primary);
     font-family:monospace;
     font-size:14px;
     word-break:break-all;
@@ -519,7 +559,11 @@ footer strong{
     border:0;
     padding:14px 20px;
     border-radius:12px;
-    background:linear-gradient(100deg,#ff159e,#bd00ff);
+    background:linear-gradient(
+        100deg,
+        var(--primary),
+        var(--secondary)
+    );
     color:#fff;
     font-weight:800;
     cursor:pointer;
@@ -542,7 +586,7 @@ footer strong{
 }
 
 .guide strong{
-    color:#ff55c9;
+    color:var(--primary);
 }
 
 /* MOBILE */
@@ -625,8 +669,6 @@ footer strong{
 
 <body>
 
-<!-- NAVBAR -->
-
 <nav>
 
     <div class="logo-text">
@@ -640,7 +682,8 @@ footer strong{
         <a href="#social">Sosyal</a>
     </div>
 
-    <a class="live-button"
+    <a id="navKick"
+       class="live-button"
        href="https://kick.com/xannylive"
        target="_blank">
         🟢 CANLI YAYIN
@@ -648,8 +691,6 @@ footer strong{
 
 </nav>
 
-
-<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -659,13 +700,15 @@ footer strong{
              class="hero-logo"
              alt="XANNYLIVE">
 
-        <div class="eyebrow">
+        <div class="eyebrow" id="heroEyebrow">
             CS2 PLAYER • STREAMER • CONTENT CREATOR
         </div>
 
-        <h1>XANNYLIVE</h1>
+        <h1 id="heroTitle">
+            XANNYLIVE
+        </h1>
 
-        <p class="hero-description">
+        <p class="hero-description" id="heroDescription">
             Counter-Strike 2 oynuyorum, yayın açıyorum ve oyun ayarlarımı
             sizlerle paylaşıyorum. FPS, crosshair, mouse ve performans
             ayarları burada.
@@ -673,7 +716,8 @@ footer strong{
 
         <div class="hero-buttons">
 
-            <a class="primary-btn"
+            <a id="heroKick"
+               class="primary-btn"
                href="https://kick.com/xannylive"
                target="_blank">
                 🟢 Kick Yayınına Katıl
@@ -695,8 +739,6 @@ footer strong{
 </section>
 
 
-<!-- SETTINGS -->
-
 <section id="settings">
 
     <div class="section-label">
@@ -712,104 +754,48 @@ footer strong{
         Kartlara tıklayarak detayları görebilirsin.
     </p>
 
-
     <div class="settings-grid">
 
-
-        <div class="setting-card"
-             onclick="openModal('crosshair')">
-
+        <div class="setting-card" onclick="openModal('crosshair')">
             <div class="setting-icon">🎯</div>
-
             <h3>Crosshair Kodlarım</h3>
-
-            <p>
-                CS2'de kullandığım crosshair ayarları ve
-                crosshair kodum.
-            </p>
-
+            <p>CS2'de kullandığım crosshair ayarları ve crosshair kodum.</p>
         </div>
 
-
-        <div class="setting-card"
-             onclick="openModal('cs2')">
-
+        <div class="setting-card" onclick="openModal('cs2')">
             <div class="setting-icon">⚙️</div>
-
             <h3>CS2 Ayarlarım</h3>
-
-            <p>
-                FPS, görüntü kalitesi ve performans için
-                kullandığım oyun ayarları.
-            </p>
-
+            <p>FPS, görüntü kalitesi ve performans için kullandığım oyun ayarları.</p>
         </div>
 
-
-        <div class="setting-card"
-             onclick="openModal('mouse')">
-
+        <div class="setting-card" onclick="openModal('mouse')">
             <div class="setting-icon">🖱️</div>
-
             <h3>Mouse Ayarlarım</h3>
-
-            <p>
-                DPI, sensitivity ve oyun içi mouse ayarlarım.
-            </p>
-
+            <p>DPI, sensitivity ve oyun içi mouse ayarlarım.</p>
         </div>
 
-
-        <div class="setting-card"
-             onclick="openModal('nvidia')">
-
+        <div class="setting-card" onclick="openModal('nvidia')">
             <div class="setting-icon">🎨</div>
-
             <h3>NVIDIA Renk Ayarlarım</h3>
-
-            <p>
-                CS2'de daha canlı ve net görüntü için
-                kullandığım NVIDIA renk ayarları.
-            </p>
-
+            <p>CS2'de daha canlı ve net görüntü için kullandığım NVIDIA renk ayarları.</p>
         </div>
 
-
-        <div class="setting-card"
-             onclick="openModal('fps')">
-
+        <div class="setting-card" onclick="openModal('fps')">
             <div class="setting-icon">🚀</div>
-
             <h3>FPS Optimizasyonu</h3>
-
-            <p>
-                Daha yüksek FPS ve daha akıcı oyun
-                deneyimi için kullandığım optimizasyonlar.
-            </p>
-
+            <p>Daha yüksek FPS ve daha akıcı oyun deneyimi için optimizasyonlar.</p>
         </div>
 
-
-        <div class="setting-card"
-             onclick="openModal('videos')">
-
+        <div class="setting-card" onclick="openModal('videos')">
             <div class="setting-icon">🎥</div>
-
             <h3>Videolarım</h3>
-
-            <p>
-                YouTube videolarım, rehberlerim ve oyun
-                içeriklerim.
-            </p>
-
+            <p>YouTube videolarım, rehberlerim ve oyun içeriklerim.</p>
         </div>
 
     </div>
 
 </section>
 
-
-<!-- ABOUT -->
 
 <section id="about">
 
@@ -844,7 +830,6 @@ footer strong{
 
         </div>
 
-
         <div class="stats">
 
             <div class="stat">
@@ -874,8 +859,6 @@ footer strong{
 </section>
 
 
-<!-- SOCIAL -->
-
 <section id="social">
 
     <div class="section-label">
@@ -887,47 +870,38 @@ footer strong{
     </h2>
 
     <p class="section-description">
-        Yayınları ve yeni içerikleri kaçırmamak için sosyal medya
-        hesaplarımı takip edebilirsin.
+        Yayınları ve yeni içerikleri kaçırmamak için sosyal medya hesaplarımı takip edebilirsin.
     </p>
 
     <div class="social-grid">
 
-        <a class="social-card"
+        <a id="socialKick"
+           class="social-card"
            href="https://kick.com/xannylive"
            target="_blank">
 
             <span>🟢 Kick</span>
-
-            <p>
-                Canlı yayınlarım
-            </p>
+            <p>Canlı yayınlarım</p>
 
         </a>
 
-
-        <a class="social-card"
+        <a id="socialYoutube"
+           class="social-card"
            href="#"
            target="_blank">
 
             <span>▶️ YouTube</span>
-
-            <p>
-                Videolarım ve rehberlerim
-            </p>
+            <p>Videolarım ve rehberlerim</p>
 
         </a>
 
-
-        <a class="social-card"
+        <a id="socialInstagram"
+           class="social-card"
            href="#"
            target="_blank">
 
             <span>📸 Instagram</span>
-
-            <p>
-                Günlük içerikler ve paylaşımlar
-            </p>
+            <p>Günlük içerikler ve paylaşımlar</p>
 
         </a>
 
@@ -935,8 +909,6 @@ footer strong{
 
 </section>
 
-
-<!-- CTA -->
 
 <div class="cta">
 
@@ -946,7 +918,8 @@ footer strong{
         Yeni içerikleri kaçırmamak için takipte kal.
     </p>
 
-    <a class="primary-btn"
+    <a id="ctaKick"
+       class="primary-btn"
        href="https://kick.com/xannylive"
        target="_blank">
         🟢 Kick'e Git
@@ -954,8 +927,6 @@ footer strong{
 
 </div>
 
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -965,16 +936,11 @@ footer strong{
 </footer>
 
 
-<!-- MODAL -->
-
 <div class="modal" id="modal">
 
     <div class="modal-box">
 
-        <button class="close"
-                onclick="closeModal()">
-            ×
-        </button>
+        <button class="close" onclick="closeModal()">×</button>
 
         <div class="modal-label" id="modalLabel">
             XANNYLIVE
@@ -995,15 +961,138 @@ footer strong{
 </div>
 
 
-<!-- TEK JAVASCRIPT -->
-
 <script>
 
-const modal = document.getElementById("modal");
-const modalLabel = document.getElementById("modalLabel");
-const modalTitle = document.getElementById("modalTitle");
-const modalDescription = document.getElementById("modalDescription");
-const modalContent = document.getElementById("modalContent");
+/* =========================
+   AYARLARI OKU
+========================= */
+
+let settings = {
+
+    primaryColor:"#ff18b8",
+    secondaryColor:"#bd00ff",
+
+    eyebrow:"CS2 PLAYER • STREAMER • CONTENT CREATOR",
+    title:"XANNYLIVE",
+
+    description:
+    "Counter-Strike 2 oynuyorum, yayın açıyorum ve oyun ayarlarımı sizlerle paylaşıyorum. FPS, crosshair, mouse ve performans ayarları burada.",
+
+    crosshair:"CSGO-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX",
+
+    resolution:"1080 × 1080",
+    displayMode:"Fullscreen",
+    vsync:"Kapalı",
+    msaa:"2x",
+    texture:"4x",
+    shader:"Düşük",
+
+    dpi:"800",
+    sensitivity:"1.00",
+    edpi:"800",
+    acceleration:"Kapalı",
+
+    brightness:"60%",
+    contrast:"55%",
+    gamma:"1.00",
+    digitalVibrance:"80%",
+
+    nvidiaPower:"Maksimum performansı tercih et",
+    lowLatency:"Açık",
+    gameMode:"Açık",
+    windowsPower:"En iyi performans",
+    lenovoMode:"Performance Mode",
+
+    kick:"https://kick.com/xannylive",
+    youtube:"#",
+    instagram:"#"
+
+};
+
+
+function loadSettings(){
+
+    const saved =
+        localStorage.getItem("xannyliveSettings");
+
+    if(saved){
+
+        try{
+
+            settings = {
+                ...settings,
+                ...JSON.parse(saved)
+            };
+
+        }catch(error){
+
+            console.log("Ayarlar okunamadı.");
+
+        }
+
+    }
+
+
+    document.documentElement.style.setProperty(
+        "--primary",
+        settings.primaryColor
+    );
+
+    document.documentElement.style.setProperty(
+        "--secondary",
+        settings.secondaryColor
+    );
+
+
+    document.getElementById("heroEyebrow").innerText =
+        settings.eyebrow;
+
+    document.getElementById("heroTitle").innerText =
+        settings.title;
+
+    document.getElementById("heroDescription").innerText =
+        settings.description;
+
+
+    document.getElementById("navKick").href =
+        settings.kick;
+
+    document.getElementById("heroKick").href =
+        settings.kick;
+
+    document.getElementById("ctaKick").href =
+        settings.kick;
+
+    document.getElementById("socialKick").href =
+        settings.kick;
+
+    document.getElementById("socialYoutube").href =
+        settings.youtube;
+
+    document.getElementById("socialInstagram").href =
+        settings.instagram;
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+const modal =
+    document.getElementById("modal");
+
+const modalLabel =
+    document.getElementById("modalLabel");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalDescription =
+    document.getElementById("modalDescription");
+
+const modalContent =
+    document.getElementById("modalContent");
 
 
 function openModal(type){
@@ -1011,21 +1100,21 @@ function openModal(type){
     modal.classList.add("active");
 
 
-    /* CROSSHAIR */
-
     if(type === "crosshair"){
 
-        modalLabel.innerText = "CROSSHAIR";
+        modalLabel.innerText =
+            "CROSSHAIR";
 
-        modalTitle.innerText = "Crosshair Kodlarım";
+        modalTitle.innerText =
+            "Crosshair Kodum";
 
         modalDescription.innerText =
-        "CS2'de kullandığım crosshair ayarları.";
+            "CS2'de kullandığım crosshair ayarları.";
 
         modalContent.innerHTML = `
 
             <div class="code-box" id="crosshairCode">
-                CSGO-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+                ${settings.crosshair}
             </div>
 
             <button class="copy-btn"
@@ -1033,45 +1122,22 @@ function openModal(type){
                 📋 Kodu Kopyala
             </button>
 
-            <div class="setting-list">
-
-                <div class="setting-row">
-                    <span>Renk</span>
-                    <span>Pembe</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>Hareket</span>
-                    <span>Kapalı</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>Merkez Nokta</span>
-                    <span>Kapalı</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>Outline</span>
-                    <span>Açık</span>
-                </div>
-
-            </div>
         `;
 
         return;
     }
 
 
-    /* CS2 */
-
     if(type === "cs2"){
 
-        modalLabel.innerText = "CS2 SETTINGS";
+        modalLabel.innerText =
+            "CS2 SETTINGS";
 
-        modalTitle.innerText = "CS2 Ayarlarım";
+        modalTitle.innerText =
+            "CS2 Ayarlarım";
 
         modalDescription.innerText =
-        "FPS ve görüntü performansı için kullandığım temel CS2 ayarları.";
+            "FPS ve görüntü performansı için kullandığım ayarlar.";
 
         modalContent.innerHTML = `
 
@@ -1079,56 +1145,52 @@ function openModal(type){
 
                 <div class="setting-row">
                     <span>Çözünürlük</span>
-                    <span>1080 × 1080</span>
+                    <span>${settings.resolution}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Görüntü Modu</span>
-                    <span>Fullscreen</span>
+                    <span>${settings.displayMode}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>V-Sync</span>
-                    <span>Kapalı</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>Boost Player Contrast</span>
-                    <span>Açık</span>
+                    <span>${settings.vsync}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>MSAA</span>
-                    <span>2x</span>
+                    <span>${settings.msaa}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Texture Filtering</span>
-                    <span>4x</span>
+                    <span>${settings.texture}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Shader</span>
-                    <span>Düşük</span>
+                    <span>${settings.shader}</span>
                 </div>
 
             </div>
+
         `;
 
         return;
     }
 
 
-    /* MOUSE */
-
     if(type === "mouse"){
 
-        modalLabel.innerText = "MOUSE SETTINGS";
+        modalLabel.innerText =
+            "MOUSE SETTINGS";
 
-        modalTitle.innerText = "Mouse Ayarlarım";
+        modalTitle.innerText =
+            "Mouse Ayarlarım";
 
         modalDescription.innerText =
-        "CS2 için kullandığım temel mouse ayarları.";
+            "CS2 için kullandığım mouse ayarları.";
 
         modalContent.innerHTML = `
 
@@ -1136,46 +1198,42 @@ function openModal(type){
 
                 <div class="setting-row">
                     <span>DPI</span>
-                    <span>800</span>
+                    <span>${settings.dpi}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Sensitivity</span>
-                    <span>1.00</span>
+                    <span>${settings.sensitivity}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>eDPI</span>
-                    <span>800</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>Raw Input</span>
-                    <span>Açık</span>
+                    <span>${settings.edpi}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Mouse Acceleration</span>
-                    <span>Kapalı</span>
+                    <span>${settings.acceleration}</span>
                 </div>
 
             </div>
+
         `;
 
         return;
     }
 
 
-    /* NVIDIA */
-
     if(type === "nvidia"){
 
-        modalLabel.innerText = "NVIDIA COLOR";
+        modalLabel.innerText =
+            "NVIDIA COLOR";
 
-        modalTitle.innerText = "NVIDIA Renk Ayarlarım";
+        modalTitle.innerText =
+            "NVIDIA Renk Ayarlarım";
 
         modalDescription.innerText =
-        "CS2 için daha canlı ve net görüntü elde etmek amacıyla kullanabileceğin NVIDIA renk ayarları.";
+            "CS2 için kullandığım NVIDIA renk ayarları.";
 
         modalContent.innerHTML = `
 
@@ -1183,77 +1241,42 @@ function openModal(type){
 
                 <div class="setting-row">
                     <span>Parlaklık</span>
-                    <span>60%</span>
+                    <span>${settings.brightness}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Kontrast</span>
-                    <span>55%</span>
+                    <span>${settings.contrast}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Gama</span>
-                    <span>1.00</span>
+                    <span>${settings.gamma}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Dijital Titreşim</span>
-                    <span>80%</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>Ton</span>
-                    <span>0°</span>
+                    <span>${settings.digitalVibrance}</span>
                 </div>
 
             </div>
 
-            <div class="code-box">
-                NVIDIA DENETİM MASASI → EKRAN → MASAÜSTÜ RENK AYARLARINI AYARLA
-            </div>
-
-            <div class="guide">
-
-                <h3>🎨 NVIDIA AYARLARI NASIL YAPILIR?</h3>
-
-                <strong>1.</strong>
-                Masaüstünde boş bir yere sağ tıkla.<br><br>
-
-                <strong>2.</strong>
-                NVIDIA Denetim Masası'nı aç.<br><br>
-
-                <strong>3.</strong>
-                Sol taraftan
-                "Masaüstü renk ayarlarını ayarla"
-                bölümüne gir.<br><br>
-
-                <strong>4.</strong>
-                "NVIDIA ayarlarını kullan"
-                seçeneğini aktif et.<br><br>
-
-                <strong>5.</strong>
-                Yukarıdaki değerleri uygula.<br><br>
-
-                <strong>6.</strong>
-                Sağ alttan "Uygula" butonuna bas.
-
-            </div>
         `;
 
         return;
     }
 
 
-    /* FPS */
-
     if(type === "fps"){
 
-        modalLabel.innerText = "FPS OPTIMIZATION";
+        modalLabel.innerText =
+            "FPS OPTIMIZATION";
 
-        modalTitle.innerText = "FPS Optimizasyonu";
+        modalTitle.innerText =
+            "FPS Optimizasyonu";
 
         modalDescription.innerText =
-        "CS2'de daha yüksek ve daha stabil FPS için uygulayabileceğin ayarlar.";
+            "Daha yüksek ve stabil FPS için kullandığım ayarlar.";
 
         modalContent.innerHTML = `
 
@@ -1261,243 +1284,52 @@ function openModal(type){
 
                 <div class="setting-row">
                     <span>NVIDIA Güç Yönetimi</span>
-                    <span>Maksimum Performans</span>
+                    <span>${settings.nvidiaPower}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Düşük Gecikme</span>
-                    <span>Açık</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>Dikey Senkronizasyon</span>
-                    <span>Kapalı</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>Yenileme Hızı</span>
-                    <span>En Yüksek</span>
+                    <span>${settings.lowLatency}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Windows Oyun Modu</span>
-                    <span>Açık</span>
+                    <span>${settings.gameMode}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Windows Güç Modu</span>
-                    <span>En iyi performans</span>
+                    <span>${settings.windowsPower}</span>
                 </div>
 
                 <div class="setting-row">
                     <span>Lenovo Vantage</span>
-                    <span>Performans Modu</span>
+                    <span>${settings.lenovoMode}</span>
                 </div>
 
             </div>
 
-
-            <div class="guide">
-
-                <h3>🚀 XANNYLIVE FPS OPTİMİZASYON REHBERİ</h3>
-
-
-                <strong>01 — NVIDIA DENETİM MASASI</strong>
-
-                <br><br>
-
-                Masaüstünde boş bir yere
-                <strong>sağ tıkla.</strong>
-
-                <br><br>
-
-                <strong>NVIDIA Denetim Masası</strong>'nı aç.
-
-                <br><br>
-
-                Sol taraftan:
-
-                <br><br>
-
-                <strong>3D Ayarlarının Yönetilmesi</strong>
-                bölümüne gir.
-
-                <br><br>
-
-                <strong>Program Ayarları</strong> sekmesine geç.
-
-                <br><br>
-
-                Program listesinden
-                <strong>Counter-Strike 2</strong>'yi seç.
-
-                <br><br>
-
-                <strong>Güç yönetimi modu</strong>
-
-                → Maksimum performansı tercih et
-
-                <br><br>
-
-                <strong>Tercih edilen yenileme hızı</strong>
-
-                → Kullanılabilir en yüksek
-
-                <br><br>
-
-                <strong>Dikey senkronizasyon</strong>
-
-                → Kapalı
-
-
-                <br><br><br>
-
-
-                <strong>02 — WINDOWS OYUN MODU</strong>
-
-                <br><br>
-
-                Windows Ayarları'nı aç.
-
-                <br><br>
-
-                <strong>Oyun → Oyun Modu</strong>
-
-                bölümüne gir.
-
-                <br><br>
-
-                <strong>Oyun Modu → Açık</strong>
-
-                yap.
-
-
-                <br><br><br>
-
-
-                <strong>03 — WINDOWS GÜÇ MODU</strong>
-
-                <br><br>
-
-                <strong>Ayarlar → Sistem → Güç</strong>
-                bölümüne gir.
-
-                <br><br>
-
-                Güç modunu:
-
-                <br><br>
-
-                <strong>En iyi performans</strong>
-
-                olarak seç.
-
-
-                <br><br><br>
-
-
-                <strong>04 — LENOVO VANTAGE</strong>
-
-                <br><br>
-
-                Lenovo Vantage'ı aç.
-
-                <br><br>
-
-                Güç / Thermal Mode bölümünden:
-
-                <br><br>
-
-                <strong>Performance Mode</strong>
-
-                seç.
-
-                <br><br>
-
-                Laptopun hava girişlerini kapatma.
-
-
-                <br><br><br>
-
-
-                <strong>05 — CS2 AYARLARI</strong>
-
-                <br><br>
-
-                CS2'yi aç.
-
-                <br><br>
-
-                <strong>Video → V-Sync</strong>
-
-                → Kapalı
-
-                <br><br>
-
-                Oyunu mümkünse
-                <strong>Fullscreen</strong>
-                çalıştır.
-
-                <br><br>
-
-                Gereksiz grafik ayarlarını düşürerek
-                GPU yükünü azaltabilirsin.
-
-
-                <br><br><br>
-
-
-                <strong>06 — ARKA PLAN UYGULAMALARI</strong>
-
-                <br><br>
-
-                Oyun sırasında gereksiz:
-
-                <br><br>
-
-                • Chrome sekmeleri<br>
-                • Launcher'lar<br>
-                • Gereksiz programlar<br>
-                • Arka plan uygulamaları
-
-                <br><br>
-
-                kapat.
-
-
-                <br><br><br>
-
-
-                <strong>⚠️ ÖNEMLİ</strong>
-
-                <br><br>
-
-                Amaç sadece FPS sayısını yükseltmek değil;
-                <strong>stabil FPS ve daha düzgün frametime</strong>
-                elde etmektir.
-
-            </div>
         `;
 
         return;
     }
 
 
-    /* VIDEOLAR */
-
     if(type === "videos"){
 
-        modalLabel.innerText = "CONTENT";
+        modalLabel.innerText =
+            "CONTENT";
 
-        modalTitle.innerText = "Videolarım";
+        modalTitle.innerText =
+            "Videolarım";
 
         modalDescription.innerText =
-        "CS2 içeriklerim, ayar rehberlerim ve yayın videolarım.";
+            "CS2 içeriklerim ve rehberlerim.";
 
         modalContent.innerHTML = `
 
             <a class="primary-btn"
-               href="#"
+               href="${settings.youtube}"
                target="_blank"
                style="display:inline-block;">
 
@@ -1505,24 +1337,6 @@ function openModal(type){
 
             </a>
 
-            <div class="setting-list">
-
-                <div class="setting-row">
-                    <span>CS2 Ayar Rehberi</span>
-                    <span>Yakında</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>FPS Optimizasyonu</span>
-                    <span>Yakında</span>
-                </div>
-
-                <div class="setting-row">
-                    <span>Crosshair Rehberi</span>
-                    <span>Yakında</span>
-                </div>
-
-            </div>
         `;
 
         return;
@@ -1541,7 +1355,7 @@ function closeModal(){
 function copyCrosshair(){
 
     const code =
-    document.getElementById("crosshairCode").innerText;
+        document.getElementById("crosshairCode").innerText;
 
     navigator.clipboard.writeText(code);
 
@@ -1570,6 +1384,13 @@ document.addEventListener("keydown",function(e){
     }
 
 });
+
+
+/* =========================
+   BAŞLAT
+========================= */
+
+loadSettings();
 
 </script>
 
