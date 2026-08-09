@@ -1,9 +1,9 @@
 ```javascript
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    /* =========================
+    /* ========================================
        ELEMENTLER
-    ========================= */
+    ======================================== */
 
     const modal = document.querySelector(".guide-modal");
     const modalBg = document.getElementById("modalBg");
@@ -15,9 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobileBtn = document.getElementById("mobileMenuBtn");
     const mobileNav = document.getElementById("mobileNav");
 
-    /* =========================
-       REHBERLER
-    ========================= */
+    const languageBtn = document.getElementById("languageBtn");
+
+
+    /* ========================================
+       GUIDE İÇERİKLERİ
+    ======================================== */
 
     const guides = {
 
@@ -30,8 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h2>CROSSHAIR <span>CODE.</span></h2>
 
                 <p>
-                    Kullandığım crosshair kodunu aşağıdan
-                    kopyalayabilirsin.
+                    Kodu kopyala ve CS2 konsoluna yapıştır.
                 </p>
 
                 <div class="code-box">
@@ -60,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `
         },
+
 
         mouse: {
             label: "CS2 / AIM",
@@ -93,11 +96,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 </div>
 
-                <p style="margin-top:20px;">
-                    Windows'ta mouse acceleration kapalı olmalı.
-                </p>
+                <div class="guide-note">
+                    Windows mouse acceleration kapalı olmalı.
+                </div>
             `
         },
+
 
         graphics: {
             label: "CS2 / DISPLAY",
@@ -143,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `
         },
 
+
         refresh: {
             label: "DISPLAY",
             title: "MONITOR",
@@ -176,6 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `
         },
+
 
         hud: {
             label: "CS2 / INTERFACE",
@@ -211,6 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `
         },
 
+
         radar: {
             label: "CS2 / RADAR",
             title: "RADAR",
@@ -245,6 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `
         },
 
+
         viewmodel: {
             label: "CS2 / WEAPON",
             title: "VIEWMODEL",
@@ -263,13 +271,20 @@ viewmodel_offset_z -2
 viewmodel_presetpos 3
                     </code>
 
-                    <button onclick="copyText(this, 'viewmodel_fov 68; viewmodel_offset_x 2.5; viewmodel_offset_y 2; viewmodel_offset_z -2; viewmodel_presetpos 3')">
+                    <button
+                        onclick="copyText(
+                        this,
+                        'viewmodel_fov 68; viewmodel_offset_x 2.5; viewmodel_offset_y 2; viewmodel_offset_z -2; viewmodel_presetpos 3'
+                        )">
+
                         COPY COMMAND
+
                     </button>
 
                 </div>
             `
         },
+
 
         nvidia: {
             label: "NVIDIA / COLORS",
@@ -278,11 +293,6 @@ viewmodel_presetpos 3
                 <div class="guide-label">NVIDIA COLORS</div>
 
                 <h2>NVIDIA <span>COLORS.</span></h2>
-
-                <p>
-                    NVIDIA renk ayarlarını yapmak için
-                    aşağıdaki adımları uygula.
-                </p>
 
                 <div class="steps">
 
@@ -303,7 +313,7 @@ viewmodel_presetpos 3
 
                     <div>
                         <b>04</b>
-                        <span>Dijital canlılığı istediğin seviyeye getir.</span>
+                        <span>Dijital canlılık ve renk ayarlarını düzenle.</span>
                     </div>
 
                 </div>
@@ -329,6 +339,7 @@ viewmodel_presetpos 3
             `
         },
 
+
         "nvidia-fps": {
             label: "FPS BOOST / NVIDIA",
             title: "NVIDIA FPS",
@@ -341,32 +352,28 @@ viewmodel_presetpos 3
 
                     <div>
                         <b>01</b>
-                        <span>Masaüstünde sağ tıkla.</span>
-                    </div>
-
-                    <div>
-                        <b>02</b>
                         <span>NVIDIA Denetim Masası'nı aç.</span>
                     </div>
 
                     <div>
-                        <b>03</b>
+                        <b>02</b>
                         <span>3D ayarlarının yönetilmesi bölümüne gir.</span>
                     </div>
 
                     <div>
-                        <b>04</b>
-                        <span>CS2'yi program ayarlarına ekle.</span>
+                        <b>03</b>
+                        <span>Program ayarlarından CS2'yi seç.</span>
                     </div>
 
                     <div>
-                        <b>05</b>
+                        <b>04</b>
                         <span>Güç yönetimi modunu maksimum performansa getir.</span>
                     </div>
 
                 </div>
             `
         },
+
 
         "windows-fps": {
             label: "FPS BOOST / WINDOWS",
@@ -400,12 +407,13 @@ viewmodel_presetpos 3
 
                     <div>
                         <b>05</b>
-                        <span>CS2'yi ekleyip yüksek performansı seç.</span>
+                        <span>CS2 için yüksek performansı seç.</span>
                     </div>
 
                 </div>
             `
         },
+
 
         "cs2-fps": {
             label: "FPS BOOST / CS2",
@@ -419,17 +427,17 @@ viewmodel_presetpos 3
 
                     <div>
                         <b>01</b>
-                        <span>Steam → Kütüphane → CS2 → Özellikler'e gir.</span>
+                        <span>Steam → Kütüphane → CS2 → Özellikler.</span>
                     </div>
 
                     <div>
                         <b>02</b>
-                        <span>Başlatma seçeneklerini gereksiz komutlarla doldurma.</span>
+                        <span>Gereksiz başlatma komutları kullanma.</span>
                     </div>
 
                     <div>
                         <b>03</b>
-                        <span>Oyunda V-Sync'i kapat.</span>
+                        <span>V-Sync'i kapat.</span>
                     </div>
 
                     <div>
@@ -449,9 +457,9 @@ viewmodel_presetpos 3
     };
 
 
-    /* =========================
+    /* ========================================
        MODAL AÇ
-    ========================= */
+    ======================================== */
 
     function openGuide(type) {
 
@@ -488,42 +496,47 @@ viewmodel_presetpos 3
 
         if (copyButton) {
 
-            copyButton.addEventListener("click", function () {
+            copyButton.onclick = () => {
 
                 const code =
-                    document.getElementById("crosshairCode").textContent.trim();
+                    document
+                        .getElementById("crosshairCode")
+                        .innerText
+                        .trim();
 
                 navigator.clipboard.writeText(code)
                     .then(() => {
 
-                        copyButton.textContent = "COPIED ✓";
+                        copyButton.innerText = "COPIED ✓";
 
                         setTimeout(() => {
-                            copyButton.textContent = "COPY CODE";
+                            copyButton.innerText = "COPY CODE";
                         }, 1800);
 
                     })
                     .catch(() => {
 
-                        copyButton.textContent = "COPY FAILED";
+                        copyButton.innerText = "COPY FAILED";
 
                     });
 
-            });
+            };
 
         }
+
     }
 
 
-    /* =========================
-       TÜM KARTLAR
-    ========================= */
+    /* ========================================
+       KARTLAR
+    ======================================== */
 
-    cards.forEach(function (card) {
+    cards.forEach(card => {
 
-        card.addEventListener("click", function () {
+        card.addEventListener("click", () => {
 
-            const type = card.dataset.guide;
+            const type =
+                card.dataset.guide;
 
             openGuide(type);
 
@@ -532,9 +545,9 @@ viewmodel_presetpos 3
     });
 
 
-    /* =========================
+    /* ========================================
        MODAL KAPAT
-    ========================= */
+    ======================================== */
 
     function closeGuide() {
 
@@ -548,15 +561,22 @@ viewmodel_presetpos 3
 
 
     if (modalClose) {
-        modalClose.addEventListener("click", closeGuide);
+        modalClose.addEventListener(
+            "click",
+            closeGuide
+        );
     }
+
 
     if (modalBg) {
-        modalBg.addEventListener("click", closeGuide);
+        modalBg.addEventListener(
+            "click",
+            closeGuide
+        );
     }
 
 
-    document.addEventListener("keydown", function (event) {
+    document.addEventListener("keydown", event => {
 
         if (event.key === "Escape") {
             closeGuide();
@@ -565,13 +585,13 @@ viewmodel_presetpos 3
     });
 
 
-    /* =========================
+    /* ========================================
        MOBİL MENÜ
-    ========================= */
+    ======================================== */
 
     if (mobileBtn && mobileNav) {
 
-        mobileBtn.addEventListener("click", function () {
+        mobileBtn.addEventListener("click", () => {
 
             mobileNav.classList.toggle("active");
 
@@ -580,10 +600,11 @@ viewmodel_presetpos 3
     }
 
 
-    document.querySelectorAll(".mobile-nav a")
-        .forEach(function (link) {
+    document
+        .querySelectorAll(".mobile-nav a")
+        .forEach(link => {
 
-            link.addEventListener("click", function () {
+            link.addEventListener("click", () => {
 
                 if (mobileNav) {
                     mobileNav.classList.remove("active");
@@ -594,21 +615,24 @@ viewmodel_presetpos 3
         });
 
 
-    /* =========================
-       KOPYALAMA
-    ========================= */
+    /* ========================================
+       COPY
+    ======================================== */
 
-    window.copyText = function (button, text) {
+    window.copyText = function(button, text) {
 
         navigator.clipboard.writeText(text)
-            .then(function () {
+            .then(() => {
 
-                const oldText = button.textContent;
+                const oldText =
+                    button.innerText;
 
-                button.textContent = "COPIED ✓";
+                button.innerText = "COPIED ✓";
 
-                setTimeout(function () {
-                    button.textContent = oldText;
+                setTimeout(() => {
+
+                    button.innerText = oldText;
+
                 }, 1800);
 
             });
@@ -616,26 +640,28 @@ viewmodel_presetpos 3
     };
 
 
-    /* =========================
+    /* ========================================
        DİL BUTONU
-    ========================= */
-
-    const languageBtn =
-        document.getElementById("languageBtn");
+    ======================================== */
 
     if (languageBtn) {
 
-        languageBtn.addEventListener("click", function () {
+        languageBtn.addEventListener("click", () => {
 
-            if (document.documentElement.lang === "tr") {
+            const current =
+                document.documentElement.lang;
 
-                document.documentElement.lang = "en";
-                languageBtn.textContent = "EN / TR";
+            if (current === "en") {
+
+                document.documentElement.lang = "tr";
+
+                languageBtn.innerText = "TR / EN";
 
             } else {
 
-                document.documentElement.lang = "tr";
-                languageBtn.textContent = "TR / EN";
+                document.documentElement.lang = "en";
+
+                languageBtn.innerText = "EN / TR";
 
             }
 
@@ -644,45 +670,55 @@ viewmodel_presetpos 3
     }
 
 
-    /* =========================
+    /* ========================================
        SCROLL ANIMATION
-    ========================= */
+    ======================================== */
+
+    const animatedElements =
+        document.querySelectorAll(
+            ".big-card, .boost-card, .social-card, .quick-card"
+        );
+
 
     if ("IntersectionObserver" in window) {
 
         const observer =
-            new IntersectionObserver(function (entries) {
+            new IntersectionObserver(
+                entries => {
 
-                entries.forEach(function (entry) {
+                    entries.forEach(entry => {
 
-                    if (entry.isIntersecting) {
+                        if (entry.isIntersecting) {
 
-                        entry.target.classList.add("show");
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
-                        observer.unobserve(entry.target);
+                            observer.unobserve(
+                                entry.target
+                            );
 
-                    }
+                        }
 
-                });
+                    });
 
-            }, {
-                threshold:0.08
-            });
+                },
+                {
+                    threshold: 0.08
+                }
+            );
 
 
-        document
-            .querySelectorAll(
-                ".big-card, .boost-card, .social-card, .quick-card"
-            )
-            .forEach(function (element) {
+        animatedElements.forEach(element => {
 
-                element.classList.add("scroll-hidden");
+            observer.observe(element);
 
-                observer.observe(element);
-
-            });
+        });
 
     }
+
+
+    console.log("XANNYLIVE SYSTEM ONLINE");
 
 });
 ```
