@@ -1,84 +1,53 @@
 <!DOCTYPE html>
-
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>XANNYLIVE | CS2 Player & Streamer</title>
+    <title>XANNYLIVE — CS2 Player & Creator</title>
+    <meta name="description" content="XANNYLIVE CS2 ayarları, crosshair, mouse, grafik, NVIDIA ve FPS Boost rehberi.">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-```
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-```
-<div class="site-loader" id="loader">
-    <div class="loader-name">
-        XANNY<span>LIVE</span>
+<!-- LOADER -->
+<div class="loader" id="loader">
+    <div class="loader-logo">
+        XANNY<span>.</span>
     </div>
 </div>
 
+
+<!-- HEADER -->
 <header class="header">
 
     <a href="#home" class="logo">
         XANNY<span>LIVE</span>
     </a>
 
-    <nav class="desktop-nav">
-        <a href="#settings"
-           data-tr="Ayarlar"
-           data-en="Settings">
-            Ayarlar
-        </a>
-
-        <a href="#performance"
-           data-tr="Performans"
-           data-en="Performance">
-            Performans
-        </a>
-
-        <a href="#social"
-           data-tr="Sosyal"
-           data-en="Social">
-            Sosyal
-        </a>
-
-        <a href="#about"
-           data-tr="Hakkımda"
-           data-en="About">
-            Hakkımda
-        </a>
+    <nav class="nav">
+        <a href="#settings" data-tr="AYARLAR" data-en="SETTINGS">AYARLAR</a>
+        <a href="#performance" data-tr="PERFORMANS" data-en="PERFORMANCE">PERFORMANS</a>
+        <a href="#social" data-tr="SOSYAL" data-en="SOCIAL">SOSYAL</a>
+        <a href="#about" data-tr="HAKKIMDA" data-en="ABOUT">HAKKIMDA</a>
     </nav>
 
-    <div class="header-right">
+    <div class="header-actions">
 
-        <button class="lang" id="langBtn">
-            <span id="langText">EN</span>
+        <button class="language" id="languageBtn">
+            TR
         </button>
 
         <a href="https://kick.com/xannylive"
            target="_blank"
-           class="header-live">
-
-            <i></i>
-
-            <span data-tr="CANLI YAYIN"
-                  data-en="LIVE NOW">
-                CANLI YAYIN
-            </span>
-
+           class="live-button">
+            <span class="live-dot"></span>
+            LIVE
         </a>
 
-        <button class="mobile-menu" id="mobileMenu">
+        <button class="menu-button" id="menuButton">
             <span></span>
             <span></span>
         </button>
@@ -88,886 +57,633 @@
 </header>
 
 
-<main id="home">
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
 
-    <!-- HERO -->
+    <a href="#settings">AYARLAR</a>
+    <a href="#performance">PERFORMANS</a>
+    <a href="#social">SOSYAL</a>
+    <a href="#about">HAKKIMDA</a>
 
-    <section class="hero">
+</div>
 
-        <div class="hero-topline">
 
-            <span>01</span>
+<main>
 
-            <span>
-                XANNYLIVE / DIGITAL SPACE
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-top">
+        <span>CS2 PLAYER / STREAMER</span>
+        <span>ERZINCAN / TR</span>
+    </div>
+
+    <div class="hero-content">
+
+        <div class="hero-title">
+
+            <span class="small-title">
+                XANNYLIVE PRESENTS
             </span>
 
-            <span>2026</span>
+            <h1>
+                PLAY<br>
+                <i>SMART.</i>
+            </h1>
 
         </div>
 
+        <div class="hero-description">
 
-        <div class="hero-main">
-
-            <div class="hero-title">
-
-                <p class="eyebrow"
-                   data-tr="CS2 OYUNCUSU · YAYINCI · İÇERİK ÜRETİCİSİ"
-                   data-en="CS2 PLAYER · STREAMER · CONTENT CREATOR">
-
-                    CS2 OYUNCUSU · YAYINCI · İÇERİK ÜRETİCİSİ
-
-                </p>
-
-                <h1>
-                    XANNY<br>
-                    <em>LIVE</em>
-                </h1>
-
-            </div>
-
-
-            <div class="hero-description">
-
-                <p data-tr="Oyun, yayın ve performans ayarlarımı tek bir yerde topladım."
-                   data-en="My gaming, streaming and performance settings — all in one place.">
-
-                    Oyun, yayın ve performans ayarlarımı tek bir yerde topladım.
-
-                </p>
-
-                <a href="#settings" class="text-link">
-
-                    <span data-tr="AYARLARI KEŞFET"
-                          data-en="EXPLORE SETTINGS">
-
-                        AYARLARI KEŞFET
-
-                    </span>
-
-                    <b>↗</b>
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-bottom">
-
-            <div class="hero-status">
-
-                <span class="status-circle"></span>
-
-                <div>
-
-                    <small data-tr="YAYIN DURUMU"
-                           data-en="STREAM STATUS">
-
-                        YAYIN DURUMU
-
-                    </small>
-
-                    <strong data-tr="KICK'TE XANNYLIVE"
-                            data-en="XANNYLIVE ON KICK">
-
-                        KICK'TE XANNYLIVE
-
-                    </strong>
-
-                </div>
-
-            </div>
-
-            <div class="scroll-note">
-                SCROLL TO EXPLORE ↓
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- INTRO -->
-
-    <section class="intro section">
-
-        <div class="section-index">
-
-            <span>00</span>
-
-            <span>INTRO</span>
-
-        </div>
-
-
-        <div class="intro-content">
-
-            <h2 data-tr="Burada sadece ayarlarımı değil, oyun tarzımı da bulabilirsin."
-                data-en="Here you'll find not only my settings, but my way of playing.">
-
-                Burada sadece ayarlarımı değil, oyun tarzımı da bulabilirsin.
-
-            </h2>
-
-
-            <p data-tr="Kullandığım CS2 ayarlarından NVIDIA renk ayarlarına, FPS optimizasyonlarından yayın platformlarıma kadar her şeyi sade ve anlaşılır şekilde bir araya getirdim."
-               data-en="From my CS2 settings and NVIDIA color setup to FPS optimizations and streaming platforms, everything is organized here in a simple and clear way.">
-
-                Kullandığım CS2 ayarlarından NVIDIA renk ayarlarına, FPS optimizasyonlarından yayın platformlarıma kadar her şeyi sade ve anlaşılır şekilde bir araya getirdim.
-
+            <p data-tr="CS2 ayarlarım, performans rehberlerim ve kullandığım ekipmanlar. Tek bir yerde."
+               data-en="My CS2 settings, performance guides and equipment. Everything in one place.">
+                CS2 ayarlarım, performans rehberlerim ve kullandığım ekipmanlar.
+                Tek bir yerde.
             </p>
 
-        </div>
-
-    </section>
-
-
-    <!-- CS2 SETTINGS -->
-
-    <section class="section" id="settings">
-
-        <div class="section-index">
-
-            <span>01</span>
-
-            <span data-tr="CS2 AYARLARI"
-                  data-en="CS2 SETTINGS">
-
-                CS2 AYARLARI
-
-            </span>
+            <a href="#settings" class="hero-link">
+                AYARLARI KEŞFET
+                <span>↗</span>
+            </a>
 
         </div>
 
+    </div>
 
-        <div class="section-header">
+    <div class="hero-bottom">
 
-            <h2 data-tr="Oyun ayarlarım."
-                data-en="My game settings.">
+        <div class="stream-status">
+            <span></span>
+            <div>
+                <small>STREAM STATUS</small>
+                <strong>ONLINE / CHECK KICK</strong>
+            </div>
+        </div>
 
-                Oyun ayarlarım.
+        <div class="scroll">
+            SCROLL TO EXPLORE ↓
+        </div>
 
-            </h2>
+    </div>
 
-            <p data-tr="Her ayarı ayrı ayrı incele."
-               data-en="Explore every setting individually.">
+</section>
 
-                Her ayarı ayrı ayrı incele.
 
+<!-- INTRO -->
+<section class="section intro-section">
+
+    <div class="section-label">
+        01 / XANNYLIVE
+    </div>
+
+    <div class="intro-content">
+
+        <h2>
+            CS2'DE KULLANDIĞIM
+            <span>HER ŞEY.</span>
+        </h2>
+
+        <p data-tr="Crosshair'den NVIDIA renk ayarlarına, mouse hassasiyetinden FPS optimizasyonuna kadar kullandığım ayarları burada topladım."
+           data-en="From crosshair and NVIDIA color settings to mouse sensitivity and FPS optimization, everything I use is collected here.">
+            Crosshair'den NVIDIA renk ayarlarına, mouse hassasiyetinden
+            FPS optimizasyonuna kadar kullandığım ayarları burada topladım.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SETTINGS -->
+<section class="section" id="settings">
+
+    <div class="section-label">
+        02 / CS2 SETTINGS
+    </div>
+
+    <div class="section-heading">
+
+        <h2>
+            OYUNU<br>
+            <span>KENDİM GİBİ OYNA.</span>
+        </h2>
+
+        <p>
+            Kartı seç. Ayarı gör. Kopyala ve kullan.
+        </p>
+
+    </div>
+
+
+    <div class="settings-grid">
+
+
+        <!-- CROSSHAIR -->
+        <article class="setting-card"
+                 data-guide="crosshair">
+
+            <div class="card-number">01</div>
+
+            <div class="card-icon crosshair-icon">
+
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="28"/>
+                    <path d="M50 8V32"/>
+                    <path d="M50 68V92"/>
+                    <path d="M8 50H32"/>
+                    <path d="M68 50H92"/>
+                </svg>
+
+            </div>
+
+            <div class="card-info">
+                <small>CROSSHAIR</small>
+                <h3>Nişangah</h3>
+                <p>Direkt kopyala ve CS2'ye aktar.</p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+        </article>
+
+
+        <!-- MOUSE -->
+        <article class="setting-card"
+                 data-guide="mouse">
+
+            <div class="card-number">02</div>
+
+            <div class="card-icon">
+
+                <svg viewBox="0 0 100 100">
+                    <rect x="30" y="10" width="40" height="80" rx="20"/>
+                    <path d="M50 10V42"/>
+                    <circle cx="50" cy="28" r="4"/>
+                </svg>
+
+            </div>
+
+            <div class="card-info">
+                <small>MOUSE</small>
+                <h3>Mouse Ayarları</h3>
+                <p>Sensitivity, DPI ve raw input.</p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+        </article>
+
+
+        <!-- GRAPHICS -->
+        <article class="setting-card"
+                 data-guide="graphics">
+
+            <div class="card-number">03</div>
+
+            <div class="card-icon">
+
+                <svg viewBox="0 0 100 100">
+                    <rect x="12" y="15" width="76" height="55" rx="3"/>
+                    <path d="M30 85H70"/>
+                    <path d="M50 70V85"/>
+                    <path d="M25 55L40 40L52 50L68 30"/>
+                </svg>
+
+            </div>
+
+            <div class="card-info">
+                <small>GRAPHICS</small>
+                <h3>Grafik Ayarları</h3>
+                <p>FPS ve görüntü dengesi.</p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+        </article>
+
+
+        <!-- MONITOR -->
+        <article class="setting-card"
+                 data-guide="monitor">
+
+            <div class="card-number">04</div>
+
+            <div class="card-icon">
+
+                <svg viewBox="0 0 100 100">
+                    <rect x="10" y="18" width="80" height="55" rx="4"/>
+                    <path d="M35 88H65"/>
+                    <path d="M50 73V88"/>
+                    <path d="M25 48H75"/>
+                </svg>
+
+            </div>
+
+            <div class="card-info">
+                <small>DISPLAY</small>
+                <h3>Monitör</h3>
+                <p>Hz, çözünürlük ve görüntü.</p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+        </article>
+
+
+        <!-- HUD -->
+        <article class="setting-card"
+                 data-guide="hud">
+
+            <div class="card-number">05</div>
+
+            <div class="card-icon">
+
+                <svg viewBox="0 0 100 100">
+                    <rect x="12" y="12" width="76" height="76" rx="5"/>
+                    <path d="M25 25H45"/>
+                    <path d="M25 75H45"/>
+                    <path d="M55 25H75"/>
+                    <path d="M55 75H75"/>
+                    <circle cx="50" cy="50" r="10"/>
+                </svg>
+
+            </div>
+
+            <div class="card-info">
+                <small>INTERFACE</small>
+                <h3>HUD Ayarları</h3>
+                <p>Temiz ve rekabetçi HUD.</p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+        </article>
+
+
+        <!-- RADAR -->
+        <article class="setting-card"
+                 data-guide="radar">
+
+            <div class="card-number">06</div>
+
+            <div class="card-icon">
+
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="36"/>
+                    <circle cx="50" cy="50" r="22"/>
+                    <circle cx="50" cy="50" r="7"/>
+                    <path d="M50 50L75 28"/>
+                    <path d="M50 10V90"/>
+                    <path d="M10 50H90"/>
+                </svg>
+
+            </div>
+
+            <div class="card-info">
+                <small>RADAR</small>
+                <h3>Radar</h3>
+                <p>Haritayı daha net gör.</p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+        </article>
+
+
+        <!-- VIEWMODEL -->
+        <article class="setting-card"
+                 data-guide="viewmodel">
+
+            <div class="card-number">07</div>
+
+            <div class="card-icon">
+
+                <svg viewBox="0 0 100 100">
+                    <path d="M18 68L40 46L56 50L80 25"/>
+                    <path d="M67 20H83V36"/>
+                    <path d="M40 46L29 35"/>
+                    <path d="M56 50L68 62"/>
+                </svg>
+
+            </div>
+
+            <div class="card-info">
+                <small>VIEWMODEL</small>
+                <h3>Viewmodel</h3>
+                <p>Silah pozisyonu ve görünüm.</p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+        </article>
+
+
+        <!-- NVIDIA -->
+        <article class="setting-card"
+                 data-guide="nvidia">
+
+            <div class="card-number">08</div>
+
+            <div class="card-icon">
+
+                <svg viewBox="0 0 100 100">
+                    <path d="M15 50C30 22 63 12 85 35"/>
+                    <path d="M15 50C34 38 53 37 76 55"/>
+                    <path d="M15 50C28 70 48 78 76 67"/>
+                    <circle cx="70" cy="50" r="8"/>
+                </svg>
+
+            </div>
+
+            <div class="card-info">
+                <small>NVIDIA</small>
+                <h3>Renk Ayarları</h3>
+                <p>Canlı ve net NVIDIA renkleri.</p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- PERFORMANCE -->
+<section class="section" id="performance">
+
+    <div class="section-label">
+        03 / PERFORMANCE
+    </div>
+
+    <div class="section-heading">
+
+        <h2>
+            DAHA FAZLA<br>
+            <span>FPS.</span>
+        </h2>
+
+        <p>
+            Sistemini gereksiz yüklerden kurtar.
+        </p>
+
+    </div>
+
+
+    <div class="performance-grid">
+
+        <article class="performance-card"
+                 data-guide="fps">
+
+            <span class="performance-number">01</span>
+
+            <div class="performance-icon">FPS</div>
+
+            <small>BOOST</small>
+
+            <h3>FPS Boost</h3>
+
+            <p>
+                CS2 performansını artırmak için
+                adım adım ayarlar.
             </p>
 
-        </div>
+            <b>↗</b>
 
+        </article>
 
-        <div class="settings-list">
 
+        <article class="performance-card"
+                 data-guide="windows">
 
-            <article class="setting-row"
-                     data-guide="crosshair">
+            <span class="performance-number">02</span>
 
-                <div class="row-number">
-                    01
-                </div>
+            <div class="performance-icon">WIN</div>
 
-                <div class="row-image">
+            <small>WINDOWS</small>
 
-                    <img src="assets/crosshair.png"
-                         alt="Crosshair">
+            <h3>Windows</h3>
 
-                </div>
+            <p>
+                Windows üzerinde performans
+                için gerekli ayarlar.
+            </p>
 
-                <div class="row-title">
+            <b>↗</b>
 
-                    <span>CS2 / AIM</span>
+        </article>
 
-                    <h3>
-                        Crosshair
-                    </h3>
 
-                </div>
+        <article class="performance-card"
+                 data-guide="nvidia-performance">
 
-                <div class="row-info"
-                     data-tr="Nişangâh ayarlarım"
-                     data-en="My crosshair setup">
+            <span class="performance-number">03</span>
 
-                    Nişangâh ayarlarım
+            <div class="performance-icon">NV</div>
 
-                </div>
+            <small>NVIDIA</small>
 
-                <div class="row-arrow">
-                    ↗
-                </div>
+            <h3>GPU Boost</h3>
 
-            </article>
+            <p>
+                NVIDIA Denetim Masası
+                performans ayarları.
+            </p>
 
+            <b>↗</b>
 
-            <article class="setting-row"
-                     data-guide="mouse">
+        </article>
 
-                <div class="row-number">
-                    02
-                </div>
-
-                <div class="row-image">
-
-                    <img src="assets/mouse.png"
-                         alt="Mouse">
-
-                </div>
-
-                <div class="row-title">
-
-                    <span>HARDWARE</span>
-
-                    <h3>
-                        Mouse
-                    </h3>
-
-                </div>
-
-                <div class="row-info"
-                     data-tr="DPI / Sensitivity / Hz"
-                     data-en="DPI / Sensitivity / Hz">
-
-                    DPI / Sensitivity / Hz
-
-                </div>
-
-                <div class="row-arrow">
-                    ↗
-                </div>
-
-            </article>
-
-
-            <article class="setting-row"
-                     data-guide="monitor">
-
-                <div class="row-number">
-                    03
-                </div>
-
-                <div class="row-image">
-
-                    <img src="assets/monitor.png"
-                         alt="Monitor">
-
-                </div>
-
-                <div class="row-title">
-
-                    <span>DISPLAY</span>
-
-                    <h3 data-tr="Monitör"
-                        data-en="Monitor">
-
-                        Monitör
-
-                    </h3>
-
-                </div>
-
-                <div class="row-info"
-                     data-tr="Çözünürlük / Hz"
-                     data-en="Resolution / Refresh Rate">
-
-                    Çözünürlük / Hz
-
-                </div>
-
-                <div class="row-arrow">
-                    ↗
-                </div>
-
-            </article>
-
-
-            <article class="setting-row"
-                     data-guide="graphics">
-
-                <div class="row-number">
-                    04
-                </div>
-
-                <div class="row-image">
-
-                    <img src="assets/gpu.png"
-                         alt="Graphics">
-
-                </div>
-
-                <div class="row-title">
-
-                    <span>CS2 / GRAPHICS</span>
-
-                    <h3 data-tr="Grafik"
-                        data-en="Graphics">
-
-                        Grafik
-
-                    </h3>
-
-                </div>
-
-                <div class="row-info"
-                     data-tr="Performans odaklı grafik ayarları"
-                     data-en="Performance-focused graphics">
-
-                    Performans odaklı grafik ayarları
-
-                </div>
-
-                <div class="row-arrow">
-                    ↗
-                </div>
-
-            </article>
-
-
-            <article class="setting-row"
-                     data-guide="viewmodel">
-
-                <div class="row-number">
-                    05
-                </div>
-
-                <div class="row-image">
-
-                    <img src="assets/weapon.png"
-                         alt="Viewmodel">
-
-                </div>
-
-                <div class="row-title">
-
-                    <span>CS2 / WEAPON</span>
-
-                    <h3>
-                        Viewmodel
-                    </h3>
-
-                </div>
-
-                <div class="row-info"
-                     data-tr="Silah pozisyonu ve FOV"
-                     data-en="Weapon position and FOV">
-
-                    Silah pozisyonu ve FOV
-
-                </div>
-
-                <div class="row-arrow">
-                    ↗
-                </div>
-
-            </article>
-
-
-            <article class="setting-row"
-                     data-guide="hud">
-
-                <div class="row-number">
-                    06
-                </div>
-
-                <div class="row-image">
-
-                    <img src="assets/hud.png"
-                         alt="HUD">
-
-                </div>
-
-                <div class="row-title">
-
-                    <span>INTERFACE</span>
-
-                    <h3>
-                        HUD
-                    </h3>
-
-                </div>
-
-                <div class="row-info"
-                     data-tr="Arayüz ayarlarım"
-                     data-en="My interface setup">
-
-                    Arayüz ayarlarım
-
-                </div>
-
-                <div class="row-arrow">
-                    ↗
-                </div>
-
-            </article>
-
-
-            <article class="setting-row"
-                     data-guide="radar">
-
-                <div class="row-number">
-                    07
-                </div>
-
-                <div class="row-image">
-
-                    <img src="assets/radar.png"
-                         alt="Radar">
-
-                </div>
-
-                <div class="row-title">
-
-                    <span>INTERFACE</span>
-
-                    <h3>
-                        Radar
-                    </h3>
-
-                </div>
-
-                <div class="row-info"
-                     data-tr="Radar boyutu ve zoom"
-                     data-en="Radar size and zoom">
-
-                    Radar boyutu ve zoom
-
-                </div>
-
-                <div class="row-arrow">
-                    ↗
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- NVIDIA -->
-
-    <section class="section feature-section"
-             id="performance">
-
-        <div class="section-index">
-
-            <span>02</span>
-
-            <span>
-                NVIDIA / PERFORMANCE
-            </span>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-visual">
-
-                <div class="visual-grid"></div>
-
-                <div class="visual-title">
-
-                    NVIDIA
-
-                    <small>
-                        CONTROL PANEL
-                    </small>
-
-                </div>
-
-                <div class="visual-orbit"></div>
-
-            </div>
-
-
-            <div class="feature-content">
-
-                <span class="mini-label">
-                    COLOR / DISPLAY
-                </span>
-
-                <h2 data-tr="NVIDIA renk ayarlarım."
-                    data-en="My NVIDIA color settings.">
-
-                    NVIDIA renk ayarlarım.
-
-                </h2>
-
-
-                <p data-tr="Daha canlı ve temiz bir görüntü için kullandığım ayarları, NVIDIA Denetim Masası'nda nereden bulacağını adım adım gösteriyorum."
-                   data-en="I show you exactly where to find the settings I use for a cleaner and more vibrant image.">
-
-                    Daha canlı ve temiz bir görüntü için kullandığım ayarları, NVIDIA Denetim Masası'nda nereden bulacağını adım adım gösteriyorum.
-
-                </p>
-
-
-                <button class="feature-button"
-                        data-guide="nvidia">
-
-                    <span data-tr="REHBERİ AÇ"
-                          data-en="OPEN GUIDE">
-
-                        REHBERİ AÇ
-
-                    </span>
-
-                    <b>↗</b>
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="performance-grid">
-
-
-            <article class="performance-card"
-                     data-guide="fps-nvidia">
-
-                <span class="performance-number">
-                    01
-                </span>
-
-                <div class="performance-icon">
-                    N
-                </div>
-
-                <span>NVIDIA</span>
-
-                <h3>
-                    NVIDIA FPS
-                </h3>
-
-                <p data-tr="3D ayarlarını performans için optimize et."
-                   data-en="Optimize 3D settings for performance.">
-
-                    3D ayarlarını performans için optimize et.
-
-                </p>
-
-                <b>↗</b>
-
-            </article>
-
-
-            <article class="performance-card"
-                     data-guide="fps-windows">
-
-                <span class="performance-number">
-                    02
-                </span>
-
-                <div class="performance-icon">
-                    W
-                </div>
-
-                <span>WINDOWS</span>
-
-                <h3>
-                    Windows FPS
-                </h3>
-
-                <p data-tr="Windows'u oyun performansı için düzenle."
-                   data-en="Optimize Windows for gaming performance.">
-
-                    Windows'u oyun performansı için düzenle.
-
-                </p>
-
-                <b>↗</b>
-
-            </article>
-
-
-            <article class="performance-card"
-                     data-guide="fps-cs2">
-
-                <span class="performance-number">
-                    03
-                </span>
-
-                <div class="performance-icon">
-                    CS
-                </div>
-
-                <span>COUNTER-STRIKE 2</span>
-
-                <h3>
-                    CS2 FPS
-                </h3>
-
-                <p data-tr="Oyun içindeki performans ayarlarını uygula."
-                   data-en="Apply performance settings inside the game.">
-
-                    Oyun içindeki performans ayarlarını uygula.
-
-                </p>
-
-                <b>↗</b>
-
-            </article>
-
-        </div>
-
-    </section>
+    </div>
 
 
     <!-- LIVE -->
+    <div class="live-panel">
 
-    <section class="section live-section">
+        <div>
 
-        <div class="section-index">
-
-            <span>03</span>
-
-            <span>LIVE</span>
-
-        </div>
-
-
-        <div class="live-panel">
-
-            <div class="live-left">
-
-                <span class="live-tag">
-
-                    <i></i>
-
-                    LIVE
-
-                </span>
-
-
-                <h2 data-tr="Şu an yayındayım."
-                    data-en="I'm live right now.">
-
-                    Şu an yayındayım.
-
-                </h2>
-
-
-                <p data-tr="CS2 maçlarını, rank grind'ını ve yayınları Kick üzerinden takip edebilirsin."
-                   data-en="Watch my CS2 matches, rank grind and streams on Kick.">
-
-                    CS2 maçlarını, rank grind'ını ve yayınları Kick üzerinden takip edebilirsin.
-
-                </p>
-
+            <div class="live-label">
+                <span></span>
+                ŞU ANDA YAYINDA
             </div>
 
-
-            <a href="https://kick.com/xannylive"
-               target="_blank"
-               class="live-button">
-
-                KICK ↗
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- SOCIAL -->
-
-    <section class="section"
-             id="social">
-
-        <div class="section-index">
-
-            <span>04</span>
-
-            <span>SOCIAL</span>
-
-        </div>
-
-
-        <div class="section-header">
-
-            <h2 data-tr="Beni takip et."
-                data-en="Follow me.">
-
-                Beni takip et.
-
+            <h2>
+                BENİ KICK'TE<br>
+                İZLE.
             </h2>
 
-        </div>
-
-
-        <div class="social-list">
-
-
-            <a href="https://youtube.com/"
-               target="_blank"
-               class="social-row">
-
-                <span>01</span>
-
-                <strong>YouTube</strong>
-
-                <small>
-                    VIDEO / CONTENT
-                </small>
-
-                <b>↗</b>
-
-            </a>
-
-
-            <a href="https://instagram.com/"
-               target="_blank"
-               class="social-row">
-
-                <span>02</span>
-
-                <strong>Instagram</strong>
-
-                <small>
-                    DAILY / SOCIAL
-                </small>
-
-                <b>↗</b>
-
-            </a>
-
-
-            <a href="https://tiktok.com/"
-               target="_blank"
-               class="social-row">
-
-                <span>03</span>
-
-                <strong>TikTok</strong>
-
-                <small>
-                    SHORT FORM
-                </small>
-
-                <b>↗</b>
-
-            </a>
-
-
-            <a href="https://kick.com/xannylive"
-               target="_blank"
-               class="social-row">
-
-                <span>04</span>
-
-                <strong>Kick</strong>
-
-                <small>
-                    LIVE STREAM
-                </small>
-
-                <b>↗</b>
-
-            </a>
+            <p>
+                CS2 maçları, rank kasma, sohbet ve
+                daha fazlası.
+            </p>
 
         </div>
 
-    </section>
+        <a href="https://kick.com/xannylive"
+           target="_blank"
+           class="kick-button">
+            KICK'E GİT →
+        </a>
+
+    </div>
+
+</section>
 
 
-    <!-- ABOUT -->
+<!-- SOCIAL -->
+<section class="section" id="social">
 
-    <section class="section about-section"
-             id="about">
+    <div class="section-label">
+        04 / SOCIAL
+    </div>
 
-        <div class="section-index">
+    <div class="section-heading">
 
-            <span>05</span>
+        <h2>
+            TAKİP ET.<br>
+            <span>BAĞLANTI KUR.</span>
+        </h2>
 
-            <span data-tr="HAKKIMDA"
-                  data-en="ABOUT">
-
-                HAKKIMDA
-
-            </span>
-
-        </div>
+    </div>
 
 
-        <div class="about-grid">
+    <div class="social-grid">
 
-            <div class="about-big">
-                X
+
+        <a href="#" class="social-card youtube">
+
+            <div class="social-icon">
+
+                <svg viewBox="0 0 100 100">
+                    <rect x="8" y="25" width="84" height="50" rx="15"/>
+                    <path d="M43 38L67 50L43 62Z"
+                          fill="currentColor"
+                          stroke="none"/>
+                </svg>
+
             </div>
-
 
             <div>
+                <small>VIDEO</small>
+                <h3>YouTube</h3>
+            </div>
 
-                <span class="mini-label">
-                    XANNYLIVE / 2026
-                </span>
+            <span>↗</span>
 
-
-                <h2 data-tr="Oyunu oynuyorum. Sistemi kuruyorum."
-                    data-en="I play the game. I build the system.">
-
-                    Oyunu oynuyorum. Sistemi kuruyorum.
-
-                </h2>
+        </a>
 
 
-                <p data-tr="CS2, yayıncılık ve içerik üretimi etrafında kendi dünyamı oluşturuyorum. Bu site de kullandığım ayarları, optimizasyonları ve sosyal platformlarımı tek bir yerde paylaşmak için hazırlandı."
-                   data-en="I'm building my own world around CS2, streaming and content creation. This website brings together my settings, optimizations and social platforms in one place.">
+        <a href="#" class="social-card instagram">
 
-                    CS2, yayıncılık ve içerik üretimi etrafında kendi dünyamı oluşturuyorum. Bu site de kullandığım ayarları, optimizasyonları ve sosyal platformlarımı tek bir yerde paylaşmak için hazırlandı.
+            <div class="social-icon">
 
-                </p>
+                <svg viewBox="0 0 100 100">
+                    <rect x="14" y="14" width="72" height="72" rx="20"/>
+                    <circle cx="50" cy="50" r="17"/>
+                    <circle cx="72" cy="28" r="5"
+                            fill="currentColor"
+                            stroke="none"/>
+                </svg>
 
             </div>
 
+            <div>
+                <small>DAILY</small>
+                <h3>Instagram</h3>
+            </div>
+
+            <span>↗</span>
+
+        </a>
+
+
+        <a href="#" class="social-card tiktok">
+
+            <div class="social-icon">
+
+                <svg viewBox="0 0 100 100">
+                    <path d="M57 15V61C57 74 48 82 36 82C25 82 18 75 18 65C18 54 27 47 40 49V62C34 60 29 62 29 66C29 70 32 72 36 72C42 72 46 68 46 61V15H57Z"/>
+                    <path d="M57 15C60 28 68 34 80 35V47C70 46 63 43 57 38Z"
+                          fill="currentColor"
+                          stroke="none"/>
+                </svg>
+
+            </div>
+
+            <div>
+                <small>SHORTS</small>
+                <h3>TikTok</h3>
+            </div>
+
+            <span>↗</span>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="section" id="about">
+
+    <div class="section-label">
+        05 / ABOUT
+    </div>
+
+    <div class="about">
+
+        <div class="about-mark">
+            X
         </div>
 
-    </section>
+        <div>
 
+            <small>XANNYLIVE</small>
 
-    <!-- CONTACT -->
-
-    <section class="section contact-section"
-             id="contact">
-
-        <div class="contact-inner">
-
-            <span class="mini-label">
-                06 / CONTACT
-            </span>
-
-
-            <h2 data-tr="Birlikte bir şeyler yapalım."
-                data-en="Let's build something together.">
-
-                Birlikte bir şeyler yapalım.
-
+            <h2>
+                OYUN.<br>
+                YAYIN.<br>
+                <span>İÇERİK.</span>
             </h2>
 
-
-            <a href="mailto:iletisim@xannylive.com"
-               class="contact-link">
-
-                iletisim@xannylive.com ↗
-
-            </a>
+            <p>
+                CS2 oyuncusu, yayıncı ve içerik üreticisi.
+                Bu siteyi kullandığım ayarları, sistem
+                optimizasyonlarını ve içeriklerimi tek
+                yerde toplamak için hazırladım.
+            </p>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="section contact">
+
+    <small>06 / CONTACT</small>
+
+    <h2>
+        BİR PROJEN<br>
+        Mİ VAR?
+    </h2>
+
+    <a href="mailto:contact@xannylive.com">
+        contact@xannylive.com
+    </a>
+
+</section>
 
 </main>
 
 
 <!-- FOOTER -->
-
 <footer>
 
     <div class="footer-top">
@@ -976,64 +692,37 @@
             XANNY<span>LIVE</span>
         </div>
 
-
         <div class="footer-links">
 
-            <a href="#home">
-                HOME
-            </a>
-
-            <a href="#settings">
-                SETTINGS
-            </a>
-
-            <a href="#social">
-                SOCIAL
-            </a>
-
-            <a href="#contact">
-                CONTACT
-            </a>
+            <a href="#settings">SETTINGS</a>
+            <a href="#performance">PERFORMANCE</a>
+            <a href="#social">SOCIAL</a>
+            <a href="#about">ABOUT</a>
 
         </div>
 
     </div>
 
-
     <div class="footer-bottom">
-
-        <span>
-            © 2026 XANNYLIVE
-        </span>
-
-        <span>
-            CS2 PLAYER / STREAMER
-        </span>
-
+        <span>© 2026 XANNYLIVE</span>
+        <span>BUILT FOR COMPETITIVE PLAY</span>
     </div>
 
 </footer>
 
 
 <!-- GUIDE MODAL -->
+<div class="modal" id="guideModal">
 
-<div class="guide-modal"
-     id="guideModal">
+    <div class="modal-background"></div>
 
-    <div class="guide-backdrop"></div>
+    <div class="modal-box">
 
-
-    <div class="guide-box">
-
-        <button class="guide-close"
-                id="guideClose">
-
+        <button class="modal-close" id="modalClose">
             ×
-
         </button>
 
-
-        <div id="guideContent"></div>
+        <div id="modalContent"></div>
 
     </div>
 
@@ -1041,7 +730,6 @@
 
 
 <script src="script.js"></script>
-```
 
 </body>
 </html>
