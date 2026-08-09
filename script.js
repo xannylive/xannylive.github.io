@@ -1,25 +1,51 @@
-const modal = document.getElementById("settingsModal");
-const modalContent = document.getElementById("modalContent");
-const modalClose = document.getElementById("modalClose");
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.querySelector(".nav-links");
-const languageBtn = document.getElementById("languageBtn");
-const languageText = document.getElementById("languageText");
+let language = localStorage.getItem("xanny-language") || "tr";
 
-let currentLanguage = localStorage.getItem("xannyLanguage") || "tr";
+const loader = document.getElementById("loader");
+const langBtn = document.getElementById("langBtn");
+const langText = document.getElementById("langText");
+
+const mobileMenu = document.getElementById("mobileMenu");
+const nav = document.querySelector(".desktop-nav");
+
+const guideModal = document.getElementById("guideModal");
+const guideContent = document.getElementById("guideContent");
+const guideClose = document.getElementById("guideClose");
 
 
-/* =========================
-   LANGUAGE SYSTEM
-========================= */
+/* LOADER */
 
-function updateLanguage() {
+window.addEventListener("load", () => {
 
-    document.documentElement.lang = currentLanguage;
+    setTimeout(() => {
+        loader.classList.add("hide");
+    }, 700);
+
+});
+
+
+/* CURSOR */
+
+const cursor = document.getElementById("cursor");
+
+document.addEventListener("mousemove", e => {
+
+    if (cursor) {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+    }
+
+});
+
+
+/* LANGUAGE */
+
+function setLanguage() {
+
+    document.documentElement.lang = language;
 
     document.querySelectorAll("[data-tr]").forEach(element => {
 
-        const text = element.getAttribute(`data-${currentLanguage}`);
+        const text = element.getAttribute(`data-${language}`);
 
         if (text) {
             element.textContent = text;
@@ -27,128 +53,116 @@ function updateLanguage() {
 
     });
 
-    languageText.textContent =
-        currentLanguage === "tr" ? "EN" : "TR";
+    langText.textContent =
+        language === "tr" ? "EN" : "TR";
 
-    localStorage.setItem("xannyLanguage", currentLanguage);
+    localStorage.setItem("xanny-language", language);
+
 }
 
-languageBtn.addEventListener("click", () => {
 
-    currentLanguage =
-        currentLanguage === "tr" ? "en" : "tr";
+langBtn.addEventListener("click", () => {
 
-    updateLanguage();
+    language = language === "tr" ? "en" : "tr";
 
-});
-
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-menuBtn.addEventListener("click", () => {
-
-    navLinks.classList.toggle("active");
-
-    const icon = menuBtn.querySelector("i");
-
-    if (navLinks.classList.contains("active")) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-xmark");
-    } else {
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
-    }
+    setLanguage();
 
 });
 
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+/* MOBILE NAV */
+
+mobileMenu.addEventListener("click", () => {
+
+    nav.classList.toggle("active");
+
+});
+
+
+document.querySelectorAll(".desktop-nav a").forEach(link => {
 
     link.addEventListener("click", () => {
 
-        navLinks.classList.remove("active");
-
-        const icon = menuBtn.querySelector("i");
-
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
+        nav.classList.remove("active");
 
     });
 
 });
 
 
-/* =========================
-   GUIDE CONTENT
-========================= */
+/* GUIDE DATA */
 
 const guides = {
 
     crosshair: {
 
         tr: {
-            category: "CS2 / CROSSHAIR",
+            category: "CS2 / AIM",
             title: "Crosshair Ayarlarım",
+            path: "CS2 → Settings → Game → Crosshair",
 
             steps: [
-                ["Crosshair Style", "Classic Static"],
+                ["Style", "Classic Static"],
                 ["Color", "Green"],
                 ["Size", "1.5"],
                 ["Thickness", "0.5"],
                 ["Gap", "-3"],
-                ["Outline", "0"],
-                ["Dot", "0"]
+                ["Outline", "OFF"],
+                ["Dot", "OFF"]
             ]
         },
 
         en: {
-            category: "CS2 / CROSSHAIR",
+            category: "CS2 / AIM",
             title: "My Crosshair Settings",
+            path: "CS2 → Settings → Game → Crosshair",
 
             steps: [
-                ["Crosshair Style", "Classic Static"],
+                ["Style", "Classic Static"],
                 ["Color", "Green"],
                 ["Size", "1.5"],
                 ["Thickness", "0.5"],
                 ["Gap", "-3"],
-                ["Outline", "0"],
-                ["Dot", "0"]
+                ["Outline", "OFF"],
+                ["Dot", "OFF"]
             ]
         }
+
     },
 
 
     mouse: {
 
         tr: {
-            category: "HARDWARE / MOUSE",
+            category: "HARDWARE",
             title: "Mouse Ayarlarım",
+            path: "Mouse Software → Performance",
 
             steps: [
-                ["Mouse DPI", "800 DPI"],
+                ["DPI", "800"],
                 ["Polling Rate", "1000 Hz"],
-                ["CS2 Sensitivity", "1.00"],
+                ["Sensitivity", "1.00"],
                 ["Zoom Sensitivity", "1.00"],
                 ["Raw Input", "ON"],
-                ["Acceleration", "OFF"]
+                ["Mouse Acceleration", "OFF"]
             ]
         },
 
         en: {
-            category: "HARDWARE / MOUSE",
+            category: "HARDWARE",
             title: "My Mouse Settings",
+            path: "Mouse Software → Performance",
 
             steps: [
-                ["Mouse DPI", "800 DPI"],
+                ["DPI", "800"],
                 ["Polling Rate", "1000 Hz"],
-                ["CS2 Sensitivity", "1.00"],
+                ["Sensitivity", "1.00"],
                 ["Zoom Sensitivity", "1.00"],
                 ["Raw Input", "ON"],
-                ["Acceleration", "OFF"]
+                ["Mouse Acceleration", "OFF"]
             ]
         }
+
     },
 
 
@@ -156,29 +170,32 @@ const guides = {
 
         tr: {
             category: "DISPLAY",
-            title: "Ekran Ayarlarım",
+            title: "Monitör Ayarlarım",
+            path: "Windows → System → Display → Advanced Display",
 
             steps: [
                 ["Resolution", "1920 × 1080"],
                 ["Refresh Rate", "144 Hz"],
                 ["Display Mode", "Fullscreen"],
-                ["Aspect Ratio", "16:9"],
-                ["V-Sync", "OFF"]
+                ["V-Sync", "OFF"],
+                ["Aspect Ratio", "16:9"]
             ]
         },
 
         en: {
             category: "DISPLAY",
-            title: "My Display Settings",
+            title: "My Monitor Settings",
+            path: "Windows → System → Display → Advanced Display",
 
             steps: [
                 ["Resolution", "1920 × 1080"],
                 ["Refresh Rate", "144 Hz"],
                 ["Display Mode", "Fullscreen"],
-                ["Aspect Ratio", "16:9"],
-                ["V-Sync", "OFF"]
+                ["V-Sync", "OFF"],
+                ["Aspect Ratio", "16:9"]
             ]
         }
+
     },
 
 
@@ -187,15 +204,16 @@ const guides = {
         tr: {
             category: "CS2 / GRAPHICS",
             title: "Grafik Ayarlarım",
+            path: "CS2 → Settings → Video → Advanced Video",
 
             steps: [
                 ["Boost Player Contrast", "Enabled"],
                 ["V-Sync", "Disabled"],
                 ["MSAA", "2X"],
-                ["Global Shadow Quality", "Low"],
-                ["Model / Texture Detail", "Low"],
-                ["Shader Detail", "Low"],
-                ["Particle Detail", "Low"],
+                ["Shadow Quality", "Low"],
+                ["Model / Texture", "Low"],
+                ["Shader", "Low"],
+                ["Particle", "Low"],
                 ["Ambient Occlusion", "Disabled"]
             ]
         },
@@ -203,138 +221,115 @@ const guides = {
         en: {
             category: "CS2 / GRAPHICS",
             title: "My Graphics Settings",
+            path: "CS2 → Settings → Video → Advanced Video",
 
             steps: [
                 ["Boost Player Contrast", "Enabled"],
                 ["V-Sync", "Disabled"],
                 ["MSAA", "2X"],
-                ["Global Shadow Quality", "Low"],
-                ["Model / Texture Detail", "Low"],
-                ["Shader Detail", "Low"],
-                ["Particle Detail", "Low"],
+                ["Shadow Quality", "Low"],
+                ["Model / Texture", "Low"],
+                ["Shader", "Low"],
+                ["Particle", "Low"],
                 ["Ambient Occlusion", "Disabled"]
             ]
         }
+
     },
 
 
     viewmodel: {
 
         tr: {
-            category: "CS2 / VIEWMODEL",
+            category: "CS2 / WEAPON",
             title: "Viewmodel Ayarlarım",
+            path: "CS2 → Console",
 
             steps: [
                 ["viewmodel_fov", "68"],
                 ["viewmodel_offset_x", "2.5"],
                 ["viewmodel_offset_y", "2"],
-                ["viewmodel_offset_z", "-2"],
-                ["viewmodel_presetpos", "1"]
+                ["viewmodel_offset_z", "-2"]
             ]
         },
 
         en: {
-            category: "CS2 / VIEWMODEL",
+            category: "CS2 / WEAPON",
             title: "My Viewmodel Settings",
+            path: "CS2 → Console",
 
             steps: [
                 ["viewmodel_fov", "68"],
                 ["viewmodel_offset_x", "2.5"],
                 ["viewmodel_offset_y", "2"],
-                ["viewmodel_offset_z", "-2"],
-                ["viewmodel_presetpos", "1"]
+                ["viewmodel_offset_z", "-2"]
             ]
         }
+
     },
 
 
     hud: {
 
         tr: {
-            category: "CS2 / HUD",
+            category: "INTERFACE",
             title: "HUD Ayarlarım",
+            path: "CS2 → Settings → Game → HUD",
 
             steps: [
                 ["HUD Scale", "0.90"],
                 ["HUD Color", "Team Color"],
-                ["Radar HUD Scale", "1.00"],
-                ["Radar Icon Scale", "0.70"],
-                ["Health / Armor", "Visible"]
+                ["Health / Armor", "Visible"],
+                ["Player Count", "Visible"]
             ]
         },
 
         en: {
-            category: "CS2 / HUD",
+            category: "INTERFACE",
             title: "My HUD Settings",
+            path: "CS2 → Settings → Game → HUD",
 
             steps: [
                 ["HUD Scale", "0.90"],
                 ["HUD Color", "Team Color"],
-                ["Radar HUD Scale", "1.00"],
-                ["Radar Icon Scale", "0.70"],
-                ["Health / Armor", "Visible"]
+                ["Health / Armor", "Visible"],
+                ["Player Count", "Visible"]
             ]
         }
+
     },
 
 
     radar: {
 
         tr: {
-            category: "CS2 / RADAR",
+            category: "INTERFACE",
             title: "Radar Ayarlarım",
+            path: "CS2 → Settings → Game → Radar",
 
             steps: [
                 ["Radar Size", "1.00"],
                 ["Radar Scale", "0.40"],
                 ["Rotate Radar", "ON"],
-                ["Radar Center", "OFF"],
+                ["Center Radar", "OFF"],
                 ["Map Text Size", "Medium"]
             ]
         },
 
         en: {
-            category: "CS2 / RADAR",
+            category: "INTERFACE",
             title: "My Radar Settings",
+            path: "CS2 → Settings → Game → Radar",
 
             steps: [
                 ["Radar Size", "1.00"],
                 ["Radar Scale", "0.40"],
                 ["Rotate Radar", "ON"],
-                ["Radar Center", "OFF"],
+                ["Center Radar", "OFF"],
                 ["Map Text Size", "Medium"]
             ]
         }
-    },
 
-
-    weapon: {
-
-        tr: {
-            category: "CS2 / WEAPON",
-            title: "Silah Ayarlarım",
-
-            steps: [
-                ["Weapon Position", "Classic"],
-                ["Viewmodel FOV", "68"],
-                ["Weapon Bob", "Minimal"],
-                ["Switch Animation", "Default"],
-                ["Weapon Lowering", "Disabled"]
-            ]
-        },
-
-        en: {
-            category: "CS2 / WEAPON",
-            title: "My Weapon Settings",
-
-            steps: [
-                ["Weapon Position", "Classic"],
-                ["Viewmodel FOV", "68"],
-                ["Weapon Bob", "Minimal"],
-                ["Switch Animation", "Default"],
-                ["Weapon Lowering", "Disabled"]
-            ]
-        }
     },
 
 
@@ -342,12 +337,10 @@ const guides = {
 
         tr: {
             category: "NVIDIA CONTROL PANEL",
-            title: "NVIDIA Renk Ayarları",
+            title: "NVIDIA Renk Ayarlarım",
+            path: "Masaüstü → Sağ Tık → NVIDIA Denetim Masası → Ekran → Masaüstü renk ayarlarını yap",
 
             steps: [
-                ["1. Adım", "Masaüstüne sağ tıkla → NVIDIA Denetim Masası"],
-                ["2. Adım", "Sol menüden → Ekran"],
-                ["3. Adım", "Masaüstü renk ayarlarını yap seçeneğine gir"],
                 ["Parlaklık", "55%"],
                 ["Kontrast", "55%"],
                 ["Gamma", "1.00"],
@@ -358,12 +351,10 @@ const guides = {
 
         en: {
             category: "NVIDIA CONTROL PANEL",
-            title: "NVIDIA Color Settings",
+            title: "My NVIDIA Color Settings",
+            path: "Desktop → Right Click → NVIDIA Control Panel → Display → Adjust desktop color settings",
 
             steps: [
-                ["Step 1", "Right click desktop → NVIDIA Control Panel"],
-                ["Step 2", "Open Display from the left menu"],
-                ["Step 3", "Select Adjust desktop color settings"],
                 ["Brightness", "55%"],
                 ["Contrast", "55%"],
                 ["Gamma", "1.00"],
@@ -371,24 +362,22 @@ const guides = {
                 ["Hue", "0°"]
             ]
         }
+
     },
 
 
-    fpsnvidia: {
+    "fps-nvidia": {
 
         tr: {
             category: "FPS BOOST / NVIDIA",
             title: "NVIDIA FPS Ayarları",
+            path: "NVIDIA Denetim Masası → 3D Ayarlarının Yönetilmesi → Program Ayarları → CS2",
 
             steps: [
-                ["1. Adım", "Masaüstüne sağ tıkla → NVIDIA Denetim Masası"],
-                ["2. Adım", "3D Ayarlarının Yönetilmesi bölümüne gir"],
-                ["3. Adım", "Program Ayarları sekmesine geç"],
-                ["4. Adım", "Counter-Strike 2'yi seç"],
-                ["Güç yönetimi modu", "Maksimum performansı tercih et"],
-                ["Tercih edilen yenileme hızı", "Kullanılabilir en yüksek"],
-                ["Düşük gecikme modu", "Kapalı"],
-                ["Dikey senkronizasyon", "Kapalı"],
+                ["Güç Yönetimi", "Maksimum performansı tercih et"],
+                ["Tercih Edilen Yenileme Hızı", "Kullanılabilir en yüksek"],
+                ["Düşük Gecikme Modu", "Kapalı"],
+                ["Dikey Senkronizasyon", "Kapalı"],
                 ["Texture Filtering", "High Performance"]
             ]
         },
@@ -396,127 +385,128 @@ const guides = {
         en: {
             category: "FPS BOOST / NVIDIA",
             title: "NVIDIA FPS Settings",
+            path: "NVIDIA Control Panel → Manage 3D Settings → Program Settings → CS2",
 
             steps: [
-                ["Step 1", "Right click desktop → NVIDIA Control Panel"],
-                ["Step 2", "Open Manage 3D Settings"],
-                ["Step 3", "Go to Program Settings"],
-                ["Step 4", "Select Counter-Strike 2"],
-                ["Power Management Mode", "Prefer Maximum Performance"],
+                ["Power Management", "Prefer Maximum Performance"],
                 ["Preferred Refresh Rate", "Highest Available"],
                 ["Low Latency Mode", "Off"],
                 ["Vertical Sync", "Off"],
                 ["Texture Filtering", "High Performance"]
             ]
         }
+
     },
 
 
-    fpswindows: {
+    "fps-windows": {
 
         tr: {
             category: "FPS BOOST / WINDOWS",
             title: "Windows FPS Ayarları",
+            path: "Windows → Ayarlar → Sistem → Güç",
 
             steps: [
-                ["1. Adım", "Windows Ayarları → Sistem → Güç"],
                 ["Güç Modu", "En iyi performans"],
                 ["Oyun Modu", "Açık"],
-                ["Arka Plan Uygulamaları", "Gereksizleri kapat"],
                 ["Başlangıç Uygulamaları", "Gereksizleri kapat"],
-                ["Windows Game Bar", "Gerekmiyorsa kapat"]
+                ["Arka Plan Uygulamaları", "Gereksizleri kapat"]
             ]
         },
 
         en: {
             category: "FPS BOOST / WINDOWS",
             title: "Windows FPS Settings",
+            path: "Windows → Settings → System → Power",
 
             steps: [
-                ["Step 1", "Windows Settings → System → Power"],
                 ["Power Mode", "Best Performance"],
                 ["Game Mode", "On"],
-                ["Background Apps", "Disable unnecessary apps"],
                 ["Startup Apps", "Disable unnecessary apps"],
-                ["Windows Game Bar", "Disable if unnecessary"]
+                ["Background Apps", "Disable unnecessary apps"]
             ]
         }
+
     },
 
 
-    fpscs2: {
+    "fps-cs2": {
 
         tr: {
             category: "FPS BOOST / CS2",
             title: "CS2 FPS Ayarları",
+            path: "CS2 → Settings → Video",
 
             steps: [
                 ["Display Mode", "Fullscreen"],
                 ["V-Sync", "Disabled"],
                 ["MSAA", "2X"],
-                ["Global Shadow Quality", "Low"],
+                ["Shadow Quality", "Low"],
                 ["Model / Texture", "Low"],
-                ["Shader Detail", "Low"],
-                ["Particle Detail", "Low"],
-                ["Ambient Occlusion", "Disabled"],
-                ["HDR", "Performance"]
+                ["Shader", "Low"],
+                ["Particle", "Low"],
+                ["Ambient Occlusion", "Disabled"]
             ]
         },
 
         en: {
             category: "FPS BOOST / CS2",
             title: "CS2 FPS Settings",
+            path: "CS2 → Settings → Video",
 
             steps: [
                 ["Display Mode", "Fullscreen"],
                 ["V-Sync", "Disabled"],
                 ["MSAA", "2X"],
-                ["Global Shadow Quality", "Low"],
+                ["Shadow Quality", "Low"],
                 ["Model / Texture", "Low"],
-                ["Shader Detail", "Low"],
-                ["Particle Detail", "Low"],
-                ["Ambient Occlusion", "Disabled"],
-                ["HDR", "Performance"]
+                ["Shader", "Low"],
+                ["Particle", "Low"],
+                ["Ambient Occlusion", "Disabled"]
             ]
         }
+
     }
 
 };
 
 
-/* =========================
-   MODAL
-========================= */
+/* OPEN GUIDE */
 
-function openGuide(type) {
+function openGuide(id) {
 
-    const guide = guides[type];
+    if (!guides[id]) return;
 
-    if (!guide) return;
-
-    const content = guide[currentLanguage];
+    const guide = guides[id][language];
 
     let html = `
-        <div class="guide-title">
-            <span>${content.category}</span>
-            <h2>${content.title}</h2>
+        <div class="guide-heading">
+            <span>${guide.category}</span>
+            <h2>${guide.title}</h2>
+        </div>
+
+        <div class="guide-path">
+            <small>${language === "tr" ? "AYARIN YOLU" : "SETTING PATH"}</small>
+            <strong>${guide.path}</strong>
         </div>
     `;
 
-    content.steps.forEach((step, index) => {
+
+    guide.steps.forEach((step, index) => {
 
         html += `
             <div class="guide-step">
 
-                <div class="step-number">
-                    ${index + 1}
+                <div class="step-num">
+                    ${String(index + 1).padStart(2, "0")}
                 </div>
 
-                <div>
-                    <h4>${step[0]}</h4>
-                    <div class="setting-value">
-                        ${step[1]}
-                    </div>
+                <div class="step-name">
+                    ${step[0]}
+                </div>
+
+                <div class="step-value">
+                    ${step[1]}
                 </div>
 
             </div>
@@ -524,47 +514,52 @@ function openGuide(type) {
 
     });
 
-    modalContent.innerHTML = html;
 
-    modal.classList.add("active");
-    document.body.classList.add("modal-open");
+    guideContent.innerHTML = html;
+
+    guideModal.classList.add("active");
+
+    document.body.classList.add("no-scroll");
+
 }
 
 
-document.querySelectorAll("[data-modal]").forEach(card => {
+/* GUIDE CLICK */
 
-    card.addEventListener("click", () => {
+document.querySelectorAll("[data-guide]").forEach(element => {
 
-        openGuide(card.dataset.modal);
+    element.addEventListener("click", () => {
+
+        openGuide(element.dataset.guide);
 
     });
 
 });
 
 
-modalClose.addEventListener("click", closeModal);
+/* CLOSE */
 
-document.querySelector(".modal-overlay").addEventListener("click", closeModal);
+function closeGuide() {
 
-function closeModal() {
+    guideModal.classList.remove("active");
 
-    modal.classList.remove("active");
-    document.body.classList.remove("modal-open");
+    document.body.classList.remove("no-scroll");
 
 }
 
+guideClose.addEventListener("click", closeGuide);
+
+document.querySelector(".guide-backdrop").addEventListener("click", closeGuide);
 
 document.addEventListener("keydown", event => {
 
     if (event.key === "Escape") {
-        closeModal();
+        closeGuide();
     }
 
 });
 
 
-/* =========================
-   INITIALIZE
-========================= */
+/* INITIAL LANGUAGE */
 
-updateLanguage();
+setLanguage();
