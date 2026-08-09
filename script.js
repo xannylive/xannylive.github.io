@@ -1,15 +1,7 @@
-let language = localStorage.getItem("xanny-language") || "tr";
-
-const loader = document.getElementById("loader");
-const langBtn = document.getElementById("langBtn");
-const langText = document.getElementById("langText");
-
-const mobileMenu = document.getElementById("mobileMenu");
-const nav = document.querySelector(".desktop-nav");
-
-const guideModal = document.getElementById("guideModal");
-const guideContent = document.getElementById("guideContent");
-const guideClose = document.getElementById("guideClose");
+/* =====================================================
+   XANNYLIVE
+   MAIN JAVASCRIPT
+===================================================== */
 
 
 /* LOADER */
@@ -17,549 +9,747 @@ const guideClose = document.getElementById("guideClose");
 window.addEventListener("load", () => {
 
     setTimeout(() => {
-        loader.classList.add("hide");
-    }, 700);
+
+        document
+            .getElementById("loader")
+            .classList.add("hidden");
+
+    }, 600);
 
 });
 
 
-/* CURSOR */
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
-const cursor = document.getElementById("cursor");
+const menuButton = document.getElementById("menuButton");
+const mobileMenu = document.getElementById("mobileMenu");
 
-document.addEventListener("mousemove", e => {
+if (menuButton) {
 
-    if (cursor) {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-    }
+    menuButton.addEventListener("click", () => {
+
+        mobileMenu.classList.toggle("active");
+
+    });
+
+}
+
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("active");
+
+    });
 
 });
 
 
-/* LANGUAGE */
+/* =====================================================
+   LANGUAGE
+===================================================== */
 
-function setLanguage() {
+let currentLanguage = "tr";
 
-    document.documentElement.lang = language;
+const languageButton = document.getElementById("languageBtn");
+
+languageButton.addEventListener("click", () => {
+
+    currentLanguage =
+        currentLanguage === "tr"
+            ? "en"
+            : "tr";
+
+    languageButton.textContent =
+        currentLanguage.toUpperCase();
 
     document.querySelectorAll("[data-tr]").forEach(element => {
 
-        const text = element.getAttribute(`data-${language}`);
+        const text =
+            element.dataset[currentLanguage];
 
         if (text) {
+
             element.textContent = text;
+
         }
 
     });
 
-    langText.textContent =
-        language === "tr" ? "EN" : "TR";
-
-    localStorage.setItem("xanny-language", language);
-
-}
-
-
-langBtn.addEventListener("click", () => {
-
-    language = language === "tr" ? "en" : "tr";
-
-    setLanguage();
-
 });
 
 
-/* MOBILE NAV */
-
-mobileMenu.addEventListener("click", () => {
-
-    nav.classList.toggle("active");
-
-});
-
-
-document.querySelectorAll(".desktop-nav a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        nav.classList.remove("active");
-
-    });
-
-});
-
-
-/* GUIDE DATA */
+/* =====================================================
+   GUIDE DATA
+===================================================== */
 
 const guides = {
 
     crosshair: {
 
-        tr: {
-            category: "CS2 / AIM",
-            title: "Crosshair Ayarlarım",
-            path: "CS2 → Settings → Game → Crosshair",
+        label: "CS2 / CROSSHAIR",
 
-            steps: [
-                ["Style", "Classic Static"],
-                ["Color", "Green"],
-                ["Size", "1.5"],
-                ["Thickness", "0.5"],
-                ["Gap", "-3"],
-                ["Outline", "OFF"],
-                ["Dot", "OFF"]
-            ]
-        },
+        title: "XANNYLIVE<br>CROSSHAIR",
 
-        en: {
-            category: "CS2 / AIM",
-            title: "My Crosshair Settings",
-            path: "CS2 → Settings → Game → Crosshair",
+        description:
+            "Bu crosshair'i direkt kopyalayıp CS2 konsoluna yapıştırabilirsin.",
 
-            steps: [
-                ["Style", "Classic Static"],
-                ["Color", "Green"],
-                ["Size", "1.5"],
-                ["Thickness", "0.5"],
-                ["Gap", "-3"],
-                ["Outline", "OFF"],
-                ["Dot", "OFF"]
-            ]
-        }
+        steps: [
+
+            {
+                title: "KODU KOPYALA",
+
+                text:
+                    "Aşağıdaki kodu tek tıkla panoya kopyala.",
+
+                code:
+`cl_crosshair_drawoutline 0;
+cl_crosshair_dynamic_maxdist_splitratio 0.35;
+cl_crosshair_dynamic_splitalpha_innermod 1;
+cl_crosshair_dynamic_splitalpha_outermod 0.5;
+cl_crosshair_dynamic_splitdist 7;
+cl_crosshair_outlinethickness 1;
+cl_crosshair_sniper_width 1;
+cl_crosshairalpha 255;
+cl_crosshaircolor 1;
+cl_crosshairdot 0;
+cl_crosshairgap -4;
+cl_crosshairsize 2;
+cl_crosshairstyle 4;
+cl_crosshairthickness 1;
+cl_crosshairusealpha 1;
+cl_fixedcrosshairgap 3;`
+
+            },
+
+            {
+                title: "CS2'Yİ AÇ",
+
+                text:
+                    "Oyunda geliştirici konsolunu aç ve kodu konsola yapıştır."
+            },
+
+            {
+                title: "UYGULA",
+
+                text:
+                    "Enter'a bastıktan sonra crosshair direkt aktif olur."
+            }
+
+        ]
 
     },
 
 
     mouse: {
 
-        tr: {
-            category: "HARDWARE",
-            title: "Mouse Ayarlarım",
-            path: "Mouse Software → Performance",
+        label: "CS2 / MOUSE",
 
-            steps: [
-                ["DPI", "800"],
-                ["Polling Rate", "1000 Hz"],
-                ["Sensitivity", "1.00"],
-                ["Zoom Sensitivity", "1.00"],
-                ["Raw Input", "ON"],
-                ["Mouse Acceleration", "OFF"]
-            ]
-        },
+        title: "MOUSE<br>AYARLARI",
 
-        en: {
-            category: "HARDWARE",
-            title: "My Mouse Settings",
-            path: "Mouse Software → Performance",
+        description:
+            "Kontrollü ve rekabetçi bir mouse ayarı.",
 
-            steps: [
-                ["DPI", "800"],
-                ["Polling Rate", "1000 Hz"],
-                ["Sensitivity", "1.00"],
-                ["Zoom Sensitivity", "1.00"],
-                ["Raw Input", "ON"],
-                ["Mouse Acceleration", "OFF"]
-            ]
-        }
+        steps: [
 
-    },
+            {
+                title: "DPI",
 
+                text:
+                    "Mouse DPI: 800"
+            },
 
-    monitor: {
+            {
+                title: "SENSITIVITY",
 
-        tr: {
-            category: "DISPLAY",
-            title: "Monitör Ayarlarım",
-            path: "Windows → System → Display → Advanced Display",
+                text:
+                    "CS2 sensitivity: 1.00"
+            },
 
-            steps: [
-                ["Resolution", "1920 × 1080"],
-                ["Refresh Rate", "144 Hz"],
-                ["Display Mode", "Fullscreen"],
-                ["V-Sync", "OFF"],
-                ["Aspect Ratio", "16:9"]
-            ]
-        },
+            {
+                title: "RAW INPUT",
 
-        en: {
-            category: "DISPLAY",
-            title: "My Monitor Settings",
-            path: "Windows → System → Display → Advanced Display",
+                text:
+                    "Mouse hızlandırmasını kapalı tut. Windows pointer precision özelliğini de kapat."
+            }
 
-            steps: [
-                ["Resolution", "1920 × 1080"],
-                ["Refresh Rate", "144 Hz"],
-                ["Display Mode", "Fullscreen"],
-                ["V-Sync", "OFF"],
-                ["Aspect Ratio", "16:9"]
-            ]
-        }
+        ]
 
     },
 
 
     graphics: {
 
-        tr: {
-            category: "CS2 / GRAPHICS",
-            title: "Grafik Ayarlarım",
-            path: "CS2 → Settings → Video → Advanced Video",
+        label: "CS2 / GRAPHICS",
 
-            steps: [
-                ["Boost Player Contrast", "Enabled"],
-                ["V-Sync", "Disabled"],
-                ["MSAA", "2X"],
-                ["Shadow Quality", "Low"],
-                ["Model / Texture", "Low"],
-                ["Shader", "Low"],
-                ["Particle", "Low"],
-                ["Ambient Occlusion", "Disabled"]
-            ]
-        },
+        title: "GRAFİK<br>AYARLARI",
 
-        en: {
-            category: "CS2 / GRAPHICS",
-            title: "My Graphics Settings",
-            path: "CS2 → Settings → Video → Advanced Video",
+        description:
+            "FPS ile görüntü kalitesini dengeli tutmak için önerilen ayarlar.",
 
-            steps: [
-                ["Boost Player Contrast", "Enabled"],
-                ["V-Sync", "Disabled"],
-                ["MSAA", "2X"],
-                ["Shadow Quality", "Low"],
-                ["Model / Texture", "Low"],
-                ["Shader", "Low"],
-                ["Particle", "Low"],
-                ["Ambient Occlusion", "Disabled"]
-            ]
-        }
+        steps: [
+
+            {
+                title: "DISPLAY MODE",
+
+                text:
+                    "Tam ekran kullan."
+            },
+
+            {
+                title: "SHADOW QUALITY",
+
+                text:
+                    "Shadow Quality: Low / Medium"
+            },
+
+            {
+                title: "MSAA",
+
+                text:
+                    "MSAA: 2x veya 4x. Sistemine göre değiştir."
+            },
+
+            {
+                title: "TEXTURE",
+
+                text:
+                    "Texture Filtering: 4x"
+            },
+
+            {
+                title: "V-SYNC",
+
+                text:
+                    "V-Sync: OFF"
+            }
+
+        ]
 
     },
 
 
-    viewmodel: {
+    monitor: {
 
-        tr: {
-            category: "CS2 / WEAPON",
-            title: "Viewmodel Ayarlarım",
-            path: "CS2 → Console",
+        label: "DISPLAY / MONITOR",
 
-            steps: [
-                ["viewmodel_fov", "68"],
-                ["viewmodel_offset_x", "2.5"],
-                ["viewmodel_offset_y", "2"],
-                ["viewmodel_offset_z", "-2"]
-            ]
-        },
+        title: "MONİTÖR<br>AYARLARI",
 
-        en: {
-            category: "CS2 / WEAPON",
-            title: "My Viewmodel Settings",
-            path: "CS2 → Console",
+        description:
+            "Daha akıcı görüntü ve düşük input lag için.",
 
-            steps: [
-                ["viewmodel_fov", "68"],
-                ["viewmodel_offset_x", "2.5"],
-                ["viewmodel_offset_y", "2"],
-                ["viewmodel_offset_z", "-2"]
-            ]
-        }
+        steps: [
+
+            {
+                title: "REFRESH RATE",
+
+                text:
+                    "Windows ekran ayarlarından monitörünün desteklediği en yüksek Hz değerini seç."
+            },
+
+            {
+                title: "CS2",
+
+                text:
+                    "CS2 içerisinde aynı yenileme hızını kullan."
+            },
+
+            {
+                title: "V-SYNC",
+
+                text:
+                    "Rekabetçi kullanımda V-Sync'i kapalı tut."
+            }
+
+        ]
 
     },
 
 
     hud: {
 
-        tr: {
-            category: "INTERFACE",
-            title: "HUD Ayarlarım",
-            path: "CS2 → Settings → Game → HUD",
+        label: "CS2 / HUD",
 
-            steps: [
-                ["HUD Scale", "0.90"],
-                ["HUD Color", "Team Color"],
-                ["Health / Armor", "Visible"],
-                ["Player Count", "Visible"]
-            ]
-        },
+        title: "HUD<br>AYARLARI",
 
-        en: {
-            category: "INTERFACE",
-            title: "My HUD Settings",
-            path: "CS2 → Settings → Game → HUD",
+        description:
+            "Ekranı gereksiz bilgilerden temizleyen sade HUD.",
 
-            steps: [
-                ["HUD Scale", "0.90"],
-                ["HUD Color", "Team Color"],
-                ["Health / Armor", "Visible"],
-                ["Player Count", "Visible"]
-            ]
-        }
+        steps: [
+
+            {
+                title: "HUD SCALE",
+
+                text:
+                    "HUD boyutunu ekranında rahat okuyabileceğin seviyeye getir."
+            },
+
+            {
+                title: "RADAR",
+
+                text:
+                    "Radarın görüş alanını mümkün olduğunca kullan."
+            }
+
+        ]
 
     },
 
 
     radar: {
 
-        tr: {
-            category: "INTERFACE",
-            title: "Radar Ayarlarım",
-            path: "CS2 → Settings → Game → Radar",
+        label: "CS2 / RADAR",
 
-            steps: [
-                ["Radar Size", "1.00"],
-                ["Radar Scale", "0.40"],
-                ["Rotate Radar", "ON"],
-                ["Center Radar", "OFF"],
-                ["Map Text Size", "Medium"]
-            ]
-        },
+        title: "RADAR<br>AYARLARI",
 
-        en: {
-            category: "INTERFACE",
-            title: "My Radar Settings",
-            path: "CS2 → Settings → Game → Radar",
+        description:
+            "Rakip ve takım bilgisini daha rahat takip etmek için.",
 
-            steps: [
-                ["Radar Size", "1.00"],
-                ["Radar Scale", "0.40"],
-                ["Rotate Radar", "ON"],
-                ["Center Radar", "OFF"],
-                ["Map Text Size", "Medium"]
-            ]
-        }
+        steps: [
+
+            {
+                title: "RADAR SCALE",
+
+                text:
+                    "Radar boyutunu ekranına göre ayarla."
+            },
+
+            {
+                title: "RADAR ROTATION",
+
+                text:
+                    "Radarın oyuncuya göre dönmesini kullan."
+            },
+
+            {
+                title: "HUD",
+
+                text:
+                    "Radarın ekranın önemli bölgelerini kapatmadığından emin ol."
+            }
+
+        ]
+
+    },
+
+
+    viewmodel: {
+
+        label: "CS2 / VIEWMODEL",
+
+        title: "VIEWMODEL<br>AYARLARI",
+
+        description:
+            "Silahın ekranı gereksiz kaplamaması için temiz viewmodel.",
+
+        steps: [
+
+            {
+                title: "VIEWMODEL",
+
+                text:
+                    "Kullanabileceğin örnek komut:",
+
+                code:
+`viewmodel_fov 68;
+viewmodel_offset_x 2.5;
+viewmodel_offset_y 2;
+viewmodel_offset_z -2;`
+
+            },
+
+            {
+                title: "UYGULA",
+
+                text:
+                    "Komutları CS2 geliştirici konsoluna yapıştır."
+            }
+
+        ]
 
     },
 
 
     nvidia: {
 
-        tr: {
-            category: "NVIDIA CONTROL PANEL",
-            title: "NVIDIA Renk Ayarlarım",
-            path: "Masaüstü → Sağ Tık → NVIDIA Denetim Masası → Ekran → Masaüstü renk ayarlarını yap",
+        label: "NVIDIA / COLORS",
 
-            steps: [
-                ["Parlaklık", "55%"],
-                ["Kontrast", "55%"],
-                ["Gamma", "1.00"],
-                ["Dijital Canlılık", "70%"],
-                ["Ton", "0°"]
-            ]
-        },
+        title: "NVIDIA<br>RENK AYARLARI",
 
-        en: {
-            category: "NVIDIA CONTROL PANEL",
-            title: "My NVIDIA Color Settings",
-            path: "Desktop → Right Click → NVIDIA Control Panel → Display → Adjust desktop color settings",
+        description:
+            "CS2 görüntüsünü daha canlı ve okunabilir hale getirmek için.",
 
-            steps: [
-                ["Brightness", "55%"],
-                ["Contrast", "55%"],
-                ["Gamma", "1.00"],
-                ["Digital Vibrance", "70%"],
-                ["Hue", "0°"]
-            ]
-        }
+        steps: [
 
-    },
+            {
+                title: "NVIDIA DENETİM MASASI",
 
+                text:
+                    "Masaüstüne sağ tıkla ve NVIDIA Denetim Masası'nı aç."
+            },
 
-    "fps-nvidia": {
+            {
+                title: "MASAÜSTÜ RENK AYARLARI",
 
-        tr: {
-            category: "FPS BOOST / NVIDIA",
-            title: "NVIDIA FPS Ayarları",
-            path: "NVIDIA Denetim Masası → 3D Ayarlarının Yönetilmesi → Program Ayarları → CS2",
+                text:
+                    "Sol menüden 'Masaüstü renk ayarlarını yap' bölümüne gir."
+            },
 
-            steps: [
-                ["Güç Yönetimi", "Maksimum performansı tercih et"],
-                ["Tercih Edilen Yenileme Hızı", "Kullanılabilir en yüksek"],
-                ["Düşük Gecikme Modu", "Kapalı"],
-                ["Dikey Senkronizasyon", "Kapalı"],
-                ["Texture Filtering", "High Performance"]
-            ]
-        },
+            {
+                title: "DİJİTAL CANLILIK",
 
-        en: {
-            category: "FPS BOOST / NVIDIA",
-            title: "NVIDIA FPS Settings",
-            path: "NVIDIA Control Panel → Manage 3D Settings → Program Settings → CS2",
+                text:
+                    "Digital Vibrance / Dijital Canlılık değerini yaklaşık %70–80 seviyesinde deneyebilirsin."
+            },
 
-            steps: [
-                ["Power Management", "Prefer Maximum Performance"],
-                ["Preferred Refresh Rate", "Highest Available"],
-                ["Low Latency Mode", "Off"],
-                ["Vertical Sync", "Off"],
-                ["Texture Filtering", "High Performance"]
-            ]
-        }
+            {
+                title: "UYGULA",
+
+                text:
+                    "Sağ alttaki Uygula butonuna bas."
+            }
+
+        ]
 
     },
 
 
-    "fps-windows": {
+    fps: {
 
-        tr: {
-            category: "FPS BOOST / WINDOWS",
-            title: "Windows FPS Ayarları",
-            path: "Windows → Ayarlar → Sistem → Güç",
+        label: "PERFORMANCE / FPS",
 
-            steps: [
-                ["Güç Modu", "En iyi performans"],
-                ["Oyun Modu", "Açık"],
-                ["Başlangıç Uygulamaları", "Gereksizleri kapat"],
-                ["Arka Plan Uygulamaları", "Gereksizleri kapat"]
-            ]
-        },
+        title: "FPS<br>BOOST",
 
-        en: {
-            category: "FPS BOOST / WINDOWS",
-            title: "Windows FPS Settings",
-            path: "Windows → Settings → System → Power",
+        description:
+            "FPS'i artırmak ve gereksiz sistem yükünü azaltmak için.",
 
-            steps: [
-                ["Power Mode", "Best Performance"],
-                ["Game Mode", "On"],
-                ["Startup Apps", "Disable unnecessary apps"],
-                ["Background Apps", "Disable unnecessary apps"]
-            ]
-        }
+        steps: [
+
+            {
+                title: "CS2 AYARLARI",
+
+                text:
+                    "Gereksiz grafik seçeneklerini düşür ve V-Sync'i kapat."
+            },
+
+            {
+                title: "ARKA PLAN",
+
+                text:
+                    "Oyun sırasında gereksiz uygulamaları kapat."
+            },
+
+            {
+                title: "GÜÇ MODU",
+
+                text:
+                    "Windows güç modunu performansa öncelik verecek şekilde ayarla."
+            },
+
+            {
+                title: "NVIDIA",
+
+                text:
+                    "NVIDIA Denetim Masası'nda CS2 için performans odaklı profil kullan."
+            }
+
+        ]
 
     },
 
 
-    "fps-cs2": {
+    windows: {
 
-        tr: {
-            category: "FPS BOOST / CS2",
-            title: "CS2 FPS Ayarları",
-            path: "CS2 → Settings → Video",
+        label: "WINDOWS / PERFORMANCE",
 
-            steps: [
-                ["Display Mode", "Fullscreen"],
-                ["V-Sync", "Disabled"],
-                ["MSAA", "2X"],
-                ["Shadow Quality", "Low"],
-                ["Model / Texture", "Low"],
-                ["Shader", "Low"],
-                ["Particle", "Low"],
-                ["Ambient Occlusion", "Disabled"]
-            ]
-        },
+        title: "WINDOWS<br>OPTİMİZASYON",
 
-        en: {
-            category: "FPS BOOST / CS2",
-            title: "CS2 FPS Settings",
-            path: "CS2 → Settings → Video",
+        description:
+            "Windows tarafında oyun performansını etkileyebilecek temel ayarlar.",
 
-            steps: [
-                ["Display Mode", "Fullscreen"],
-                ["V-Sync", "Disabled"],
-                ["MSAA", "2X"],
-                ["Shadow Quality", "Low"],
-                ["Model / Texture", "Low"],
-                ["Shader", "Low"],
-                ["Particle", "Low"],
-                ["Ambient Occlusion", "Disabled"]
-            ]
-        }
+        steps: [
+
+            {
+                title: "OYUN MODU",
+
+                text:
+                    "Windows Ayarlar → Oyun → Oyun Modu bölümünü aç."
+            },
+
+            {
+                title: "BAŞLANGIÇ UYGULAMALARI",
+
+                text:
+                    "Görev Yöneticisi → Başlangıç Uygulamaları kısmından gereksiz uygulamaları kapat."
+            },
+
+            {
+                title: "GÜÇ",
+
+                text:
+                    "Windows güç ayarlarında performans odaklı plan kullan."
+            }
+
+        ]
+
+    },
+
+
+    "nvidia-performance": {
+
+        label: "NVIDIA / PERFORMANCE",
+
+        title: "NVIDIA<br>FPS BOOST",
+
+        description:
+            "NVIDIA tarafında performans için kontrol edebileceğin ayarlar.",
+
+        steps: [
+
+            {
+                title: "NVIDIA DENETİM MASASI",
+
+                text:
+                    "Masaüstü → NVIDIA Denetim Masası → 3D ayarlarının yönetilmesi."
+            },
+
+            {
+                title: "PROGRAM AYARLARI",
+
+                text:
+                    "Program ayarlarından CS2'yi seç."
+            },
+
+            {
+                title: "GÜÇ YÖNETİMİ",
+
+                text:
+                    "Güç yönetimi modunu performans öncelikli kullan."
+            },
+
+            {
+                title: "LOW LATENCY",
+
+                text:
+                    "CS2'nin kendi Reflex desteğini kullanıyorsan oyun içindeki NVIDIA Reflex ayarını tercih et."
+            }
+
+        ]
 
     }
 
 };
 
 
-/* OPEN GUIDE */
+/* =====================================================
+   MODAL
+===================================================== */
 
-function openGuide(id) {
+const modal = document.getElementById("guideModal");
+const modalContent = document.getElementById("modalContent");
+const modalClose = document.getElementById("modalClose");
 
-    if (!guides[id]) return;
 
-    const guide = guides[id][language];
+function openGuide(type) {
+
+    const guide = guides[type];
+
+    if (!guide) return;
+
 
     let html = `
-        <div class="guide-heading">
-            <span>${guide.category}</span>
-            <h2>${guide.title}</h2>
+
+        <div class="modal-label">
+            ${guide.label}
         </div>
 
-        <div class="guide-path">
-            <small>${language === "tr" ? "AYARIN YOLU" : "SETTING PATH"}</small>
-            <strong>${guide.path}</strong>
-        </div>
+        <h2 class="modal-title">
+            ${guide.title}
+        </h2>
+
+        <p class="modal-description">
+            ${guide.description}
+        </p>
+
     `;
 
 
     guide.steps.forEach((step, index) => {
 
         html += `
+
             <div class="guide-step">
 
-                <div class="step-num">
-                    ${String(index + 1).padStart(2, "0")}
+                <div class="guide-number">
+                    0${index + 1}
                 </div>
 
-                <div class="step-name">
-                    ${step[0]}
-                </div>
+                <div>
 
-                <div class="step-value">
-                    ${step[1]}
+                    <h3>
+                        ${step.title}
+                    </h3>
+
+                    <p>
+                        ${step.text}
+                    </p>
+
+                    ${
+                        step.code
+                        ?
+                        `
+                            <div class="code-box">
+                                ${escapeHtml(step.code)}
+                            </div>
+
+                            <button
+                                class="copy-button"
+                                data-code="${encodeURIComponent(step.code)}">
+                                KODU KOPYALA
+                            </button>
+                        `
+                        :
+                        ""
+                    }
+
                 </div>
 
             </div>
+
         `;
 
     });
 
 
-    guideContent.innerHTML = html;
+    modalContent.innerHTML = html;
 
-    guideModal.classList.add("active");
+    modal.classList.add("active");
 
-    document.body.classList.add("no-scroll");
+    document.body.style.overflow = "hidden";
+
+
+    document.querySelectorAll(".copy-button").forEach(button => {
+
+        button.addEventListener("click", async () => {
+
+            const code =
+                decodeURIComponent(button.dataset.code);
+
+            try {
+
+                await navigator.clipboard.writeText(code);
+
+                button.textContent = "✓ KOPYALANDI";
+
+                button.classList.add("copied");
+
+                setTimeout(() => {
+
+                    button.textContent = "KODU KOPYALA";
+
+                    button.classList.remove("copied");
+
+                }, 2000);
+
+            } catch {
+
+                button.textContent = "KOPYALANAMADI";
+
+            }
+
+        });
+
+    });
 
 }
 
 
-/* GUIDE CLICK */
+function closeGuide() {
 
-document.querySelectorAll("[data-guide]").forEach(element => {
+    modal.classList.remove("active");
 
-    element.addEventListener("click", () => {
+    document.body.style.overflow = "";
 
-        openGuide(element.dataset.guide);
+}
+
+
+document.querySelectorAll("[data-guide]").forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        openGuide(card.dataset.guide);
 
     });
 
 });
 
 
-/* CLOSE */
+modalClose.addEventListener("click", closeGuide);
 
-function closeGuide() {
 
-    guideModal.classList.remove("active");
+document
+    .querySelector(".modal-background")
+    .addEventListener("click", closeGuide);
 
-    document.body.classList.remove("no-scroll");
-
-}
-
-guideClose.addEventListener("click", closeGuide);
-
-document.querySelector(".guide-backdrop").addEventListener("click", closeGuide);
 
 document.addEventListener("keydown", event => {
 
     if (event.key === "Escape") {
+
         closeGuide();
+
     }
 
 });
 
 
-/* INITIAL LANGUAGE */
+/* =====================================================
+   HTML ESCAPE
+===================================================== */
 
-setLanguage();
+function escapeHtml(text) {
+
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+document
+    .querySelectorAll(".setting-card, .performance-card, .social-card")
+    .forEach(element => {
+
+        observer.observe(element);
+
+    });
