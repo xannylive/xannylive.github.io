@@ -5,23 +5,25 @@ XANNYLIVE — PREMIUM GAMING WEBSITE
 :root {
 --bg: #080808;
 --bg-2: #0d0d0d;
---card: #111111;
---card-hover: #171717;
---line: rgba(255,255,255,.10);
---line-strong: rgba(255,255,255,.18);
---text: #f5f5f5;
---muted: #8d8d8d;
---muted-2: #5f5f5f;
---accent: #b7ff00;
---accent-dark: #8fca00;
---red: #ff3b30;
 
-```
+--card: #111111;
+--card-hover: #181818;
+
+--line: rgba(255,255,255,.09);
+--line-strong: rgba(255,255,255,.17);
+
+--text: #f2f2f2;
+--muted: #8b8b8b;
+--muted-2: #555555;
+
+--accent: #c52835;
+--accent-dark: #8e1822;
+--red: #e63946;
+
 --font-display: "Manrope", sans-serif;
 --font-body: "DM Sans", sans-serif;
 
 --container: 1380px;
-```
 
 }
 
