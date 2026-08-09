@@ -1,1063 +1,890 @@
-```html
 <!DOCTYPE html>
+
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>XANNYLIVE — CS2 Player & Creator</title>
+```
+<title>XANNYLIVE — CS2 Player & Creator</title>
 
-    <meta
-        name="description"
-        content="XANNYLIVE — CS2 ayarları, FPS optimizasyonu, yayınlar ve sosyal medya."
-    >
+<meta name="description" content="XANNYLIVE — CS2 oyuncusu, yayıncı ve içerik üreticisi. CS2 ayarları, FPS boost, NVIDIA renk ayarları ve yayınlar.">
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header class="header">
 
-    <a href="#home" class="logo">
-        <span>XANNY</span><b>LIVE</b>
-    </a>
+```
+<a href="#" class="logo">
+    XANNY<b>.</b>
+</a>
 
-    <nav class="nav">
-
-        <a href="#settings">CS2 AYARLARI</a>
-        <a href="#boost">FPS BOOST</a>
-        <a href="#social">SOSYAL</a>
-        <a href="#about">HAKKIMDA</a>
-
-    </nav>
-
-    <div class="header-right">
-
-        <button class="lang-btn" id="languageBtn">
-            TR / EN
-        </button>
-
-        <a
-            href="https://kick.com/xannylive"
-            target="_blank"
-            class="header-kick"
-        >
-            <i></i>
-            CANLI YAYIN
-        </a>
-
-        <button class="mobile-menu-btn" id="menuBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-    </div>
-
-</header>
-
-
-<!-- =====================================================
-     MOBILE NAV
-===================================================== -->
-
-<div class="mobile-nav" id="mobileNav">
-
+<nav class="nav">
     <a href="#settings">CS2 AYARLARI</a>
     <a href="#boost">FPS BOOST</a>
     <a href="#social">SOSYAL</a>
     <a href="#about">HAKKIMDA</a>
+    <a href="#contact">İLETİŞİM</a>
+</nav>
 
-    <a
-        href="https://kick.com/xannylive"
-        target="_blank"
-    >
-        KICK ↗
+<div class="header-right">
+    <button class="lang-btn" id="languageBtn">TR / EN</button>
+
+    <a href="https://kick.com/xannylive"
+       target="_blank"
+       class="header-kick">
+        <i></i>
+        KICK
     </a>
 
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </div>
+```
 
+</header>
 
-<main id="home">
+<nav class="mobile-nav" id="mobileNav">
+    <a href="#settings">CS2 AYARLARI</a>
+    <a href="#boost">FPS BOOST</a>
+    <a href="#social">SOSYAL MEDYA</a>
+    <a href="#about">HAKKIMDA</a>
+    <a href="#contact">İLETİŞİM</a>
+</nav>
 
+<main>
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- HERO -->
 
 <section class="hero">
 
-    <div class="hero-noise"></div>
+```
+<div class="hero-corner">
+    <span>EST. 2024</span>
+    <span>CS2 / STREAM / CONTENT</span>
+</div>
 
-    <div class="hero-lines"></div>
+<div class="hero-content">
 
-    <div class="hero-content">
+    <div class="hero-status">
+        <span class="status-live"></span>
+        XANNYLIVE SYSTEM ONLINE
+    </div>
 
-        <div class="hero-status">
+    <h1>
+        XANNY<span>.</span>
+    </h1>
 
-            <span class="status-live"></span>
+    <div class="hero-bottom">
 
-            <span
-                data-tr="CS2 OYUNCUSU • YAYINCI • İÇERİK ÜRETİCİSİ"
-                data-en="CS2 PLAYER • STREAMER • CONTENT CREATOR"
-            >
-                CS2 OYUNCUSU • YAYINCI • İÇERİK ÜRETİCİSİ
-            </span>
+        <div class="hero-description">
 
-        </div>
+            <p>
+                CS2 oyuncusu, yayıncı ve içerik üreticisi.
+                Kullandığım ayarları, sistem optimizasyonlarını
+                ve oyun deneyimimi burada paylaşıyorum.
+            </p>
 
+            <div class="hero-buttons">
 
-        <h1>
-            XANNY<span>LIVE</span>
-        </h1>
+                <a href="#settings" class="btn-main">
+                    AYARLARI KEŞFET
+                    <span>↗</span>
+                </a>
 
-
-        <div class="hero-bottom">
-
-            <div class="hero-description">
-
-                <p
-                    data-tr="Kullandığım CS2 ayarları, performans optimizasyonları ve yayın dünyam."
-                    data-en="My CS2 settings, performance optimizations and streaming world."
-                >
-                    Kullandığım CS2 ayarları, performans
-                    optimizasyonları ve yayın dünyam.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#settings" class="btn-main">
-                        AYARLARIMI GÖR
-                        <span>↗</span>
-                    </a>
-
-                    <a href="#social" class="btn-outline">
-                        SOSYAL MEDYA
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="hero-number">
-
-                <span>CS2</span>
-
-                <strong>01</strong>
+                <a href="https://kick.com/xannylive"
+                   target="_blank"
+                   class="btn-outline">
+                    YAYINA GİT
+                    <span>→</span>
+                </a>
 
             </div>
 
         </div>
 
-    </div>
-
-
-    <div class="hero-corner">
-
-        <span>EST. 2026</span>
-        <span>COMPETITIVE MODE</span>
+        <div class="hero-number">
+            <strong>01</strong>
+        </div>
 
     </div>
+
+</div>
+```
 
 </section>
 
-
-<!-- =====================================================
-     TICKER
-===================================================== -->
+<!-- TICKER -->
 
 <div class="ticker">
 
-    <div class="ticker-track">
+```
+<div class="ticker-track">
 
-        <span>CS2 SETTINGS</span>
-        <b>✦</b>
+    <span>CS2 SETTINGS <b>×</b></span>
+    <span>FPS BOOST <b>×</b></span>
+    <span>NVIDIA COLORS <b>×</b></span>
+    <span>CROSSHAIR <b>×</b></span>
+    <span>MOUSE <b>×</b></span>
+    <span>HUD <b>×</b></span>
+    <span>VIEWMODEL <b>×</b></span>
 
-        <span>FPS OPTIMIZATION</span>
-        <b>✦</b>
+    <span>CS2 SETTINGS <b>×</b></span>
+    <span>FPS BOOST <b>×</b></span>
+    <span>NVIDIA COLORS <b>×</b></span>
+    <span>CROSSHAIR <b>×</b></span>
+    <span>MOUSE <b>×</b></span>
+    <span>HUD <b>×</b></span>
+    <span>VIEWMODEL <b>×</b></span>
 
-        <span>NVIDIA</span>
-        <b>✦</b>
-
-        <span>CROSSHAIR</span>
-        <b>✦</b>
-
-        <span>STREAMING</span>
-        <b>✦</b>
-
-        <span>CS2 SETTINGS</span>
-        <b>✦</b>
-
-        <span>FPS OPTIMIZATION</span>
-        <b>✦</b>
-
-    </div>
+</div>
+```
 
 </div>
 
-
-<!-- =====================================================
-     QUICK STATS
-===================================================== -->
+<!-- QUICK STATS -->
 
 <section class="quick-section">
 
-    <div class="quick-grid">
+```
+<div class="quick-grid">
 
-        <div class="quick-card">
-
-            <small>GAME</small>
-
-            <strong>CS2</strong>
-
-            <span>MAIN GAME</span>
-
-        </div>
-
-
-        <div class="quick-card">
-
-            <small>ROLE</small>
-
-            <strong>RIFLER</strong>
-
-            <span>COMPETITIVE</span>
-
-        </div>
-
-
-        <div class="quick-card">
-
-            <small>SETUP</small>
-
-            <strong>144HZ+</strong>
-
-            <span>LOW LATENCY</span>
-
-        </div>
-
-
-        <div class="quick-card quick-live">
-
-            <div>
-
-                <small>STREAM</small>
-
-                <strong>KICK</strong>
-
-            </div>
-
-            <i></i>
-
-        </div>
-
+    <div class="quick-card">
+        <small>GAME</small>
+        <strong>CS2</strong>
+        <span>COUNTER-STRIKE 2</span>
     </div>
+
+    <div class="quick-card">
+        <small>ROLE</small>
+        <strong>PLAYER</strong>
+        <span>COMPETITIVE</span>
+    </div>
+
+    <div class="quick-card">
+        <small>CONTENT</small>
+        <strong>LIVE</strong>
+        <span>STREAM / VIDEOS</span>
+    </div>
+
+    <div class="quick-card quick-live">
+        <i></i>
+        <small>STATUS</small>
+        <strong>ONLINE</strong>
+        <span>CHECK KICK FOR LIVE</span>
+    </div>
+
+</div>
+```
 
 </section>
 
-
-<!-- =====================================================
-     SETTINGS
-===================================================== -->
+<!-- SETTINGS -->
 
 <section class="content-section" id="settings">
 
-    <div class="section-top">
+```
+<div class="section-top">
 
-        <div>
+    <div>
+        <span class="section-label">01 / CONFIGURATION</span>
 
-            <span class="section-label">02 / MY SETTINGS</span>
+        <h2>
+            CS2<br>
+            <em>SETTINGS.</em>
+        </h2>
+    </div>
 
-            <h2>
-                CS2
-                <em>AYARLARIM</em>
-            </h2>
+    <p>
+        Kullandığım CS2 ayarlarını<br>
+        kategori kategori incele.
+    </p>
+
+</div>
+
+
+<div class="settings-grid">
+
+
+    <!-- CROSSHAIR -->
+
+    <article class="big-card guide-card"
+             data-guide="crosshair">
+
+        <span class="card-number">01</span>
+
+        <div class="card-icon crosshair-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="card-info">
+            <small>AIM</small>
+            <h3>CROSSHAIR</h3>
+
+            <p>
+                Kullandığım crosshair kodunu
+                tek tıkla kopyala.
+            </p>
+        </div>
+
+        <div class="card-action">
+            COPY CODE
+            <b>↗</b>
+        </div>
+
+    </article>
+
+
+    <!-- MOUSE -->
+
+    <article class="big-card guide-card"
+             data-guide="mouse">
+
+        <span class="card-number">02</span>
+
+        <div class="card-icon">
+
+            <div class="mouse-body">
+                <div class="mouse-wheel"></div>
+            </div>
 
         </div>
 
-        <p>
-            Kullandığım ayarları<br>
-            tek tek keşfet.
-        </p>
+        <div class="card-info">
+            <small>AIM</small>
+            <h3>MOUSE</h3>
 
-    </div>
+            <p>
+                DPI, sensitivity ve Windows
+                mouse ayarlarım.
+            </p>
+        </div>
+
+        <div class="card-action">
+            VIEW SETTINGS
+            <b>↗</b>
+        </div>
+
+    </article>
 
 
-    <div class="settings-grid">
+    <!-- GRAPHICS -->
+
+    <article class="big-card guide-card"
+             data-guide="graphics">
+
+        <span class="card-number">03</span>
+
+        <div class="card-icon monitor">
+
+            <div class="screen">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+
+            <div class="monitor-base"></div>
+
+        </div>
+
+        <div class="card-info">
+            <small>DISPLAY</small>
+            <h3>GRAPHICS</h3>
+
+            <p>
+                FPS ve görüntü kalitesi için
+                kullandığım grafik ayarları.
+            </p>
+        </div>
+
+        <div class="card-action">
+            VIEW SETTINGS
+            <b>↗</b>
+        </div>
+
+    </article>
 
 
-        <!-- CROSSHAIR -->
+    <!-- REFRESH -->
 
-        <article
-            class="big-card crosshair-card"
-            data-guide="crosshair"
-        >
+    <article class="big-card guide-card"
+             data-guide="refresh">
 
-            <div class="card-number">01</div>
+        <span class="card-number">04</span>
 
-            <div class="card-icon crosshair-icon">
+        <div class="card-icon hz-icon">
+            <strong>144</strong>
+            <span>HZ</span>
+        </div>
 
+        <div class="card-info">
+            <small>DISPLAY</small>
+            <h3>MONITOR</h3>
+
+            <p>
+                Yenileme hızı, çözünürlük
+                ve ekran ayarlarım.
+            </p>
+        </div>
+
+        <div class="card-action">
+            VIEW SETTINGS
+            <b>↗</b>
+        </div>
+
+    </article>
+
+
+    <!-- HUD -->
+
+    <article class="big-card guide-card"
+             data-guide="hud">
+
+        <span class="card-number">05</span>
+
+        <div class="card-icon">
+
+            <div class="hud-box">
                 <span></span>
                 <span></span>
                 <span></span>
+                <b>+</b>
+            </div>
+
+        </div>
+
+        <div class="card-info">
+            <small>INTERFACE</small>
+            <h3>HUD</h3>
+
+            <p>
+                Minimal ve rekabetçi HUD
+                ayarlarım.
+            </p>
+        </div>
+
+        <div class="card-action">
+            VIEW SETTINGS
+            <b>↗</b>
+        </div>
+
+    </article>
+
+
+    <!-- RADAR -->
+
+    <article class="big-card guide-card"
+             data-guide="radar">
+
+        <span class="card-number">06</span>
+
+        <div class="card-icon">
+
+            <div class="radar-circle">
                 <span></span>
-
+                <span></span>
+                <span></span>
+                <i></i>
             </div>
 
-            <div class="card-info">
+        </div>
 
-                <small>CROSSHAIR</small>
+        <div class="card-info">
+            <small>INTERFACE</small>
+            <h3>RADAR</h3>
 
-                <h3>Nişangah</h3>
+            <p>
+                Radar boyutu, konumu ve
+                görünüm ayarlarım.
+            </p>
+        </div>
 
-                <p>
-                    Kullandığım crosshair kodunu
-                    direkt kopyala.
-                </p>
+        <div class="card-action">
+            VIEW SETTINGS
+            <b>↗</b>
+        </div>
 
+    </article>
+
+
+    <!-- VIEWMODEL -->
+
+    <article class="big-card guide-card"
+             data-guide="viewmodel">
+
+        <span class="card-number">07</span>
+
+        <div class="card-icon">
+
+            <div class="weapon">
+                <div class="barrel"></div>
+                <div class="body"></div>
+                <div class="handle"></div>
             </div>
 
-            <div class="card-action">
-                KODU GÖR <b>↗</b>
-            </div>
+        </div>
 
-        </article>
+        <div class="card-info">
+            <small>WEAPON</small>
+            <h3>VIEWMODEL</h3>
 
+            <p>
+                Silah pozisyonu ve
+                viewmodel komutlarım.
+            </p>
+        </div>
 
-        <!-- MOUSE -->
+        <div class="card-action">
+            VIEW SETTINGS
+            <b>↗</b>
+        </div>
 
-        <article
-            class="big-card"
-            data-guide="mouse"
-        >
+    </article>
 
-            <div class="card-number">02</div>
 
-            <div class="card-icon mouse-icon">
+    <!-- NVIDIA -->
 
-                <div class="mouse-body">
-                    <div class="mouse-wheel"></div>
-                </div>
+    <article class="big-card guide-card"
+             data-guide="nvidia">
 
-            </div>
+        <span class="card-number">08</span>
 
-            <div class="card-info">
+        <div class="card-icon">
 
-                <small>MOUSE</small>
-
-                <h3>Mouse Ayarları</h3>
-
-                <p>
-                    DPI, sensitivity ve
-                    input ayarlarım.
-                </p>
-
-            </div>
-
-            <div class="card-action">
-                AYARLARI GÖR <b>↗</b>
-            </div>
-
-        </article>
-
-
-        <!-- GRAPHICS -->
-
-        <article
-            class="big-card"
-            data-guide="graphics"
-        >
-
-            <div class="card-number">03</div>
-
-            <div class="card-icon monitor-icon">
-
-                <div class="monitor">
-                    <div class="screen">
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                    </div>
-                    <div class="monitor-base"></div>
-                </div>
-
-            </div>
-
-            <div class="card-info">
-
-                <small>GRAPHICS</small>
-
-                <h3>Grafik Ayarları</h3>
-
-                <p>
-                    FPS ve görüntü kalitesi
-                    için kullandığım ayarlar.
-                </p>
-
-            </div>
-
-            <div class="card-action">
-                AYARLARI GÖR <b>↗</b>
-            </div>
-
-        </article>
-
-
-        <!-- MONITOR -->
-
-        <article
-            class="big-card"
-            data-guide="monitor"
-        >
-
-            <div class="card-number">04</div>
-
-            <div class="card-icon hz-icon">
-
-                <strong>144</strong>
-                <span>HZ</span>
-
-            </div>
-
-            <div class="card-info">
-
-                <small>DISPLAY</small>
-
-                <h3>Monitör</h3>
-
-                <p>
-                    Hz, çözünürlük ve
-                    görüntü ayarlarım.
-                </p>
-
-            </div>
-
-            <div class="card-action">
-                AYARLARI GÖR <b>↗</b>
-            </div>
-
-        </article>
-
-
-        <!-- HUD -->
-
-        <article
-            class="big-card"
-            data-guide="hud"
-        >
-
-            <div class="card-number">05</div>
-
-            <div class="card-icon hud-icon">
-
-                <div class="hud-box">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <b>+</b>
-                </div>
-
-            </div>
-
-            <div class="card-info">
-
-                <small>INTERFACE</small>
-
-                <h3>HUD Ayarları</h3>
-
-                <p>
-                    Temiz ve rekabetçi
-                    HUD düzenim.
-                </p>
-
-            </div>
-
-            <div class="card-action">
-                AYARLARI GÖR <b>↗</b>
-            </div>
-
-        </article>
-
-
-        <!-- RADAR -->
-
-        <article
-            class="big-card"
-            data-guide="radar"
-        >
-
-            <div class="card-number">06</div>
-
-            <div class="card-icon radar-icon">
-
-                <div class="radar-circle">
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <i></i>
-
-                </div>
-
-            </div>
-
-            <div class="card-info">
-
-                <small>RADAR</small>
-
-                <h3>Radar Ayarları</h3>
-
-                <p>
-                    Haritayı daha rahat
-                    takip etmek için.
-                </p>
-
-            </div>
-
-            <div class="card-action">
-                AYARLARI GÖR <b>↗</b>
-            </div>
-
-        </article>
-
-
-        <!-- VIEWMODEL -->
-
-        <article
-            class="big-card"
-            data-guide="viewmodel"
-        >
-
-            <div class="card-number">07</div>
-
-            <div class="card-icon weapon-icon">
-
-                <div class="weapon">
-
-                    <i class="barrel"></i>
-                    <i class="body"></i>
-                    <i class="handle"></i>
-
-                </div>
-
-            </div>
-
-            <div class="card-info">
-
-                <small>VIEWMODEL</small>
-
-                <h3>Viewmodel</h3>
-
-                <p>
-                    Silah pozisyonu ve
-                    görüş ayarlarım.
-                </p>
-
-            </div>
-
-            <div class="card-action">
-                AYARLARI GÖR <b>↗</b>
-            </div>
-
-        </article>
-
-
-        <!-- NVIDIA -->
-
-        <article
-            class="big-card nvidia-card"
-            data-guide="nvidia"
-        >
-
-            <div class="card-number">08</div>
-
-            <div class="card-icon nvidia-icon">
-
+            <div class="nvidia-icon">
                 <strong>N</strong>
-
             </div>
 
-            <div class="card-info">
+        </div>
 
-                <small>NVIDIA</small>
+        <div class="card-info">
+            <small>GPU</small>
+            <h3>NVIDIA</h3>
 
-                <h3>Renk Ayarları</h3>
+            <p>
+                NVIDIA renk ve görüntü
+                ayarlarımı adım adım göster.
+            </p>
+        </div>
 
-                <p>
-                    NVIDIA renk ayarlarını
-                    adım adım göster.
-                </p>
+        <div class="card-action">
+            VIEW SETTINGS
+            <b>↗</b>
+        </div>
 
-            </div>
+    </article>
 
-            <div class="card-action">
-                REHBERİ AÇ <b>↗</b>
-            </div>
-
-        </article>
-
-    </div>
+</div>
+```
 
 </section>
 
-
-<!-- =====================================================
-     FPS BOOST
-===================================================== -->
+<!-- FPS BOOST -->
 
 <section class="boost-section" id="boost">
 
-    <div class="boost-background">
-        <span>FPS</span>
-    </div>
+```
+<div class="boost-background">
+    <span>FPS</span>
+</div>
 
-    <div class="content-section boost-inner">
-
-        <div class="section-top">
-
-            <div>
-
-                <span class="section-label">
-                    03 / PERFORMANCE
-                </span>
-
-                <h2>
-                    DAHA FAZLA
-                    <em>FPS.</em>
-                </h2>
-
-            </div>
-
-            <p>
-                Sistemi gereksiz yüklerden<br>
-                temizle. Performansı artır.
-            </p>
-
-        </div>
-
-
-        <div class="boost-grid">
-
-
-            <article
-                class="boost-card"
-                data-guide="fps"
-            >
-
-                <div class="boost-top">
-                    <span>01</span>
-                    <b>FPS</b>
-                </div>
-
-                <div class="boost-icon">
-                    240+
-                </div>
-
-                <small>CS2</small>
-
-                <h3>FPS Boost</h3>
-
-                <p>
-                    CS2 için performans
-                    optimizasyonları.
-                </p>
-
-                <span class="open-guide">
-                    REHBERİ AÇ ↗
-                </span>
-
-            </article>
-
-
-            <article
-                class="boost-card"
-                data-guide="windows"
-            >
-
-                <div class="boost-top">
-                    <span>02</span>
-                    <b>WIN</b>
-                </div>
-
-                <div class="boost-icon">
-                    W
-                </div>
-
-                <small>WINDOWS</small>
-
-                <h3>Windows</h3>
-
-                <p>
-                    Windows performans
-                    ayarları ve optimizasyon.
-                </p>
-
-                <span class="open-guide">
-                    REHBERİ AÇ ↗
-                </span>
-
-            </article>
-
-
-            <article
-                class="boost-card"
-                data-guide="nvidia-performance"
-            >
-
-                <div class="boost-top">
-                    <span>03</span>
-                    <b>GPU</b>
-                </div>
-
-                <div class="boost-icon">
-                    NV
-                </div>
-
-                <small>NVIDIA</small>
-
-                <h3>NVIDIA FPS</h3>
-
-                <p>
-                    NVIDIA Denetim Masası
-                    performans ayarları.
-                </p>
-
-                <span class="open-guide">
-                    REHBERİ AÇ ↗
-                </span>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     KICK
-===================================================== -->
-
-<section class="kick-section">
-
-    <div class="kick-card">
-
-        <div class="kick-left">
-
-            <div class="live-badge">
-
-                <i></i>
-
-                CANLI YAYIN
-
-            </div>
-
-            <h2>
-                BENİ
-                <span>KICK'TE</span>
-                İZLE.
-            </h2>
-
-            <p>
-                CS2 maçları, rank,
-                sohbet ve daha fazlası.
-            </p>
-
-        </div>
-
-
-        <a
-            href="https://kick.com/xannylive"
-            target="_blank"
-            class="kick-big-btn"
-        >
-
-            KICK'E GİT
-
-            <span>↗</span>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SOCIAL
-===================================================== -->
-
-<section class="content-section social-section" id="social">
+<div class="content-section boost-inner">
 
     <div class="section-top">
 
         <div>
-
             <span class="section-label">
-                04 / SOCIAL
+                02 / PERFORMANCE
             </span>
 
             <h2>
-                BENİ
-                <em>TAKİP ET.</em>
+                FPS<br>
+                <em>BOOST.</em>
             </h2>
-
         </div>
 
         <p>
-            Yeni içerikleri<br>
-            kaçırma.
+            Daha yüksek FPS için<br>
+            kullandığım optimizasyonlar.
         </p>
 
     </div>
 
 
-    <div class="social-grid">
+    <div class="boost-grid">
 
 
-        <a href="#" class="social-card youtube">
+        <article class="boost-card guide-card"
+                 data-guide="nvidia-fps">
 
-            <div class="social-brand">
-
-                <div class="social-logo">
-                    ▶
-                </div>
-
-                <span>YOUTUBE</span>
-
+            <div class="boost-top">
+                <span>01</span>
+                <b>NVIDIA</b>
             </div>
 
-            <strong>
-                VIDEOS
-            </strong>
-
-            <div class="social-arrow">
-                ↗
+            <div class="boost-icon">
+                GPU
             </div>
 
-        </a>
+            <small>GRAPHICS CARD</small>
 
+            <h3>NVIDIA SETTINGS</h3>
 
-        <a href="#" class="social-card instagram">
+            <p>
+                NVIDIA Denetim Masası üzerinden
+                FPS için yaptığım ayarlar.
+            </p>
 
-            <div class="social-brand">
-
-                <div class="social-logo">
-                    ◎
-                </div>
-
-                <span>INSTAGRAM</span>
-
+            <div class="open-guide">
+                OPEN GUIDE →
             </div>
 
-            <strong>
-                DAILY
-            </strong>
+        </article>
 
-            <div class="social-arrow">
-                ↗
+
+        <article class="boost-card guide-card"
+                 data-guide="windows-fps">
+
+            <div class="boost-top">
+                <span>02</span>
+                <b>WINDOWS</b>
             </div>
 
-        </a>
-
-
-        <a href="#" class="social-card tiktok">
-
-            <div class="social-brand">
-
-                <div class="social-logo">
-                    ♪
-                </div>
-
-                <span>TIKTOK</span>
-
+            <div class="boost-icon">
+                OS
             </div>
 
-            <strong>
-                CLIPS
-            </strong>
+            <small>SYSTEM</small>
 
-            <div class="social-arrow">
-                ↗
+            <h3>WINDOWS SETTINGS</h3>
+
+            <p>
+                Windows üzerinde FPS ve
+                performans için yapılabilecek ayarlar.
+            </p>
+
+            <div class="open-guide">
+                OPEN GUIDE →
             </div>
 
-        </a>
+        </article>
 
 
-        <a
-            href="https://kick.com/xannylive"
-            target="_blank"
-            class="social-card kick-social"
-        >
+        <article class="boost-card guide-card"
+                 data-guide="cs2-fps">
 
-            <div class="social-brand">
-
-                <div class="social-logo">
-                    K
-                </div>
-
-                <span>KICK</span>
-
+            <div class="boost-top">
+                <span>03</span>
+                <b>CS2</b>
             </div>
 
-            <strong>
-                LIVE
-            </strong>
-
-            <div class="social-arrow">
-                ↗
+            <div class="boost-icon">
+                +FPS
             </div>
 
-        </a>
+            <small>GAME</small>
 
-    </div>
+            <h3>CS2 OPTIMIZATION</h3>
 
-</section>
+            <p>
+                Oyun içi grafik ve performans
+                ayarları.
+            </p>
 
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section class="about-section" id="about">
-
-    <div class="about-inner">
-
-        <div class="about-label">
-            05 / ABOUT
-        </div>
-
-        <div class="about-content">
-
-            <div class="about-title">
-
-                <span>X</span>
-
-                <h2>
-                    XANNY<br>
-                    <em>LIVE</em>
-                </h2>
-
+            <div class="open-guide">
+                OPEN GUIDE →
             </div>
 
-
-            <div class="about-text">
-
-                <span class="section-label">
-                    WHO AM I?
-                </span>
-
-                <p
-                    data-tr="CS2 oyuncusu, yayıncı ve içerik üreticisiyim. Kullandığım ayarları, performans optimizasyonlarını ve yayın dünyamı tek bir yerde toplamak için bu siteyi oluşturdum."
-                    data-en="I'm a CS2 player, streamer and content creator. I created this website to bring together my settings, performance optimizations and streaming world in one place."
-                >
-                    CS2 oyuncusu, yayıncı ve içerik
-                    üreticisiyim. Kullandığım ayarları,
-                    performans optimizasyonlarını ve yayın
-                    dünyamı tek bir yerde toplamak için
-                    bu siteyi oluşturdum.
-                </p>
-
-                <div class="about-tags">
-
-                    <span>CS2</span>
-                    <span>STREAMER</span>
-                    <span>CONTENT</span>
-                    <span>COMPETITIVE</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section class="contact-section">
-
-    <span class="section-label">
-        06 / CONTACT
-    </span>
-
-    <h2>
-        BİRLİKTE
-        <em>BİR ŞEY</em>
-        YAPALIM.
-    </h2>
-
-    <a href="mailto:contact@xannylive.com">
-        contact@xannylive.com ↗
-    </a>
-
-</section>
-
-
-</main>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    <div class="footer-logo">
-        XANNY<b>LIVE</b>
-    </div>
-
-    <div>
-        © 2026 XANNYLIVE
-    </div>
-
-    <div>
-        CS2 / STREAM / CONTENT
-    </div>
-
-</footer>
-
-
-<!-- =====================================================
-     GUIDE MODAL
-===================================================== -->
-
-<div class="guide-modal" id="guideModal">
-
-    <div class="modal-bg"></div>
-
-    <div class="guide-window">
-
-        <button
-            class="modal-close"
-            id="closeModal"
-        >
-            ×
-        </button>
-
-        <div id="modalContent"></div>
+        </article>
 
     </div>
 
 </div>
+```
 
+</section>
+
+<!-- KICK -->
+
+<section class="kick-section">
+
+```
+<div class="kick-card">
+
+    <div>
+
+        <div class="live-badge">
+            <i></i>
+            LIVE STATUS
+        </div>
+
+        <h2>
+            SEE YOU<br>
+            ON <span>KICK.</span>
+        </h2>
+
+        <p>
+            Yayınları, oyunları ve canlı içerikleri
+            Kick üzerinden takip et.
+        </p>
+
+    </div>
+
+    <a href="https://kick.com/xannylive"
+       target="_blank"
+       class="kick-big-btn">
+
+        OPEN KICK
+        <span>↗</span>
+
+    </a>
+
+</div>
+```
+
+</section>
+
+<!-- SOCIAL -->
+
+<section class="content-section" id="social">
+
+```
+<div class="section-top">
+
+    <div>
+        <span class="section-label">
+            03 / SOCIAL
+        </span>
+
+        <h2>
+            FIND<br>
+            <em>ME.</em>
+        </h2>
+    </div>
+
+    <p>
+        Yeni içerikleri ve<br>
+        yayınları kaçırma.
+    </p>
+
+</div>
+
+
+<div class="social-grid">
+
+
+    <a href="#"
+       class="social-card">
+
+        <div class="social-brand">
+
+            <div class="social-logo">
+                ▶
+            </div>
+
+            <span>YOUTUBE</span>
+
+        </div>
+
+        <strong>VIDEOS</strong>
+
+        <span class="social-arrow">↗</span>
+
+    </a>
+
+
+    <a href="#"
+       class="social-card">
+
+        <div class="social-brand">
+
+            <div class="social-logo">
+                ◎
+            </div>
+
+            <span>INSTAGRAM</span>
+
+        </div>
+
+        <strong>DAILY</strong>
+
+        <span class="social-arrow">↗</span>
+
+    </a>
+
+
+    <a href="#"
+       class="social-card">
+
+        <div class="social-brand">
+
+            <div class="social-logo">
+                ♪
+            </div>
+
+            <span>TIKTOK</span>
+
+        </div>
+
+        <strong>CLIPS</strong>
+
+        <span class="social-arrow">↗</span>
+
+    </a>
+
+
+    <a href="https://kick.com/xannylive"
+       target="_blank"
+       class="social-card">
+
+        <div class="social-brand">
+
+            <div class="social-logo">
+                K
+            </div>
+
+            <span>KICK</span>
+
+        </div>
+
+        <strong>LIVE</strong>
+
+        <span class="social-arrow">↗</span>
+
+    </a>
+
+</div>
+```
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about-section" id="about">
+
+```
+<div class="about-inner">
+
+    <div class="about-label">
+        04 / ABOUT XANNY
+    </div>
+
+    <div class="about-content">
+
+        <div class="about-title">
+
+            <span>×</span>
+
+            <h2>
+                PLAY.<br>
+                CREATE.<br>
+                <em>REPEAT.</em>
+            </h2>
+
+        </div>
+
+        <div class="about-text">
+
+            <p>
+                Ben XANNY. CS2 oynuyor, yayın yapıyor
+                ve oyun içerikleri üretiyorum. Bu siteyi
+                kullandığım ayarları ve optimizasyonları
+                tek bir yerde toplamak için hazırladım.
+            </p>
+
+            <div class="about-tags">
+
+                <span>CS2</span>
+                <span>STREAMER</span>
+                <span>CONTENT CREATOR</span>
+                <span>FPS</span>
+                <span>COMPETITIVE</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact-section" id="contact">
+
+```
+<span class="section-label">
+    05 / CONTACT
+</span>
+
+<h2>
+    LET'S<br>
+    <em>TALK.</em>
+</h2>
+
+<a href="mailto:xannylive@gmail.com">
+    xannylive@gmail.com
+</a>
+```
+
+</section>
+
+</main>
+
+<!-- GUIDE MODAL -->
+
+<div class="guide-modal" id="guideModal">
+
+```
+<div class="modal-bg" id="modalBg"></div>
+
+<div class="guide-window">
+
+    <button class="modal-close"
+            id="modalClose">
+        ×
+    </button>
+
+    <div id="guideContent"></div>
+
+</div>
+```
+
+</div>
+
+<footer>
+
+```
+<div class="footer-logo">
+    XANNY<b>.</b>
+</div>
+
+<span>
+    © 2026 XANNYLIVE / ALL RIGHTS RESERVED
+</span>
+
+<span>
+    CS2 • STREAM • CONTENT
+</span>
+```
+
+</footer>
 
 <script src="script.js"></script>
 
 </body>
 </html>
-```
