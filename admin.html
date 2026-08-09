@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XANNYLIVE Admin Panel</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#07070c;
+    color:#fff;
+    min-height:100vh;
+    padding:40px 20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.header{
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-size:36px;
+    margin-bottom:8px;
+}
+
+.header h1 span{
+    color:#ff18b8;
+}
+
+.header p{
+    color:#777782;
+}
+
+.card{
+    background:#111117;
+    border:1px solid #292932;
+    border-radius:20px;
+    padding:28px;
+    margin-bottom:20px;
+}
+
+.card h2{
+    font-size:20px;
+    margin-bottom:22px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.input-group label{
+    display:block;
+    color:#aaaab5;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #292932;
+    background:#0b0b10;
+    color:#fff;
+    outline:none;
+    font-size:14px;
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#ff18b8;
+}
+
+.color-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+input[type="color"]{
+    width:55px;
+    height:45px;
+    padding:3px;
+    cursor:pointer;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+button{
+    border:0;
+    padding:15px 22px;
+    border-radius:12px;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.save{
+    background:linear-gradient(100deg,#ff159e,#bd00ff);
+}
+
+.reset{
+    background:#22222b;
+}
+
+.preview{
+    margin-top:20px;
+    padding:18px;
+    border-radius:14px;
+    background:#0b0b10;
+    border:1px solid #292932;
+    color:#aaaab5;
+}
+
+#message{
+    margin-top:15px;
+    color:#27ff9a;
+    font-weight:bold;
+}
+
+@media(max-width:650px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    body{
+        padding:25px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <h1>XANNY<span>LIVE</span> ADMIN</h1>
+    <p>Sitenin ayarlarını buradan kod yazmadan yönet.</p>
+</div>
+
+
+<!-- RENKLER -->
+
+<div class="card">
+
+<h2>🎨 Site Renkleri</h2>
+
+<div class="grid">
+
+<div class="input-group">
+<label>Ana Renk</label>
+
+<div class="color-row">
+<input type="color" id="primaryColor">
+<input type="text" id="primaryText">
+</div>
+
+</div>
+
+
+<div class="input-group">
+<label>İkinci Renk</label>
+
+<div class="color-row">
+<input type="color" id="secondaryColor">
+<input type="text" id="secondaryText">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ANA SAYFA -->
+
+<div class="card">
+
+<h2>🏠 Ana Sayfa</h2>
+
+<div class="input-group">
+<label>Üst Yazı</label>
+<input id="eyebrow">
+</div>
+
+<div class="input-group">
+<label>Ana Başlık</label>
+<input id="title">
+</div>
+
+<div class="input-group">
+<label>Açıklama</label>
+<textarea id="description"></textarea>
+</div>
+
+</div>
+
+
+<!-- CROSSHAIR -->
+
+<div class="card">
+
+<h2>🎯 Crosshair</h2>
+
+<div class="input-group">
+<label>Crosshair Kodu</label>
+<input id="crosshair">
+</div>
+
+</div>
+
+
+<!-- CS2 -->
+
+<div class="card">
+
+<h2>🎮 CS2 Ayarları</h2>
+
+<div class="grid">
+
+<div class="input-group">
+<label>Çözünürlük</label>
+<input id="resolution">
+</div>
+
+<div class="input-group">
+<label>Görüntü Modu</label>
+<input id="displayMode">
+</div>
+
+<div class="input-group">
+<label>V-Sync</label>
+<input id="vsync">
+</div>
+
+<div class="input-group">
+<label>MSAA</label>
+<input id="msaa">
+</div>
+
+<div class="input-group">
+<label>Texture Filtering</label>
+<input id="texture">
+</div>
+
+<div class="input-group">
+<label>Shader</label>
+<input id="shader">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MOUSE -->
+
+<div class="card">
+
+<h2>🖱️ Mouse Ayarları</h2>
+
+<div class="grid">
+
+<div class="input-group">
+<label>DPI</label>
+<input id="dpi">
+</div>
+
+<div class="input-group">
+<label>Sensitivity</label>
+<input id="sensitivity">
+</div>
+
+<div class="input-group">
+<label>eDPI</label>
+<input id="edpi">
+</div>
+
+<div class="input-group">
+<label>Mouse Acceleration</label>
+<input id="acceleration">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- NVIDIA -->
+
+<div class="card">
+
+<h2>🎨 NVIDIA Renk Ayarları</h2>
+
+<div class="grid">
+
+<div class="input-group">
+<label>Parlaklık</label>
+<input id="brightness">
+</div>
+
+<div class="input-group">
+<label>Kontrast</label>
+<input id="contrast">
+</div>
+
+<div class="input-group">
+<label>Gama</label>
+<input id="gamma">
+</div>
+
+<div class="input-group">
+<label>Dijital Titreşim</label>
+<input id="digitalVibrance">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FPS -->
+
+<div class="card">
+
+<h2>🚀 FPS Optimizasyonu</h2>
+
+<div class="input-group">
+<label>NVIDIA Güç Yönetimi</label>
+<input id="nvidiaPower">
+</div>
+
+<div class="input-group">
+<label>Düşük Gecikme</label>
+<input id="lowLatency">
+</div>
+
+<div class="input-group">
+<label>Windows Oyun Modu</label>
+<input id="gameMode">
+</div>
+
+<div class="input-group">
+<label>Windows Güç Modu</label>
+<input id="windowsPower">
+</div>
+
+<div class="input-group">
+<label>Lenovo Vantage</label>
+<input id="lenovoMode">
+</div>
+
+</div>
+
+
+<!-- SOSYAL -->
+
+<div class="card">
+
+<h2>🔗 Sosyal Medya</h2>
+
+<div class="input-group">
+<label>Kick Linki</label>
+<input id="kick">
+</div>
+
+<div class="input-group">
+<label>YouTube Linki</label>
+<input id="youtube">
+</div>
+
+<div class="input-group">
+<label>Instagram Linki</label>
+<input id="instagram">
+</div>
+
+</div>
+
+
+<!-- BUTONLAR -->
+
+<div class="card">
+
+<div class="buttons">
+
+<button class="save" onclick="saveSettings()">
+💾 AYARLARI KAYDET
+</button>
+
+<button class="reset" onclick="resetSettings()">
+🔄 VARSAYILANA DÖN
+</button>
+
+</div>
+
+<div id="message"></div>
+
+<div class="preview">
+💡 Değişiklikleri kaydettikten sonra <b>index.html</b> dosyanı yenile.
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const defaults = {
+
+primaryColor:"#ff18b8",
+secondaryColor:"#bd00ff",
+
+eyebrow:"CS2 PLAYER • STREAMER • CONTENT CREATOR",
+
+title:"XANNYLIVE",
+
+description:"Counter-Strike 2 oynuyorum, yayın açıyorum ve oyun ayarlarımı sizlerle paylaşıyorum. FPS, crosshair, mouse ve performans ayarları burada.",
+
+crosshair:"CSGO-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX",
+
+resolution:"1080 × 1080",
+displayMode:"Fullscreen",
+vsync:"Kapalı",
+msaa:"2x",
+texture:"4x",
+shader:"Düşük",
+
+dpi:"800",
+sensitivity:"1.00",
+edpi:"800",
+acceleration:"Kapalı",
+
+brightness:"60%",
+contrast:"55%",
+gamma:"1.00",
+digitalVibrance:"80%",
+
+nvidiaPower:"Maksimum performansı tercih et",
+lowLatency:"Açık",
+gameMode:"Açık",
+windowsPower:"En iyi performans",
+lenovoMode:"Performance Mode",
+
+kick:"https://kick.com/xannylive",
+youtube:"#",
+instagram:"#"
+
+};
+
+
+const ids = Object.keys(defaults);
+
+
+function loadSettings(){
+
+let saved = localStorage.getItem("xannyliveSettings");
+
+let settings = saved ? JSON.parse(saved) : defaults;
+
+ids.forEach(function(id){
+
+let element = document.getElementById(id);
+
+if(element){
+element.value = settings[id] ?? defaults[id];
+}
+
+});
+
+syncColors();
+
+}
+
+
+function syncColors(){
+
+document.getElementById("primaryText").value =
+document.getElementById("primaryColor").value;
+
+document.getElementById("secondaryText").value =
+document.getElementById("secondaryColor").value;
+
+}
+
+
+document.getElementById("primaryColor").addEventListener("input",function(){
+
+document.getElementById("primaryText").value = this.value;
+
+});
+
+
+document.getElementById("secondaryColor").addEventListener("input",function(){
+
+document.getElementById("secondaryText").value = this.value;
+
+});
+
+
+document.getElementById("primaryText").addEventListener("change",function(){
+
+document.getElementById("primaryColor").value = this.value;
+
+});
+
+
+document.getElementById("secondaryText").addEventListener("change",function(){
+
+document.getElementById("secondaryColor").value = this.value;
+
+});
+
+
+function saveSettings(){
+
+let settings = {};
+
+ids.forEach(function(id){
+
+let element = document.getElementById(id);
+
+if(element){
+settings[id] = element.value;
+}
+
+});
+
+
+localStorage.setItem(
+"xannyliveSettings",
+JSON.stringify(settings)
+);
+
+
+document.getElementById("message").innerText =
+"✅ Ayarlar başarıyla kaydedildi!";
+
+
+setTimeout(function(){
+
+document.getElementById("message").innerText = "";
+
+},3000);
+
+}
+
+
+function resetSettings(){
+
+if(!confirm("Tüm ayarlar varsayılan değerlere döndürülsün mü?")){
+return;
+}
+
+localStorage.removeItem("xannyliveSettings");
+
+loadSettings();
+
+document.getElementById("message").innerText =
+"🔄 Varsayılan ayarlar yüklendi.";
+
+}
+
+
+loadSettings();
+
+</script>
+
+</body>
+</html>
