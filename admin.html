@@ -1,594 +1,407 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XANNYLIVE Admin Panel</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <meta charset="UTF-8">
 
-body{
-    font-family:Arial,sans-serif;
-    background:#07070c;
-    color:#fff;
-    min-height:100vh;
-    padding:40px 20px;
-}
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-.container{
-    max-width:900px;
-    margin:auto;
-}
+    <title>XANNYLIVE | Admin Panel</title>
 
-.header{
-    margin-bottom:30px;
-}
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-.header h1{
-    font-size:36px;
-    margin-bottom:8px;
-}
+    <style>
 
-.header h1 span{
-    color:#ff18b8;
-}
+        body {
+            min-height: 100vh;
+        }
 
-.header p{
-    color:#777782;
-}
+        .admin-container {
 
-.card{
-    background:#111117;
-    border:1px solid #292932;
-    border-radius:20px;
-    padding:28px;
-    margin-bottom:20px;
-}
+            max-width: 900px;
 
-.card h2{
-    font-size:20px;
-    margin-bottom:22px;
-}
+            margin: auto;
 
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
+            padding:
+                120px
+                25px
+                60px;
 
-.input-group{
-    margin-bottom:18px;
-}
+        }
 
-.input-group label{
-    display:block;
-    color:#aaaab5;
-    font-size:13px;
-    font-weight:bold;
-    margin-bottom:8px;
-}
+        .admin-header {
+            margin-bottom: 40px;
+        }
 
-input,
-textarea{
-    width:100%;
-    padding:14px;
-    border-radius:10px;
-    border:1px solid #292932;
-    background:#0b0b10;
-    color:#fff;
-    outline:none;
-    font-size:14px;
-}
+        .admin-header span {
 
-textarea{
-    min-height:110px;
-    resize:vertical;
-}
+            color: var(--accent);
 
-input:focus,
-textarea:focus{
-    border-color:#ff18b8;
-}
+            font-size: 12px;
 
-.color-row{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
+            font-weight: bold;
 
-input[type="color"]{
-    width:55px;
-    height:45px;
-    padding:3px;
-    cursor:pointer;
-}
+            letter-spacing: 2px;
 
-.buttons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
+        }
 
-button{
-    border:0;
-    padding:15px 22px;
-    border-radius:12px;
-    color:#fff;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:14px;
-}
+        .admin-header h1 {
 
-.save{
-    background:linear-gradient(100deg,#ff159e,#bd00ff);
-}
+            font-size: 48px;
 
-.reset{
-    background:#22222b;
-}
+            margin-top: 10px;
 
-.preview{
-    margin-top:20px;
-    padding:18px;
-    border-radius:14px;
-    background:#0b0b10;
-    border:1px solid #292932;
-    color:#aaaab5;
-}
+        }
 
-#message{
-    margin-top:15px;
-    color:#27ff9a;
-    font-weight:bold;
-}
+        .admin-header p {
 
-@media(max-width:650px){
-    .grid{
-        grid-template-columns:1fr;
-    }
+            color: var(--muted);
 
-    body{
-        padding:25px 15px;
-    }
-}
-</style>
+        }
+
+        .panel {
+
+            background: #101010;
+
+            border: 1px solid #242424;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .panel h2 {
+
+            font-size: 20px;
+
+            margin-bottom: 25px;
+
+        }
+
+        .field {
+
+            margin-bottom: 20px;
+
+        }
+
+        .field label {
+
+            display: block;
+
+            color: #aaa;
+
+            font-size: 12px;
+
+            margin-bottom: 8px;
+
+        }
+
+        .field input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #080808;
+
+            border: 1px solid #292929;
+
+            color: white;
+
+            border-radius: 8px;
+
+            outline: none;
+
+        }
+
+        .field input:focus {
+
+            border-color:
+                var(--accent);
+
+        }
+
+        .save-btn {
+
+            border: none;
+
+            cursor: pointer;
+
+            background:
+                var(--accent);
+
+            color: white;
+
+            padding:
+                14px 24px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+        }
+
+        .back-btn {
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            color: #aaa;
+
+            font-size: 13px;
+
+        }
+
+        #message {
+
+            margin-top: 15px;
+
+            color: var(--green);
+
+            font-size: 13px;
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
 
-<div class="header">
-    <h1>XANNY<span>LIVE</span> ADMIN</h1>
-    <p>Sitenin ayarlarını buradan kod yazmadan yönet.</p>
-</div>
+<div class="admin-container">
 
 
-<!-- RENKLER -->
+    <div class="admin-header">
 
-<div class="card">
+        <span>
+            XANNYLIVE CONTROL PANEL
+        </span>
 
-<h2>🎨 Site Renkleri</h2>
+        <h1>
+            Admin Panel
+        </h1>
 
-<div class="grid">
+        <p>
+            Sosyal medya ve yayın
+            bağlantılarını düzenle.
+        </p>
 
-<div class="input-group">
-<label>Ana Renk</label>
+    </div>
 
-<div class="color-row">
-<input type="color" id="primaryColor">
-<input type="text" id="primaryText">
-</div>
 
-</div>
+    <div class="panel">
 
+        <h2>
+            Yayın & Sosyal Medya
+        </h2>
 
-<div class="input-group">
-<label>İkinci Renk</label>
 
-<div class="color-row">
-<input type="color" id="secondaryColor">
-<input type="text" id="secondaryText">
-</div>
+        <div class="field">
 
-</div>
+            <label>
+                Kick
+            </label>
 
-</div>
+            <input
+                type="url"
+                id="kick"
+                placeholder="https://kick.com/xannylive"
+            >
 
-</div>
+        </div>
 
 
-<!-- ANA SAYFA -->
+        <div class="field">
 
-<div class="card">
+            <label>
+                Instagram
+            </label>
 
-<h2>🏠 Ana Sayfa</h2>
+            <input
+                type="url"
+                id="instagram"
+                placeholder="Instagram bağlantısı"
+            >
 
-<div class="input-group">
-<label>Üst Yazı</label>
-<input id="eyebrow">
-</div>
+        </div>
 
-<div class="input-group">
-<label>Ana Başlık</label>
-<input id="title">
-</div>
 
-<div class="input-group">
-<label>Açıklama</label>
-<textarea id="description"></textarea>
-</div>
+        <div class="field">
 
-</div>
+            <label>
+                YouTube
+            </label>
 
+            <input
+                type="url"
+                id="youtube"
+                placeholder="YouTube bağlantısı"
+            >
 
-<!-- CROSSHAIR -->
+        </div>
 
-<div class="card">
 
-<h2>🎯 Crosshair</h2>
+        <div class="field">
 
-<div class="input-group">
-<label>Crosshair Kodu</label>
-<input id="crosshair">
-</div>
+            <label>
+                TikTok
+            </label>
 
-</div>
+            <input
+                type="url"
+                id="tiktok"
+                placeholder="TikTok bağlantısı"
+            >
 
+        </div>
 
-<!-- CS2 -->
 
-<div class="card">
+        <div class="field">
 
-<h2>🎮 CS2 Ayarları</h2>
+            <label>
+                Discord
+            </label>
 
-<div class="grid">
+            <input
+                type="url"
+                id="discord"
+                placeholder="Discord bağlantısı"
+            >
 
-<div class="input-group">
-<label>Çözünürlük</label>
-<input id="resolution">
-</div>
+        </div>
 
-<div class="input-group">
-<label>Görüntü Modu</label>
-<input id="displayMode">
-</div>
 
-<div class="input-group">
-<label>V-Sync</label>
-<input id="vsync">
-</div>
+        <button
+            class="save-btn"
+            onclick="saveSettings()"
+        >
+            Ayarları Kaydet
+        </button>
 
-<div class="input-group">
-<label>MSAA</label>
-<input id="msaa">
-</div>
 
-<div class="input-group">
-<label>Texture Filtering</label>
-<input id="texture">
-</div>
+        <p id="message"></p>
 
-<div class="input-group">
-<label>Shader</label>
-<input id="shader">
-</div>
+    </div>
 
-</div>
 
-</div>
+    <a
+        href="index.html"
+        class="back-btn"
+    >
+        ← Siteye Dön
+    </a>
 
-
-<!-- MOUSE -->
-
-<div class="card">
-
-<h2>🖱️ Mouse Ayarları</h2>
-
-<div class="grid">
-
-<div class="input-group">
-<label>DPI</label>
-<input id="dpi">
-</div>
-
-<div class="input-group">
-<label>Sensitivity</label>
-<input id="sensitivity">
-</div>
-
-<div class="input-group">
-<label>eDPI</label>
-<input id="edpi">
-</div>
-
-<div class="input-group">
-<label>Mouse Acceleration</label>
-<input id="acceleration">
-</div>
-
-</div>
-
-</div>
-
-
-<!-- NVIDIA -->
-
-<div class="card">
-
-<h2>🎨 NVIDIA Renk Ayarları</h2>
-
-<div class="grid">
-
-<div class="input-group">
-<label>Parlaklık</label>
-<input id="brightness">
-</div>
-
-<div class="input-group">
-<label>Kontrast</label>
-<input id="contrast">
-</div>
-
-<div class="input-group">
-<label>Gama</label>
-<input id="gamma">
-</div>
-
-<div class="input-group">
-<label>Dijital Titreşim</label>
-<input id="digitalVibrance">
-</div>
-
-</div>
-
-</div>
-
-
-<!-- FPS -->
-
-<div class="card">
-
-<h2>🚀 FPS Optimizasyonu</h2>
-
-<div class="input-group">
-<label>NVIDIA Güç Yönetimi</label>
-<input id="nvidiaPower">
-</div>
-
-<div class="input-group">
-<label>Düşük Gecikme</label>
-<input id="lowLatency">
-</div>
-
-<div class="input-group">
-<label>Windows Oyun Modu</label>
-<input id="gameMode">
-</div>
-
-<div class="input-group">
-<label>Windows Güç Modu</label>
-<input id="windowsPower">
-</div>
-
-<div class="input-group">
-<label>Lenovo Vantage</label>
-<input id="lenovoMode">
-</div>
-
-</div>
-
-
-<!-- SOSYAL -->
-
-<div class="card">
-
-<h2>🔗 Sosyal Medya</h2>
-
-<div class="input-group">
-<label>Kick Linki</label>
-<input id="kick">
-</div>
-
-<div class="input-group">
-<label>YouTube Linki</label>
-<input id="youtube">
-</div>
-
-<div class="input-group">
-<label>Instagram Linki</label>
-<input id="instagram">
-</div>
-
-</div>
-
-
-<!-- BUTONLAR -->
-
-<div class="card">
-
-<div class="buttons">
-
-<button class="save" onclick="saveSettings()">
-💾 AYARLARI KAYDET
-</button>
-
-<button class="reset" onclick="resetSettings()">
-🔄 VARSAYILANA DÖN
-</button>
-
-</div>
-
-<div id="message"></div>
-
-<div class="preview">
-💡 Değişiklikleri kaydettikten sonra <b>index.html</b> dosyanı yenile.
-</div>
-
-</div>
 
 </div>
 
 
 <script>
 
-const defaults = {
+const defaultData = {
 
-primaryColor:"#ff18b8",
-secondaryColor:"#bd00ff",
+    kick:
+        "https://kick.com/xannylive",
 
-eyebrow:"CS2 PLAYER • STREAMER • CONTENT CREATOR",
+    instagram: "",
 
-title:"XANNYLIVE",
+    youtube: "",
 
-description:"Counter-Strike 2 oynuyorum, yayın açıyorum ve oyun ayarlarımı sizlerle paylaşıyorum. FPS, crosshair, mouse ve performans ayarları burada.",
+    tiktok: "",
 
-crosshair:"CSGO-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX",
-
-resolution:"1080 × 1080",
-displayMode:"Fullscreen",
-vsync:"Kapalı",
-msaa:"2x",
-texture:"4x",
-shader:"Düşük",
-
-dpi:"800",
-sensitivity:"1.00",
-edpi:"800",
-acceleration:"Kapalı",
-
-brightness:"60%",
-contrast:"55%",
-gamma:"1.00",
-digitalVibrance:"80%",
-
-nvidiaPower:"Maksimum performansı tercih et",
-lowLatency:"Açık",
-gameMode:"Açık",
-windowsPower:"En iyi performans",
-lenovoMode:"Performance Mode",
-
-kick:"https://kick.com/xannylive",
-youtube:"#",
-instagram:"#"
+    discord: ""
 
 };
 
 
-const ids = Object.keys(defaults);
+function loadSettings() {
+
+    const saved =
+        JSON.parse(
+            localStorage.getItem(
+                "xannySettings"
+            )
+        )
+        ||
+        defaultData;
 
 
-function loadSettings(){
-
-let saved = localStorage.getItem("xannyliveSettings");
-
-let settings = saved ? JSON.parse(saved) : defaults;
-
-ids.forEach(function(id){
-
-let element = document.getElementById(id);
-
-if(element){
-element.value = settings[id] ?? defaults[id];
-}
-
-});
-
-syncColors();
-
-}
+    document.getElementById("kick")
+        .value =
+        saved.kick || "";
 
 
-function syncColors(){
-
-document.getElementById("primaryText").value =
-document.getElementById("primaryColor").value;
-
-document.getElementById("secondaryText").value =
-document.getElementById("secondaryColor").value;
-
-}
+    document.getElementById("instagram")
+        .value =
+        saved.instagram || "";
 
 
-document.getElementById("primaryColor").addEventListener("input",function(){
-
-document.getElementById("primaryText").value = this.value;
-
-});
+    document.getElementById("youtube")
+        .value =
+        saved.youtube || "";
 
 
-document.getElementById("secondaryColor").addEventListener("input",function(){
-
-document.getElementById("secondaryText").value = this.value;
-
-});
+    document.getElementById("tiktok")
+        .value =
+        saved.tiktok || "";
 
 
-document.getElementById("primaryText").addEventListener("change",function(){
-
-document.getElementById("primaryColor").value = this.value;
-
-});
-
-
-document.getElementById("secondaryText").addEventListener("change",function(){
-
-document.getElementById("secondaryColor").value = this.value;
-
-});
-
-
-function saveSettings(){
-
-let settings = {};
-
-ids.forEach(function(id){
-
-let element = document.getElementById(id);
-
-if(element){
-settings[id] = element.value;
-}
-
-});
-
-
-localStorage.setItem(
-"xannyliveSettings",
-JSON.stringify(settings)
-);
-
-
-document.getElementById("message").innerText =
-"✅ Ayarlar başarıyla kaydedildi!";
-
-
-setTimeout(function(){
-
-document.getElementById("message").innerText = "";
-
-},3000);
+    document.getElementById("discord")
+        .value =
+        saved.discord || "";
 
 }
 
 
-function resetSettings(){
+function saveSettings() {
 
-if(!confirm("Tüm ayarlar varsayılan değerlere döndürülsün mü?")){
-return;
-}
+    const data = {
 
-localStorage.removeItem("xannyliveSettings");
+        kick:
+            document.getElementById("kick")
+                .value,
 
-loadSettings();
+        instagram:
+            document.getElementById("instagram")
+                .value,
 
-document.getElementById("message").innerText =
-"🔄 Varsayılan ayarlar yüklendi.";
+        youtube:
+            document.getElementById("youtube")
+                .value,
+
+        tiktok:
+            document.getElementById("tiktok")
+                .value,
+
+        discord:
+            document.getElementById("discord")
+                .value
+
+    };
+
+
+    localStorage.setItem(
+        "xannySettings",
+        JSON.stringify(data)
+    );
+
+
+    document.getElementById(
+        "message"
+    ).textContent =
+        "Ayarlar kaydedildi ✓";
 
 }
 
@@ -597,5 +410,7 @@ loadSettings();
 
 </script>
 
+
 </body>
+
 </html>
