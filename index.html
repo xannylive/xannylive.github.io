@@ -3,117 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS2 & Yayıncı Bio</title>
-    <!-- Logolar için FontAwesome kütüphanesi -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>XANNYLİVE - Linkler & Ayarlar</title>
     <link rel="stylesheet" href="style.css">
+    <!-- İkonlar için FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Üst Menü -->
-    <nav class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-gamepad"></i> <span>YAYINCI</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">ANASAYFA</a></li>
-            <li><a href="#">SİSTEM</a></li>
-            <li><a href="#">AYARLAR</a></li>
-        </ul>
-        <div class="kick-live">
-            <span class="live-dot"></span> Kick'te Canlı
-        </div>
-    </nav>
 
-    <div class="container">
+    <!-- Arka plan grid deseni için -->
+    <div class="bg-grid"></div>
+
+    <main class="container">
         <!-- Profil Kısmı -->
         <header class="profile-section">
-            <div class="profile-img-container">
-                <img src="https://via.placeholder.com/150" alt="Profil Resmi" class="profile-img">
+            <div class="avatar-glow">
+                <!-- Buraya kendi profil fotoğrafının linkini koy -->
+                <img src="https://via.placeholder.com/150" alt="XannyLive Avatar" class="avatar">
             </div>
-            <h1 class="username">NICKNAME</h1>
-            <p class="subtitle">// SOSYAL MEDYA</p>
+            <h1 class="title">XANNYLİVE</h1>
+            <p class="subtitle">// CS 2 & OPTİMİZASYON</p>
         </header>
 
-        <!-- Sosyal Medya Kartları -->
-        <section class="social-cards">
-            <a href="#" class="card kick-card">
-                <i class="fa-brands fa-kickstarter-k"></i>
-                <span>Kick</span>
-            </a>
-            <a href="#" class="card ig-card">
-                <i class="fa-brands fa-instagram"></i>
-                <span>Instagram</span>
-            </a>
-            <a href="#" class="card yt-card">
-                <i class="fa-brands fa-youtube"></i>
-                <span>YouTube</span>
-            </a>
-            <a href="#" class="card tt-card">
-                <i class="fa-brands fa-tiktok"></i>
-                <span>TikTok</span>
-            </a>
-        </section>
-
-        <!-- CS2 Ayarlar Accordion Kısmı -->
-        <section class="settings-section">
-            <h2 class="section-title">// AYAR LİSTESİ</h2>
-            <p class="section-desc">CS2'DE KULLANDIĞIM TÜM AYARLAR</p>
-
-            <div class="accordion">
-                <!-- NVIDIA Ayarları -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div class="acc-title">
-                            <i class="fa-solid fa-microchip" style="color: #76b900;"></i> NVIDIA Ayarlarım
-                        </div>
-                        <i class="fa-solid fa-chevron-right arrow"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Performans odaklı panel ayarlarım burada. Maksimum FPS için güç yönetimini "Maksimum Performans" olarak seçmeyi unutma.</p>
-                    </div>
+        <!-- Kick Canlı Yayın Durumu -->
+        <section class="kick-section">
+            <div class="kick-card">
+                <div class="kick-left">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Kick_logo.svg" alt="Kick" class="kick-logo">
+                    <span>Kick Canlı Yayın</span>
                 </div>
-
-                <!-- Görüntü Ayarları -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div class="acc-title">
-                            <i class="fa-solid fa-desktop" style="color: #4facfe;"></i> Görüntü Ayarları
-                        </div>
-                        <i class="fa-solid fa-chevron-right arrow"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>1080x1080 çözünürlükte en iyi görüntü için oyun içi grafik ayarlarım. Gölgeler yüksekte, geri kalan detaylar rekabetçi düzeyde.</p>
-                    </div>
-                </div>
-
-                <!-- Envanter / Skinler -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div class="acc-title">
-                            <i class="fa-solid fa-gun" style="color: #ff4b4b;"></i> Envanter & Skinler
-                        </div>
-                        <i class="fa-solid fa-chevron-right arrow"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Ana bıçağım: M9 Doppler (Kırmızı). Kırmızı konseptli diğer skin dizilimlerim...</p>
-                    </div>
-                </div>
-
-                <!-- Mouse Ayarları -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div class="acc-title">
-                            <i class="fa-solid fa-computer-mouse" style="color: #9d4edd;"></i> Mouse Ayarları
-                        </div>
-                        <i class="fa-solid fa-chevron-right arrow"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>DPI: 400 | Sensitivity: 2.2 | Raw Input: Açık</p>
-                    </div>
+                <!-- Yayın açınca burası yeşil veya kırmızı aktif yanıp sönecek -->
+                <div class="live-badge">
+                    <span class="pulse-dot"></span> AKTİF
                 </div>
             </div>
         </section>
-    </div>
+
+        <!-- Sosyal Medya -->
+        <section class="social-section">
+            <h2 class="section-title">// Sosyal Medya</h2>
+            <div class="social-grid">
+                <a href="#" class="social-card ig">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="social-card yt">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="#" class="social-card tt">
+                    <i class="fa-brands fa-tiktok"></i>
+                    <span>TikTok</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Ayarlar (Açılır Kapanır Kartlar) -->
+        <section class="settings-section">
+            <h2 class="section-title">// Ayarlarım & Kodlar</h2>
+            
+            <div class="setting-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="header-left">
+                        <i class="fa-solid fa-crosshairs cs-icon"></i>
+                        <span>CS 2 Oyun İçi Ayarlar</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
+                <div class="card-content">
+                    <p><strong>Çözünürlük:</strong> 4:3 1280x960 (Stretched)</p>
+                    <p><strong>Görüntü:</strong> Düşük / Performans Odaklı</p>
+                    <p><strong>Crosshair Kodu:</strong> CSGO-XXXX-XXXX-XXXX-XXXX</p>
+                </div>
+            </div>
+
+            <div class="setting-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="header-left">
+                        <!-- NVIDIA logosu -->
+                        <i class="fa-solid fa-microchip nvidia-icon"></i>
+                        <span>NVIDIA Panel & FPS Boost</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
+                <div class="card-content">
+                    <p><strong>Güç Yönetimi:</strong> Maksimum Performansı Tercih Et</p>
+                    <p><strong>Doku Süzme:</strong> Yüksek Performans</p>
+                    <p>Bu ayarlar input lag'i en aza indirmek için optimize edilmiştir.</p>
+                </div>
+            </div>
+
+            <div class="setting-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="header-left">
+                        <i class="fa-brands fa-steam steam-icon"></i>
+                        <span>Steam Başlatma Kodları</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
+                <div class="card-content">
+                    <div class="code-box">
+                        -novid -tickrate 128 -high +fps_max 0 +cl_interp 0.015625
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
