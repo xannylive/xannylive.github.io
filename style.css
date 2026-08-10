@@ -295,3 +295,12 @@ body {
         font-size: 0.95rem;
     }
 }
+.kick-logo-svg {
+    display: block;
+    filter: drop-shadow(0 0 6px rgba(83, 252, 24, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.kick-card:hover .kick-logo-svg {
+    transform: scale(1.05);
+}
