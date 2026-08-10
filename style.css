@@ -287,7 +287,31 @@ body {
 .setting-card.active .arrow {
     transform: rotate(180deg);
 }
+/* --- MOBİL UYUMLULUK (RESPONSIVE) --- */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 10px;
+    }
 
+    .title {
+        font-size: 2rem;
+    }
+
+    /* Telefonda sosyal medya butonları alt alta şık dursun */
+    .social-grid {
+        grid-template-columns: 1fr; 
+        gap: 10px;
+    }
+
+    .card-header {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    .card-content p {
+        font-size: 0.95rem;
+    }
+}
 /* Kod kutularına biraz daha alan ekledik */
 .code-box {
     background-color: #000;
