@@ -279,10 +279,24 @@ body {
 
 /* JS ile eklenecek Active class'ı */
 .setting-card.active .card-content {
-    max-height: 250px; /* İçeriğe göre yetecek bir yükseklik */
+    max-height: 800px; /* İçerik uzadığı için yüksekliği artırdık */
     padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05); /* Açıldığında ince bir çizgi ile ayrılsın, daha şık durur */
 }
 
 .setting-card.active .arrow {
     transform: rotate(180deg);
+}
+
+/* Kod kutularına biraz daha alan ekledik */
+.code-box {
+    background-color: #000;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    color: #53fc18;
+    border: 1px solid #333;
+    word-break: break-all;
+    font-size: 0.95rem;
+    margin-top: 5px;
 }
