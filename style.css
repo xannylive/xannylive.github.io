@@ -3,9 +3,8 @@
     --card-bg: #131318;
     --text-main: #ffffff;
     --text-muted: #8b8b99;
-    --accent-color: #8a2be2; /* Mor XANNYLİVE teması */
+    --accent-color: #8a2be2;
     
-    /* Sosyal Medya Renkleri */
     --ig-color: #e1306c;
     --yt-color: #ff0000;
     --tt-color: #00f2fe;
@@ -23,10 +22,9 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
     overflow-x: hidden;
-    position: relative;
 }
 
-/* Arkadaki ince kareli desen (Attığın görsellerdeki gibi) */
+/* Izgara Arka Plan */
 .bg-grid {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -43,10 +41,10 @@ body {
     padding: 40px 20px;
 }
 
-/* --- PROFIL --- */
+/* Profil */
 .profile-section {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .avatar-glow {
@@ -70,60 +68,68 @@ body {
 .title {
     font-size: 2.5rem;
     letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .subtitle {
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-top: 5px;
     letter-spacing: 1px;
 }
 
-/* --- KICK YAYIN AKTİF --- */
+/* Kick Kartı ve Logo Garantisi */
 .kick-section {
     margin-bottom: 30px;
 }
 
 .kick-card {
     background-color: var(--card-bg);
-    border: 1px solid rgba(83, 252, 24, 0.2);
+    border: 1px solid rgba(83, 252, 24, 0.25);
     border-radius: 12px;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-decoration: none;
+    color: var(--text-main);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.kick-card:hover {
+    transform: translateY(-2px);
+    border-color: #53fc18;
 }
 
 .kick-left {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-size: 1.2rem;
     font-weight: 600;
 }
 
 .kick-logo {
-    width: 60px;
+    width: 55px;
+    height: 24px; /* Logosunun boyut sorunu yaşamaması için sabit yükseklik */
+    object-fit: contain;
 }
 
 .live-badge {
     background-color: rgba(83, 252, 24, 0.1);
     color: #53fc18;
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
     display: flex;
     align-items: center;
     gap: 8px;
-    border: 1px solid rgba(83, 252, 24, 0.3);
+    border: 1px solid rgba(83, 252, 24, 0.4);
 }
 
 .pulse-dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background-color: #53fc18;
     border-radius: 50%;
     animation: pulse 1.5s infinite;
@@ -131,22 +137,20 @@ body {
 
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(83, 252, 24, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(83, 252, 24, 0); }
+    70% { box-shadow: 0 0 0 8px rgba(83, 252, 24, 0); }
     100% { box-shadow: 0 0 0 0 rgba(83, 252, 24, 0); }
 }
 
-/* --- ORTAK BAŞLIKLAR --- */
+/* Sosyal Medya */
 .section-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
     margin-bottom: 15px;
-    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* --- SOSYAL MEDYA KARTLARI --- */
 .social-section {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .social-grid {
@@ -159,7 +163,7 @@ body {
     background-color: var(--card-bg);
     border: 1px solid rgba(255,255,255,0.05);
     border-radius: 12px;
-    padding: 20px 10px;
+    padding: 18px 10px;
     text-decoration: none;
     color: var(--text-main);
     display: flex;
@@ -167,49 +171,31 @@ body {
     align-items: center;
     gap: 10px;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
 .social-card i {
-    font-size: 2rem;
+    font-size: 1.8rem;
     transition: transform 0.3s ease;
 }
 
-.social-card span {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-/* Hover Efektleri (Logoya göre renklenir) */
 .social-card:hover i {
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
-.social-card.ig:hover {
-    border-color: var(--ig-color);
-    box-shadow: 0 5px 20px rgba(225, 48, 108, 0.2);
-}
+.social-card.ig:hover { border-color: var(--ig-color); box-shadow: 0 4px 20px rgba(225, 48, 108, 0.25); }
 .social-card.ig i { color: var(--ig-color); }
 
-.social-card.yt:hover {
-    border-color: var(--yt-color);
-    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
-}
+.social-card.yt:hover { border-color: var(--yt-color); box-shadow: 0 4px 20px rgba(255, 0, 0, 0.25); }
 .social-card.yt i { color: var(--yt-color); }
 
-.social-card.tt:hover {
-    border-color: var(--tt-color);
-    box-shadow: 0 5px 20px rgba(0, 242, 254, 0.2);
-}
+.social-card.tt:hover { border-color: var(--tt-color); box-shadow: 0 4px 20px rgba(0, 242, 254, 0.25); }
 .social-card.tt i { color: var(--tt-color); }
 
-
-/* --- AYARLAR KARTLARI (ACCORDION) --- */
+/* Ayarlar Akordeon */
 .settings-section {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
 .setting-card {
@@ -230,23 +216,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 600;
 }
 
 .header-left {
     display: flex;
     align-items: center;
-    gap: 15px;
-}
-
-.header-left i {
-    font-size: 1.5rem;
+    gap: 12px;
 }
 
 .nvidia-icon { color: var(--nvidia-color); }
 .cs-icon { color: #f99e1a; }
-.steam-icon { color: #1b2838; text-shadow: 0 0 2px white;}
+.steam-icon { color: #00adf2; }
 
 .arrow {
     transition: transform 0.3s ease;
@@ -257,14 +239,14 @@ body {
     max-height: 0;
     overflow: hidden;
     padding: 0 20px;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.25);
     color: #ccc;
     transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
 .card-content p {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
 }
 
 .code-box {
@@ -273,21 +255,23 @@ body {
     border-radius: 6px;
     font-family: monospace;
     color: #53fc18;
-    border: 1px solid #333;
+    border: 1px solid #222;
     word-break: break-all;
+    font-size: 0.9rem;
 }
 
-/* JS ile eklenecek Active class'ı */
+/* Aktif Kart Durumu */
 .setting-card.active .card-content {
-    max-height: 800px; /* İçerik uzadığı için yüksekliği artırdık */
+    max-height: 800px;
     padding: 20px;
-    border-top: 1px solid rgba(255,255,255,0.05); /* Açıldığında ince bir çizgi ile ayrılsın, daha şık durur */
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .setting-card.active .arrow {
     transform: rotate(180deg);
 }
-/* --- MOBİL UYUMLULUK (RESPONSIVE) --- */
+
+/* --- MOBİL UYUMLULUK --- */
 @media (max-width: 480px) {
     .container {
         padding: 20px 10px;
@@ -297,7 +281,6 @@ body {
         font-size: 2rem;
     }
 
-    /* Telefonda sosyal medya butonları alt alta şık dursun */
     .social-grid {
         grid-template-columns: 1fr; 
         gap: 10px;
@@ -311,16 +294,4 @@ body {
     .card-content p {
         font-size: 0.95rem;
     }
-}
-/* Kod kutularına biraz daha alan ekledik */
-.code-box {
-    background-color: #000;
-    padding: 12px;
-    border-radius: 6px;
-    font-family: monospace;
-    color: #53fc18;
-    border: 1px solid #333;
-    word-break: break-all;
-    font-size: 0.95rem;
-    margin-top: 5px;
 }
