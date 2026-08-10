@@ -5,25 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XANNYLİVE - Linkler & Ayarlar</title>
     <link rel="stylesheet" href="style.css">
-    <!-- İkonlar için FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Arka plan grid deseni için -->
     <div class="bg-grid"></div>
 
     <main class="container">
         <!-- Profil Kısmı -->
         <header class="profile-section">
             <div class="avatar-glow">
-                <!-- Buraya kendi profil fotoğrafının linkini koy -->
                 <img src="https://via.placeholder.com/150" alt="XannyLive Avatar" class="avatar">
             </div>
             <h1 class="title">XANNYLİVE</h1>
-            <p class="subtitle">// CS 2 & OPTİMİZASYON</p>
+            <p class="subtitle">// CS 2 & OPTİMİZASYON UZMANI</p>
         </header>
 
         <!-- Kick Canlı Yayın Durumu -->
@@ -33,7 +29,6 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Kick_logo.svg" alt="Kick" class="kick-logo">
                     <span>Kick Canlı Yayın</span>
                 </div>
-                <!-- Yayın açınca burası yeşil veya kırmızı aktif yanıp sönecek -->
                 <div class="live-badge">
                     <span class="pulse-dot"></span> AKTİF
                 </div>
@@ -59,53 +54,89 @@
             </div>
         </section>
 
-        <!-- Ayarlar (Açılır Kapanır Kartlar) -->
+        <!-- Ayarlar (Genişletilmiş Açılır Kapanır Kartlar) -->
         <section class="settings-section">
-            <h2 class="section-title">// Ayarlarım & Kodlar</h2>
+            <h2 class="section-title">// XANNYLİVE CONFIG & AYARLAR</h2>
             
+            <!-- 1. Oyun İçi Görüntü Ayarları -->
+            <div class="setting-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="header-left">
+                        <i class="fa-solid fa-desktop cs-icon"></i>
+                        <span>CS 2 Oyun İçi Görüntü</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
+                <div class="card-content">
+                    <p><strong>Çözünürlük:</strong> 1080x1080 (Custom Stretched)</p>
+                    <p><strong>Görüntü Modu:</strong> Tam Ekran</p>
+                    <p><strong>Evrensel Gölge Kalitesi:</strong> Yüksek (Rakip gölgelerini görmek için)</p>
+                    <p><strong>Model / Doku Detayı:</strong> Düşük</p>
+                    <p><strong>Parçacık Detayı:</strong> Düşük</p>
+                    <p><strong>FidelityFX Super Resolution:</strong> Devre Dışı (En yüksek kalite)</p>
+                    <p><strong>NVIDIA Reflex:</strong> Etkin + Takviye</p>
+                </div>
+            </div>
+
+            <!-- 2. HUD ve Viewmodel Ayarları -->
             <div class="setting-card" onclick="toggleCard(this)">
                 <div class="card-header">
                     <div class="header-left">
                         <i class="fa-solid fa-crosshairs cs-icon"></i>
-                        <span>CS 2 Oyun İçi Ayarlar</span>
+                        <span>HUD, Crosshair & Viewmodel</span>
                     </div>
                     <i class="fa-solid fa-chevron-down arrow"></i>
                 </div>
                 <div class="card-content">
-                    <p><strong>Çözünürlük:</strong> 4:3 1280x960 (Stretched)</p>
-                    <p><strong>Görüntü:</strong> Düşük / Performans Odaklı</p>
+                    <p><strong>HUD Ölçeği:</strong> 0.85</p>
+                    <p><strong>HUD Rengi:</strong> Mor / Yeşil (Kişisel tercihe göre)</p>
+                    <p><strong>Radar Ölçeği:</strong> 0.40 (Tüm haritayı görmek için)</p>
+                    <p><strong>Radar HUD Büyüklüğü:</strong> 1.15</p>
                     <p><strong>Crosshair Kodu:</strong> CSGO-XXXX-XXXX-XXXX-XXXX</p>
-                </div>
-            </div>
-
-            <div class="setting-card" onclick="toggleCard(this)">
-                <div class="card-header">
-                    <div class="header-left">
-                        <!-- NVIDIA logosu -->
-                        <i class="fa-solid fa-microchip nvidia-icon"></i>
-                        <span>NVIDIA Panel & FPS Boost</span>
-                    </div>
-                    <i class="fa-solid fa-chevron-down arrow"></i>
-                </div>
-                <div class="card-content">
-                    <p><strong>Güç Yönetimi:</strong> Maksimum Performansı Tercih Et</p>
-                    <p><strong>Doku Süzme:</strong> Yüksek Performans</p>
-                    <p>Bu ayarlar input lag'i en aza indirmek için optimize edilmiştir.</p>
-                </div>
-            </div>
-
-            <div class="setting-card" onclick="toggleCard(this)">
-                <div class="card-header">
-                    <div class="header-left">
-                        <i class="fa-brands fa-steam steam-icon"></i>
-                        <span>Steam Başlatma Kodları</span>
-                    </div>
-                    <i class="fa-solid fa-chevron-down arrow"></i>
-                </div>
-                <div class="card-content">
+                    <p><strong>Viewmodel Ayarı:</strong></p>
                     <div class="code-box">
-                        -novid -tickrate 128 -high +fps_max 0 +cl_interp 0.015625
+                        viewmodel_fov 68; viewmodel_offset_x 2.5; viewmodel_offset_y 0; viewmodel_offset_z -1.5;
                     </div>
+                </div>
+            </div>
+
+            <!-- 3. NVIDIA Renk ve Denetim Masası -->
+            <div class="setting-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="header-left">
+                        <i class="fa-solid fa-palette nvidia-icon"></i>
+                        <span>NVIDIA Renk ve 3D Ayarları</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
+                <div class="card-content">
+                    <p><strong>Digital Vibrance:</strong> %80 - %100 Arası (Düşmanları daha net seçmek için)</p>
+                    <p><strong>Görüntü Ayarlarını Önayarla:</strong> Benim tercihlerimi kullan (Performans)</p>
+                    <p><strong>Düşük Gecikme Oranı (Low Latency):</strong> Ultra</p>
+                    <p><strong>Güç Yönetimi Modu:</strong> Maksimum Performansı Tercih Et</p>
+                    <p><strong>Doku Süzme - Kalite:</strong> Yüksek Performans</p>
+                    <p><strong>Eşyönsüz Süzme (Anisotropic):</strong> Kapalı</p>
+                </div>
+            </div>
+
+            <!-- 4. Maksimum FPS Arttırma & Windows Ayarları -->
+            <div class="setting-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="header-left">
+                        <i class="fa-solid fa-rocket steam-icon"></i>
+                        <span>Maksimum FPS & Windows Optimizasyon</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
+                <div class="card-content">
+                    <p><strong>Windows Oyun Modu:</strong> Açık</p>
+                    <p><strong>Donanım Hızlandırmalı GPU Zamanlaması:</strong> Açık</p>
+                    <p><strong>Arka Plan Uygulamaları:</strong> Tamamı kapalı / Sadece Discord & OBS çalışır.</p>
+                    <p><strong>Steam Başlatma Kodları:</strong></p>
+                    <div class="code-box">
+                        -novid -tickrate 128 -high +fps_max 0 -nojoy +cl_updaterate 128 +cl_cmdrate 128
+                    </div>
+                    <p style="margin-top:10px;"><em>Not: Başlatma kodlarını Steam kütüphanesinden CS2 özelliklerine yapıştırın.</em></p>
                 </div>
             </div>
 
