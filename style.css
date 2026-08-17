@@ -1,306 +1,253 @@
 :root {
-    --bg-color: #09090b;
-    --card-bg: #131318;
+    --bg-color: #0b0b0f;
+    --card-bg: #14141a;
+    --money-color: #00ffaa;
+    --level-color: #00aaff;
+    --combo-color: #aa00ff;
     --text-main: #ffffff;
-    --text-muted: #8b8b99;
-    --accent-color: #8a2be2;
-    
-    --ig-color: #e1306c;
-    --yt-color: #ff0000;
-    --tt-color: #00f2fe;
-    --nvidia-color: #76b900;
+    --text-muted: #a1a1aa;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
     overflow-x: hidden;
+    padding-bottom: 50px;
 }
 
-/* Izgara Arka Plan */
-.bg-grid {
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    z-index: -1;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-/* Profil */
-.profile-section {
+header {
     text-align: center;
-    margin-bottom: 35px;
+    padding: 50px 20px 20px 20px;
 }
 
-.avatar-glow {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 20px auto;
-    border-radius: 50%;
-    padding: 4px;
-    background: linear-gradient(45deg, var(--accent-color), #ff007f);
-    box-shadow: 0 0 30px rgba(138, 43, 226, 0.4);
-}
-
-.avatar {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--bg-color);
-}
-
-.title {
-    font-size: 2.5rem;
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.logo span {
+    color: var(--money-color);
+    text-shadow: 0 0 20px rgba(0,255,170,0.6);
 }
 
 .subtitle {
     color: var(--text-muted);
-    font-size: 1rem;
-    margin-top: 5px;
-    letter-spacing: 1px;
-}
-
-/* Kick Kartı ve Logo Garantisi */
-.kick-section {
-    margin-bottom: 30px;
-}
-
-.kick-card {
-    background-color: var(--card-bg);
-    border: 1px solid rgba(83, 252, 24, 0.25);
-    border-radius: 12px;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    color: var(--text-main);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.kick-card:hover {
-    transform: translateY(-2px);
-    border-color: #53fc18;
-}
-
-.kick-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.kick-logo {
-    width: 55px;
-    height: 24px; /* Logosunun boyut sorunu yaşamaması için sabit yükseklik */
-    object-fit: contain;
-}
-
-.live-badge {
-    background-color: rgba(83, 252, 24, 0.1);
-    color: #53fc18;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid rgba(83, 252, 24, 0.4);
-}
-
-.pulse-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #53fc18;
-    border-radius: 50%;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(83, 252, 24, 0.7); }
-    70% { box-shadow: 0 0 0 8px rgba(83, 252, 24, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(83, 252, 24, 0); }
-}
-
-/* Sosyal Medya */
-.section-title {
+    margin-top: 10px;
     font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 15px;
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.social-section {
-    margin-bottom: 35px;
-}
-
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.social-card {
-    background-color: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 12px;
-    padding: 18px 10px;
-    text-decoration: none;
-    color: var(--text-main);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-}
-
-.social-card i {
-    font-size: 1.8rem;
-    transition: transform 0.3s ease;
-}
-
-.social-card:hover i {
-    transform: scale(1.15);
-}
-
-.social-card.ig:hover { border-color: var(--ig-color); box-shadow: 0 4px 20px rgba(225, 48, 108, 0.25); }
-.social-card.ig i { color: var(--ig-color); }
-
-.social-card.yt:hover { border-color: var(--yt-color); box-shadow: 0 4px 20px rgba(255, 0, 0, 0.25); }
-.social-card.yt i { color: var(--yt-color); }
-
-.social-card.tt:hover { border-color: var(--tt-color); box-shadow: 0 4px 20px rgba(0, 242, 254, 0.25); }
-.social-card.tt i { color: var(--tt-color); }
-
-/* Ayarlar Akordeon */
-.settings-section {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.setting-card {
-    background-color: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-}
-
-.setting-card:hover {
-    border-color: rgba(255,255,255,0.2);
-}
-
-.card-header {
-    padding: 18px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.15rem;
-    font-weight: 600;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.nvidia-icon { color: var(--nvidia-color); }
-.cs-icon { color: #f99e1a; }
-.steam-icon { color: #00adf2; }
-
-.arrow {
-    transition: transform 0.3s ease;
-    color: var(--text-muted);
-}
-
-.card-content {
-    max-height: 0;
-    overflow: hidden;
+/* Grid Sistemi (Mobil Uyumlu) */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 0 20px;
-    background-color: rgba(0,0,0,0.25);
-    color: #ccc;
-    transition: max-height 0.4s ease, padding 0.4s ease;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
 }
 
-.card-content p {
-    margin-bottom: 8px;
-    font-size: 1.05rem;
+/* Paket Kartları ve Hareketli Efektler */
+.package-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
 
-.code-box {
-    background-color: #000;
-    padding: 10px;
-    border-radius: 6px;
-    font-family: monospace;
-    color: #53fc18;
-    border: 1px solid #222;
-    word-break: break-all;
-    font-size: 0.9rem;
+.package-card:hover {
+    transform: translateY(-12px);
 }
 
-/* Aktif Kart Durumu */
-.setting-card.active .card-content {
-    max-height: 800px;
+/* Türüne Göre Hover Parlamaları */
+.card-money:hover { box-shadow: 0 20px 40px rgba(0, 255, 170, 0.25); border-color: var(--money-color); }
+.card-level:hover { box-shadow: 0 20px 40px rgba(0, 170, 255, 0.25); border-color: var(--level-color); }
+.card-combo:hover { box-shadow: 0 20px 40px rgba(170, 0, 255, 0.25); border-color: var(--combo-color); }
+
+/* Görsel Alanı ve Zoom Efekti */
+.image-box {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #000;
+    position: relative;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.package-card:hover .image-box img {
+    transform: scale(1.12);
+}
+
+/* Kart İçeriği */
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.package-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.text-money { color: var(--money-color); }
+.text-level { color: var(--level-color); }
+.text-combo { color: var(--combo-color); }
+
+.package-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Butonlar */
+.buy-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    border: 2px solid;
+    background: transparent;
+}
+
+.card-money .buy-btn { color: var(--money-color); border-color: var(--money-color); }
+.card-money .buy-btn:hover { background: var(--money-color); color: #000; box-shadow: 0 0 15px var(--money-color); }
+
+.card-level .buy-btn { color: var(--level-color); border-color: var(--level-color); }
+.card-level .buy-btn:hover { background: var(--level-color); color: #000; box-shadow: 0 0 15px var(--level-color); }
+
+.card-combo .buy-btn { color: #fff; background: var(--combo-color); border-color: var(--combo-color); }
+.card-combo .buy-btn:hover { background: transparent; color: var(--combo-color); box-shadow: 0 0 20px var(--combo-color); }
+
+/* IBAN Modal (Açılır Pencere) Tasarımı */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
     padding: 20px;
-    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.setting-card.active .arrow {
-    transform: rotate(180deg);
+.modal-box {
+    background: #181822;
+    border: 2px solid var(--money-color);
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 255, 170, 0.3);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
 }
 
-/* --- MOBİL UYUMLULUK --- */
-@media (max-width: 480px) {
-    .container {
-        padding: 20px 10px;
-    }
-
-    .title {
-        font-size: 2rem;
-    }
-
-    .social-grid {
-        grid-template-columns: 1fr; 
-        gap: 10px;
-    }
-
-    .card-header {
-        font-size: 1rem;
-        padding: 15px;
-    }
-
-    .card-content p {
-        font-size: 0.95rem;
-    }
+@keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
-.kick-logo-svg {
+
+.modal-box h2 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.iban-container {
+    background: #0d0d12;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 1px dashed rgba(255,255,255,0.2);
+}
+
+.iban-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    word-break: break-all;
+}
+
+.ref-box {
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid #ffc107;
+    color: #ffc107;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.ref-code {
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
     display: block;
-    filter: drop-shadow(0 0 6px rgba(83, 252, 24, 0.4));
-    transition: transform 0.3s ease;
+    margin-top: 5px;
+    color: #fff;
 }
 
-.kick-card:hover .kick-logo-svg {
-    transform: scale(1.05);
+.modal-btn-done {
+    background: #5865F2; /* Discord Mavisi */
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(88, 101, 242, 0.4);
+}
+
+.modal-btn-done:hover {
+    background: #4752c4;
+    transform: scale(1.02);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px; right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
