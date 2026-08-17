@@ -3,114 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XANNYLİVE - Config & Settings</title>
+    <title>XannyBoost - VIP GTA Online Hizmetleri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <main class="container">
-        <header class="profile-section">
-            <div class="avatar-glow">
-                <img src="images/profil.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="XANNYLİVE Avatar" class="avatar">
-            </div>
-            <h1 class="title">XANNYLİVE</h1>
-            <p class="subtitle">// PRO CS2 CONFIG & OPTIMIZATION</p>
-        </header>
 
-       <!-- Kick Canlı Yayın Kartı -->
-<section class="kick-section">
-    <a href="https://kick.com/lidermine" target="_blank" class="kick-card">
-        <div class="kick-left">
-            <!-- Dış kaynaklı resim hatasını bitiren garantili SVG Logo -->
-            <svg class="kick-logo-svg" width="65" height="26" viewBox="0 0 70 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="70" height="28" rx="6" fill="#0f0f13" stroke="#53fc18" stroke-width="1.5"/>
-                <text x="11" y="20" fill="#53fc18" font-family="'Rajdhani', sans-serif" font-weight="700" font-size="15" letter-spacing="1">KICK</text>
-            </svg>
-            <span>Canlı Yayın</span>
+    <header>
+        <div class="logo">Xanny<span>Boost</span></div>
+        <div class="subtitle">GTA V Ultra Hızlı & Güvenli Paketler</div>
+    </header>
+
+    <div class="container">
+
+        <div class="package-card card-money">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1622979135225-d2ba269bc1df?auto=format&fit=crop&w=600&q=80" alt="Money Boost">
+            </div>
+            <div class="card-content">
+                <h3 class="package-title text-money">200M Money Boost</h3>
+                <p class="package-desc">Hesabınıza tamamen ban riski olmadan nakit ve casino çipi yüklemesi.</p>
+                <button class="buy-btn" onclick="openIbanModal('200M Money Boost')">Satın Al</button>
+            </div>
         </div>
-        <div class="live-badge">
-            <span class="pulse-dot"></span> CANLI YAYIN
+
+        <div class="package-card card-level">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Level Boost">
+            </div>
+            <div class="card-content">
+                <h3 class="package-title text-level">300 Level Boost</h3>
+                <p class="package-desc">İstediğiniz seviyeye hızlı ve güvenli bir şekilde anında ulaştırın.</p>
+                <button class="buy-btn" onclick="openIbanModal('300 Level Boost')">Satın Al</button>
+            </div>
         </div>
-    </a>
-</section>
 
-        <section class="social-section">
-            <h2 class="section-title">// Sosyal Medya</h2>
-            <div class="social-grid">
-                <a href="https://www.instagram.com/lido.wav?igsh=aHBqbGExN3R6aWJp&utm_source=qr" target="_blank" class="social-card ig"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
-                <a href="https://www.youtube.com/@Xannylive0" target="_blank" class="social-card yt"><i class="fa-brands fa-youtube"></i><span>YouTube</span></a>
-                <a href="https://www.tiktok.com/@xannypeeka?is_from_webapp=1&sender_device=pc" target="_blank" class="social-card tt"><i class="fa-brands fa-tiktok"></i><span>TikTok</span></a>
+        <div class="package-card card-combo">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="Combo Boost">
             </div>
-        </section>
+            <div class="card-content">
+                <h3 class="package-title text-combo">200M + 200 Lvl + U</h3>
+                <p class="package-desc">Her şey dahil efsane kombinasyon paketi. Sınırsız güç ve para!</p>
+                <button class="buy-btn" onclick="openIbanModal('200M + 200 Lvl + Unlock')">Satın Al</button>
+            </div>
+        </div>
 
-        <section class="settings-section">
-            <h2 class="section-title">// DETAYLI CONFIG & AYARLAR</h2>
-            
-            <div class="setting-card" onclick="toggleCard(this)">
-                <div class="card-header">
-                    <div class="header-left"><i class="fa-solid fa-desktop cs-icon"></i><span>CS 2 Gelişmiş Grafik Ayarları</span></div>
-                    <i class="fa-solid fa-chevron-down arrow"></i>
-                </div>
-                <div class="card-content">
-                    <p><strong>Çözünürlük:</strong> 1280x960 (4:3 Stretched)</p>
-                    <p><strong>Görüntü Modu:</strong> Tam Ekran</p>
-                    <p><strong>Boost Player Contrast:</strong> Etkin</p>
-                    <p><strong>Wait for Vertical Sync:</strong> Devre Dışı</p>
-                    <p><strong>Current Video Preset:</strong> Custom</p>
-                    <p><strong>Multisampling Anti-Aliasing:</strong> 4x MSAA</p>
-                    <p><strong>Global Shadow Quality:</strong> Yüksek (Rakip gölgeleri için kritik)</p>
-                    <p><strong>Model / Texture Detail:</strong> Düşük</p>
-                    <p><strong>Shader Detail:</strong> Düşük</p>
-                    <p><strong>Particle Detail:</strong> Düşük</p>
-                    <p><strong>Ambient Occlusion:</strong> Devre Dışı</p>
-                    <p><strong>High Dynamic Range:</strong> Performance</p>
-                    <p><strong>FidelityFX Super Resolution:</strong> Devre Dışı (Highest Quality)</p>
-                    <p><strong>NVIDIA Reflex Low Latency:</strong> Etkin + Takviye</p>
-                </div>
+    </div>
+
+    <div class="modal-overlay" id="ibanModal">
+        <div class="modal-box">
+            <button class="close-modal" onclick="closeIbanModal()">&times;</button>
+            <h2>Ödeme Bildirimi</h2>
+            <p style="color: #a1a1aa; font-size: 0.9rem;">Seçilen Paket: <span id="selectedPackageName" style="color:#fff; font-weight:600;"></span></p>
+
+            <div class="iban-container">
+                <div style="font-size: 0.85rem; color: #a1a1aa; margin-bottom: 5px;">KURUMSAL IBAN NUMARAMIZ (TR):</div>
+                <div class="iban-text">TR33 0006 1005 1234 5678 9012 34</div>
+                <div style="font-size: 0.8rem; color: #00ffaa; margin-top: 5px;">Alıcı: Xanny Boost</div>
             </div>
 
-            <div class="setting-card" onclick="toggleCard(this)">
-                <div class="card-header">
-                    <div class="header-left"><i class="fa-solid fa-crosshairs cs-icon"></i><span>HUD & Viewmodel Ayarları</span></div>
-                    <i class="fa-solid fa-chevron-down arrow"></i>
-                </div>
-                <div class="card-content">
-                    <p><strong>HUD Scale:</strong> 0.85</p>
-                    <p><strong>HUD Color:</strong> Team Color (Purple)</p>
-                    <p><strong>Radar HUD Size:</strong> 1.15</p>
-                    <p><strong>Radar Map Zoom:</strong> 0.40</p>
-                    <p><strong>Radar Rotate:</strong> Yes</p>
-                    <p><strong>Viewmodel Komutları (Console):</strong></p>
-                    <div class="code-box">
-                        viewmodel_presetpos 0;<br>
-                        viewmodel_fov 68;<br>
-                        viewmodel_offset_x 2.5;<br>
-                        viewmodel_offset_y 0;<br>
-                        viewmodel_offset_z -1.5;
-                    </div>
-                </div>
+            <div class="ref-box">
+                Açıklama Kısımlarına Mutlaka Yazınız:
+                <span class="ref-code" id="uniqueRefCode">XB-94812</span>
             </div>
 
-            <div class="setting-card" onclick="toggleCard(this)">
-                <div class="card-header">
-                    <div class="header-left"><i class="fa-solid fa-palette nvidia-icon"></i><span>NVIDIA Denetim Masası</span></div>
-                    <i class="fa-solid fa-chevron-down arrow"></i>
-                </div>
-                <div class="card-content">
-                    <p><strong>Image Sharpening:</strong> Kapalı</p>
-                    <p><strong>Vertical Sync:</strong> Kapalı</p>
-                    <p><strong>Low Latency Mode:</strong> Ultra</p>
-                    <p><strong>Power Management:</strong> Prefer Maximum Performance</p>
-                    <p><strong>Texture Filtering - Quality:</strong> High Performance</p>
-                    <p><strong>Anisotropic Filtering:</strong> 4x</p>
-                    <p><strong>Digital Vibrance:</strong> 85% (Renk canlılığı için)</p>
-                    <p><strong>Monitor Technology:</strong> G-SYNC (Kapalı)</p>
-                </div>
-            </div>
-        </section>
-    </main>
+            <button class="modal-btn-done" onclick="redirectToDiscord()">Ödemeyi Yaptım - Discord'a Git</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
