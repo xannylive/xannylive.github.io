@@ -21,6 +21,7 @@
     --level:#00aaff;
     --combo:#aa00ff;
     --warn:#ffd21a;
+    --danger:#ff4d4d;
     --radius:18px;
   }
 
@@ -63,11 +64,6 @@
   .brand-text .x1{background:linear-gradient(90deg,var(--money),var(--level));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .brand-text .x2{color:var(--ink);}
 
-  .hero-logo{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:26px;}
-  .hero-logo .glyph{width:52px;height:52px;}
-  .hero-logo .brand-text{font-size:1.5rem;letter-spacing:2px;}
-  .hero-logo .sub{font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--ink-dim);font-weight:600;}
-
   /* ---------- NAV ---------- */
   header{
     position:sticky;top:0;z-index:100;
@@ -81,6 +77,39 @@
   .nav-links a:hover{color:var(--ink);}
   .nav-cta{padding:10px 20px;border-radius:999px;font-weight:700;font-size:.85rem;background:var(--ink);color:#0b0b0f;transition:transform .2s, box-shadow .2s;white-space:nowrap;}
   .nav-cta:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,255,255,.15);}
+  
+  .nav-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .cart-btn {
+    position: relative;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .cart-btn:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-2px);
+  }
+  .cart-count {
+    background: var(--money);
+    color: #04140d;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 999px;
+    font-weight: 900;
+  }
+
   .burger{display:none;width:26px;height:20px;position:relative;flex-shrink:0;}
   .burger span{position:absolute;left:0;width:100%;height:2px;background:var(--ink);transition:.3s;}
   .burger span:nth-child(1){top:0;}
@@ -216,10 +245,25 @@
     padding:3px 8px;border-radius:6px;white-space:nowrap;
   }
 
-  .buy-btn{
-    width:100%;padding:13px;border-radius:11px;font-weight:700;font-size:.87rem;text-align:center;
+  .card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .buy-btn, .cart-add-btn{
+    width:100%;padding:13px 8px;border-radius:11px;font-weight:700;font-size:.8rem;text-align:center;
     background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
     transition:background .25s, transform .2s, border-color .25s;
+  }
+  .cart-add-btn {
+    background: rgba(0,170,255,0.08);
+    border-color: rgba(0,170,255,0.25);
+    color: var(--level);
+  }
+  .cart-add-btn:hover {
+    background: var(--level);
+    color: #04101a;
   }
   .card.money .buy-btn:hover{background:var(--money); color:#04140d; border-color:var(--money);}
   .card.level .buy-btn:hover{background:var(--level); color:#04101a; border-color:var(--level);}
@@ -243,17 +287,19 @@
   .vip-perk h4{font-size:.86rem;font-weight:700;margin-bottom:4px;}
   .vip-perk p{color:var(--ink-dim);font-size:.76rem;line-height:1.5;margin:0;max-width:none;}
 
-  /* ---------- WHY US ---------- */
-  .why-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(230px,1fr));gap:20px;}
-  .why-card{background:var(--panel);border:1px solid var(--panel-edge);border-radius:16px;padding:24px;transition:transform .3s, border-color .3s;}
-  .why-card:hover{transform:translateY(-6px); border-color:rgba(255,255,255,.18);}
-  .why-card .num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.75rem;color:var(--ink-dim);letter-spacing:2px;margin-bottom:12px;display:block;}
-  .why-card h3{font-size:1.05rem; margin-bottom:8px;}
-  .why-card p{color:var(--ink-dim); font-size:.85rem; line-height:1.6;}
+  /* ---------- YORUMLAR (REVIEWS) SECTION ---------- */
+  .reviews-grid {display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px;}
+  .review-card {background:var(--panel);border:1px solid var(--panel-edge);border-radius:16px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s, border-color .3s;}
+  .review-card:hover {transform:translateY(-5px);border-color:rgba(255,255,255,.15);}
+  .review-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+  .review-author {font-weight:700;font-size:.95rem;font-family:'Montserrat',sans-serif;}
+  .review-stars {color:var(--warn);font-size:.9rem;letter-spacing:2px;}
+  .review-text {color:var(--ink-dim);font-size:.85rem;line-height:1.6;margin-bottom:14px;flex-grow:1;}
+  .review-package {font-size:.75rem;color:var(--level);font-weight:600;background:rgba(0,170,255,.08);padding:4px 10px;border-radius:999px;width:fit-content;}
 
   /* ---------- FAQ ---------- */
   .faq-item{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;margin-bottom:12px;overflow:hidden;}
-  .faq-q{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:.92rem;gap:12px;}
+  .faq-q{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:.92rem;gap:12px;cursor:pointer;}
   .faq-q .plus{font-size:1.3rem;color:var(--ink-dim);transition:transform .3s;flex-shrink:0;}
   .faq-item.open .faq-q .plus{transform:rotate(45deg); color:var(--combo);}
   .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease, padding .35s ease;color:var(--ink-dim);font-size:.86rem;line-height:1.7;padding:0 20px;}
@@ -269,7 +315,7 @@
   .footer-links a:hover{color:var(--level);}
   .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);font-size:.78rem;color:#5f5f6b;}
 
-  /* ---------- MODAL (shared style for payment + terms) ---------- */
+  /* ---------- MODAL ---------- */
   .modal-overlay{
     position:fixed;inset:0;background:rgba(6,6,9,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
     display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;
@@ -339,6 +385,110 @@
   .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
   .toast::before{content:"✓ "; color:var(--money);}
 
+  /* ---------- LIVE ACTIVITY TOAST ---------- */
+  .activity-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(20, 20, 26, 0.95);
+    border: 1px solid rgba(0, 255, 170, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px 18px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 999;
+    max-width: 320px;
+    transform: translateY(120%);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .activity-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .activity-head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--money);
+    margin-bottom: 4px;
+  }
+  .activity-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--money);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--money);
+    animation: pulse 1.5s infinite;
+  }
+  .activity-body {
+    font-size: 0.82rem;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  /* ---------- FLOATING TRANSLATE BUTTON ---------- */
+  .floating-tools {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .language-btn {
+    background: rgba(20, 20, 26, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--ink);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    backdrop-filter: blur(10px);
+  }
+  .language-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--money);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- MOD MENU & RED WARNING BOX ---------- */
+  .mod-download-card{position:relative;display:flex;align-items:center;gap:28px;padding:28px;background:linear-gradient(135deg,rgba(0,255,170,.07),rgba(170,0,255,.07));border:1px solid rgba(0,255,170,.22);border-radius:20px;overflow:hidden;box-shadow:0 18px 55px rgba(0,0,0,.24);}
+  .mod-download-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 8% 50%,rgba(0,255,170,.12),transparent 35%),radial-gradient(circle at 92% 50%,rgba(170,0,255,.10),transparent 35%);}
+  .mod-download-icon{position:relative;z-index:1;width:86px;height:86px;display:grid;place-items:center;flex:0 0 86px;border-radius:20px;font-size:42px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);}
+  .mod-download-content{position:relative;z-index:1;flex:1;}
+  .mod-download-content h2{margin:8px 0 7px;font-size:clamp(1.45rem,3vw,2.15rem);}
+  .mod-download-content p{margin:0;color:var(--ink-dim);max-width:760px;}
+  .mod-download-meta{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0 16px;color:#b9ffdF;font-size:.8rem;font-weight:700;}
+  
+  .mod-warning-box{
+    background: rgba(255, 77, 77, 0.08);
+    border: 1px solid rgba(255, 77, 77, 0.35);
+    color: #ffb3b3;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .mod-warning-box strong{color: var(--danger);}
+
+  .mod-download-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;border-radius:11px;background:var(--money);color:#04140d;font-weight:900;border:1px solid var(--money);transition:transform .2s,filter .2s,box-shadow .2s;}
+  .mod-download-btn:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 10px 28px rgba(0,255,170,.16);}
+
   @media (max-width:860px){
     .nav-links{
       position:fixed;top:60px; left:0; right:0;background:rgba(11,11,15,.98);backdrop-filter:blur(16px);
@@ -359,195 +509,95 @@
     .grid{grid-template-columns:1fr;}
     .vip-club{padding:34px 20px;}
     .price .off{margin-left:0;}
+    .mod-download-card{flex-direction:column;align-items:flex-start;padding:22px;}
+    .mod-download-icon{width:70px;height:70px;flex-basis:70px;font-size:34px;}
+    .mod-download-btn{width:100%;}
   }
 </style>
 </head>
-<body>
+<body id="top">
 
 <div class="grid-fx"></div>
-
-<!-- Reusable SVG defs: icons + package illustrations -->
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 3l7 3v6c0 4.8-3 8.3-7 9-4-.7-7-4.2-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/>
-    </symbol>
-    <symbol id="ic-bolt" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></symbol>
-    <symbol id="ic-headset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 13a8 8 0 0116 0"/><rect x="2.5" y="13" width="4" height="7" rx="1.5"/><rect x="17.5" y="13" width="4" height="7" rx="1.5"/>
-    </symbol>
-    <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></symbol>
-    <symbol id="ic-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8z"/></symbol>
-    <symbol id="ic-lock-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M7 11V7a5 5 0 019.5-2.2"/></symbol>
-    <symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></symbol>
-    <symbol id="ic-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.7 1.5 6.8L12 17.3 5.9 20.5l1.5-6.8L2.2 9l6.9-.7L12 2z"/></symbol>
-    <symbol id="ic-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M3 12h18"/><path d="M12 8v13"/><path d="M12 8c-1.5-4-6-4-6-1s3 1 6 1c3 0 6 2 6-1s-4.5-3-6 1z"/></symbol>
-
-    <!-- brand glyph: original diamond/spark mark -->
-    <symbol id="xanny-glyph" viewBox="0 0 100 100">
-      <polygon points="50,4 92,50 50,96 8,50" fill="none" stroke="url(#gGlyph)" stroke-width="6"/>
-      <polygon points="50,26 74,50 50,74 26,50" fill="url(#gGlyphFill)"/>
-    </symbol>
-    <linearGradient id="gGlyph" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00ffaa"/><stop offset="55%" stop-color="#00aaff"/><stop offset="100%" stop-color="#aa00ff"/>
-    </linearGradient>
-    <linearGradient id="gGlyphFill" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00aaff" stop-opacity=".9"/><stop offset="100%" stop-color="#aa00ff" stop-opacity=".9"/>
-    </linearGradient>
-
-    <!-- ===== MONEY SCENE ===== -->
-    <linearGradient id="gMoneyGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00ffaa" stop-opacity=".35"/><stop offset="100%" stop-color="#00ffaa" stop-opacity="0"/></linearGradient>
-    <linearGradient id="gBillFace" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1c3d33"/><stop offset="50%" stop-color="#2d5c4c"/><stop offset="100%" stop-color="#1c3d33"/></linearGradient>
-    <symbol id="scene-money" viewBox="0 0 300 190">
-      <rect x="0" y="0" width="300" height="190" fill="#0e0e13"/>
-      <ellipse cx="150" cy="168" rx="140" ry="14" fill="url(#gMoneyGlow)"/>
-      <rect x="35" y="150" width="230" height="14" rx="4" fill="#0a1a15" stroke="#00ffaa" stroke-opacity=".5"/>
-      <g transform="translate(70,100)">
-        <rect x="0" y="0" width="70" height="16" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".4"/>
-        <rect x="0" y="20" width="70" height="16" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".4"/>
-        <rect x="6" y="-14" width="58" height="16" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".4"/>
-        <text x="35" y="10" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="9" fill="#8ffcd4">$</text>
-      </g>
-      <g transform="translate(150,88)">
-        <rect x="0" y="0" width="80" height="18" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".45"/>
-        <rect x="4" y="22" width="80" height="18" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".45"/>
-        <rect x="-4" y="-16" width="70" height="16" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".45"/>
-        <text x="40" y="13" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="10" fill="#8ffcd4">$</text>
-      </g>
-      <g transform="translate(115,120)">
-        <rect x="0" y="0" width="66" height="15" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".4"/>
-        <text x="33" y="11" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="8" fill="#8ffcd4">$</text>
-      </g>
-    </symbol>
-
-    <!-- ===== LEVEL / RP SCENE ===== -->
-    <linearGradient id="gLevelGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00aaff" stop-opacity=".35"/><stop offset="100%" stop-color="#00aaff" stop-opacity="0"/></linearGradient>
-    <radialGradient id="gCoin" cx="35%" cy="30%" r="75%"><stop offset="0%" stop-color="#2a3f52"/><stop offset="100%" stop-color="#12202e"/></radialGradient>
-    <symbol id="scene-level" viewBox="0 0 300 190">
-      <rect x="0" y="0" width="300" height="190" fill="#0e0e13"/>
-      <ellipse cx="150" cy="168" rx="140" ry="14" fill="url(#gLevelGlow)"/>
-      <rect x="35" y="150" width="230" height="14" rx="4" fill="#0a1520" stroke="#00aaff" stroke-opacity=".5"/>
-      <g stroke="#00aaff" stroke-opacity=".65" stroke-width="2">
-        <circle cx="95" cy="118" r="28" fill="url(#gCoin)"/><circle cx="95" cy="118" r="20" fill="none"/>
-        <text x="95" y="124" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="13" fill="#7fd4ff">LVL</text>
-      </g>
-      <g stroke="#00aaff" stroke-opacity=".8" stroke-width="2.4">
-        <circle cx="150" cy="100" r="34" fill="url(#gCoin)"/><circle cx="150" cy="100" r="25" fill="none"/>
-        <text x="150" y="107" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="14" fill="#a7e3ff">LVL</text>
-      </g>
-      <g stroke="#00aaff" stroke-opacity=".65" stroke-width="2">
-        <circle cx="205" cy="118" r="28" fill="url(#gCoin)"/><circle cx="205" cy="118" r="20" fill="none"/>
-        <text x="205" y="124" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="13" fill="#7fd4ff">LVL</text>
-      </g>
-    </symbol>
-
-    <!-- ===== COMBO SCENE ===== -->
-    <linearGradient id="gComboGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#aa00ff" stop-opacity=".35"/><stop offset="100%" stop-color="#aa00ff" stop-opacity="0"/></linearGradient>
-    <symbol id="scene-combo" viewBox="0 0 300 190">
-      <rect x="0" y="0" width="300" height="190" fill="#0e0e13"/>
-      <ellipse cx="150" cy="168" rx="140" ry="14" fill="url(#gComboGlow)"/>
-      <rect x="35" y="150" width="230" height="14" rx="4" fill="#170a20" stroke="#aa00ff" stroke-opacity=".5"/>
-      <g transform="translate(58,108)">
-        <rect x="0" y="0" width="60" height="15" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".4"/>
-        <rect x="4" y="18" width="60" height="15" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".4"/>
-      </g>
-      <g stroke="#00aaff" stroke-opacity=".75" stroke-width="2">
-        <circle cx="150" cy="102" r="26" fill="url(#gCoin)"/>
-        <text x="150" y="107" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="11" fill="#7fd4ff">LVL</text>
-      </g>
-      <g transform="translate(178,108)">
-        <rect x="0" y="0" width="58" height="15" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".4"/>
-        <rect x="-4" y="18" width="58" height="15" rx="2" fill="url(#gBillFace)" stroke="#00ffaa" stroke-opacity=".4"/>
-      </g>
-      <g stroke="#aa00ff" stroke-width="2" fill="none">
-        <circle cx="98" cy="72" r="15" fill="#1a0d24"/><use href="#ic-lock-open" x="90" y="64" width="16" height="16" color="#d199ff"/>
-      </g>
-      <g stroke="#aa00ff" stroke-width="2" fill="none">
-        <circle cx="205" cy="72" r="15" fill="#1a0d24"/><use href="#ic-lock-open" x="197" y="64" width="16" height="16" color="#d199ff"/>
-      </g>
-    </symbol>
-
-    <!-- ===== VIP ACCOUNT SCENE ===== -->
-    <symbol id="scene-vip" viewBox="0 0 300 190">
-      <rect x="0" y="0" width="300" height="190" fill="#0e0e13"/>
-      <ellipse cx="150" cy="168" rx="140" ry="14" fill="url(#gComboGlow)"/>
-      <rect x="35" y="150" width="230" height="14" rx="4" fill="#170a20" stroke="#aa00ff" stroke-opacity=".5"/>
-      <circle cx="150" cy="95" r="46" fill="#1a0d24" stroke="#aa00ff" stroke-opacity=".5" stroke-width="2"/>
-      <use href="#ic-crown" x="122" y="70" width="56" height="56" color="#d199ff"/>
-      <circle cx="90" cy="60" r="3" fill="#aa00ff" fill-opacity=".8"/>
-      <circle cx="215" cy="70" r="4" fill="#00aaff" fill-opacity=".8"/>
-      <circle cx="205" cy="130" r="3" fill="#00ffaa" fill-opacity=".8"/>
-    </symbol>
-
-    <!-- ===== MYSTERY BOX SCENE ===== -->
-    <linearGradient id="gMysteryGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffd21a" stop-opacity=".35"/><stop offset="100%" stop-color="#ffd21a" stop-opacity="0"/></linearGradient>
-    <linearGradient id="gBox" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3a2f10"/><stop offset="100%" stop-color="#1c1608"/></linearGradient>
-    <symbol id="scene-mystery" viewBox="0 0 300 190">
-      <rect x="0" y="0" width="300" height="190" fill="#0e0e13"/>
-      <ellipse cx="150" cy="168" rx="140" ry="14" fill="url(#gMysteryGlow)"/>
-      <rect x="35" y="150" width="230" height="14" rx="4" fill="#201a08" stroke="#ffd21a" stroke-opacity=".5"/>
-      <rect x="105" y="80" width="90" height="65" rx="4" fill="url(#gBox)" stroke="#ffd21a" stroke-opacity=".6" stroke-width="2"/>
-      <rect x="105" y="80" width="90" height="18" rx="4" fill="#4a3a12" stroke="#ffd21a" stroke-opacity=".6" stroke-width="2"/>
-      <rect x="144" y="80" width="12" height="65" fill="#ffd21a" fill-opacity=".55"/>
-      <text x="150" y="130" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="900" font-size="30" fill="#ffe27a">?</text>
-    </symbol>
-  </defs>
-</svg>
 
 <header>
   <div class="wrap">
     <nav>
       <a href="#top" class="xanny-logo">
-        <svg class="glyph" viewBox="0 0 100 100"><use href="#xanny-glyph"/></svg>
-        <span class="brand-text"><span class="x1">XANNY</span> <span class="x2">BOOST</span></span>
+        <svg class="glyph" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L3 9v14l13 7 13-7V9L16 2z" fill="url(#logoG)" stroke="url(#logoStroke)" stroke-width="1.5"/>
+          <path d="M16 8L8 13v6l8 5 8-5v-6l-8-5z" fill="#0b0b0f" opacity="0.6"/>
+          <path d="M16 11l4 2.5v5L16 21l-4-2.5v-5L16 11z" fill="var(--money)"/>
+          <defs>
+            <linearGradient id="logoG" x1="3" y1="2" x2="29" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00ffaa" stop-opacity="0.25"/>
+              <stop offset="1" stop-color="#aa00ff" stop-opacity="0.25"/>
+            </linearGradient>
+            <linearGradient id="logoStroke" x1="3" y1="2" x2="29" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00ffaa"/>
+              <stop offset="1" stop-color="#aa00ff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-text"><span class="x1">XANNY</span><span class="x2">BOOST</span></span>
       </a>
+
       <ul class="nav-links" id="navLinks">
         <li><a href="#money">GTA Dolar</a></li>
-        <li><a href="#level">GTA Level</a></li>
+        <li><a href="#level">Level Boost</a></li>
         <li><a href="#combo">Boost Packet</a></li>
         <li><a href="#vip-account">VIP Hesap</a></li>
         <li><a href="#mystery">Mystery Box</a></li>
+        <li><a href="#mod-menu">Mod Menü</a></li>
+        <li><a href="#reviews">Yorumlar</a></li>
         <li><a href="#faq">S.S.S</a></li>
       </ul>
-      <a href="#money" class="nav-cta">Paketleri Gör</a>
-      <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
+
+      <div class="nav-right-actions">
+        <button class="cart-btn" id="cartToggleBtn">
+          🛒 Sepet <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <a href="#money" class="nav-cta">Hemen Başla</a>
+        <div class="burger" id="burger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
 
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-logo">
-        <svg class="glyph" viewBox="0 0 100 100"><use href="#xanny-glyph"/></svg>
-        <span class="brand-text"><span class="x1">XANNY</span> <span class="x2">BOOST</span></span>
-        <span class="sub">Grand Theft Auto V — Boost Service</span>
-      </div>
-      <div class="eyebrow"><span class="dot"></span> VIP Kapıda Seni Bekliyor</div>
-      <h1>Los Santos'ta <span class="grad">VIP</span><br>Gibi Yaşa.</h1>
-      <p>Xanny Boost ile en uygun fiyata GTA Dolar, GTA Online Level, VIP hesap ve sürpriz Mystery Box paketleri. VIP rozetin, öncelikli kuyruğun ve özel Discord rolün seni bekliyor.</p>
-      <div class="hero-actions">
-        <a href="#money" class="btn btn-primary">Paketleri İncele →</a>
-        <a href="#mystery" class="btn btn-ghost">Mystery Box'a Bak</a>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>15.800+</b><span>Tamamlanan Sipariş</span></div>
-        <div class="stat"><b>~15 dk</b><span>Ortalama Teslimat</span></div>
-        <div class="stat"><b>4.9 / 5</b><span>Müşteri Puanı</span></div>
-      </div>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span> Lossantosta VIP gibi yaşaa</div>
+    <h1>GTA V Dünyasında <br><span class="grad">Sınırları Kaldır</span></h1>
+    <p>GTA Dolar, level boost, özel VIP hesaplar ve gizemli kutularla oyunun tadını doyasıya çıkar. Hızlı, güvenli ve 7/24 destekli hizmet.</p>
+    
+    <div class="hero-actions">
+      <a href="#money" class="btn btn-primary">Paketleri İncele</a>
+      <a href="#mod-menu" class="btn btn-ghost">Xanny Mod Menü İndir</a>
     </div>
-  </section>
 
-  <div class="vip-strip">
-    <div class="vip-track">
-      <span>En Uygun Fiyat Garantisi</span><span>VIP Discord Rolü</span><span>Öncelikli Teslimat</span><span>7/24 Canlı Destek</span><span>Güvenli Ödeme</span>
-      <span>En Uygun Fiyat Garantisi</span><span>VIP Discord Rolü</span><span>Öncelikli Teslimat</span><span>7/24 Canlı Destek</span><span>Güvenli Ödeme</span>
+    <div class="stats">
+      <div class="stat"><b>14.500+</b><span>Mutlu Müşteri</span></div>
+      <div class="stat"><b>15 Dk</b><span>Ortalama Teslimat</span></div>
+      <div class="stat"><b>%100</b><span>Güvenli İşlem</span></div>
     </div>
   </div>
+</section>
 
-  <!-- GTA DOLAR PACKAGES -->
+<div class="vip-strip">
+  <div class="vip-track">
+    <span>Xanny VIP Club Aktif</span>
+    <span>Anında Teslimat Garantisi</span>
+    <span>7/24 Canlı Destek</span>
+    <span>Ban Riski Yok (Güvenli Yöntem)</span>
+    <span>Xanny VIP Club Aktif</span>
+    <span>Anında Teslimat Garantisi</span>
+    <span>7/24 Canlı Destek</span>
+    <span>Ban Riski Yok (Güvenli Yöntem)</span>
+  </div>
+</div>
+
+<main>
   <section class="section" id="money">
     <div class="wrap">
       <div class="section-head">
@@ -555,235 +605,177 @@
         <h2>Cebini GTA Dolar İle Doldur</h2>
         <p>Süper araçlar, mülkler ve işlere doğrudan başlamak için hesabına güvenli şekilde GTA Dolar tanımlanır.</p>
       </div>
-
       <div class="grid">
         <div class="card money">
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-money"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">100.000.000$</span><span class="lbl">GTA Dolar Boost</span></div>
           </div>
           <h3 class="card-title">100M GTA Dolar</h3>
           <p class="card-desc">Yeni başlayanlar için hızlı ve uygun fiyatlı başlangıç.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 100.000.000 GTA Dolar</li>
-            <li><svg><use href="#ic-check"/></svg> Ortalama 15 dk teslimat</li>
-            <li><svg><use href="#ic-check"/></svg> Hesap güvenliği garantisi</li>
+            <li>✓ 100.000.000 GTA Dolar</li>
+            <li>✓ Ortalama 15 dk teslimat</li>
+            <li>✓ Hesap güvenliği garantisi</li>
           </ul>
-          <div class="price"><span class="amount">₺299</span><span class="old">₺449</span><span class="off">%33 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('100M GTA Dolar', '₺299')">Satın Al</button>
+          <div class="price"><span class="amount">₺249</span><span class="old">₺399</span><span class="off">%37 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('100M GTA Dolar', 249)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('100M GTA Dolar', '₺249')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card money">
           <div class="badge">Popüler</div>
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-money"/></svg>
-            <div class="visual-caption"><span class="amt">200.000.000$</span><span class="lbl">GTA Dolar Boost</span></div>
-          </div>
-          <h3 class="card-title">200M GTA Dolar</h3>
-          <p class="card-desc">En çok tercih edilen, dengeli başlangıç paketi.</p>
-          <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 200.000.000 GTA Dolar</li>
-            <li><svg><use href="#ic-check"/></svg> Öncelikli işlem sırası</li>
-            <li><svg><use href="#ic-check"/></svg> Ücretsiz garaj danışmanlığı</li>
-          </ul>
-          <div class="price"><span class="amount">₺499</span><span class="old">₺799</span><span class="off">%38 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('200M GTA Dolar', '₺499')">Satın Al</button>
-        </div>
-
-        <div class="card money">
-          <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-money"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">400.000.000$</span><span class="lbl">GTA Dolar Boost</span></div>
           </div>
           <h3 class="card-title">400M GTA Dolar</h3>
-          <p class="card-desc">Mülk ve işletme yatırımlarına hız kazandırır.</p>
+          <p class="card-desc">Tüm lüks araçlar ve ofisler için ideal paket.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 400.000.000 GTA Dolar</li>
-            <li><svg><use href="#ic-check"/></svg> 24 saat içinde teslimat</li>
-            <li><svg><use href="#ic-check"/></svg> Hesap güvenliği garantisi</li>
+            <li>✓ 400.000.000 GTA Dolar</li>
+            <li>✓ Hızlı teslimat prosedürü</li>
+            <li>✓ 7/24 destek hattı</li>
           </ul>
-          <div class="price"><span class="amount">₺899</span><span class="old">₺1.399</span><span class="off">%36 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('400M GTA Dolar', '₺899')">Satın Al</button>
+          <div class="price"><span class="amount">₺599</span><span class="old">₺899</span><span class="off">%33 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('400M GTA Dolar', 599)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('400M GTA Dolar', '₺599')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card money">
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-money"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">600.000.000$</span><span class="lbl">GTA Dolar Boost</span></div>
           </div>
           <h3 class="card-title">600M GTA Dolar</h3>
           <p class="card-desc">İşletme ve mülk yatırımları için ideal seviye.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 600.000.000 GTA Dolar</li>
-            <li><svg><use href="#ic-check"/></svg> Öncelikli işlem sırası</li>
-            <li><svg><use href="#ic-check"/></svg> VIP destek kanalı</li>
+            <li>✓ 600.000.000 GTA Dolar</li>
+            <li>✓ Öncelikli işlem sırası</li>
+            <li>✓ VIP destek kanalı</li>
           </ul>
           <div class="price"><span class="amount">₺1.249</span><span class="old">₺1.899</span><span class="off">%34 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('600M GTA Dolar', '₺1.249')">Satın Al</button>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('600M GTA Dolar', 1249)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('600M GTA Dolar', '₺1.249')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card money">
           <div class="badge vip">VIP</div>
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-money"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">1.000.000.000$</span><span class="lbl">GTA Dolar Boost</span></div>
           </div>
           <h3 class="card-title">1 Milyar GTA Dolar</h3>
           <p class="card-desc">Sınırları zorlamak isteyenler için tam kapasite.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 1.000.000.000 GTA Dolar</li>
-            <li><svg><use href="#ic-check"/></svg> VIP destek kanalı</li>
-            <li><svg><use href="#ic-check"/></svg> Sonraki siparişte %10 indirim</li>
+            <li>✓ 1.000.000.000 GTA Dolar</li>
+            <li>✓ Özel güvenlik prosedürü</li>
+            <li>✓ Ömür boyu VIP kulüp üyeliği</li>
           </ul>
-          <div class="price"><span class="amount">₺1.899</span><span class="old">₺2.799</span><span class="off">%32 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('1 Milyar GTA Dolar', '₺1.899')">Satın Al</button>
-        </div>
-
-        <div class="card money">
-          <div class="badge vip">VIP</div>
-          <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-money"/></svg>
-            <div class="visual-caption"><span class="amt">2.000.000.000$</span><span class="lbl">GTA Dolar Boost</span></div>
+          <div class="price"><span class="amount">₺1.799</span><span class="old">₺2.599</span><span class="off">%30 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('1 Milyar GTA Dolar', 1799)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('1 Milyar GTA Dolar', '₺1.799')">Satın Al</button>
           </div>
-          <h3 class="card-title">2 Milyar GTA Dolar</h3>
-          <p class="card-desc">En yüksek paket — sadakat üyelerine özel fiyat.</p>
-          <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 2.000.000.000 GTA Dolar</li>
-            <li><svg><use href="#ic-check"/></svg> Ömür boyu VIP destek</li>
-            <li><svg><use href="#ic-check"/></svg> Ücretsiz garaj + mülk danışmanlığı</li>
-          </ul>
-          <div class="price"><span class="amount">₺2.999</span><span class="old">₺4.499</span><span class="off">%33 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('2 Milyar GTA Dolar', '₺2.999')">Satın Al</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GTA ONLINE LEVEL PACKAGES -->
   <section class="section" id="level">
     <div class="wrap">
       <div class="section-head">
-        <span class="tag">GTA Online Level Boost</span>
-        <h2>Rütbeni Yükselt, Kilitleri Aç</h2>
-        <p>Yeni silah, araç ve iş erişimleri GTA Online level'ına bağlı. Zaman harcamadan hızlıca ilerle.</p>
+        <span class="tag">GTA Online Level</span>
+        <h2>Rütbeni Yükselt, Saygınlık Kazan</h2>
+        <p>Düşük level sınırlamalarından kurtul, tüm silah ve özelliklerin kilidini hemen aç.</p>
       </div>
-
       <div class="grid">
         <div class="card level">
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-level"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">LVL 100</span><span class="lbl">GTA Online Level</span></div>
           </div>
           <h3 class="card-title">100 Level Boost</h3>
-          <p class="card-desc">Temel silah ve araç kilitlerini açmak için.</p>
+          <p class="card-desc">Temel kilitlerin açılması için hızlı başlangıç.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> Hedef level: 100</li>
-            <li><svg><use href="#ic-check"/></svg> 24 saat içinde teslim</li>
-            <li><svg><use href="#ic-check"/></svg> İlerleme raporu paylaşılır</li>
+            <li>✓ Hedef level: 100</li>
+            <li>✓ Güvenli RP ekleme</li>
+            <li>✓ 24 saat içinde teslimat</li>
           </ul>
-          <div class="price"><span class="amount">₺89</span><span class="old">₺139</span><span class="off">%36 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('100 Level Boost', '₺89')">Satın Al</button>
+          <div class="price"><span class="amount">₺89</span><span class="old">₺139</span><span class="off">%35 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('100 Level Boost', 89)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('100 Level Boost', '₺89')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card level">
           <div class="badge">Popüler</div>
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-level"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">LVL 200</span><span class="lbl">GTA Online Level</span></div>
           </div>
           <h3 class="card-title">200 Level Boost</h3>
           <p class="card-desc">Orta seviye ekipman ve iş kilitleri için.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> Hedef level: 200</li>
-            <li><svg><use href="#ic-check"/></svg> 24–48 saat teslimat</li>
-            <li><svg><use href="#ic-check"/></svg> Rütbe rozeti güncellemesi</li>
+            <li>✓ Hedef level: 200</li>
+            <li>✓ 24–48 saat teslimat</li>
+            <li>✓ Rütbe rozeti güncellemesi</li>
           </ul>
           <div class="price"><span class="amount">₺149</span><span class="old">₺229</span><span class="off">%35 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('200 Level Boost', '₺149')">Satın Al</button>
-        </div>
-
-        <div class="card level">
-          <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-level"/></svg>
-            <div class="visual-caption"><span class="amt">LVL 300</span><span class="lbl">GTA Online Level</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('200 Level Boost', 149)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('200 Level Boost', '₺149')">Satın Al</button>
           </div>
-          <h3 class="card-title">300 Level Boost</h3>
-          <p class="card-desc">Üst seviye ekipman erişimleri için.</p>
-          <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> Hedef level: 300</li>
-            <li><svg><use href="#ic-check"/></svg> 48 saat teslimat</li>
-            <li><svg><use href="#ic-check"/></svg> Öncelikli işlem sırası</li>
-          </ul>
-          <div class="price"><span class="amount">₺219</span><span class="old">₺329</span><span class="off">%33 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('300 Level Boost', '₺219')">Satın Al</button>
         </div>
 
         <div class="card level">
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-level"/></svg>
-            <div class="visual-caption"><span class="amt">LVL 400</span><span class="lbl">GTA Online Level</span></div>
-          </div>
-          <h3 class="card-title">400 Level Boost</h3>
-          <p class="card-desc">İleri seviye içeriklere geniş erişim.</p>
-          <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> Hedef level: 400</li>
-            <li><svg><use href="#ic-check"/></svg> 48 saat teslimat</li>
-            <li><svg><use href="#ic-check"/></svg> İlerleme raporu paylaşılır</li>
-          </ul>
-          <div class="price"><span class="amount">₺289</span><span class="old">₺429</span><span class="off">%33 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('400 Level Boost', '₺289')">Satın Al</button>
-        </div>
-
-        <div class="card level">
-          <div class="badge vip">VIP</div>
-          <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-level"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">LVL 500</span><span class="lbl">GTA Online Level</span></div>
           </div>
           <h3 class="card-title">500 Level Boost</h3>
-          <p class="card-desc">Tüm rütbe kilitlerini tamamen açmak için.</p>
+          <p class="card-desc">Tecrübeli oyuncu görünümü ve tam yetki.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> Hedef level: 500</li>
-            <li><svg><use href="#ic-check"/></svg> 48–72 saat teslimat</li>
-            <li><svg><use href="#ic-check"/></svg> VIP destek kanalı</li>
+            <li>✓ Hedef level: 500</li>
+            <li>✓ 48 saat içinde teslimat</li>
+            <li>✓ Öncelikli destek</li>
           </ul>
-          <div class="price"><span class="amount">₺349</span><span class="old">₺549</span><span class="off">%36 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('500 Level Boost', '₺349')">Satın Al</button>
+          <div class="price"><span class="amount">₺299</span><span class="old">₺449</span><span class="off">%33 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('500 Level Boost', 299)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('500 Level Boost', '₺299')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card level">
           <div class="badge vip">VIP</div>
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-level"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">LVL 800</span><span class="lbl">GTA Online Level</span></div>
           </div>
           <h3 class="card-title">800 Level Boost</h3>
           <p class="card-desc">Maksimum rütbe — tüm içerik erişimleri açık.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> Hedef level: 800</li>
-            <li><svg><use href="#ic-check"/></svg> 72 saat içinde teslimat</li>
-            <li><svg><use href="#ic-check"/></svg> Ömür boyu VIP destek</li>
+            <li>✓ Hedef level: 800</li>
+            <li>✓ 72 saat içinde teslimat</li>
+            <li>✓ Ömür boyu VIP destek</li>
           </ul>
           <div class="price"><span class="amount">₺549</span><span class="old">₺849</span><span class="off">%35 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('800 Level Boost', '₺549')">Satın Al</button>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('800 Level Boost', 549)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('800 Level Boost', '₺549')">Satın Al</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COMBO / BOOST PACKET -->
   <section class="section" id="combo">
     <div class="wrap">
       <div class="section-head">
@@ -791,148 +783,158 @@
         <h2>GTA Dolar + Level, Bir Arada</h2>
         <p>GTA Dolar, level ve unlock içeriklerini tek pakette birleştir — ayrı ayrı almaktan daha avantajlı.</p>
       </div>
-
       <div class="grid">
         <div class="card combo">
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-combo"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">100M · LVL 100</span><span class="lbl">Boost Packet</span></div>
           </div>
           <h3 class="card-title">100M GTA Dolar + Level 100</h3>
           <p class="card-desc">Yeni oyuncular için dengeli ilk paket.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 100.000.000 GTA Dolar + Level 100</li>
-            <li><svg><use href="#ic-check"/></svg> Seçili unlock içerikleri</li>
-            <li><svg><use href="#ic-check"/></svg> Tek seferde teslimat</li>
+            <li>✓ 100.000.000 GTA Dolar + Level 100</li>
+            <li>✓ Hızlı teslimat güvencesi</li>
+            <li>✓ Güvenli işlem</li>
           </ul>
-          <div class="price"><span class="amount">₺349</span><span class="old">₺499</span><span class="off">%30 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('100M GTA Dolar + Level 100 (Boost Packet)', '₺349')">Satın Al</button>
+          <div class="price"><span class="amount">₺299</span><span class="old">₺449</span><span class="off">%33 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('100M GTA Dolar + Level 100', 299)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('100M GTA Dolar + Level 100', '₺299')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card combo">
           <div class="badge">Popüler</div>
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-combo"/></svg>
-            <div class="visual-caption"><span class="amt">200M · LVL 200</span><span class="lbl">Boost Packet</span></div>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
+            <div class="visual-caption"><span class="amt">250M · LVL 250</span><span class="lbl">Boost Packet</span></div>
           </div>
-          <h3 class="card-title">200M GTA Dolar + Level 200</h3>
-          <p class="card-desc">Para ve rütbeyi birlikte hızlandırmak isteyenler için.</p>
+          <h3 class="card-title">250M GTA Dolar + Level 250</h3>
+          <p class="card-desc">En çok tercih edilen dengeli paket.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 200.000.000 GTA Dolar + Level 200</li>
-            <li><svg><use href="#ic-check"/></svg> Genişletilmiş unlock içerikleri</li>
-            <li><svg><use href="#ic-check"/></svg> Öncelikli sıra</li>
+            <li>✓ 250.000.000 GTA Dolar + Level 250</li>
+            <li>✓ Özel unlock avantajı</li>
+            <li>✓ Öncelikli sıra</li>
           </ul>
-          <div class="price"><span class="amount">₺549</span><span class="old">₺799</span><span class="off">%31 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('200M GTA Dolar + Level 200 (Boost Packet)', '₺549')">Satın Al</button>
+          <div class="price"><span class="amount">₺499</span><span class="old">₺749</span><span class="off">%33 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('250M GTA Dolar + Level 250', 499)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('250M GTA Dolar + Level 250', '₺499')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card combo">
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-combo"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">500M · LVL 500</span><span class="lbl">Boost Packet</span></div>
           </div>
           <h3 class="card-title">500M GTA Dolar + Level 500</h3>
-          <p class="card-desc">Dengeli oyuncular için en çok tercih edilen üst paket.</p>
+          <p class="card-desc">Zirveye oynamak isteyenler için güçlü paket.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 500.000.000 GTA Dolar + Level 500</li>
-            <li><svg><use href="#ic-check"/></svg> Genişletilmiş unlock içerikleri</li>
-            <li><svg><use href="#ic-check"/></svg> VIP destek kanalı</li>
+            <li>✓ 500.000.000 GTA Dolar + Level 500</li>
+            <li>✓ Tam donanımlı başlangıç</li>
+            <li>✓ 7/24 özel destek</li>
           </ul>
-          <div class="price"><span class="amount">₺899</span><span class="old">₺1.299</span><span class="off">%31 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('500M GTA Dolar + Level 500 (Boost Packet)', '₺899')">Satın Al</button>
+          <div class="price"><span class="amount">₺899</span><span class="old">₺1.349</span><span class="off">%33 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('500M GTA Dolar + Level 500', 899)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('500M GTA Dolar + Level 500', '₺899')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card combo">
           <div class="badge vip">VIP</div>
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-combo"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>⚡</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">1MR · LVL 800</span><span class="lbl">Boost Packet</span></div>
           </div>
           <h3 class="card-title">1MR GTA Dolar + Level 800</h3>
           <p class="card-desc">Maksimum bakiye, üst seviye rütbe ve tüm unlock'lar bir arada.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 1.000.000.000 GTA Dolar + Level 800</li>
-            <li><svg><use href="#ic-check"/></svg> Tüm unlock içerikleri</li>
-            <li><svg><use href="#ic-check"/></svg> Ömür boyu VIP destek</li>
+            <li>✓ 1.000.000.000 GTA Dolar + Level 800</li>
+            <li>✓ Tüm unlock içerikleri</li>
+            <li>✓ Ömür boyu VIP destek</li>
           </ul>
           <div class="price"><span class="amount">₺1.499</span><span class="old">₺2.199</span><span class="off">%32 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('1MR GTA Dolar + Level 800 (Boost Packet)', '₺1.499')">Satın Al</button>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('1MR GTA Dolar + Level 800', 1499)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('1MR GTA Dolar + Level 800', '₺1.499')">Satın Al</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VIP HESAP -->
   <section class="section" id="vip-account">
     <div class="wrap">
       <div class="section-head">
-        <span class="tag">VIP Hesap Satış</span>
-        <h2>Hazır Kurulmuş VIP Hesaplar</h2>
-        <p>Sıfırdan boost beklemeden, önceden hazırlanmış GTA Dolar ve level'a sahip hesaplarla direkt oyuna gir.</p>
+        <span class="tag">Hazır VIP Hesaplar</span>
+        <h2>Sıfırdan Başlama, Hazıra Kon</h2>
+        <p>Tamamen donanımlı, parası ve leveli hazır, güvenli devren teslim VIP hesaplar.</p>
       </div>
-
       <div class="grid">
         <div class="card vip">
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-vip"/></svg>
-            <div class="visual-caption"><span class="amt">VIP Starter</span><span class="lbl">Hazır Hesap</span></div>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>👑</span><span class="sep"></span><span>🎧</span></div>
+            <div class="visual-caption"><span class="amt">VIP Standart</span><span class="lbl">Hazır Hesap</span></div>
           </div>
-          <h3 class="card-title">VIP Starter Hesap</h3>
-          <p class="card-desc">Orta seviyeden başlamak isteyenler için hazır hesap.</p>
+          <h3 class="card-title">VIP Standart Hesap</h3>
+          <p class="card-desc">Hemen oynamaya başlamak için ideal devir hesap.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> ~150M GTA Dolar + Level 150</li>
-            <li><svg><use href="#ic-check"/></svg> Temel araç ve mülk kilitleri açık</li>
-            <li><svg><use href="#ic-check"/></svg> E-posta erişimi dahil</li>
+            <li>✓ ~250M GTA Dolar + Level 200</li>
+            <li>✓ Temel mülk ve araçlar açık</li>
+            <li>✓ Tam devir güvenliği</li>
           </ul>
-          <div class="price"><span class="amount">₺1.999</span><span class="old">₺2.899</span><span class="off">%31 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('VIP Starter Hesap', '₺1.999')">Satın Al</button>
+          <div class="price"><span class="amount">₺1.899</span><span class="old">₺2.699</span><span class="off">%30 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('VIP Standart Hesap', 1899)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('VIP Standart Hesap', '₺1.899')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card vip">
           <div class="badge vip">VIP</div>
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-vip"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>👑</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">VIP Elite</span><span class="lbl">Hazır Hesap</span></div>
           </div>
           <h3 class="card-title">VIP Elite Hesap</h3>
-          <p class="card-desc">Tüm önemli içerikleri açık, üst seviye hazır hesap.</p>
+          <p class="card-desc">Zengin içerik ve gelişmiş seviye ile rekabete ortak ol.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> ~500M GTA Dolar + Level 400</li>
-            <li><svg><use href="#ic-check"/></svg> Çoğu araç, silah ve mülk kilidi açık</li>
-            <li><svg><use href="#ic-check"/></svg> 7 gün destek garantisi</li>
+            <li>✓ ~500M GTA Dolar + Level 500</li>
+            <li>✓ Birçok nadir araç ve mülk kilidi</li>
+            <li>✓ Öncelikli 7/24 destek</li>
           </ul>
           <div class="price"><span class="amount">₺3.499</span><span class="old">₺4.999</span><span class="off">%30 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('VIP Elite Hesap', '₺3.499')">Satın Al</button>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('VIP Elite Hesap', 3499)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('VIP Elite Hesap', '₺3.499')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card vip">
-          <div class="badge vip">VIP</div>
+          <div class="badge vip">Ultimate</div>
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-bolt"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-vip"/></svg>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>👑</span><span class="sep"></span><span>🎧</span></div>
             <div class="visual-caption"><span class="amt">VIP Ultimate</span><span class="lbl">Hazır Hesap</span></div>
           </div>
           <h3 class="card-title">VIP Ultimate Hesap</h3>
           <p class="card-desc">Tüm içerik kilidi açık, maksimum donanımlı premium hesap.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> ~1MR GTA Dolar + Level 800</li>
-            <li><svg><use href="#ic-check"/></svg> Tüm araç, silah ve mülk kilitleri açık</li>
-            <li><svg><use href="#ic-check"/></svg> Ömür boyu VIP destek</li>
+            <li>✓ ~1MR GTA Dolar + Level 800</li>
+            <li>✓ Tüm araç, silah ve mülk kilitleri açık</li>
+            <li>✓ Ömür boyu VIP destek</li>
           </ul>
           <div class="price"><span class="amount">₺5.999</span><span class="old">₺8.499</span><span class="off">%29 İNDİRİM</span></div>
-          <button class="buy-btn" onclick="openModal('VIP Ultimate Hesap', '₺5.999')">Satın Al</button>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('VIP Ultimate Hesap', 5999)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('VIP Ultimate Hesap', '₺5.999')">Satın Al</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MYSTERY BOX -->
   <section class="section" id="mystery">
     <div class="wrap">
       <div class="section-head">
@@ -940,66 +942,110 @@
         <h2>Şansını Dene, Sürprizi Yakala</h2>
         <p>Kutuyu aç, içinden ne çıkacağını gör. Fiyatına göre değişen ödül havuzundan rastgele bir paket kazanırsın.</p>
       </div>
-
       <div class="grid">
         <div class="card mystery">
           <div class="badge mystery">Mystery</div>
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-gift"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-mystery"/></svg>
-            <div class="visual-caption"><span class="amt">Mini Box</span><span class="lbl">Rastgele Ödül</span></div>
-          </div>
-          <h3 class="card-title">Mystery Box — Mini</h3>
-          <p class="card-desc">Küçük bütçeyle şansını dene.</p>
-          <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 50M–150M GTA Dolar veya Level 50–150</li>
-            <li><svg><use href="#ic-check"/></svg> Ortalama 15–30 dk teslimat</li>
-            <li><svg><use href="#ic-check"/></svg> Her açılış garantili bir ödül içerir</li>
-          </ul>
-          <div class="price"><span class="amount">₺150</span></div>
-          <button class="buy-btn" onclick="openTerms('Mystery Box — Mini', '₺150')">Satın Al</button>
-        </div>
-
-        <div class="card mystery">
-          <div class="badge mystery">Mystery</div>
-          <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-gift"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-mystery"/></svg>
-            <div class="visual-caption"><span class="amt">Standart Box</span><span class="lbl">Rastgele Ödül</span></div>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>🎁</span><span class="sep"></span><span>🎧</span></div>
+            <div class="visual-caption"><span class="amt">Standart Kutu</span><span class="lbl">Mystery Box</span></div>
           </div>
           <h3 class="card-title">Mystery Box — Standart</h3>
-          <p class="card-desc">Daha geniş ödül havuzu, daha yüksek ortalama değer.</p>
+          <p class="card-desc">Sürpriz ödül havuzundan en az ödediğin tutarın üzerinde değer kazan.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 150M–400M GTA Dolar veya Level 150–400</li>
-            <li><svg><use href="#ic-check"/></svg> %5 ihtimalle Boost Packet ödülü</li>
-            <li><svg><use href="#ic-check"/></svg> Her açılış garantili bir ödül içerir</li>
+            <li>✓ Rastgele GTA Dolar veya Level paketi</li>
+            <li>✓ Minimum ödenen tutar garanti değeri</li>
+            <li>✓ Hızlı teslimat</li>
           </ul>
-          <div class="price"><span class="amount">₺300</span></div>
-          <button class="buy-btn" onclick="openTerms('Mystery Box — Standart', '₺300')">Satın Al</button>
+          <div class="price"><span class="amount">₺199</span><span class="old">₺349</span><span class="off">%43 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('Mystery Box — Standart', 199)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('Mystery Box — Standart', '₺199')">Satın Al</button>
+          </div>
         </div>
 
         <div class="card mystery">
-          <div class="badge mystery">Mystery</div>
+          <div class="badge mystery">Premium</div>
           <div class="card-visual-wrap">
-            <div class="icon-strip"><svg><use href="#ic-shield"/></svg><span class="sep"></span><svg><use href="#ic-gift"/></svg><span class="sep"></span><svg><use href="#ic-headset"/></svg></div>
-            <svg class="card-visual" viewBox="0 0 300 190"><use href="#scene-mystery"/></svg>
-            <div class="visual-caption"><span class="amt">Elite Box</span><span class="lbl">Rastgele Ödül</span></div>
+            <div class="icon-strip"><span>🛡️</span><span class="sep"></span><span>🎁</span><span class="sep"></span><span>🎧</span></div>
+            <div class="visual-caption"><span class="amt">Elite Kutu</span><span class="lbl">Mystery Box</span></div>
           </div>
           <h3 class="card-title">Mystery Box — Elite</h3>
-          <p class="card-desc">En yüksek ortalama değer, VIP hesap kazanma şansı dahil.</p>
+          <p class="card-desc">Büyük ödüllerin ve VIP paketlerin bulunduğu yüksek şans kutusu.</p>
           <ul class="card-features">
-            <li><svg><use href="#ic-check"/></svg> 400M–1MR GTA Dolar veya Level 400–800</li>
-            <li><svg><use href="#ic-check"/></svg> Küçük ihtimalle VIP Hesap ödülü</li>
-            <li><svg><use href="#ic-check"/></svg> Her açılış garantili bir ödül içerir</li>
+            <li>✓ Yüksek değerli Combo veya VIP hesap ihtimali</li>
+            <li>✓ Öncelikli şans oranı</li>
+            <li>✓ Her açılış garantili bir ödül içerir</li>
           </ul>
-          <div class="price"><span class="amount">₺600</span></div>
-          <button class="buy-btn" onclick="openTerms('Mystery Box — Elite', '₺600')">Satın Al</button>
+          <div class="price"><span class="amount">₺499</span><span class="old">₺799</span><span class="off">%38 İNDİRİM</span></div>
+          <div class="card-actions">
+            <button class="cart-add-btn" onclick="addToCart('Mystery Box — Elite', 499)">Sepete Ekle</button>
+            <button class="buy-btn" onclick="openTerms('Mystery Box — Elite', '₺499')">Satın Al</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VIP CLUB -->
+  <section class="section" id="mod-menu">
+    <div class="wrap">
+      <div class="mod-download-card">
+        <div class="mod-download-icon">🛡️</div>
+        <div class="mod-download-content">
+          <span class="tag">Ücretsiz Bonus</span>
+          <h2>Xanny Mod Menü</h2>
+          <p>Oyuncularımız için hazırlanan, hem Story Mode (Hikaye Modu) hem de Online modda çalışan gelişmiş yardımcı mod menüyü hemen indirebilirsin.</p>
+          
+          <div class="mod-warning-box">
+            ⚠️ <strong>Önemli Uyarı:</strong> Online mod menü kullanımında her zaman ban riski bulunmaktadır. Ban yememenizin garantisi kesinlikle verilmemektedir. Risksiz ve güvenli kazanç için yukarıdaki resmi paketlerimizi inceleyebilirsiniz.
+          </div>
+
+          <div class="mod-download-meta">
+            <span>📦 Sürüm: v2.4 (Güncel)</span>
+            <span>🖥️ Platform: PC (Online & Story Mode)</span>
+            <span>⚡ Boyut: 14.8 MB</span>
+          </div>
+          <button class="mod-download-btn" onclick="openModInstall()">Mod Menüyü İndir</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag">Müşteri Yorumları</span>
+        <h2>Oyuncular Bizim İçin Ne Dediler?</h2>
+        <p>Binlerce mutlu müşterimizden gelen gerçek deneyimler ve değerlendirmeler.</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-author">Kerem Y.</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">"10 dakika içinde teslimat yapıldı, adamlar cidden çok hızlı ve ilgili. Hiçbir sıkıntı yaşamadım, gönül rahatlığıyla alışveriş yapabilirsiniz."</p>
+          <span class="review-package">400M GTA Dolar</span>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-author">Emre K.</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">"Daha önce başka yerlerde dolandırılmıştım ama Xanny Boost ekibi Discord üzerinden her konuda yardımcı oldu. Level ve para eksiksiz yüklendi."</p>
+          <span class="review-package">500M GTA Dolar + Level 500</span>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-author">Berkant S.</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">"Mystery Box aldım ve içinden Elite Kutu ödülü çıktı, inanılmaz şanslıydı. Kesinlikle tavsiye ederim, piyasanın en iyisi."</p>
+          <span class="review-package">Mystery Box — Elite</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="vip">
     <div class="wrap">
       <div class="vip-club">
@@ -1007,46 +1053,30 @@
         <h2>Sıradan Müşteri Değil, <span class="grad">VIP</span> Ol.</h2>
         <p>Herhangi bir paket aldığında otomatik olarak VIP Club'a katılırsın — daha hızlı teslimat, özel Discord rolü ve sürekli müşterilere özel indirimler seni bekliyor.</p>
         <div class="vip-perks">
-          <div class="vip-perk"><svg><use href="#ic-crown"/></svg><h4>VIP Discord Rolü</h4><p>Sunucuda özel renk, özel kanal erişimi ve öncelikli etiketleme.</p></div>
-          <div class="vip-perk"><svg><use href="#ic-clock"/></svg><h4>Öncelikli Kuyruk</h4><p>Siparişin sıradaki müşterilerin önüne geçer, beklemen azalır.</p></div>
-          <div class="vip-perk"><svg><use href="#ic-star"/></svg><h4>Sadakat İndirimi</h4><p>2. siparişten itibaren tüm paketlerde otomatik indirim uygulanır.</p></div>
-          <div class="vip-perk"><svg><use href="#ic-headset"/></svg><h4>Kesintisiz Destek</h4><p>Sipariş sonrası 7 gün boyunca öncelikli destek garantisi.</p></div>
+          <div class="vip-perk"><span>👑</span><h4>VIP Discord Rolü</h4><p>Sunucuda özel renk, özel kanal erişimi ve öncelikli etiketleme.</p></div>
+          <div class="vip-perk"><span>⏱️</span><h4>Öncelikli Kuyruk</h4><p>Siparişin sıradaki müşterilerin önüne geçer, beklemen azalır.</p></div>
+          <div class="vip-perk"><span>⭐</span><h4>Sadakat İndirimi</h4><p>2. siparişten itibaren tüm paketlerde otomatik indirim uygulanır.</p></div>
+          <div class="vip-perk"><span>🎧</span><h4>Kesintisiz Destek</h4><p>Sipariş sonrası 7 gün boyunca öncelikli destek garantisi.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY US -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="tag">Neden Xanny Boost?</span>
-        <h2>Uygun Fiyat, VIP Muamele</h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-card"><span class="num">01</span><h3>Referans Kodlu Ödeme</h3><p>Her siparişe özel benzersiz kod ile ödemeler asla karışmaz, takip kolaydır.</p></div>
-        <div class="why-card"><span class="num">02</span><h3>Piyasanın Altında Fiyat</h3><p>Aynı kalitede hizmeti, rakiplerden daha uygun fiyata sunuyoruz.</p></div>
-        <div class="why-card"><span class="num">03</span><h3>7/24 Discord Destek</h3><p>Ödeme sonrası doğrudan destek ekibimizle Discord üzerinden iletişime geçersin.</p></div>
-        <div class="why-card"><span class="num">04</span><h3>Binlerce Mutlu Müşteri</h3><p>15.800'den fazla tamamlanmış sipariş ve 4.9/5 memnuniyet puanı.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
   <section class="section" id="faq">
     <div class="wrap">
       <div class="section-head">
-        <span class="tag">Sıkça Sorulan Sorular</span>
-        <h2>Merak Ettiklerin</h2>
+        <span class="tag">Sıkça Sorulanlar</span>
+        <h2>Merak Edilenler</h2>
+        <p>Hizmetlerimiz, teslimat süreçlerimiz ve güvenlik hakkında sık sorulan sorular.</p>
       </div>
-      <div style="max-width:680px;margin:0 auto;">
+      <div style="max-width:760px;margin:0 auto;">
         <div class="faq-item">
-          <div class="faq-q">Ödeme nasıl yapılıyor? <span class="plus">+</span></div>
-          <div class="faq-a">Paket seçip "Satın Al" butonuna tıkladığında sana özel bir referans kodu üretilir. IBAN bilgilerine bu kodu açıklama kısmına yazarak havale/EFT yapman yeterli.</div>
+          <div class="faq-q">İşlemler ban riskli mi? <span class="plus">+</span></div>
+          <div class="faq-a">Hayır, kullandığımız özel ve güvenli yöntemler sayesinde hesabınızda ban riski minimuma indirilir. Binlerce başarılı işlemimiz bulunmaktadır.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Mystery Box'ta ne çıkacağını nasıl bilirim? <span class="plus">+</span></div>
-          <div class="faq-a">Mystery Box'ın içeriği rastgele belirlenir; her kutunun ödül aralığı ürün açıklamasında belirtilir. Satın almadan önce kullanıcı sözleşmesini onaylaman istenir.</div>
+          <div class="faq-q">Mystery Box nasıl çalışır? <span class="plus">+</span></div>
+          <div class="faq-a">Satın aldığınız kutu türüne göre sistem otomatik olarak rastgele bir ödül belirler; her kutunun ödül aralığı ürün açıklamasında belirtilir. Satın almadan önce kullanıcı sözleşmesini onaylaman istenir.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">VIP Club'a nasıl katılırım? <span class="plus">+</span></div>
@@ -1060,10 +1090,13 @@
           <div class="faq-q">Teslimat ne kadar sürer? <span class="plus">+</span></div>
           <div class="faq-a">Pakete göre değişir; GTA Dolar paketleri genelde 15 dakika, level, Boost Packet ve VIP hesaplar 24-72 saat içinde tamamlanır.</div>
         </div>
+        <div class="faq-item">
+          <div class="faq-q">Xanny Mod Menü nasıl kullanılır ve ban riski var mı? <span class="plus">+</span></div>
+          <div class="faq-a">Xanny Mod Menü hem Story Mode hem de Online modda kullanılabilir. Ancak Online mod menü kullanımında her zaman ban riski bulunur; ban yememenizin garantisi verilmemektedir. Risksiz ve garantili kazanç için sitemizdeki resmi boost paketlerini tercih edebilirsiniz.</div>
+        </div>
       </div>
     </div>
   </section>
-
 </main>
 
 <footer>
@@ -1071,10 +1104,13 @@
     <div class="footer-top">
       <div>
         <a href="#top" class="xanny-logo">
-          <svg class="glyph" viewBox="0 0 100 100" style="width:26px;height:26px;"><use href="#xanny-glyph"/></svg>
-          <span class="brand-text" style="font-size:1.1rem;"><span class="x1">XANNY</span> <span class="x2">BOOST</span></span>
+          <svg class="glyph" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2L3 9v14l13 7 13-7V9L16 2z" fill="url(#logoG)" stroke="url(#logoStroke)" stroke-width="1.5"/>
+            <path d="M16 11l4 2.5v5L16 21l-4-2.5v-5L16 11z" fill="var(--money)"/>
+          </svg>
+          <span class="brand-text"><span class="x1">XANNY</span><span class="x2">BOOST</span></span>
         </a>
-        <p>GTA V oyuncuları için uygun fiyatlı, VIP hissettiren GTA Dolar, level, VIP hesap ve Mystery Box hizmetleri.</p>
+        <p>GTA V oyuncuları için profesyonel Dolar, Level, Hazır Hesap, Mod Menü ve Mystery Box hizmetleri.</p>
       </div>
       <div class="footer-links">
         <div>
@@ -1085,11 +1121,13 @@
             <li><a href="#combo">Boost Packet</a></li>
             <li><a href="#vip-account">VIP Hesap</a></li>
             <li><a href="#mystery">Mystery Box</a></li>
+            <li><a href="#mod-menu">Xanny Mod Menü</a></li>
           </ul>
         </div>
         <div>
           <h4>Destek</h4>
           <ul>
+            <li><a href="#reviews">Yorumlar</a></li>
             <li><a href="#faq">S.S.S</a></li>
             <li><a href="https://discord.com" target="_blank" rel="noopener">Discord</a></li>
           </ul>
@@ -1103,14 +1141,12 @@
   </div>
 </footer>
 
-<!-- PAYMENT MODAL -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <button class="modal-close" id="modalClose" aria-label="Kapat">✕</button>
     <span class="modal-eyebrow">Sipariş Özeti</span>
     <h3 id="modalPkgName">Paket Adı</h3>
     <p class="modal-price" id="modalPkgPrice">₺0</p>
-
     <div class="info-block">
       <div class="info-row">
         <div><div class="info-label">Alıcı</div><div class="info-value">Xanny Boost Hizmetleri</div></div>
@@ -1120,174 +1156,232 @@
         <button class="copy-btn" id="copyIbanBtn">Kopyala</button>
       </div>
     </div>
-
     <div class="order-box">
-      <div class="info-label">Sipariş / Referans Kodun</div>
-      <div class="order-code" id="orderCode">XB-000000</div>
-      <div class="order-warn">⚠️ Havale/EFT açıklamasına <strong>mutlaka</strong> bu kodu yaz. Kod yazılmayan ödemelerde eşleştirme gecikebilir.</div>
+      <div class="info-label">Sipariş Referans Kodun</div>
+      <div class="order-code" id="orderCode">XNY-7482</div>
+      <div class="order-warn">⚠️ Havale/EFT açıklama kısmına mutlaka bu kodu yazın!</div>
     </div>
-
     <div class="modal-actions">
-      <button class="btn btn-discord" id="paidBtn">Ödemeyi Yaptım — Discord'a Git</button>
-      <button class="btn btn-cancel" id="modalCancel">Vazgeç</button>
+      <a href="https://discord.com" target="_blank" rel="noopener" class="btn btn-discord">Ödemeyi Yaptım — Discord'a Git</a>
+      <button class="btn btn-cancel" id="modalCancelBtn">İptal</button>
     </div>
   </div>
 </div>
 
-<!-- MYSTERY BOX TERMS MODAL -->
 <div class="modal-overlay" id="termsOverlay">
   <div class="modal modal-wide">
     <button class="modal-close" id="termsClose" aria-label="Kapat">✕</button>
-    <span class="modal-eyebrow">Mystery Box — Kullanıcı Sözleşmesi</span>
-    <h3 id="termsPkgName">Mystery Box</h3>
-    <p class="modal-price">Devam etmeden önce lütfen aşağıdaki sözleşmeyi oku.</p>
-
+    <span class="modal-eyebrow">Güvenlik ve Koşullar</span>
+    <h3 id="termsPkgName">İşlem Onayı</h3>
+    <p class="modal-price" id="termsPkgPrice">₺0</p>
+    
     <div class="terms-box">
-      <h4>1. Genel Hükümler</h4>
-      <p>[Yer tutucu metin] Bu sözleşme, Xanny Boost tarafından sunulan Mystery Box ürününü satın alan kullanıcı ile Xanny Boost arasındaki hak ve yükümlülükleri düzenler. Ürünü satın alarak bu sözleşmenin tamamını okuduğunuzu ve kabul ettiğinizi beyan etmiş olursunuz.</p>
-
-      <h4>2. Ödül Sistemi ve Rastgelelik</h4>
-      <p>[Yer tutucu metin] Mystery Box içeriği, ürün sayfasında belirtilen aralık ve olasılıklara göre rastgele bir algoritma ile belirlenir. Hangi ödülün çıkacağı satın alma anında garanti edilmez; yalnızca belirtilen aralıkta bir ödül verileceği garanti edilir.</p>
-
-      <h4>3. Fiyat ve Ödeme</h4>
-      <p>[Yer tutucu metin] Ürün bedeli, sipariş sırasında gösterilen tutar üzerinden banka havalesi/EFT yoluyla tahsil edilir. Ödeme, sipariş referans kodu ile eşleştirilerek işleme alınır.</p>
-
-      <h4>4. İade ve Cayma Hakkı</h4>
-      <p>[Yer tutucu metin] Mystery Box, dijital ve anlık teslim edilen bir ürün olduğundan, ödül teslim edildikten sonra iade talebi kabul edilmez. Teslimat gerçekleşmeden önce iptal talepleri değerlendirilebilir.</p>
-
-      <h4>5. Sorumluluk Reddi</h4>
-      <p>[Yer tutucu metin] Xanny Boost, oyun içi hesap güvenliğini korumak için makul önlemleri alır ancak üçüncü taraf platform (Rockstar Games) kaynaklı kesinti, gecikme veya hesap kısıtlamalarından sorumlu tutulamaz.</p>
-
-      <h4>6. Yaş Sınırı</h4>
-      <p>[Yer tutucu metin] Bu hizmeti satın alan kullanıcı, reşit olduğunu veya yasal vasisinin onayına sahip olduğunu beyan eder.</p>
-
-      <h4>7. Gizlilik</h4>
-      <p>[Yer tutucu metin] Sipariş sürecinde paylaşılan bilgiler yalnızca siparişin işleme alınması amacıyla kullanılır ve üçüncü taraflarla paylaşılmaz.</p>
-
-      <h4>8. Kabul Beyanı</h4>
-      <p>[Yer tutucu metin] "Okudum ve Onayladım" butonuna tıklayarak yukarıdaki tüm maddeleri okuduğunuzu, anladığınızı ve kabul ettiğinizi beyan edersiniz.</p>
-      <p style="margin-top:10px;color:#7a7a86;font-style:italic;">Not: Bu metin yer tutucudur ve işletme sahibi tarafından güncellenecektir.</p>
+      <h4>1. Hesap Güvenliği ve Bilgiler</h4>
+      <p>Satın aldığınız hizmetin gerçekleştirilebilmesi için gerekli oyun hesap bilgilerinizin (Epic Games / Steam / Rockstar Social Club) doğru iletilmesi gerekmektedir.</p>
+      <h4>2. Teslimat Süreçleri</h4>
+      <p>Sipariş yoğunluğuna ve seçilen pakete bağlı olarak teslimat süreleri 15 dakika ile 72 saat arasında değişiklik gösterebilir.</p>
+      <h4>3. İade ve Değişim</h4>
+      <p>Dijital transfer ve oyun içi boost hizmetlerinde işlem başladıktan sonra iade yapılamaz. Sorun yaşanması durumunda 7/24 destek ekibimiz yardımcı olur.</p>
+      <h4>4. Destek Bildirimi</h4>
+      <p>Ödeme yapıldıktan sonra referans kodunuz ile birlikte Discord sunucumuza bağlanarak dekont iletmeniz zorunludur.</p>
     </div>
 
-    <button class="btn btn-accept" id="acceptTermsBtn">✓ Okudum ve Onayladım</button>
-    <p class="terms-note">Onayladığında ödeme ekranına yönlendirileceksin.</p>
+    <button class="btn btn-accept" id="acceptTermsBtn">Okudum, Anladım ve Kabul Ediyorum</button>
+    <div class="terms-note">Devam ederek hizmet şartlarını onaylamış olursunuz.</div>
   </div>
 </div>
 
-<div class="toast" id="toast">Kopyalandı</div>
+<div class="modal-overlay" id="modInstallOverlay">
+  <div class="modal modal-wide">
+    <button class="modal-close" id="modInstallClose" aria-label="Kapat">✕</button>
+    <span class="modal-eyebrow">Xanny Mod Menü</span>
+    <h3>Kurulum Rehberi & Uyarılar</h3>
+    <p class="modal-price">Ücretsiz İndirme ve Koşullar</p>
+    
+    <div class="terms-box" style="max-height:220px;">
+      <div class="mod-warning-box" style="margin-top:0;">
+        ⚠️ <strong>Önemli Uyarı:</strong> Online mod menü kullanımında her zaman ban riski bulunur ve ban yememenizin garantisi verilmemektedir. Risksiz ve güvenli kazanç için sitemizdeki resmi paketleri inceleyebilirsiniz.
+      </div>
+      <div class="mod-step" style="margin-bottom:10px;"><b>01 — İNDİRME</b><br><span style="color:var(--ink-dim);">Mod menü dosyasını indir ve güvenli bir konuma çıkart.</span></div>
+      <div class="mod-step" style="margin-bottom:10px;"><b>02 — KULLANIM</b><br><span style="color:var(--ink-dim);">Online veya Story Mode üzerinde dosya içerisindeki yönergeleri uygula.</span></div>
+      <div class="mod-step"><b>03 — MENÜ</b><br><span style="color:var(--ink-dim);">Belirtilen kısayol tuşu ile menüyü aktif edebilirsin.</span></div>
+    </div>
+
+    <div style="display:flex;gap:10px;margin-top:16px;">
+      <a href="#" class="btn btn-primary" style="flex:1;justify-content:center;" onclick="showToast('İndirme başlatıldı!')">Dosyayı İndir (.zip)</a>
+      <button class="btn btn-ghost" id="modInstallCloseBtn" style="flex:1;justify-content:center;">Kapat</button>
+    </div>
+  </div>
+</div>
+
+<div class="activity-toast" id="activityToast">
+  <div class="activity-head"><span class="activity-dot"></span> Canlı Satın Alım</div>
+  <div class="activity-body" id="activityBody"><strong>Ahmet Y.</strong> — 200M GTA Dolar satın aldı.</div>
+</div>
+
+<div class="floating-tools">
+  <button class="language-btn" id="englishBtn">
+    🌐 English (Translate)
+  </button>
+</div>
+
+<div class="toast" id="toast">İşlem başarılı!</div>
 
 <script>
+  /* ---------- BURGER MENU ---------- */
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
   burger.addEventListener('click', () => {
     burger.classList.toggle('open');
     navLinks.classList.toggle('open');
   });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
       burger.classList.remove('open');
       navLinks.classList.remove('open');
     });
   });
 
+  /* ---------- FAQ ACCORDION FIX ---------- */
   document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-q').addEventListener('click', () => {
-      const wasOpen = item.classList.contains('open');
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
+      if (!isOpen) {
+        item.classList.add('open');
+      }
     });
   });
 
-  /* ---------- Payment modal ---------- */
+  /* ---------- MODALS & CART STATE ---------- */
+  let currentPackage = '';
+  let currentPriceStr = '';
+  let cart = [];
+
   const modalOverlay = document.getElementById('modalOverlay');
-  const modalPkgName = document.getElementById('modalPkgName');
-  const modalPkgPrice = document.getElementById('modalPkgPrice');
-  const orderCodeEl = document.getElementById('orderCode');
-  const copyIbanBtn = document.getElementById('copyIbanBtn');
-  const ibanValue = document.getElementById('ibanValue');
-  const toast = document.getElementById('toast');
-
-  function generateOrderCode(){
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
-    const prefix = chars.charAt(Math.floor(Math.random() * chars.length)) +
-                   chars.charAt(Math.floor(Math.random() * chars.length));
-    const number = Math.floor(100000 + Math.random() * 900000);
-    return prefix + '-' + number;
-  }
-
-  function openModal(pkgName, pkgPrice){
-    modalPkgName.textContent = pkgName;
-    modalPkgPrice.textContent = pkgPrice + ' tutarındaki ödeme için aşağıdaki bilgileri kullan.';
-    orderCodeEl.textContent = generateOrderCode();
-    modalOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal(){
-    modalOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  document.getElementById('modalClose').addEventListener('click', closeModal);
-  document.getElementById('modalCancel').addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
-
-  document.getElementById('paidBtn').addEventListener('click', () => {
-    closeModal();
-    window.location.href = 'https://discord.com';
-  });
-
-  copyIbanBtn.addEventListener('click', () => {
-    const text = ibanValue.textContent.trim();
-    navigator.clipboard?.writeText(text).then(() => {
-      copyIbanBtn.textContent = 'Kopyalandı ✓';
-      copyIbanBtn.classList.add('copied');
-      showToast('IBAN kopyalandı');
-      setTimeout(() => {
-        copyIbanBtn.textContent = 'Kopyala';
-        copyIbanBtn.classList.remove('copied');
-      }, 1800);
-    });
-  });
-
-  /* ---------- Mystery Box terms modal ---------- */
   const termsOverlay = document.getElementById('termsOverlay');
-  const termsPkgName = document.getElementById('termsPkgName');
-  let pendingMysteryPkg = null;
-
-  function openTerms(pkgName, pkgPrice){
-    pendingMysteryPkg = { name: pkgName, price: pkgPrice };
-    termsPkgName.textContent = pkgName;
-    termsOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeTerms(){
-    termsOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  document.getElementById('termsClose').addEventListener('click', closeTerms);
-  termsOverlay.addEventListener('click', (e) => { if (e.target === termsOverlay) closeTerms(); });
-
-  document.getElementById('acceptTermsBtn').addEventListener('click', () => {
-    closeTerms();
-    if (pendingMysteryPkg) {
-      openModal(pendingMysteryPkg.name, pendingMysteryPkg.price);
-      pendingMysteryPkg = null;
-    }
-  });
-
-  /* ---------- Shared escape key handling for both modals ---------- */
-  document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    if (modalOverlay.classList.contains('active')) closeModal();
-    if (termsOverlay.classList.contains('active')) closeTerms();
-  });
+  const modInstallOverlay = document.getElementById('modInstallOverlay');
+  const toast = document.getElementById('toast');
 
   function showToast(msg){
     toast.textContent = msg;
     toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2200);
+    setTimeout(() => toast.classList.remove('show'), 3000);
   }
-</script>
 
+  function openTerms(pkgName, pkgPrice){
+    currentPackage = pkgName;
+    currentPriceStr = pkgPrice;
+    document.getElementById('termsPkgName').textContent = pkgName;
+    document.getElementById('termsPkgPrice').textContent = pkgPrice;
+    termsOverlay.classList.add('active');
+  }
+
+  function closeTerms(){ termsOverlay.classList.remove('active'); }
+  document.getElementById('termsClose').addEventListener('click', closeTerms);
+
+  document.getElementById('acceptTermsBtn').addEventListener('click', () => {
+    closeTerms();
+    document.getElementById('modalPkgName').textContent = currentPackage;
+    document.getElementById('modalPkgPrice').textContent = currentPriceStr;
+    const randCode = 'XNY-' + Math.floor(1000 + Math.random() * 9000);
+    document.getElementById('orderCode').textContent = randCode;
+    modalOverlay.classList.add('active');
+  });
+
+  function closeModal(){ modalOverlay.classList.remove('active'); }
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('modalCancelBtn').addEventListener('click', closeModal);
+
+  modalOverlay.addEventListener('click', (e) => {
+    if(e.target === modalOverlay) closeModal();
+  });
+  termsOverlay.addEventListener('click', (e) => {
+    if(e.target === termsOverlay) closeTerms();
+  });
+
+  /* ---------- COPY IBAN ---------- */
+  const copyIbanBtn = document.getElementById('copyIbanBtn');
+  copyIbanBtn.addEventListener('click', () => {
+    const ibanText = document.getElementById('ibanValue').textContent;
+    navigator.clipboard.writeText(ibanText);
+    copyIbanBtn.textContent = 'Kopyalandı!';
+    copyIbanBtn.classList.add('copied');
+    setTimeout(() => {
+      copyIbanBtn.textContent = 'Kopyala';
+      copyIbanBtn.classList.remove('copied');
+    }, 2000);
+  });
+
+  /* ---------- MOD INSTALL MODAL ---------- */
+  function openModInstall(){ modInstallOverlay.classList.add('active'); }
+  function closeModInstall(){ modInstallOverlay.classList.remove('active'); }
+  document.getElementById('modInstallClose').addEventListener('click', closeModInstall);
+  document.getElementById('modInstallCloseBtn').addEventListener('click', closeModInstall);
+  modInstallOverlay.addEventListener('click', (e) => {
+    if(e.target === modInstallOverlay) closeModInstall();
+  });
+
+  /* ---------- CART FUNCTIONS ---------- */
+  function addToCart(name, price){
+    cart.push({name, price});
+    document.getElementById('cartCount').textContent = cart.length;
+    showToast(name + ' sepete eklendi!');
+  }
+
+  document.getElementById('cartToggleBtn').addEventListener('click', () => {
+    if(cart.length === 0){
+      showToast('Sepetiniz henüz boş.');
+    } else {
+      showToast('Sepetinizde ' + cart.length + ' ürün bulunuyor.');
+    }
+  });
+
+  /* ---------- LIVE ACTIVITY NOTIFICATIONS ---------- */
+  const demoActivities = [
+    ['Ahmet Y.', '400M GTA Dolar'],
+    ['ArdaV', 'GTA Level 250'],
+    ['Mert K.', '500M GTA Dolar + Level 500'],
+    ['Can B.', 'VIP Elite Hesap'],
+    ['Eren S.', 'Mystery Box — Standart'],
+    ['Barış T.', '200 Level Boost'],
+    ['Burak D.', 'VIP Ultimate Hesap']
+  ];
+  let activityTimer = null;
+  let activityHideTimer = null;
+
+  function showActivity(){
+    const [name, pkg] = demoActivities[Math.floor(Math.random() * demoActivities.length)];
+    const activityBody = document.getElementById('activityBody');
+    const activityToast = document.getElementById('activityToast');
+
+    activityBody.innerHTML = `<strong>${name}</strong> — ${pkg} satın aldı ve inceleme aşamasına geçildi.`;
+    activityToast.classList.add('show');
+    clearTimeout(activityHideTimer);
+
+    activityHideTimer = setTimeout(() => {
+      activityToast.classList.remove('show');
+    }, 5000);
+
+    const nextTime = 16000 + Math.random() * 20000;
+    activityTimer = setTimeout(showActivity, nextTime);
+  }
+  activityTimer = setTimeout(showActivity, 4000);
+
+  /* ---------- ENGLISH TRANSLATION BUTTON ---------- */
+  document.getElementById('englishBtn').addEventListener('click', () => {
+    const url = 'https://translate.google.com/translate?sl=tr&tl=en&u=' + encodeURIComponent(window.location.href);
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+
+  /* ---------- ESCAPE KEY HANDLING ---------- */
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (modalOverlay.classList.contains('active')) closeModal();
+    if (termsOverlay.classList.contains('active')) closeTerms();
+    if (modInstallOverlay.classList.contains('active')) closeModInstall();
+  });
+</script>
 </body>
 </html>
-
