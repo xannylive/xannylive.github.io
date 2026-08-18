@@ -128,6 +128,7 @@
   }
   .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--combo);box-shadow:0 0 10px var(--combo);animation:pulse 1.6s infinite;flex-shrink:0;}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+  @keyframes spin{100%{transform:rotate(360deg);}}
 
   .hero h1{font-size:clamp(2.2rem, 6.5vw, 4.2rem);font-weight:900;line-height:1.08;letter-spacing:-1px;margin-bottom:20px;}
   .hero h1 .grad{
@@ -513,9 +514,130 @@
     .mod-download-icon{width:70px;height:70px;flex-basis:70px;font-size:34px;}
     .mod-download-btn{width:100%;}
   }
+
+  /* ---------- PRODUCT DETAILS / RATINGS / CART DRAWER / CHECKOUT ---------- */
+  .card-actions{grid-template-columns:repeat(3,1fr);}
+  .details-btn{width:100%;padding:13px 8px;border-radius:11px;font-weight:700;font-size:.8rem;text-align:center;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.10);transition:.25s;}
+  .details-btn:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.25);transform:translateY(-2px);}
+  .product-rating{display:flex;align-items:center;gap:8px;margin:-4px 0 14px;font-size:.78rem;color:var(--ink-dim);}
+  .product-rating .stars{color:var(--warn);letter-spacing:1px;font-size:.82rem;}
+  .sales-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;background:rgba(0,255,170,.08);border:1px solid rgba(0,255,170,.18);color:#a9ffe1;font-size:.65rem;font-weight:800;margin-bottom:10px;width:max-content;}
+  .bestsellers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+  .best-card{position:relative;background:linear-gradient(180deg,#16161e,#101015);border:1px solid var(--panel-edge);border-radius:16px;padding:20px;overflow:hidden;}
+  .best-rank{position:absolute;right:16px;top:16px;font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:rgba(255,255,255,.12);}
+  .best-card h3{font-size:1rem;margin-bottom:8px;padding-right:35px;}
+  .best-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:14px;color:var(--ink-dim);font-size:.76rem;}
+  .best-score{color:var(--warn);font-weight:800;}
+  .best-card .btn{width:100%;justify-content:center;margin-top:14px;padding:11px 14px;font-size:.8rem;}
+  .cart-drawer{position:fixed;inset:0;z-index:1500;pointer-events:none;opacity:0;transition:opacity .25s;background:rgba(0,0,0,.58);backdrop-filter:blur(7px);}
+  .cart-drawer.active{opacity:1;pointer-events:auto;}
+  .cart-panel{position:absolute;right:0;top:0;height:100%;width:min(460px,100%);background:linear-gradient(180deg,#17171f,#0d0d12);border-left:1px solid rgba(255,255,255,.10);transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.9,.3,1);display:flex;flex-direction:column;box-shadow:-24px 0 60px rgba(0,0,0,.45);}
+  .cart-drawer.active .cart-panel{transform:translateX(0);}
+  .cart-head{display:flex;align-items:center;justify-content:space-between;padding:22px;border-bottom:1px solid rgba(255,255,255,.07);}
+  .cart-head h3{font-size:1.15rem;}
+  .cart-close{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);display:grid;place-items:center;color:var(--ink-dim);}
+  .cart-close:hover{background:rgba(255,255,255,.13);color:var(--ink);}
+  .cart-items{flex:1;overflow:auto;padding:16px 22px;}
+  .cart-item{display:grid;grid-template-columns:1fr auto;gap:12px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+  .cart-item-name{font-weight:700;font-size:.86rem;line-height:1.4;}
+  .cart-item-price{color:var(--money);font-weight:800;font-size:.84rem;margin-top:4px;}
+  .cart-item-actions{display:flex;align-items:center;gap:6px;}
+  .qty-btn,.remove-item{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);}
+  .qty-btn:hover,.remove-item:hover{background:rgba(255,255,255,.13);}
+  .remove-item{color:#ff8a8a;}
+  .cart-empty{height:100%;display:grid;place-items:center;text-align:center;color:var(--ink-dim);padding:40px;}
+  .cart-foot{border-top:1px solid rgba(255,255,255,.07);padding:18px 22px;}
+  .cart-total{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;margin-bottom:14px;}
+  .cart-total strong{font-family:'Montserrat',sans-serif;font-size:1.25rem;color:var(--ink);}
+  .cart-checkout{width:100%;justify-content:center;background:linear-gradient(90deg,var(--combo),#7a00d9);color:#fff;}
+  .detail-rating{display:flex;align-items:center;gap:10px;margin:4px 0 18px;}
+  .detail-rating .stars{color:var(--warn);font-size:1.15rem;letter-spacing:2px;}
+  .detail-rating b{font-size:1.1rem;}
+  .rating-summary{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:15px 16px;margin-bottom:16px;}
+  .rating-line{display:grid;grid-template-columns:54px 1fr 38px;gap:9px;align-items:center;font-size:.7rem;color:var(--ink-dim);margin:7px 0;}
+  .rating-bar{height:7px;border-radius:999px;background:#24242c;overflow:hidden;}
+  .rating-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--warn),#fff1a1);border-radius:inherit;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+  .form-field{display:flex;flex-direction:column;gap:6px;}
+  .form-field.full{grid-column:1/-1;}
+  .form-field label{font-size:.72rem;color:var(--ink-dim);font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+  .form-field input,.form-field select{width:100%;background:#0d0d12;color:var(--ink);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px 13px;outline:none;}
+  .form-field input:focus,.form-field select:focus{border-color:var(--level);box-shadow:0 0 0 3px rgba(0,170,255,.10);}
+  .version-choice{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .version-choice label{position:relative;cursor:pointer;}
+  .version-choice input{position:absolute;opacity:0;pointer-events:none;}
+  .version-choice span{display:block;padding:12px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.03);text-align:center;font-weight:800;font-size:.82rem;transition:.2s;}
+  .version-choice input:checked + span{border-color:var(--level);background:rgba(0,170,255,.12);color:#bfeaff;box-shadow:0 0 0 2px rgba(0,170,255,.08);}
+  .privacy-box{max-height:58vh;overflow:auto;color:var(--ink-dim);font-size:.84rem;line-height:1.75;}
+  .privacy-box h4{color:var(--ink);font-size:.9rem;margin:18px 0 6px;}
+  .privacy-box h4:first-child{margin-top:0;}
+  @media (max-width:700px){.card-actions{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.form-field.full{grid-column:auto;}.cart-panel{width:100%;}}
+
+
+  .payment-total-row{margin-top:10px;padding:16px 18px;border:1px solid rgba(0,255,170,.24);border-radius:14px;background:linear-gradient(135deg,rgba(0,255,170,.08),rgba(170,0,255,.05));}
+  .payment-total{font-size:2rem;font-weight:950;line-height:1.1;color:var(--money);letter-spacing:-.02em;margin-top:4px;}
+  .payment-total-note{font-size:.78rem;color:var(--ink-dim);margin-top:6px;}
+  .iban-order-items{display:grid;gap:7px;margin-top:8px;}
+  .iban-order-item{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:9px;background:rgba(255,255,255,.035);font-size:.84rem;}
+  .iban-order-item span:last-child{font-weight:800;white-space:nowrap;}
+
+  /* ---------- SEARCH / FILTER / TRACKING / ADMIN ---------- */
+  .shop-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 24px;}
+  .shop-search{flex:1;min-width:220px;background:#0d0d12;color:var(--ink);border:1px solid rgba(255,255,255,.11);border-radius:12px;padding:13px 15px;outline:none;}
+  .shop-search:focus{border-color:var(--money);box-shadow:0 0 0 3px rgba(0,255,170,.08);}
+  .filter-row{display:flex;gap:7px;flex-wrap:wrap;}
+  .filter-btn{border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);color:var(--ink-dim);padding:10px 12px;border-radius:10px;font-size:.76rem;font-weight:800;cursor:pointer;transition:.2s;}
+  .filter-btn:hover,.filter-btn.active{background:rgba(0,255,170,.08);border-color:rgba(0,255,170,.28);color:#b8ffe8;}
+  .sort-select{background:#0d0d12;color:var(--ink);border:1px solid rgba(255,255,255,.11);border-radius:10px;padding:10px 12px;outline:none;font-weight:700;}
+  .tracking-strip{display:grid;grid-template-columns:1.3fr .7fr;gap:16px;margin:18px 0 0;}
+  .tracking-card,.trust-card{background:linear-gradient(180deg,#15151d,#101015);border:1px solid var(--panel-edge);border-radius:16px;padding:20px;}
+  .tracking-card h3,.trust-card h3{margin:4px 0 7px;font-size:1.05rem;}
+  .tracking-card p,.trust-card p{color:var(--ink-dim);font-size:.82rem;line-height:1.55;margin:0 0 13px;}
+  .tracking-form{display:flex;gap:8px;}
+  .tracking-form input{flex:1;min-width:0;background:#0d0d12;color:var(--ink);border:1px solid rgba(255,255,255,.11);border-radius:10px;padding:12px;outline:none;}
+  .trust-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+  .trust-item{padding:10px;border-radius:10px;background:rgba(255,255,255,.035);font-size:.76rem;font-weight:800;}
+  .trust-item span{display:block;color:var(--ink-dim);font-size:.68rem;font-weight:500;margin-top:3px;}
+  .track-result{display:none;margin-top:14px;padding:14px;border-radius:12px;background:rgba(0,255,170,.05);border:1px solid rgba(0,255,170,.16);}
+  .track-result.show{display:block;}
+  .track-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px;}
+  .track-code{font-weight:900;letter-spacing:.8px;}
+  .track-status{font-size:.7rem;font-weight:900;padding:5px 9px;border-radius:999px;background:rgba(0,255,170,.1);color:#aaffdf;}
+  .track-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
+  .track-step{position:relative;text-align:center;font-size:.64rem;color:#666673;padding-top:10px;}
+  .track-step:before{content:'';display:block;width:11px;height:11px;border-radius:50%;background:#292932;margin:0 auto 7px;border:2px solid #3b3b45;}
+  .track-step.done{color:var(--ink);font-weight:800;}
+  .track-step.done:before{background:var(--money);border-color:var(--money);box-shadow:0 0 14px rgba(0,255,170,.25);}
+  .track-step.current{color:#bfffea;}
+  .track-step.current:before{background:var(--level);border-color:var(--level);box-shadow:0 0 14px rgba(0,170,255,.25);}
+  .admin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
+  .admin-stat{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:13px;padding:15px;}
+  .admin-stat b{display:block;font-family:'Montserrat',sans-serif;font-size:1.25rem;margin-top:5px;}
+  .admin-stat span{color:var(--ink-dim);font-size:.68rem;text-transform:uppercase;letter-spacing:.5px;}
+  .admin-table-wrap{overflow:auto;border:1px solid rgba(255,255,255,.07);border-radius:13px;}
+  .admin-table{width:100%;border-collapse:collapse;min-width:620px;font-size:.76rem;}
+  .admin-table th,.admin-table td{padding:11px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,.055);}
+  .admin-table th{color:var(--ink-dim);font-size:.65rem;text-transform:uppercase;letter-spacing:.6px;}
+  .status-pill{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:.63rem;font-weight:900;}
+  .status-wait{background:rgba(255,196,0,.1);color:#ffe28a;}
+  .status-done{background:rgba(0,255,170,.1);color:#aaffdf;}
+  .demo-note{font-size:.68rem;color:#777784;margin-top:10px;line-height:1.45;}
+  .mobile-cart-bar{display:none;}
+  @media (max-width:800px){.tracking-strip{grid-template-columns:1fr;}.admin-grid{grid-template-columns:1fr 1fr;}.track-steps{grid-template-columns:1fr 1fr;}}
+  @media (max-width:700px){
+    body{padding-bottom:68px;}
+    .mobile-cart-bar{position:fixed;left:10px;right:10px;bottom:10px;z-index:1400;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(15,15,21,.94);backdrop-filter:blur(14px);box-shadow:0 12px 35px rgba(0,0,0,.4);}
+    .mobile-cart-bar strong{font-family:'Montserrat',sans-serif;font-size:.95rem;}
+    .mobile-cart-bar span{display:block;color:var(--ink-dim);font-size:.62rem;}
+    .mobile-cart-bar button{padding:10px 13px;border-radius:10px;background:linear-gradient(90deg,var(--money),#00c98a);color:#04140d;font-weight:900;border:0;}
+    .shop-tools{align-items:stretch;}.shop-search{min-width:100%;}.sort-select{width:100%;}
+    .admin-grid{grid-template-columns:1fr 1fr;}
+  }
 </style>
 </head>
 <body id="top">
+
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 85vh; background: url('https://wallpapercave.com/wp/wp2532793.jpg') no-repeat center top / cover; opacity: 0.18; z-index: 0; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); pointer-events: none;"></div>
 
 <div class="grid-fx"></div>
 
@@ -548,6 +670,8 @@
         <li><a href="#vip-account">VIP Hesap</a></li>
         <li><a href="#mystery">Mystery Box</a></li>
         <li><a href="#mod-menu">Mod Menü</a></li>
+        <li><a href="#bestsellers">En Çok Satan</a></li>
+        <li><a href="#tracking">Sipariş Takip</a></li>
         <li><a href="#reviews">Yorumlar</a></li>
         <li><a href="#faq">S.S.S</a></li>
       </ul>
@@ -589,13 +713,53 @@
     <span>Xanny VIP Club Aktif</span>
     <span>Anında Teslimat Garantisi</span>
     <span>7/24 Canlı Destek</span>
-    <span>Ban Riski Yok (Güvenli Yöntem)</span>
+    <span>Ban garantisi verilmez — güvenli işlem</span>
     <span>Xanny VIP Club Aktif</span>
     <span>Anında Teslimat Garantisi</span>
     <span>7/24 Canlı Destek</span>
-    <span>Ban Riski Yok (Güvenli Yöntem)</span>
+    <span>Ban garantisi verilmez — güvenli işlem</span>
   </div>
 </div>
+
+<section class="section" id="bestsellers" style="padding-top:44px;padding-bottom:20px;">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:28px;">
+      <span class="tag">Mağaza Sıralaması</span>
+      <h2>En Çok Satan Paketler</h2>
+      <p>Öne çıkan paketleri tek yerde gör. Sıralama ve satış göstergeleri demo/örnek mağaza verisidir; gerçek zamanlı satış sayacı değildir.</p>
+    </div>
+    <div class="bestsellers-grid" id="bestsellersGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="shop-tools" style="padding-top:22px;padding-bottom:18px;">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:18px;">
+      <span class="tag">Paket Bul</span>
+      <h2>İstediğin Paketi Hızlıca Bul</h2>
+      <p>Arama, kategori ve sıralama seçenekleriyle tüm paketleri birkaç saniyede filtrele.</p>
+    </div>
+    <div class="shop-tools">
+      <input class="shop-search" id="productSearch" type="search" placeholder="🔎 Paket ara..." autocomplete="off">
+      <select class="sort-select" id="productSort" aria-label="Ürünleri sırala">
+        <option value="default">Önerilen sıralama</option>
+        <option value="priceAsc">En düşük fiyat</option>
+        <option value="priceDesc">En yüksek fiyat</option>
+        <option value="rating">En yüksek puan</option>
+        <option value="name">A-Z</option>
+      </select>
+      <div class="filter-row" id="productFilters">
+        <button class="filter-btn active" data-filter="all" type="button">Tümü</button>
+        <button class="filter-btn" data-filter="money" type="button">GTA Dolar</button>
+        <button class="filter-btn" data-filter="level" type="button">Level</button>
+        <button class="filter-btn" data-filter="combo" type="button">Combo</button>
+        <button class="filter-btn" data-filter="vip" type="button">VIP</button>
+        <button class="filter-btn" data-filter="mystery" type="button">Mystery</button>
+      </div>
+    </div>
+    <div class="demo-note" id="productResultCount">Paketler yükleniyor...</div>
+  </div>
+</section>
 
 <main>
   <section class="section" id="money">
@@ -1010,12 +1174,43 @@
     </div>
   </section>
 
-  <section class="section" id="reviews">
+  <section class="section" id="tracking">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Sipariş Takip</span>
+      <h2>Siparişin Nerede?</h2>
+      <p>Sipariş referans kodunu girerek durumunu kontrol edebilirsin.</p>
+    </div>
+    <div class="tracking-strip">
+      <div class="tracking-card">
+        <h3>🔎 Siparişini Takip Et</h3>
+        <p>Ödeme ekranında verilen <b>XNY-XXXXX</b> kodunu aşağıya yaz.</p>
+        <div class="tracking-form">
+          <input id="trackingCodeInput" type="text" maxlength="12" placeholder="Örn. XNY-48210" autocomplete="off">
+          <button class="btn btn-primary" id="trackingSearchBtn" type="button">Sorgula</button>
+        </div>
+        <div class="track-result" id="trackResult"></div>
+      </div>
+      <div class="trust-card">
+        <h3>🛡️ Sipariş Sonrası</h3>
+        <p>Ödeme sonrası referans kodunu sakla; destek ekibi siparişini bu kod üzerinden eşleştirir.</p>
+        <div class="trust-list">
+          <div class="trust-item">⚡ Hızlı İşlem<span>Sipariş kuyruğu</span></div>
+          <div class="trust-item">🎧 Destek<span>Discord üzerinden</span></div>
+          <div class="trust-item">🔐 Minimum Veri<span>Şifre istemiyoruz</span></div>
+          <div class="trust-item">📦 Durum Takibi<span>Adım adım görünür</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
     <div class="wrap">
       <div class="section-head">
         <span class="tag">Müşteri Yorumları</span>
         <h2>Oyuncular Bizim İçin Ne Dediler?</h2>
-        <p>Binlerce mutlu müşterimizden gelen gerçek deneyimler ve değerlendirmeler.</p>
+        <p>Sitede gösterilen örnek müşteri değerlendirmeleri ve mağaza puanları.</p>
       </div>
       <div class="reviews-grid">
         <div class="review-card">
@@ -1072,7 +1267,7 @@
       <div style="max-width:760px;margin:0 auto;">
         <div class="faq-item">
           <div class="faq-q">İşlemler ban riskli mi? <span class="plus">+</span></div>
-          <div class="faq-a">Hayır, kullandığımız özel ve güvenli yöntemler sayesinde hesabınızda ban riski minimuma indirilir. Binlerce başarılı işlemimiz bulunmaktadır.</div>
+          <div class="faq-a">Hizmet türüne ve oyunun sürümüne göre risk değişebilir. Özellikle mod menü kullanımında ban riski vardır; kesin ban garantisi verilemez.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">Mystery Box nasıl çalışır? <span class="plus">+</span></div>
@@ -1130,6 +1325,8 @@
             <li><a href="#reviews">Yorumlar</a></li>
             <li><a href="#faq">S.S.S</a></li>
             <li><a href="https://discord.com" target="_blank" rel="noopener">Discord</a></li>
+            <li><button class="footer-policy-btn" id="privacyOpenBtn" type="button" style="color:inherit;text-align:left;">Gizlilik Politikası</button></li>
+            <li><button class="footer-policy-btn" id="adminOpenBtn" type="button" style="color:inherit;text-align:left;">Yönetim Paneli</button></li>
           </ul>
         </div>
       </div>
@@ -1141,29 +1338,145 @@
   </div>
 </footer>
 
+
+<div class="modal-overlay" id="adminOverlay">
+  <div class="modal modal-wide">
+    <button class="modal-close" id="adminClose" aria-label="Kapat">✕</button>
+    <span class="modal-eyebrow">XANNY BOOST ADMIN</span>
+    <h3>Mağaza Kontrol Paneli</h3>
+    <p class="modal-price" style="font-size:1rem;color:var(--ink-dim);">Demo / örnek panel</p>
+    <div class="admin-grid">
+      <div class="admin-stat"><span>Bugünkü Sipariş</span><b id="adminOrders">14</b></div>
+      <div class="admin-stat"><span>Bugünkü Ciro</span><b id="adminRevenue">₺8.742</b></div>
+      <div class="admin-stat"><span>Toplam Sipariş</span><b id="adminTotalOrders">438</b></div>
+      <div class="admin-stat"><span>Ortalama Puan</span><b id="adminAvgRating">4.9 ★</b></div>
+    </div>
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead><tr><th>Sipariş</th><th>Ürün</th><th>Sürüm</th><th>Tutar</th><th>Durum</th></tr></thead>
+        <tbody id="adminOrdersTable"></tbody>
+      </table>
+    </div>
+    <div class="demo-note">Bu paneldeki satış ve ciro rakamları demo arayüz verileridir. Gerçek sipariş/veritabanı bağlantısı kurulduğunda otomatik olarak gerçek verilerle değiştirilebilir.</div>
+  </div>
+</div>
+
+<div class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-head"><h3 id="cartTitle">Sepetim</h3><button class="cart-close" id="cartClose" aria-label="Sepeti kapat">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Toplam</span><strong id="cartTotal">₺0</strong></div>
+      <button class="btn cart-checkout" id="cartCheckout">Sepetten Satın Al</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="detailOverlay">
+  <div class="modal modal-wide">
+    <button class="modal-close" id="detailClose" aria-label="Kapat">✕</button>
+    <span class="modal-eyebrow">Paket Açıklaması</span>
+    <h3 id="detailName">Paket</h3>
+    <p class="modal-price" id="detailPrice">₺0</p>
+    <div class="detail-rating"><span class="stars" id="detailStars">★★★★★</span><b id="detailScore">4.9</b><span id="detailReviewCount" style="color:var(--ink-dim);">/ 5</span></div>
+    <div class="rating-summary">
+      <div class="rating-line"><span>5 yıldız</span><div class="rating-bar"><span id="r5" style="width:96%"></span></div><b>96%</b></div>
+      <div class="rating-line"><span>4 yıldız</span><div class="rating-bar"><span id="r4" style="width:4%"></span></div><b>4%</b></div>
+      <div class="rating-line"><span>3 yıldız</span><div class="rating-bar"><span id="r3" style="width:0%"></span></div><b>0%</b></div>
+      <div class="rating-line"><span>2 yıldız</span><div class="rating-bar"><span id="r2" style="width:0%"></span></div><b>0%</b></div>
+      <div class="rating-line"><span>1 yıldız</span><div class="rating-bar"><span id="r1" style="width:0%"></span></div><b>0%</b></div>
+    </div>
+    <div class="info-block" id="detailDescription"></div>
+    <div class="modal-actions"><button class="btn btn-primary" id="detailBuyBtn">Bu Paketi Satın Al</button><button class="btn btn-cancel" id="detailCancelBtn">Kapat</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="privacyOverlay">
+  <div class="modal modal-wide">
+    <button class="modal-close" id="privacyClose" aria-label="Kapat">✕</button>
+    <span class="modal-eyebrow">XANNY BOOST</span>
+    <h3>Gizlilik Politikası</h3>
+    <p class="modal-price">Son güncelleme: 18 Ağustos 2026</p>
+    <div class="privacy-box">
+      <h4>1. Toplanan bilgiler</h4><p>Sipariş oluştururken yalnızca hizmeti teslim etmek ve sizinle iletişim kurmak için gerekli bilgileri isteriz: iletişim bilgisi, Discord kullanıcı adı, oyun hesabı kullanıcı adı ve GTA V sürümü (Enhanced veya Legacy). Gereksiz şifre bilgisi istemeyiz.</p>
+      <h4>2. Ödeme bilgileri</h4><p>Kart şifresi, banka giriş bilgisi veya benzeri hassas kimlik doğrulama bilgileri sitede saklanmaz. Havale/EFT ile yapılan ödemelerde sipariş referans kodu ve dekont, siparişi eşleştirmek için destek sürecinde kullanılabilir.</p>
+      <h4>3. Çerezler ve yerel depolama</h4><p>Sepet içeriği ve site tercihleri tarayıcınızdaki localStorage alanında tutulabilir. Bu alanı temizlediğinizde sepet sıfırlanabilir.</p>
+      <h4>4. Verilerin paylaşılması</h4><p>Siparişi tamamlamak için gerekli bilgiler yalnızca ilgili destek/teslimat sürecinde kullanılır. Yasal zorunluluk olmadıkça kişisel bilgiler üçüncü kişilere satılmaz veya reklam amacıyla paylaşılmaz.</p>
+      <h4>5. Veri güvenliği</h4><p>HTTPS kullanımı, minimum veri toplama ve gereksiz hesap şifresi istememe gibi önlemler uygulanır. Bununla birlikte internet üzerindeki hiçbir aktarımın mutlak güvenliği garanti edilemez.</p>
+      <h4>6. Talepler</h4><p>Verilerinizle ilgili erişim, düzeltme veya silme talebiniz için site üzerindeki destek kanalı üzerinden bizimle iletişime geçebilirsiniz.</p>
+      <h4>7. Politika değişiklikleri</h4><p>Bu metin hizmetler veya mevzuat değiştikçe güncellenebilir. Güncel sürüm bu pencerede yayınlanır.</p>
+    </div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <button class="modal-close" id="modalClose" aria-label="Kapat">✕</button>
     <span class="modal-eyebrow">Sipariş Özeti</span>
     <h3 id="modalPkgName">Paket Adı</h3>
     <p class="modal-price" id="modalPkgPrice">₺0</p>
-    <div class="info-block">
-      <div class="info-row">
-        <div><div class="info-label">Alıcı</div><div class="info-value">Xanny Boost Hizmetleri</div></div>
+    
+    <div id="paymentDefaultState">
+      <div class="info-block">
+        <div class="info-row">
+          <div><div class="info-label">Alıcı</div><div class="info-value">Xanny Boost Hizmetleri</div></div>
+        </div>
+        <div class="info-row">
+          <div><div class="info-label">IBAN</div><div class="info-value" id="ibanValue">TR12 0006 1005 1900 0006 2734 56</div></div>
+          <button class="copy-btn" id="copyIbanBtn">Kopyala</button>
+        </div>
+        <div class="info-row payment-total-row">
+          <div>
+            <div class="info-label">ÖDENECEK TOPLAM TUTAR</div>
+            <div class="payment-total" id="ibanPaymentTotal">₺0</div>
+            <div class="payment-total-note" id="ibanPaymentNote">Bu tutarı yukarıdaki IBAN'a gönderin.</div>
+          </div>
+        </div>
+        <div class="info-row order-items-row" id="ibanOrderItemsRow" style="display:none;">
+          <div style="width:100%;">
+            <div class="info-label">SİPARİŞ İÇERİĞİ</div>
+            <div class="iban-order-items" id="ibanOrderItems"></div>
+          </div>
+        </div>
       </div>
-      <div class="info-row">
-        <div><div class="info-label">IBAN</div><div class="info-value" id="ibanValue">TR12 0006 1005 1900 0006 2734 56</div></div>
-        <button class="copy-btn" id="copyIbanBtn">Kopyala</button>
+      <div class="order-box">
+        <div class="info-label">Sipariş Referans Kodun</div>
+        <div class="order-code" id="orderCode">XNY-7482</div>
+        <div class="order-warn">⚠️ Havale/EFT açıklama kısmına mutlaka bu kodu yazın!</div>
+      </div>
+      <div class="info-block" style="margin-bottom:18px;">
+        <div class="info-row"><div><div class="info-label">GTA V Sürümü</div><div class="info-value" id="summaryVersion">Seçilmedi</div></div></div>
+        <div class="info-row"><div><div class="info-label">Sipariş Sahibi</div><div class="info-value" id="summaryCustomer">Belirtilmedi</div></div></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-discord" id="startPaymentBtn">Ödemeyi Yaptım — Destek Kanalına Git</button>
+        <button class="btn btn-cancel" id="modalCancelBtn">İptal</button>
       </div>
     </div>
-    <div class="order-box">
-      <div class="info-label">Sipariş Referans Kodun</div>
-      <div class="order-code" id="orderCode">XNY-7482</div>
-      <div class="order-warn">⚠️ Havale/EFT açıklama kısmına mutlaka bu kodu yazın!</div>
+
+    <div id="paymentLoadingState" style="display:none; text-align:center; padding: 40px 0;">
+       <div style="width: 50px; height: 50px; border: 4px solid rgba(255,255,255,0.05); border-top-color: var(--money); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+       <p style="color:var(--warn); font-weight:800; font-size: 1.1rem; margin-bottom:5px;">Destek Kanalına Yönlendiriliyorsunuz...</p>
+       <p style="color:var(--ink-dim); font-size: 0.85rem;">Lütfen bekleyin, işlem kontrol ediliyor.</p>
     </div>
-    <div class="modal-actions">
-      <a href="https://discord.com" target="_blank" rel="noopener" class="btn btn-discord">Ödemeyi Yaptım — Discord'a Git</a>
-      <button class="btn btn-cancel" id="modalCancelBtn">İptal</button>
+
+    <div id="paymentSuccessState" style="display:none; margin-top:10px;">
+       <div class="order-box" style="margin-bottom: 20px;">
+          <div class="info-label">Sipariş Referans Kodun</div>
+          <div class="order-code" id="successOrderCode">XNY-7482</div>
+          <div class="order-warn">Bu kodu destek ekibine iletmeyi unutma!</div>
+       </div>
+       <p style="font-size: 0.85rem; color: var(--ink-dim); margin-bottom: 20px; text-align:center; line-height: 1.6;">
+         Ödemeni kontrol ettirmek ve paketi teslim almak için aşağıdaki butonlardan birine tıkla ve dekontunu moderatörlerimize gönder.
+       </p>
+       <div class="modal-actions">
+         <a href="https://t.me/SENIN_TELEGRAM_LINKIN" target="_blank" rel="noopener" class="btn btn-discord" style="background: linear-gradient(90deg, #0088cc, #00aaff); box-shadow: 0 10px 26px rgba(0, 136, 204, 0.35); justify-content:center;">
+           ✈️ Telegram'dan Destek Al
+         </a>
+         <a href="https://discord.gg/SENIN_DISCORD_LINKIN" target="_blank" rel="noopener" class="btn btn-discord" style="justify-content:center;">
+           🎮 Discord'dan Destek Al
+         </a>
+       </div>
     </div>
   </div>
 </div>
@@ -1174,7 +1487,15 @@
     <span class="modal-eyebrow">Güvenlik ve Koşullar</span>
     <h3 id="termsPkgName">İşlem Onayı</h3>
     <p class="modal-price" id="termsPkgPrice">₺0</p>
-    
+    <div class="info-block" id="checkoutInfoBlock">
+      <div class="form-grid">
+        <div class="form-field"><label for="customerName">Ad / Takma Ad</label><input id="customerName" type="text" maxlength="60" placeholder="Örn. XannyFan" autocomplete="name"></div>
+        <div class="form-field"><label for="discordName">Discord Kullanıcı Adı</label><input id="discordName" type="text" maxlength="80" placeholder="kullaniciadi" autocomplete="off"></div>
+        <div class="form-field full"><label for="gameAccount">Oyun Hesabı Kullanıcı Adı</label><input id="gameAccount" type="text" maxlength="100" placeholder="Rockstar / Steam / Epic kullanıcı adın" autocomplete="off"></div>
+        <div class="form-field full"><label>GTA V Sürümü</label><div class="version-choice"><label><input type="radio" name="gameVersion" value="Enhanced"><span>GTA V Enhanced</span></label><label><input type="radio" name="gameVersion" value="Legacy"><span>GTA V Legacy</span></label></div></div>
+      </div>
+      <div style="font-size:.73rem;color:var(--ink-dim);line-height:1.5;">Güvenlik için oyun şifreni bu forma yazma. Yalnızca hizmetin teslimatı için gerekli kullanıcı bilgilerini paylaş.</div>
+    </div>
     <div class="terms-box">
       <h4>1. Hesap Güvenliği ve Bilgiler</h4>
       <p>Satın aldığınız hizmetin gerçekleştirilebilmesi için gerekli oyun hesap bilgilerinizin (Epic Games / Steam / Rockstar Social Club) doğru iletilmesi gerekmektedir.</p>
@@ -1186,7 +1507,12 @@
       <p>Ödeme yapıldıktan sonra referans kodunuz ile birlikte Discord sunucumuza bağlanarak dekont iletmeniz zorunludur.</p>
     </div>
 
-    <button class="btn btn-accept" id="acceptTermsBtn">Okudum, Anladım ve Kabul Ediyorum</button>
+    <div class="order-box" style="margin-top:18px;">
+      <div class="info-label">Sipariş Numaran</div>
+      <div class="order-code" id="checkoutOrderCode">XNY-74820</div>
+      <div class="order-warn">⚠️ Ödeme açıklamasında bu sipariş numarasını kullan.</div>
+    </div>
+    <button class="btn btn-accept" id="acceptTermsBtn">Bilgilerimi Kaydet ve Devam Et</button>
     <div class="terms-note">Devam ederek hizmet şartlarını onaylamış olursunuz.</div>
   </div>
 </div>
@@ -1212,6 +1538,11 @@
       <button class="btn btn-ghost" id="modInstallCloseBtn" style="flex:1;justify-content:center;">Kapat</button>
     </div>
   </div>
+</div>
+
+<div class="mobile-cart-bar">
+  <div><span>Sepet toplamı</span><strong id="mobileCartTotal">₺0</strong></div>
+  <button type="button" id="mobileCartBtn">🛒 Sepeti Aç</button>
 </div>
 
 <div class="activity-toast" id="activityToast">
@@ -1254,88 +1585,330 @@
     });
   });
 
-  /* ---------- MODALS & CART STATE ---------- */
+  /* ---------- MODALS, CHECKOUT & CART ---------- */
   let currentPackage = '';
   let currentPriceStr = '';
+  let currentOrderItems = [];
+  let currentOrderCode = '';
   let cart = [];
+  try { const savedCart = JSON.parse(localStorage.getItem('xannyCart') || '[]'); if(Array.isArray(savedCart)) cart = savedCart.filter(x => x && x.name && Number.isFinite(Number(x.price))).map(x => ({name:String(x.name), price:Number(x.price), qty:Math.max(1, Number(x.qty)||1)})); } catch(e) { localStorage.removeItem('xannyCart'); }
 
   const modalOverlay = document.getElementById('modalOverlay');
   const termsOverlay = document.getElementById('termsOverlay');
   const modInstallOverlay = document.getElementById('modInstallOverlay');
+  const detailOverlay = document.getElementById('detailOverlay');
+  const privacyOverlay = document.getElementById('privacyOverlay');
+  const cartDrawer = document.getElementById('cartDrawer');
   const toast = document.getElementById('toast');
 
-  function showToast(msg){
-    toast.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3000);
-  }
+  const productRatings = {
+    '100M GTA Dolar': [4.9, 203], '400M GTA Dolar': [4.98, 318], '600M GTA Dolar': [4.96, 176], '1 Milyar GTA Dolar': [4.99, 142],
+    '100 Level Boost': [4.91, 164], '200 Level Boost': [4.94, 189], '500 Level Boost': [4.97, 151], '800 Level Boost': [4.99, 96],
+    '100M GTA Dolar + Level 100': [4.92, 143], '250M GTA Dolar + Level 250': [4.98, 286], '500M GTA Dolar + Level 500': [4.97, 201], '1MR GTA Dolar + Level 800': [4.99, 118],
+    'VIP Standart Hesap': [4.88, 87], 'VIP Elite Hesap': [4.95, 112], 'VIP Ultimate Hesap': [4.99, 76],
+    'Mystery Box — Standart': [4.86, 94], 'Mystery Box — Elite': [4.93, 121]
+  };
 
-  function openTerms(pkgName, pkgPrice){
-    currentPackage = pkgName;
-    currentPriceStr = pkgPrice;
+  function showToast(msg){
+    toast.textContent = msg; toast.classList.add('show');
+    clearTimeout(window.__toastTimer); window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+  function money(n){ return '₺' + Number(n).toLocaleString('tr-TR'); }
+  function saveCart(){ localStorage.setItem('xannyCart', JSON.stringify(cart)); }
+  function cartCount(){ return cart.reduce((sum,item) => sum + item.qty, 0); }
+  function cartTotal(){ return cart.reduce((sum,item) => sum + item.price * item.qty, 0); }
+  function updateCartBadge(){ document.getElementById('cartCount').textContent = cartCount(); }
+
+  function renderCart(){
+    const box = document.getElementById('cartItems');
+    if(!cart.length){
+      box.innerHTML = '<div class="cart-empty"><div><div style="font-size:2.5rem;margin-bottom:12px;">🛒</div><b>Sepetin şu an boş</b><p style="margin-top:7px;">Paketlerden birini sepete eklediğinde burada görünecek.</p></div></div>';
+    } else {
+      box.innerHTML = cart.map((item,index) => `
+        <div class="cart-item">
+          <div><div class="cart-item-name">${escapeHtml(item.name)}</div><div class="cart-item-price">${money(item.price)} × ${item.qty}</div></div>
+          <div class="cart-item-actions"><button class="qty-btn" data-cart-action="minus" data-index="${index}">−</button><b>${item.qty}</b><button class="qty-btn" data-cart-action="plus" data-index="${index}">+</button><button class="remove-item" data-cart-action="remove" data-index="${index}" aria-label="Ürünü kaldır">✕</button></div>
+        </div>`).join('');
+    }
+    document.getElementById('cartTotal').textContent = money(cartTotal());
+    updateCartBadge(); saveCart(); const mobileTotal=document.getElementById('mobileCartTotal'); if(mobileTotal) mobileTotal.textContent=money(cartTotal());
+  }
+  function escapeHtml(str){ return String(str).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
+
+  function addToCart(name, price){
+    const existing = cart.find(item => item.name === name);
+    if(existing) existing.qty += 1; else cart.push({name, price:Number(price), qty:1});
+    renderCart(); openCart(); showToast(name + ' sepete eklendi!');
+  }
+  function removeFromCart(index){ cart.splice(index,1); renderCart(); }
+  function changeQty(index,delta){
+    if(!cart[index]) return; cart[index].qty += delta;
+    if(cart[index].qty <= 0) cart.splice(index,1); renderCart();
+  }
+  function openCart(){ renderCart(); cartDrawer.classList.add('active'); cartDrawer.setAttribute('aria-hidden','false'); }
+  function closeCart(){ cartDrawer.classList.remove('active'); cartDrawer.setAttribute('aria-hidden','true'); }
+
+  document.getElementById('cartToggleBtn').addEventListener('click', openCart);
+  document.getElementById('mobileCartBtn').addEventListener('click', openCart);
+  document.getElementById('cartClose').addEventListener('click', closeCart);
+  cartDrawer.addEventListener('click', e => { if(e.target === cartDrawer) closeCart(); });
+  document.getElementById('cartItems').addEventListener('click', e => {
+    const btn = e.target.closest('[data-cart-action]'); if(!btn) return;
+    const i = Number(btn.dataset.index), action = btn.dataset.cartAction;
+    if(action === 'plus') changeQty(i,1); if(action === 'minus') changeQty(i,-1); if(action === 'remove') removeFromCart(i);
+  });
+
+  function getCheckoutData(){
+    const version = document.querySelector('input[name="gameVersion"]:checked');
+    return {
+      customer: document.getElementById('customerName').value.trim(),
+      discord: document.getElementById('discordName').value.trim(),
+      account: document.getElementById('gameAccount').value.trim(),
+      version: version ? version.value : ''
+    };
+  }
+  function fillCheckoutForm(){
+    const saved = JSON.parse(localStorage.getItem('xannyCheckout') || '{}');
+    ['customerName','discordName','gameAccount'].forEach(id => { if(saved[id]) document.getElementById(id).value = saved[id]; });
+    if(saved.version){ const radio = document.querySelector(`input[name="gameVersion"][value="${saved.version}"]`); if(radio) radio.checked = true; }
+  }
+  function generateOrderCode(){
+    const code = 'XNY-' + Math.floor(10000 + Math.random() * 90000);
+    currentOrderCode = code;
+    const el = document.getElementById('orderCode');
+    if(el) el.textContent = code;
+    const checkoutEl = document.getElementById('checkoutOrderCode');
+    if(checkoutEl) checkoutEl.textContent = code;
+    return code;
+  }
+  function updateIbanPaymentSummary(){
+    const items = Array.isArray(currentOrderItems) ? currentOrderItems : [];
+    const total = items.reduce((sum, item) => sum + Number(item.price || 0) * Number(item.qty || 1), 0);
+    document.getElementById('ibanPaymentTotal').textContent = money(total);
+    const rows = document.getElementById('ibanOrderItemsRow');
+    const list = document.getElementById('ibanOrderItems');
+    if(items.length > 1 || (items.length === 1 && Number(items[0].qty || 1) > 1)){
+      list.innerHTML = items.map(item => `<div class="iban-order-item"><span>${escapeHtml(item.name)} × ${Number(item.qty || 1)}</span><span>${money(Number(item.price || 0) * Number(item.qty || 1))}</span></div>`).join('');
+      rows.style.display = '';
+    } else {
+      list.innerHTML = ''; rows.style.display = 'none';
+    }
+  }
+  function openTerms(pkgName, pkgPrice, items){
+    currentPackage = pkgName; currentPriceStr = pkgPrice;
+    currentOrderItems = items || [{name:pkgName,price:Number(String(pkgPrice).replace(/[^0-9]/g,'')) || 0,qty:1}];
+    generateOrderCode();
     document.getElementById('termsPkgName').textContent = pkgName;
     document.getElementById('termsPkgPrice').textContent = pkgPrice;
-    termsOverlay.classList.add('active');
+    updateIbanPaymentSummary();
+    fillCheckoutForm(); termsOverlay.classList.add('active');
   }
-
   function closeTerms(){ termsOverlay.classList.remove('active'); }
   document.getElementById('termsClose').addEventListener('click', closeTerms);
 
   document.getElementById('acceptTermsBtn').addEventListener('click', () => {
+    const data = getCheckoutData();
+    if(!data.customer || !data.discord || !data.account || !data.version){ showToast('Lütfen tüm müşteri ve oyun sürümü bilgilerini doldur.'); return; }
+    localStorage.setItem('xannyCheckout', JSON.stringify(data));
     closeTerms();
     document.getElementById('modalPkgName').textContent = currentPackage;
-    document.getElementById('modalPkgPrice').textContent = currentPriceStr;
-    const randCode = 'XNY-' + Math.floor(1000 + Math.random() * 9000);
+    const orderTotal = currentOrderItems.reduce((s,i)=>s + Number(i.price || 0) * Number(i.qty || 1), 0);
+    document.getElementById('modalPkgPrice').textContent = money(orderTotal);
+    document.getElementById('ibanPaymentTotal').textContent = money(orderTotal);
+    updateIbanPaymentSummary();
+    document.getElementById('summaryVersion').textContent = data.version;
+    document.getElementById('summaryCustomer').textContent = data.customer + ' · ' + data.discord;
+    const randCode = currentOrderCode || generateOrderCode();
     document.getElementById('orderCode').textContent = randCode;
+    localStorage.setItem('xannyLastOrder', JSON.stringify({code:randCode, createdAt:Date.now(), customer:data.customer, discord:data.discord, account:data.account, version:data.version, items:currentOrderItems, total:orderTotal, status:'Ödeme Bekleniyor'}));
     modalOverlay.classList.add('active');
   });
 
-  function closeModal(){ modalOverlay.classList.remove('active'); }
+  // ÖDEME YÖNLENDİRME ANİMASYONU VE BUTON GÖSTERİMİ
+  document.getElementById('startPaymentBtn').addEventListener('click', () => {
+      document.getElementById('paymentDefaultState').style.display = 'none';
+      document.getElementById('paymentLoadingState').style.display = 'block';
+      
+      // Sipariş kodunu final ekrana kopyala
+      document.getElementById('successOrderCode').textContent = document.getElementById('orderCode').textContent;
+
+      // 3 Saniye Bekle, Başarı Ekranını Aç
+      setTimeout(() => {
+        document.getElementById('paymentLoadingState').style.display = 'none';
+        document.getElementById('paymentSuccessState').style.display = 'block';
+      }, 3000);
+  });
+
+  function closeModal(){ 
+    modalOverlay.classList.remove('active'); 
+    // Modal kapanınca içerideki state'leri eski haline çevir
+    setTimeout(() => {
+      document.getElementById('paymentDefaultState').style.display = 'block';
+      document.getElementById('paymentLoadingState').style.display = 'none';
+      document.getElementById('paymentSuccessState').style.display = 'none';
+    }, 300);
+  }
   document.getElementById('modalClose').addEventListener('click', closeModal);
   document.getElementById('modalCancelBtn').addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', e => { if(e.target === modalOverlay) closeModal(); });
+  termsOverlay.addEventListener('click', e => { if(e.target === termsOverlay) closeTerms(); });
 
-  modalOverlay.addEventListener('click', (e) => {
-    if(e.target === modalOverlay) closeModal();
-  });
-  termsOverlay.addEventListener('click', (e) => {
-    if(e.target === termsOverlay) closeTerms();
+  document.getElementById('cartCheckout').addEventListener('click', () => {
+    if(!cart.length){ showToast('Sepetin henüz boş.'); return; }
+    const total = cartTotal();
+    currentPackage = cart.length === 1 ? cart[0].name : `${cart.length} farklı ürün`;
+    currentPriceStr = money(total);
+    currentOrderItems = cart.map(x => ({...x}));
+    document.getElementById('termsPkgName').textContent = currentPackage;
+    document.getElementById('termsPkgPrice').textContent = money(total);
+    updateIbanPaymentSummary();
+    generateOrderCode();
+    fillCheckoutForm(); closeCart(); termsOverlay.classList.add('active');
   });
 
   /* ---------- COPY IBAN ---------- */
   const copyIbanBtn = document.getElementById('copyIbanBtn');
-  copyIbanBtn.addEventListener('click', () => {
+  copyIbanBtn.addEventListener('click', async () => {
     const ibanText = document.getElementById('ibanValue').textContent;
-    navigator.clipboard.writeText(ibanText);
-    copyIbanBtn.textContent = 'Kopyalandı!';
-    copyIbanBtn.classList.add('copied');
-    setTimeout(() => {
-      copyIbanBtn.textContent = 'Kopyala';
-      copyIbanBtn.classList.remove('copied');
-    }, 2000);
+    try { await navigator.clipboard.writeText(ibanText); } catch(e) { const t=document.createElement('textarea'); t.value=ibanText; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+    copyIbanBtn.textContent = 'Kopyalandı!'; copyIbanBtn.classList.add('copied');
+    setTimeout(() => { copyIbanBtn.textContent='Kopyala'; copyIbanBtn.classList.remove('copied'); }, 2000);
   });
 
-  /* ---------- MOD INSTALL MODAL ---------- */
-  function openModInstall(){ modInstallOverlay.classList.add('active'); }
-  function closeModInstall(){ modInstallOverlay.classList.remove('active'); }
-  document.getElementById('modInstallClose').addEventListener('click', closeModInstall);
-  document.getElementById('modInstallCloseBtn').addEventListener('click', closeModInstall);
-  modInstallOverlay.addEventListener('click', (e) => {
-    if(e.target === modInstallOverlay) closeModInstall();
-  });
-
-  /* ---------- CART FUNCTIONS ---------- */
-  function addToCart(name, price){
-    cart.push({name, price});
-    document.getElementById('cartCount').textContent = cart.length;
-    showToast(name + ' sepete eklendi!');
+  /* ---------- PRODUCT DETAILS & RATINGS ---------- */
+  function openDetails(card){
+    const name = card.querySelector('.card-title')?.textContent.trim() || 'Paket';
+    const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
+    const price = card.querySelector('.price .amount')?.textContent.trim() || '₺0';
+    const features = [...card.querySelectorAll('.card-features li')].map(x=>`<li style="margin:7px 0;">✓ ${escapeHtml(x.textContent.replace(/^✓\s*/,''))}</li>`).join('');
+    const [score,count] = productRatings[name] || [4.9,203];
+    document.getElementById('detailName').textContent=name; document.getElementById('detailPrice').textContent=price;
+    document.getElementById('detailScore').textContent=score.toFixed(2); document.getElementById('detailReviewCount').textContent=`· ${count} değerlendirme`;
+    document.getElementById('detailDescription').innerHTML=`<div class="info-label">Açıklama</div><p style="color:#d7d7df;line-height:1.7;margin:4px 0 12px;">${escapeHtml(desc)}</p><ul style="color:var(--ink-dim);line-height:1.55;">${features}</ul>`;
+    const p5 = Math.max(88, Math.round(score >= 4.95 ? 97 : score >= 4.9 ? 95 : 92)); const p4=100-p5;
+    [['r5',p5],['r4',p4],['r3',0],['r2',0],['r1',0]].forEach(([id,p])=>document.getElementById(id).style.width=p+'%');
+    document.getElementById('detailBuyBtn').onclick=()=>{ detailOverlay.classList.remove('active'); const n=name, v=price; openTerms(n,v); };
+    detailOverlay.classList.add('active');
   }
+  document.querySelectorAll('.card').forEach(card => {
+    if(!card.querySelector('.card-title')) return;
+    const actions=card.querySelector('.card-actions'); if(!actions || actions.querySelector('.details-btn')) return;
+    const btn=document.createElement('button'); btn.className='details-btn'; btn.textContent='Açıklama'; btn.type='button'; btn.addEventListener('click',()=>openDetails(card)); actions.insertBefore(btn, actions.firstChild);
+    const [score,count]=productRatings[card.querySelector('.card-title').textContent.trim()] || [4.9,203];
+    const rating=document.createElement('div'); rating.className='product-rating'; rating.innerHTML=`<span class="stars">★★★★★</span><b>${score.toFixed(2)}</b><span>· ${count} değerlendirme</span>`; card.querySelector('.card-desc').after(rating);
+  });
+  document.getElementById('detailClose').addEventListener('click',()=>detailOverlay.classList.remove('active'));
+  document.getElementById('detailCancelBtn').addEventListener('click',()=>detailOverlay.classList.remove('active'));
+  detailOverlay.addEventListener('click',e=>{if(e.target===detailOverlay) detailOverlay.classList.remove('active');});
 
-  document.getElementById('cartToggleBtn').addEventListener('click', () => {
-    if(cart.length === 0){
-      showToast('Sepetiniz henüz boş.');
-    } else {
-      showToast('Sepetinizde ' + cart.length + ' ürün bulunuyor.');
+  /* ---------- BEST SELLERS ---------- */
+  const bestSellers = [
+    ['250M GTA Dolar + Level 250',499,286,4.98], ['400M GTA Dolar',599,318,4.98], ['500M GTA Dolar + Level 500',899,201,4.97], ['200 Level Boost',149,189,4.94], ['VIP Elite Hesap',3499,112,4.95]
+  ];
+  const bestGrid=document.getElementById('bestsellersGrid');
+  bestGrid.innerHTML=bestSellers.map((p,i)=>`<div class="best-card"><span class="sales-badge">🔥 ${i===0?'1. sırada':i+1+'. sırada'}</span><span class="best-rank">#${i+1}</span><h3>${escapeHtml(p[0])}</h3><div class="best-meta"><span>${money(p[1])}</span><span class="best-score">★ ${p[3]}</span></div><div class="best-meta"><span>${p[2]} değerlendirme</span><span>Öne çıkan</span></div><button class="btn btn-ghost best-detail-btn" type="button">Paketi Gör</button></div>`).join('');
+  bestGrid.querySelectorAll('.best-detail-btn').forEach((btn,i)=>btn.addEventListener('click',()=>{const card=[...document.querySelectorAll('.card')].find(c=>c.querySelector('.card-title')?.textContent.trim()===bestSellers[i][0]); if(card) openDetails(card); else showToast('Paket detayına aşağıdaki kartlardan ulaşabilirsin.');}));
+
+  /* ---------- PRIVACY ---------- */
+  document.getElementById('privacyOpenBtn').addEventListener('click',()=>privacyOverlay.classList.add('active'));
+  document.getElementById('privacyClose').addEventListener('click',()=>privacyOverlay.classList.remove('active'));
+  privacyOverlay.addEventListener('click',e=>{if(e.target===privacyOverlay) privacyOverlay.classList.remove('active');});
+
+  /* ---------- PRODUCT SEARCH / FILTER / SORT ---------- */
+  const productCards = [...document.querySelectorAll('main .card')].filter(card => card.querySelector('.card-title'));
+  const productSearch = document.getElementById('productSearch');
+  const productSort = document.getElementById('productSort');
+  const productResultCount = document.getElementById('productResultCount');
+  let activeFilter = 'all';
+  const cardCategory = card => [...card.classList].find(c => ['money','level','combo','vip','mystery'].includes(c)) || 'all';
+  const cardPrice = card => Number((card.querySelector('.price .amount')?.textContent || '0').replace(/[^0-9]/g,'')) || 0;
+  const cardName = card => card.querySelector('.card-title')?.textContent.trim() || '';
+  const cardRating = card => Number((card.querySelector('.product-rating b')?.textContent || '0')) || 0;
+  function applyProductFilters(){
+    const q=(productSearch.value||'').trim().toLocaleLowerCase('tr-TR');
+    const sort=productSort.value;
+    const visible=productCards.filter(card=>{
+      const matchesFilter=activeFilter==='all' || cardCategory(card)===activeFilter;
+      const hay=cardName(card).toLocaleLowerCase('tr-TR')+' '+(card.querySelector('.card-desc')?.textContent||'').toLocaleLowerCase('tr-TR');
+      return matchesFilter && (!q || hay.includes(q));
+    });
+    const parentMap=new Map();
+    productCards.forEach(card=>{ if(card.parentElement) parentMap.set(card,card.parentElement); });
+    const sorted=[...visible].sort((a,b)=>{
+      if(sort==='priceAsc') return cardPrice(a)-cardPrice(b);
+      if(sort==='priceDesc') return cardPrice(b)-cardPrice(a);
+      if(sort==='rating') return cardRating(b)-cardRating(a);
+      if(sort==='name') return cardName(a).localeCompare(cardName(b),'tr');
+      return productCards.indexOf(a)-productCards.indexOf(b);
+    });
+    // Preserve each section while reordering only within its original grid.
+    const groups=new Map();
+    sorted.forEach(card=>{ const parent=parentMap.get(card); if(!groups.has(parent)) groups.set(parent,[]); groups.get(parent).push(card); });
+    productCards.forEach(card=>card.style.display='none');
+    groups.forEach((cards,parent)=>{ cards.forEach(card=>{ card.style.display=''; parent.appendChild(card); }); });
+    productResultCount.textContent=`${visible.length} paket gösteriliyor`;
+  }
+  document.querySelectorAll('#productFilters .filter-btn').forEach(btn=>btn.addEventListener('click',()=>{
+    document.querySelectorAll('#productFilters .filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); activeFilter=btn.dataset.filter; applyProductFilters();
+  }));
+  productSearch.addEventListener('input',applyProductFilters); productSort.addEventListener('change',applyProductFilters);
+  applyProductFilters();
+
+  /* ---------- ORDER TRACKING ---------- */
+  const demoOrders = {
+    'XNY-48210': {customer:'Ahmet Y.', version:'Enhanced', total:599, items:['400M GTA Dolar'], statusIndex:3, status:'Tamamlandı'},
+    'XNY-47125': {customer:'Mert K.', version:'Legacy', total:899, items:['500M GTA Dolar + Level 500'], statusIndex:2, status:'İşleme Alındı'},
+    'XNY-46380': {customer:'Can B.', version:'Enhanced', total:3499, items:['VIP Elite Hesap'], statusIndex:1, status:'Ödeme Kontrol Ediliyor'}
+  };
+  const trackLabels=['Ödeme Bekleniyor','Ödeme Kontrol Ediliyor','İşleme Alındı','Tamamlandı'];
+  function getTrackedOrder(code){
+    const normalized=String(code||'').trim().toUpperCase();
+    const last=JSON.parse(localStorage.getItem('xannyLastOrder')||'null');
+    if(last && last.code===normalized){
+      const age=Date.now()-Number(last.createdAt||Date.now());
+      const idx=Math.min(3,Math.floor(age/90000));
+      return {...last,statusIndex:idx,status:trackLabels[idx]};
     }
+    return demoOrders[normalized] ? {...demoOrders[normalized]} : null;
+  }
+  function renderTracking(order){
+    const result=document.getElementById('trackResult');
+    if(!order){ result.innerHTML='<b>Sipariş bulunamadı.</b><div style="color:var(--ink-dim);font-size:.75rem;margin-top:5px;">Kodu kontrol edip tekrar dene. Örnek kod: XNY-48210</div>'; result.classList.add('show'); return; }
+    const steps=trackLabels.map((label,i)=>`<div class="track-step ${i<order.statusIndex?'done ':''}${i===order.statusIndex?'current':''}">${label}</div>`).join('');
+    result.innerHTML=`<div class="track-head"><div><div class="track-code">${escapeHtml(order.code||'XNY-48210')}</div><div style="color:var(--ink-dim);font-size:.72rem;margin-top:4px;">${escapeHtml(order.customer||'Müşteri')} · ${escapeHtml(order.version||'Enhanced')}</div></div><span class="track-status">${escapeHtml(order.status)}</span></div><div style="font-size:.76rem;color:var(--ink-dim);margin-bottom:11px;">${escapeHtml((order.items||[]).map(x=>x.name?x.name:x).join(' + '))} · <b style="color:var(--ink);">${money(order.total||0)}</b></div><div class="track-steps">${steps}</div>`;
+    result.classList.add('show');
+  }
+  document.getElementById('trackingSearchBtn').addEventListener('click',()=>renderTracking(getTrackedOrder(document.getElementById('trackingCodeInput').value)));
+  document.getElementById('trackingCodeInput').addEventListener('keydown',e=>{if(e.key==='Enter') document.getElementById('trackingSearchBtn').click();});
+
+  /* ---------- DEMO ADMIN PANEL ---------- */
+  const adminOverlay=document.getElementById('adminOverlay');
+  function renderAdmin(){
+    const last=JSON.parse(localStorage.getItem('xannyLastOrder')||'null');
+    const rows=[
+      ['XNY-48210','400M GTA Dolar','Enhanced','₺599','Tamamlandı'],
+      ['XNY-47125','500M GTA Dolar + Level 500','Legacy','₺899','İşleme Alındı'],
+      ['XNY-46380','VIP Elite Hesap','Enhanced','₺3.499','Ödeme Kontrol Ediliyor']
+    ];
+    if(last) rows.unshift([last.code,(last.items||[]).map(x=>`${x.name} × ${x.qty||1}`).join(', '),last.version,money(last.total||0),last.status||'Ödeme Bekleniyor']);
+    document.getElementById('adminOrdersTable').innerHTML=rows.slice(0,6).map(r=>`<tr><td><b>${escapeHtml(r[0])}</b></td><td>${escapeHtml(r[1])}</td><td>${escapeHtml(r[2])}</td><td>${escapeHtml(r[3])}</td><td><span class="status-pill ${r[4]==='Tamamlandı'?'status-done':'status-wait'}">${escapeHtml(r[4])}</span></td></tr>`).join('');
+    if(last){ document.getElementById('adminOrders').textContent='15'; document.getElementById('adminTotalOrders').textContent='439'; }
+  }
+  document.getElementById('adminOpenBtn').addEventListener('click',()=>{renderAdmin();adminOverlay.classList.add('active');});
+  document.getElementById('adminClose').addEventListener('click',()=>adminOverlay.classList.remove('active'));
+  adminOverlay.addEventListener('click',e=>{if(e.target===adminOverlay) adminOverlay.classList.remove('active');});
+
+  /* ---------- MOD INSTALL OVERLAY ---------- */
+  function openModInstall() {
+      document.getElementById('modInstallOverlay').classList.add('active');
+  }
+  function closeModInstall() {
+      document.getElementById('modInstallOverlay').classList.remove('active');
+  }
+  document.getElementById('modInstallCloseBtn')?.addEventListener('click', closeModInstall);
+  document.getElementById('modInstallClose')?.addEventListener('click', closeModInstall);
+  document.getElementById('modInstallOverlay')?.addEventListener('click', e => {
+      if(e.target === document.getElementById('modInstallOverlay')) closeModInstall();
   });
 
   /* ---------- LIVE ACTIVITY NOTIFICATIONS ---------- */
@@ -1381,6 +1954,10 @@
     if (modalOverlay.classList.contains('active')) closeModal();
     if (termsOverlay.classList.contains('active')) closeTerms();
     if (modInstallOverlay.classList.contains('active')) closeModInstall();
+    if (detailOverlay.classList.contains('active')) detailOverlay.classList.remove('active');
+    if (privacyOverlay.classList.contains('active')) privacyOverlay.classList.remove('active');
+    if (cartDrawer.classList.contains('active')) closeCart();
+    if (adminOverlay.classList.contains('active')) adminOverlay.classList.remove('active');
   });
 </script>
 </body>
